@@ -1,0 +1,19 @@
+﻿import { propsConverter } from './routeUtils.js'
+
+export default function getFormsRoutes()
+{
+	return [
+		{
+			path: '/:culture/:system/:module/form/GROUP/:mode/:id?',
+			name: 'form-GROUP',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormGroup/QFormGroup.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'GROUP',
+				humanKeyFields: ['ValName'],
+				isPopup: false
+			}
+		},
+	]
+}
