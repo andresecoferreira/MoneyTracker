@@ -123,9 +123,30 @@
 							v-bind="controls.EXPENSE_PSEUDNEWGRP02"
 							:is-visible="controls.EXPENSE_PSEUDNEWGRP02.isVisible">
 							<!-- Start EXPENSE_PSEUDNEWGRP02 -->
-							<q-row v-if="controls.EXPENSE__CATEGORY__NAME.isVisible || controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible">
+							<q-row v-if="controls.EXPENSE__CATEGORY_TYPE__NAME.isVisible || controls.EXPENSE__CATEGORY__NAME.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__CATEGORY__NAME.isVisible || controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible"
+									v-if="controls.EXPENSE__CATEGORY_TYPE__NAME.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.EXPENSE__CATEGORY_TYPE__NAME.isVisible"
+										class="i-text"
+										v-bind="controls.EXPENSE__CATEGORY_TYPE__NAME"
+										v-on="controls.EXPENSE__CATEGORY_TYPE__NAME.handlers"
+										:loading="controls.EXPENSE__CATEGORY_TYPE__NAME.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.EXPENSE__CATEGORY_TYPE__NAME.isVisible"
+											v-bind="controls.EXPENSE__CATEGORY_TYPE__NAME.props"
+											v-on="controls.EXPENSE__CATEGORY_TYPE__NAME.handlers" />
+										<q-see-more-expense-category-type-name
+											v-if="controls.EXPENSE__CATEGORY_TYPE__NAME.seeMoreIsVisible"
+											v-bind="controls.EXPENSE__CATEGORY_TYPE__NAME.seeMoreParams"
+											v-on="controls.EXPENSE__CATEGORY_TYPE__NAME.handlers" />
+									</base-input-structure>
+								</q-col>
+								<q-col
+									v-if="controls.EXPENSE__CATEGORY__NAME.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__CATEGORY__NAME.isVisible"
@@ -144,6 +165,12 @@
 											v-bind="controls.EXPENSE__CATEGORY__NAME.seeMoreParams"
 											v-on="controls.EXPENSE__CATEGORY__NAME.handlers" />
 									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible">
+								<q-col
+									v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible"
+									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__MEMBER__NAME.isVisible"
 										class="i-text"
@@ -180,7 +207,7 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible">
+							<q-row v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible">
 								<q-col
 									v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible"
 									cols="auto">
@@ -198,25 +225,6 @@
 											@update:model-value="model.ValValue.fnUpdateValue" />
 									</base-input-structure>
 								</q-col>
-								<q-col
-									v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible"
-									cols="auto">
-									<base-input-structure
-										v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible"
-										class="i-text"
-										v-bind="controls.EXPENSE__EXPENSE__DESCRIPTION"
-										v-on="controls.EXPENSE__EXPENSE__DESCRIPTION.handlers"
-										:loading="controls.EXPENSE__EXPENSE__DESCRIPTION.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-text-field
-											v-bind="controls.EXPENSE__EXPENSE__DESCRIPTION.props"
-											@blur="onBlur(controls.EXPENSE__EXPENSE__DESCRIPTION, model.ValDescription.value)"
-											@change="model.ValDescription.fnUpdateValueOnChange" />
-									</base-input-structure>
-								</q-col>
-							</q-row>
-							<q-row v-if="controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible">
 								<q-col
 									v-if="controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible"
 									cols="auto">
@@ -247,6 +255,25 @@
 											v-if="controls.EXPENSE__EXPENSE__INVOICE.isVisible"
 											v-bind="controls.EXPENSE__EXPENSE__INVOICE.props"
 											v-on="controls.EXPENSE__EXPENSE__INVOICE.handlers" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible">
+								<q-col
+									v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible"
+										class="i-text"
+										v-bind="controls.EXPENSE__EXPENSE__DESCRIPTION"
+										v-on="controls.EXPENSE__EXPENSE__DESCRIPTION.handlers"
+										:loading="controls.EXPENSE__EXPENSE__DESCRIPTION.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.EXPENSE__EXPENSE__DESCRIPTION.props"
+											@blur="onBlur(controls.EXPENSE__EXPENSE__DESCRIPTION, model.ValDescription.value)"
+											@change="model.ValDescription.fnUpdateValueOnChange" />
 									</base-input-structure>
 								</q-col>
 							</q-row>
@@ -411,6 +438,7 @@
 		name: 'QFormExpense',
 
 		components: {
+			QSeeMoreExpenseCategoryTypeName: defineAsyncComponent(() => import('@/views/forms/FormExpense/dbedits/ExpenseCategoryTypeNameSeeMore.vue')),
 			QSeeMoreExpenseCategoryName: defineAsyncComponent(() => import('@/views/forms/FormExpense/dbedits/ExpenseCategoryNameSeeMore.vue')),
 			QSeeMoreExpenseMemberName: defineAsyncComponent(() => import('@/views/forms/FormExpense/dbedits/ExpenseMemberNameSeeMore.vue')),
 			QSeeMoreExpenseSourceTitle: defineAsyncComponent(() => import('@/views/forms/FormExpense/dbedits/ExpenseSourceTitleSeeMore.vue')),
@@ -714,7 +742,37 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE__SOURCE__TITLE', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DESCRIPTION', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__INVOICE'],
+						directChildren: ['EXPENSE__CATEGORY_TYPE__NAME', 'EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE__SOURCE__TITLE', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__INVOICE', 'EXPENSE__EXPENSE__DESCRIPTION'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					EXPENSE__CATEGORY_TYPE__NAME: new fieldControlClass.LookupControl({
+						modelField: 'TableCategory_typeName',
+						valueChangeEvent: 'fieldChange:category_type.name',
+						id: 'EXPENSE__CATEGORY_TYPE__NAME',
+						name: 'NAME',
+						size: 'large',
+						label: computed(() => this.Resources.CATEGORY_TYPE34342),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'EXPENSE_PSEUDNEWGRP02',
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValType_id',
+							dependencyEvent: 'fieldChange:expense.type_id'
+						},
+						dependentFields: () => ({
+							set 'category_type.codcategory_type'(value) { vm.model.ValType_id.updateValue(value) },
+							set 'category_type.name'(value) { vm.model.TableCategory_typeName.updateValue(value) },
+						}),
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -747,6 +805,12 @@
 						}),
 						mustBeFilled: true,
 						controlLimits: [
+							{
+								identifier: ['category_type', 'expense.type_id'],
+								dependencyEvents: ['fieldChange:expense.type_id'],
+								dependencyField: 'EXPENSE.TYPE_ID',
+								fnValueSelector: (model) => model.ValType_id.value
+							},
 						],
 					}, this),
 					EXPENSE__MEMBER__NAME: new fieldControlClass.LookupControl({
@@ -831,20 +895,6 @@
 						controlLimits: [
 						],
 					}, this),
-					EXPENSE__EXPENSE__DESCRIPTION: new fieldControlClass.StringControl({
-						modelField: 'ValDescription',
-						valueChangeEvent: 'fieldChange:expense.description',
-						id: 'EXPENSE__EXPENSE__DESCRIPTION',
-						name: 'DESCRIPTION',
-						size: 'xxlarge',
-						label: computed(() => this.Resources.DESCRIPTION07383),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						container: 'EXPENSE_PSEUDNEWGRP02',
-						maxLength: 200,
-						controlLimits: [
-						],
-					}, this),
 					EXPENSE__EXPENSE__DATE: new fieldControlClass.DateControl({
 						modelField: 'ValDate',
 						valueChangeEvent: 'fieldChange:expense.date',
@@ -873,6 +923,20 @@
 						extensions: [],
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
+						controlLimits: [
+						],
+					}, this),
+					EXPENSE__EXPENSE__DESCRIPTION: new fieldControlClass.StringControl({
+						modelField: 'ValDescription',
+						valueChangeEvent: 'fieldChange:expense.description',
+						id: 'EXPENSE__EXPENSE__DESCRIPTION',
+						name: 'DESCRIPTION',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.DESCRIPTION07383),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'EXPENSE_PSEUDNEWGRP02',
+						maxLength: 200,
 						controlLimits: [
 						],
 					}, this),
@@ -973,6 +1037,10 @@
 						get ValName() { return vm.model.TableCategoryName.value },
 						set ValName(value) { vm.model.TableCategoryName.updateValue(value) },
 					},
+					Category_type: {
+						get ValName() { return vm.model.TableCategory_typeName.value },
+						set ValName(value) { vm.model.TableCategory_typeName.updateValue(value) },
+					},
 					Expense: {
 						get ValCategory_id() { return vm.model.ValCategory_id.value },
 						set ValCategory_id(value) { vm.model.ValCategory_id.updateValue(value) },
@@ -992,6 +1060,8 @@
 						set ValMember_id(value) { vm.model.ValMember_id.updateValue(value) },
 						get ValSource_id() { return vm.model.ValSource_id.value },
 						set ValSource_id(value) { vm.model.ValSource_id.updateValue(value) },
+						get ValType_id() { return vm.model.ValType_id.value },
+						set ValType_id(value) { vm.model.ValType_id.updateValue(value) },
 						get ValUpdated_at() { return vm.model.ValUpdated_at.value },
 						set ValUpdated_at(value) { vm.model.ValUpdated_at.updateValue(value) },
 						get ValUpdated_by() { return vm.model.ValUpdated_by.value },
@@ -1016,6 +1086,8 @@
 						get member() { return vm.model.ValMember_id },
 						/** The foreign key to the SOURCE table */
 						get source() { return vm.model.ValSource_id },
+						/** The foreign key to the CATEGORY_TYPE table */
+						get category_type() { return vm.model.ValType_id },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

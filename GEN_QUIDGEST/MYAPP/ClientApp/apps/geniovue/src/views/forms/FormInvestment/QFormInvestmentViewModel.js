@@ -54,6 +54,16 @@ export default class ViewModel extends FormViewModelBase
 		this.stopWatchers.push(watch(() => this.ValCodinvestment.value, (newValue, oldValue) => this.onUpdate('investment.codinvestment', this.ValCodinvestment, newValue, oldValue)))
 
 		/** The used foreign keys. */
+		this.ValType_id = reactive(new modelFieldType.ForeignKey({
+			id: 'ValType_id',
+			originId: 'ValType_id',
+			area: 'INVESTMENT',
+			field: 'TYPE_ID',
+			relatedArea: 'CATEGORY_TYPE',
+			description: computed(() => this.Resources.CATEGORY_TYPE34342),
+		}).cloneFrom(values?.ValType_id))
+		this.stopWatchers.push(watch(() => this.ValType_id.value, (newValue, oldValue) => this.onUpdate('investment.type_id', this.ValType_id, newValue, oldValue)))
+
 		this.ValCategory_id = reactive(new modelFieldType.ForeignKey({
 			id: 'ValCategory_id',
 			originId: 'ValCategory_id',
@@ -106,6 +116,18 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.ID36840),
 		}).cloneFrom(values?.ValInvestment_id))
 		this.stopWatchers.push(watch(() => this.ValInvestment_id.value, (newValue, oldValue) => this.onUpdate('investment.investment_id', this.ValInvestment_id, newValue, oldValue)))
+
+		this.TableCategory_typeName = reactive(new modelFieldType.String({
+			type: 'Lookup',
+			id: 'TableCategory_typeName',
+			originId: 'ValName',
+			area: 'CATEGORY_TYPE',
+			field: 'NAME',
+			maxLength: 20,
+			description: computed(() => this.Resources.NAME31974),
+			ignoreFldSubmit: true,
+		}).cloneFrom(values?.TableCategory_typeName))
+		this.stopWatchers.push(watch(() => this.TableCategory_typeName.value, (newValue, oldValue) => this.onUpdate('category_type.name', this.TableCategory_typeName, newValue, oldValue)))
 
 		this.TableCategoryName = reactive(new modelFieldType.String({
 			type: 'Lookup',

@@ -93,6 +93,8 @@ namespace GenioMVC.ViewModels.Income
 			return crs;
 		}
 
+		public string ValType_id { get; set; }
+
 		public override int GetCount(User user)
 		{
 			throw new NotImplementedException("This operation is not supported");
@@ -169,6 +171,10 @@ namespace GenioMVC.ViewModels.Income
 
 			crs ??= CriteriaSet.And();
 
+			// Limits Generation
+
+			// Area limit
+			tableReload &= AddCriteriaAreaLimit(crs, CSGenio.business.CSGenioAcategory_type.FldCodcategory_type, "category_type", this.ValType_id, true);
 
 			Menu ??= new TablePartial<Income_CategoryValName_RowViewModel>();
 			// Set table name (used in getting searchable column names)
@@ -341,6 +347,24 @@ namespace GenioMVC.ViewModels.Income
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
 
+			// Tooltips: Making a tooltip for each valid limitation: 1 Limit(s) detected.
+			// Limit origin: form 
+			//Limit type: "A"
+			//Current Area = "CATEGORY"
+			//1st Area Limit: "CATEGORY_TYPE"
+			//1st Area Field: "CODCATEGORY_TYPE"
+			//1st Area Value: ""
+			{
+				Limit limit = new Limit();
+				limit.TipoLimite = LimitType.A;
+				limit.NaoAplicaSeNulo = false;
+				CSGenioAcategory_type model_limit_area = new CSGenioAcategory_type(m_userContext.User);
+				string limit_field = "codcategory_type", limit_field_value = "";
+				object this_limit_field = Navigation.GetValue("category_type") == null ? this.ValType_id : Navigation.GetValue("category_type");
+				Limit_Filler(ref limit, model_limit_area, limit_field, limit_field_value, this_limit_field, LimitAreaType.AreaLimita);
+				if (!this.TableLimits.Contains(limit, limitComparer)) //to avoid repetitions (i.e: DB and EPH applying same limit)
+					this.TableLimits.Add(limit);
+			}
 
 			if (conditions == null)
 				conditions = CriteriaSet.And();

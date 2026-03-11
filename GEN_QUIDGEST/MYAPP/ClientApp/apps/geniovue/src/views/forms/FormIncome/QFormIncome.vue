@@ -123,7 +123,28 @@
 							v-bind="controls.INCOME__PSEUDNEWGRP01"
 							:is-visible="controls.INCOME__PSEUDNEWGRP01.isVisible">
 							<!-- Start INCOME__PSEUDNEWGRP01 -->
-							<q-row v-if="controls.INCOME__CATEGORY__NAME.isVisible || controls.INCOME__MEMBER__NAME.isVisible || controls.INCOME__SOURCE__TITLE.isVisible || controls.INCOME__INCOME__VALUE.isVisible || controls.INCOME__INCOME__DESCRIPTION.isVisible || controls.INCOME__INCOME__DATE.isVisible">
+							<q-row v-if="controls.INCOME__CATEGORY_TYPE__NAME.isVisible || controls.INCOME__CATEGORY__NAME.isVisible">
+								<q-col
+									v-if="controls.INCOME__CATEGORY_TYPE__NAME.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.INCOME__CATEGORY_TYPE__NAME.isVisible"
+										class="i-text"
+										v-bind="controls.INCOME__CATEGORY_TYPE__NAME"
+										v-on="controls.INCOME__CATEGORY_TYPE__NAME.handlers"
+										:loading="controls.INCOME__CATEGORY_TYPE__NAME.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.INCOME__CATEGORY_TYPE__NAME.isVisible"
+											v-bind="controls.INCOME__CATEGORY_TYPE__NAME.props"
+											v-on="controls.INCOME__CATEGORY_TYPE__NAME.handlers" />
+										<q-see-more-income-category-type-name
+											v-if="controls.INCOME__CATEGORY_TYPE__NAME.seeMoreIsVisible"
+											v-bind="controls.INCOME__CATEGORY_TYPE__NAME.seeMoreParams"
+											v-on="controls.INCOME__CATEGORY_TYPE__NAME.handlers" />
+									</base-input-structure>
+								</q-col>
 								<q-col
 									v-if="controls.INCOME__CATEGORY__NAME.isVisible"
 									cols="auto">
@@ -145,6 +166,8 @@
 											v-on="controls.INCOME__CATEGORY__NAME.handlers" />
 									</base-input-structure>
 								</q-col>
+							</q-row>
+							<q-row v-if="controls.INCOME__MEMBER__NAME.isVisible || controls.INCOME__SOURCE__TITLE.isVisible">
 								<q-col
 									v-if="controls.INCOME__MEMBER__NAME.isVisible"
 									cols="auto">
@@ -187,6 +210,8 @@
 											v-on="controls.INCOME__SOURCE__TITLE.handlers" />
 									</base-input-structure>
 								</q-col>
+							</q-row>
+							<q-row v-if="controls.INCOME__INCOME__VALUE.isVisible || controls.INCOME__INCOME__DATE.isVisible">
 								<q-col
 									v-if="controls.INCOME__INCOME__VALUE.isVisible"
 									cols="auto">
@@ -202,23 +227,6 @@
 											v-if="controls.INCOME__INCOME__VALUE.isVisible"
 											v-bind="controls.INCOME__INCOME__VALUE.props"
 											@update:model-value="model.ValValue.fnUpdateValue" />
-									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INCOME__INCOME__DESCRIPTION.isVisible"
-									cols="auto">
-									<base-input-structure
-										v-if="controls.INCOME__INCOME__DESCRIPTION.isVisible"
-										class="i-text"
-										v-bind="controls.INCOME__INCOME__DESCRIPTION"
-										v-on="controls.INCOME__INCOME__DESCRIPTION.handlers"
-										:loading="controls.INCOME__INCOME__DESCRIPTION.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-text-field
-											v-bind="controls.INCOME__INCOME__DESCRIPTION.props"
-											@blur="onBlur(controls.INCOME__INCOME__DESCRIPTION, model.ValDescription.value)"
-											@change="model.ValDescription.fnUpdateValueOnChange" />
 									</base-input-structure>
 								</q-col>
 								<q-col
@@ -238,6 +246,25 @@
 											:model-value="model.ValDate.value"
 											@reset-icon-click="model.ValDate.fnUpdateValue(model.ValDate.originalValue ?? new Date())"
 											@update:model-value="model.ValDate.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.INCOME__INCOME__DESCRIPTION.isVisible">
+								<q-col
+									v-if="controls.INCOME__INCOME__DESCRIPTION.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.INCOME__INCOME__DESCRIPTION.isVisible"
+										class="i-text"
+										v-bind="controls.INCOME__INCOME__DESCRIPTION"
+										v-on="controls.INCOME__INCOME__DESCRIPTION.handlers"
+										:loading="controls.INCOME__INCOME__DESCRIPTION.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.INCOME__INCOME__DESCRIPTION.props"
+											@blur="onBlur(controls.INCOME__INCOME__DESCRIPTION, model.ValDescription.value)"
+											@change="model.ValDescription.fnUpdateValueOnChange" />
 									</base-input-structure>
 								</q-col>
 							</q-row>
@@ -398,6 +425,7 @@
 		name: 'QFormIncome',
 
 		components: {
+			QSeeMoreIncomeCategoryTypeName: defineAsyncComponent(() => import('@/views/forms/FormIncome/dbedits/IncomeCategoryTypeNameSeeMore.vue')),
 			QSeeMoreIncomeCategoryName: defineAsyncComponent(() => import('@/views/forms/FormIncome/dbedits/IncomeCategoryNameSeeMore.vue')),
 			QSeeMoreIncomeMemberName: defineAsyncComponent(() => import('@/views/forms/FormIncome/dbedits/IncomeMemberNameSeeMore.vue')),
 			QSeeMoreIncomeSourceTitle: defineAsyncComponent(() => import('@/views/forms/FormIncome/dbedits/IncomeSourceTitleSeeMore.vue')),
@@ -701,7 +729,37 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['INCOME__CATEGORY__NAME', 'INCOME__MEMBER__NAME', 'INCOME__SOURCE__TITLE', 'INCOME__INCOME__VALUE', 'INCOME__INCOME__DESCRIPTION', 'INCOME__INCOME__DATE'],
+						directChildren: ['INCOME__CATEGORY_TYPE__NAME', 'INCOME__CATEGORY__NAME', 'INCOME__MEMBER__NAME', 'INCOME__SOURCE__TITLE', 'INCOME__INCOME__VALUE', 'INCOME__INCOME__DATE', 'INCOME__INCOME__DESCRIPTION'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					INCOME__CATEGORY_TYPE__NAME: new fieldControlClass.LookupControl({
+						modelField: 'TableCategory_typeName',
+						valueChangeEvent: 'fieldChange:category_type.name',
+						id: 'INCOME__CATEGORY_TYPE__NAME',
+						name: 'NAME',
+						size: 'large',
+						label: computed(() => this.Resources.CATEGORY_TYPE34342),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'INCOME__PSEUDNEWGRP01',
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValType_id',
+							dependencyEvent: 'fieldChange:income.type_id'
+						},
+						dependentFields: () => ({
+							set 'category_type.codcategory_type'(value) { vm.model.ValType_id.updateValue(value) },
+							set 'category_type.name'(value) { vm.model.TableCategory_typeName.updateValue(value) },
+						}),
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -734,6 +792,12 @@
 						}),
 						mustBeFilled: true,
 						controlLimits: [
+							{
+								identifier: ['category_type', 'income.type_id'],
+								dependencyEvents: ['fieldChange:income.type_id'],
+								dependencyField: 'INCOME.TYPE_ID',
+								fnValueSelector: (model) => model.ValType_id.value
+							},
 						],
 					}, this),
 					INCOME__MEMBER__NAME: new fieldControlClass.LookupControl({
@@ -807,13 +871,28 @@
 						valueChangeEvent: 'fieldChange:income.value',
 						id: 'INCOME__INCOME__VALUE',
 						name: 'VALUE',
-						size: 'medium',
+						size: 'large',
 						label: computed(() => this.Resources.VALUE10285),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'INCOME__PSEUDNEWGRP01',
 						maxIntegers: 12,
 						maxDecimals: 0,
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					INCOME__INCOME__DATE: new fieldControlClass.DateControl({
+						modelField: 'ValDate',
+						valueChangeEvent: 'fieldChange:income.date',
+						id: 'INCOME__INCOME__DATE',
+						name: 'DATE',
+						size: 'large',
+						label: computed(() => this.Resources.DATE18475),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'INCOME__PSEUDNEWGRP01',
+						dateTimeType: 'date',
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -829,21 +908,6 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'INCOME__PSEUDNEWGRP01',
 						maxLength: 100,
-						controlLimits: [
-						],
-					}, this),
-					INCOME__INCOME__DATE: new fieldControlClass.DateControl({
-						modelField: 'ValDate',
-						valueChangeEvent: 'fieldChange:income.date',
-						id: 'INCOME__INCOME__DATE',
-						name: 'DATE',
-						size: 'small',
-						label: computed(() => this.Resources.DATE18475),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						container: 'INCOME__PSEUDNEWGRP01',
-						dateTimeType: 'date',
-						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -944,6 +1008,10 @@
 						get ValName() { return vm.model.TableCategoryName.value },
 						set ValName(value) { vm.model.TableCategoryName.updateValue(value) },
 					},
+					Category_type: {
+						get ValName() { return vm.model.TableCategory_typeName.value },
+						set ValName(value) { vm.model.TableCategory_typeName.updateValue(value) },
+					},
 					Income: {
 						get ValCategory_id() { return vm.model.ValCategory_id.value },
 						set ValCategory_id(value) { vm.model.ValCategory_id.updateValue(value) },
@@ -961,6 +1029,8 @@
 						set ValMember_id(value) { vm.model.ValMember_id.updateValue(value) },
 						get ValSource_id() { return vm.model.ValSource_id.value },
 						set ValSource_id(value) { vm.model.ValSource_id.updateValue(value) },
+						get ValType_id() { return vm.model.ValType_id.value },
+						set ValType_id(value) { vm.model.ValType_id.updateValue(value) },
 						get ValUpdated_at() { return vm.model.ValUpdated_at.value },
 						set ValUpdated_at(value) { vm.model.ValUpdated_at.updateValue(value) },
 						get ValUpdated_by() { return vm.model.ValUpdated_by.value },
@@ -985,6 +1055,8 @@
 						get member() { return vm.model.ValMember_id },
 						/** The foreign key to the SOURCE table */
 						get source() { return vm.model.ValSource_id },
+						/** The foreign key to the CATEGORY_TYPE table */
+						get category_type() { return vm.model.ValType_id },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

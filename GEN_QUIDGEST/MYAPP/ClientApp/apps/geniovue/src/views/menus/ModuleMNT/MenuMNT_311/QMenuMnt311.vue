@@ -413,7 +413,7 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MEMBER', 'changed-EXPENSE', 'changed-CATEGORY', 'changed-SOURCE'],
+						globalEvents: ['changed-MEMBER', 'changed-CATEGORY_TYPE', 'changed-EXPENSE', 'changed-CATEGORY', 'changed-SOURCE'],
 						uuid: '5fb0fca0-d197-4c9a-ace5-84cd6718b18b',
 						allSelectedRows: 'false',
 						headerLevel: 1,

@@ -392,6 +392,51 @@ namespace GenioMVC.Controllers
 		#endregion
 
 
+		public class Expense_Category_typeValNameModel : RequestLookupModel
+		{
+			public Expense_ViewModel Model { get; set; }
+		}
+
+		//
+		// GET: /Expense/Expense_Category_typeValName
+		// POST: /Expense/Expense_Category_typeValName
+		[ActionName("Expense_Category_typeValName")]
+		public ActionResult Expense_Category_typeValName([FromBody] Expense_Category_typeValNameModel requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			// If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
+			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_category_type")))
+				UserContext.Current.SetPersistenceReadOnly(true);
+			else
+			{
+				Navigation.DestroyEntry("ForcePrimaryRead_category_type");
+				UserContext.Current.SetPersistenceReadOnly(false);
+			}
+
+			NameValueCollection requestValues = [];
+			if (queryParams != null)
+			{
+				// Add to request values
+				foreach (var kv in queryParams)
+					requestValues.Add(kv.Key, kv.Value);
+			}
+
+			IsStateReadonly = true;
+
+			Models.Expense parentCtx = requestModel.Model == null ? null : new(m_userContext);
+			requestModel.Model?.Init(m_userContext);
+			requestModel.Model?.MapToModel(parentCtx);
+			Expense_Category_typeValName_ViewModel model = new(m_userContext, parentCtx);
+
+			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(requestModel.TableConfiguration);
+
+			model.setModes(Request.Query["m"].ToString());
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
+
 		public class Expense_CategoryValNameModel : RequestLookupModel
 		{
 			public Expense_ViewModel Model { get; set; }

@@ -80,6 +80,14 @@ namespace GenioMVC.Controllers
 			{
 				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
 				{
+					case "INVESTMENT__CATEGORY_TYPE__NAME":	// Field (DB)
+						{
+							var model = new Investment_ViewModel(UserContext.Current) { editable = false };
+							model.MapFromModel(row);
+							model.Load_Investment__category_type__name(qs);
+							result = model.TableCategory_typeName;
+						}
+						break;
 					case "INVESTMENT__CATEGORY__NAME":	// Field (DB)
 						{
 							var model = new Investment_ViewModel(UserContext.Current) { editable = false };
@@ -137,6 +145,9 @@ namespace GenioMVC.Controllers
 				UserContext.Current.PersistentSupport.openConnection();
 				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
 				{
+					case "INVESTMENT__CATEGORY_TYPE__NAME":	// Field (DB)
+						values = new Investment_ViewModel(UserContext.Current).GetDependant_InvestmentTableCategory_typeName(Selected);
+						break;
 					case "INVESTMENT__CATEGORY__NAME":	// Field (DB)
 						values = new Investment_ViewModel(UserContext.Current).GetDependant_InvestmentTableCategoryName(Selected);
 						break;

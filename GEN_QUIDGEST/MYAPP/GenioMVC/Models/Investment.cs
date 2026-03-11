@@ -93,6 +93,26 @@ namespace GenioMVC.Models
 			set { _source = value; }
 		}
 
+		[DisplayName("Category Type")]
+		/// <summary>Field : "Category Type" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Investment.ValType_id")]
+		public string ValType_id { get { return klass.ValType_id; } set { klass.ValType_id = value; } }
+
+		private Category_type _category_type;
+		[DisplayName("Category_type")]
+		[ShouldSerialize("Category_type")]
+		public virtual Category_type Category_type
+		{
+			get
+			{
+				if (!isEmptyModel && (_category_type == null || (!string.IsNullOrEmpty(ValType_id) && (_category_type.isEmptyModel || _category_type.klass.QPrimaryKey != ValType_id))))
+					_category_type = Models.Category_type.Find(ValType_id, m_userContext, Identifier, _fieldsToSerialize);
+				_category_type ??= new Models.Category_type(m_userContext, true, _fieldsToSerialize);
+				return _category_type;
+			}
+			set { _category_type = value; }
+		}
+
 		[DisplayName("Value")]
 		/// <summary>Field : "Value" Tipo: "N" Formula:  ""</summary>
 		[ShouldSerialize("Investment.ValValue")]
@@ -177,6 +197,10 @@ namespace GenioMVC.Models
 					case "source":
 						_source ??= new Source(m_userContext, true, _fieldsToSerialize);
 						_source.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
+					case "category_type":
+						_category_type ??= new Category_type(m_userContext, true, _fieldsToSerialize);
+						_category_type.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
 						break;
 					default:
 						break;

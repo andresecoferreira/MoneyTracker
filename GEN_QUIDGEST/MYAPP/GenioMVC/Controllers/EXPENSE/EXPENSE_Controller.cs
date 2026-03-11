@@ -80,6 +80,14 @@ namespace GenioMVC.Controllers
 			{
 				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
 				{
+					case "EXPENSE__CATEGORY_TYPE__NAME":	// Field (DB)
+						{
+							var model = new Expense_ViewModel(UserContext.Current) { editable = false };
+							model.MapFromModel(row);
+							model.Load_Expense__category_type__name(qs);
+							result = model.TableCategory_typeName;
+						}
+						break;
 					case "EXPENSE__CATEGORY__NAME":	// Field (DB)
 						{
 							var model = new Expense_ViewModel(UserContext.Current) { editable = false };
@@ -137,6 +145,9 @@ namespace GenioMVC.Controllers
 				UserContext.Current.PersistentSupport.openConnection();
 				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
 				{
+					case "EXPENSE__CATEGORY_TYPE__NAME":	// Field (DB)
+						values = new Expense_ViewModel(UserContext.Current).GetDependant_ExpenseTableCategory_typeName(Selected);
+						break;
 					case "EXPENSE__CATEGORY__NAME":	// Field (DB)
 						values = new Expense_ViewModel(UserContext.Current).GetDependant_ExpenseTableCategoryName(Selected);
 						break;

@@ -401,7 +401,7 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-INCOME', 'changed-CATEGORY', 'changed-SOURCE', 'changed-MEMBER'],
+						globalEvents: ['changed-INCOME', 'changed-CATEGORY', 'changed-SOURCE', 'changed-MEMBER', 'changed-CATEGORY_TYPE'],
 						uuid: '64052bee-caf4-44ec-b0e5-a89629041d5e',
 						allSelectedRows: 'false',
 						headerLevel: 1,

@@ -18,6 +18,12 @@ public class IncomeForm : Form
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#INCOME__PSEUDNEWGRP01-container");
 
 	/// <summary>
+	/// Category Type
+	/// </summary>
+	public LookupControl Category_typeName => new LookupControl(driver, ContainerLocator, "container-INCOME__CATEGORY_TYPE__NAME");
+	public SeeMorePage Category_typeNameSeeMorePage => new SeeMorePage(driver, "INCOME", "INCOME__CATEGORY_TYPE__NAME");
+
+	/// <summary>
 	/// Category
 	/// </summary>
 	public LookupControl CategoryName => new LookupControl(driver, ContainerLocator, "container-INCOME__CATEGORY__NAME");
@@ -41,14 +47,14 @@ public class IncomeForm : Form
 	public BaseInputControl IncomeValue => new BaseInputControl(driver, ContainerLocator, "container-INCOME__INCOME__VALUE", "#INCOME__INCOME__VALUE");
 
 	/// <summary>
-	/// Description
-	/// </summary>
-	public BaseInputControl IncomeDescription => new BaseInputControl(driver, ContainerLocator, "container-INCOME__INCOME__DESCRIPTION", "#INCOME__INCOME__DESCRIPTION");
-
-	/// <summary>
 	/// Date
 	/// </summary>
 	public DateInputControl IncomeDate => new DateInputControl(driver, ContainerLocator, "#INCOME__INCOME__DATE");
+
+	/// <summary>
+	/// Description
+	/// </summary>
+	public BaseInputControl IncomeDescription => new BaseInputControl(driver, ContainerLocator, "container-INCOME__INCOME__DESCRIPTION", "#INCOME__INCOME__DESCRIPTION");
 
 	/// <summary>
 	/// Control

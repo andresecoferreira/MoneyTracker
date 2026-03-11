@@ -80,6 +80,14 @@ namespace GenioMVC.Controllers
 			{
 				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
 				{
+					case "INCOME__CATEGORY_TYPE__NAME":	// Field (DB)
+						{
+							var model = new Income_ViewModel(UserContext.Current) { editable = false };
+							model.MapFromModel(row);
+							model.Load_Income__category_type__name(qs);
+							result = model.TableCategory_typeName;
+						}
+						break;
 					case "INCOME__CATEGORY__NAME":	// Field (DB)
 						{
 							var model = new Income_ViewModel(UserContext.Current) { editable = false };
@@ -137,6 +145,9 @@ namespace GenioMVC.Controllers
 				UserContext.Current.PersistentSupport.openConnection();
 				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
 				{
+					case "INCOME__CATEGORY_TYPE__NAME":	// Field (DB)
+						values = new Income_ViewModel(UserContext.Current).GetDependant_IncomeTableCategory_typeName(Selected);
+						break;
 					case "INCOME__CATEGORY__NAME":	// Field (DB)
 						values = new Income_ViewModel(UserContext.Current).GetDependant_IncomeTableCategoryName(Selected);
 						break;

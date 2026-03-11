@@ -35,6 +35,10 @@ namespace GenioMVC.ViewModels.Income
 		/// </summary>
 		public string ValCategory_id { get; set; }
 		/// <summary>
+		/// Title: "Category Type" | Type: "CE"
+		/// </summary>
+		public string ValType_id { get; set; }
+		/// <summary>
 		/// Title: "Member" | Type: "CE"
 		/// </summary>
 		public string ValMember_id { get; set; }
@@ -48,6 +52,11 @@ namespace GenioMVC.ViewModels.Income
 		/// Title: "ID" | Type: "N"
 		/// </summary>
 		public decimal? ValIncome_id { get; set; }
+		/// <summary>
+		/// Title: "Category Type" | Type: "C"
+		/// </summary>
+		[ValidateSetAccess]
+		public TableDBEdit<GenioMVC.Models.Category_type> TableCategory_typeName { get; set; }
 		/// <summary>
 		/// Title: "Category" | Type: "C"
 		/// </summary>
@@ -68,13 +77,13 @@ namespace GenioMVC.ViewModels.Income
 		/// </summary>
 		public decimal? ValValue { get; set; }
 		/// <summary>
-		/// Title: "Description" | Type: "C"
-		/// </summary>
-		public string ValDescription { get; set; }
-		/// <summary>
 		/// Title: "Date" | Type: "D"
 		/// </summary>
 		public DateTime? ValDate { get; set; }
+		/// <summary>
+		/// Title: "Description" | Type: "C"
+		/// </summary>
+		public string ValDescription { get; set; }
 		/// <summary>
 		/// Title: "Created By" | Type: "ON"
 		/// </summary>
@@ -227,12 +236,13 @@ namespace GenioMVC.ViewModels.Income
 			try
 			{
 				ValCategory_id = ViewModelConversion.ToString(m.ValCategory_id);
+				ValType_id = ViewModelConversion.ToString(m.ValType_id);
 				ValMember_id = ViewModelConversion.ToString(m.ValMember_id);
 				ValSource_id = ViewModelConversion.ToString(m.ValSource_id);
 				ValIncome_id = ViewModelConversion.ToNumeric(m.ValIncome_id);
 				ValValue = ViewModelConversion.ToNumeric(m.ValValue);
-				ValDescription = ViewModelConversion.ToString(m.ValDescription);
 				ValDate = ViewModelConversion.ToDateTime(m.ValDate);
+				ValDescription = ViewModelConversion.ToString(m.ValDescription);
 				ValCreated_by = ViewModelConversion.ToString(m.ValCreated_by);
 				ValCreated_at = ViewModelConversion.ToDateTime(m.ValCreated_at);
 				ValUpdated_by = ViewModelConversion.ToString(m.ValUpdated_by);
@@ -264,6 +274,7 @@ namespace GenioMVC.ViewModels.Income
 			try
 			{
 				m.ValCategory_id = ViewModelConversion.ToString(ValCategory_id);
+				m.ValType_id = ViewModelConversion.ToString(ValType_id);
 				m.ValMember_id = ViewModelConversion.ToString(ValMember_id);
 				m.ValSource_id = ViewModelConversion.ToString(ValSource_id);
 				// Block When condition(s)
@@ -272,8 +283,8 @@ namespace GenioMVC.ViewModels.Income
 					m.ValIncome_id = ViewModelConversion.ToNumeric(ValIncome_id);
 				}
 				m.ValValue = ViewModelConversion.ToNumeric(ValValue);
-				m.ValDescription = ViewModelConversion.ToString(ValDescription);
 				m.ValDate = ViewModelConversion.ToDateTime(ValDate);
+				m.ValDescription = ViewModelConversion.ToString(ValDescription);
 				m.ValCodincome = ViewModelConversion.ToString(ValCodincome);
 
 				/*
@@ -314,6 +325,9 @@ namespace GenioMVC.ViewModels.Income
 					case "income.category_id":
 						this.ValCategory_id = ViewModelConversion.ToString(_value);
 						break;
+					case "income.type_id":
+						this.ValType_id = ViewModelConversion.ToString(_value);
+						break;
 					case "income.member_id":
 						this.ValMember_id = ViewModelConversion.ToString(_value);
 						break;
@@ -326,11 +340,11 @@ namespace GenioMVC.ViewModels.Income
 					case "income.value":
 						this.ValValue = ViewModelConversion.ToNumeric(_value);
 						break;
-					case "income.description":
-						this.ValDescription = ViewModelConversion.ToString(_value);
-						break;
 					case "income.date":
 						this.ValDate = ViewModelConversion.ToDateTime(_value);
+						break;
+					case "income.description":
+						this.ValDescription = ViewModelConversion.ToString(_value);
 						break;
 					case "income.codincome":
 						this.ValCodincome = ViewModelConversion.ToString(_value);
@@ -442,6 +456,7 @@ namespace GenioMVC.ViewModels.Income
 			// Add characteristics
 			Characs = new List<string>();
 
+			Load_Income__category_type__name(qs, lazyLoad);
 			Load_Income__category__name(qs, lazyLoad);
 			Load_Income__member__name(qs, lazyLoad);
 			Load_Income__source__title(qs, lazyLoad);
@@ -463,14 +478,16 @@ namespace GenioMVC.ViewModels.Income
 
 			validator.Required("ValCategory_id", Resources.Resources.CATEGORY18978, ViewModelConversion.ToString(ValCategory_id), FieldType.KEY_INT.GetFormatting());
 
+			validator.Required("ValType_id", Resources.Resources.CATEGORY_TYPE34342, ViewModelConversion.ToString(ValType_id), FieldType.KEY_INT.GetFormatting());
+
 			validator.Required("ValMember_id", Resources.Resources.MEMBER00534, ViewModelConversion.ToString(ValMember_id), FieldType.KEY_INT.GetFormatting());
 
 			validator.Required("ValSource_id", Resources.Resources.ACCOUNT64260, ViewModelConversion.ToString(ValSource_id), FieldType.KEY_INT.GetFormatting());
 
 			validator.Required("ValValue", Resources.Resources.VALUE10285, ViewModelConversion.ToNumeric(ValValue), FieldType.NUMERIC.GetFormatting());
-			validator.StringLength("ValDescription", Resources.Resources.DESCRIPTION07383, ValDescription, 100);
 
 			validator.Required("ValDate", Resources.Resources.DATE18475, ViewModelConversion.ToDateTime(ValDate), FieldType.DATE.GetFormatting());
+			validator.StringLength("ValDescription", Resources.Resources.DESCRIPTION07383, ValDescription, 100);
 
 
 			return validator.GetResult();
@@ -509,6 +526,202 @@ namespace GenioMVC.ViewModels.Income
 		}
 
 		/// <summary>
+		/// TableCategory_typeName -> (DB)
+		/// </summary>
+		/// <param name="qs"></param>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void Load_Income__category_type__name(NameValueCollection qs, bool lazyLoad = false)
+		{
+			bool income__category_type__nameDoLoad = true;
+			CriteriaSet income__category_type__nameConds = CriteriaSet.And();
+			{
+				object hValue = Navigation.GetValue("category_type", true);
+				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
+				{
+					income__category_type__nameConds.Equal(CSGenioAcategory_type.FldCodcategory_type, hValue);
+					this.ValType_id = DBConversion.ToString(hValue);
+				}
+			}
+
+			TableCategory_typeName = new TableDBEdit<Models.Category_type>
+			{
+				IsLazyLoad = lazyLoad
+			};
+
+			if (lazyLoad)
+			{
+				if (Navigation.CurrentLevel.GetEntry("RETURN_category_type") != null)
+				{
+					this.ValType_id = Navigation.GetStrValue("RETURN_category_type");
+					Navigation.CurrentLevel.SetEntry("RETURN_category_type", null);
+				}
+				FillDependant_IncomeTableCategory_typeName(lazyLoad);
+				return;
+			}
+
+			if (income__category_type__nameDoLoad)
+			{
+				List<ColumnSort> sorts = [];
+				ColumnSort requestedSort = GetRequestSort(TableCategory_typeName, "sTableCategory_typeName", "dTableCategory_typeName", qs, "category_type");
+				if (requestedSort != null)
+					sorts.Add(requestedSort);
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAcategory_type.FldName), SortOrder.Ascending));
+
+				string query = "";
+				if (!string.IsNullOrEmpty(qs["TableCategory_typeName_tableFilters"]))
+					TableCategory_typeName.TableFilters = bool.Parse(qs["TableCategory_typeName_tableFilters"]);
+				else
+					TableCategory_typeName.TableFilters = false;
+
+				query = qs["qTableCategory_typeName"];
+
+				//RS 26.07.2016 O preenchimento da lista de ajuda dos Dbedits passa a basear-se apenas no campo do próprio DbEdit
+				// O interface de pesquisa rápida não fica coerente quando se visualiza apenas uma coluna mas a pesquisa faz matching com 5 ou 6 colunas diferentes
+				//  tornando confuso to o user porque determinada row foi devolvida quando o Qresult não mostra como o matching foi feito
+				CriteriaSet search_filters = CriteriaSet.And();
+				if (!string.IsNullOrEmpty(query))
+				{
+					search_filters.Like(CSGenioAcategory_type.FldName, query + "%");
+				}
+				income__category_type__nameConds.SubSet(search_filters);
+
+				string tryParsePage = qs["pTableCategory_typeName"] != null ? qs["pTableCategory_typeName"].ToString() : "1";
+				int page = !string.IsNullOrEmpty(tryParsePage) ? int.Parse(tryParsePage) : 1;
+				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
+				int offset = (page - 1) * numberItems;
+
+				FieldRef[] fields = [CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAcategory_type.FldZzstate];
+
+// USE /[MANUAL MNT OVERRQ INCOME_CATEGORY_TYPENAME]/
+
+				// Limitation by Zzstate
+				/*
+					Records that are currently being inserted or duplicated will also be included.
+					Client-side persistence will try to fill the "text" value of that option.
+				*/
+				if (Navigation.checkFormMode("category_type", FormMode.New) || Navigation.checkFormMode("category_type", FormMode.Duplicate))
+					income__category_type__nameConds.SubSet(CriteriaSet.Or()
+						.Equal(CSGenioAcategory_type.FldZzstate, 0)
+						.Equal(CSGenioAcategory_type.FldCodcategory_type, Navigation.GetStrValue("category_type")));
+				else
+					income__category_type__nameConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAcategory_type.FldZzstate), CriteriaOperator.Equal, 0));
+
+				FieldRef firstVisibleColumn = new FieldRef("category_type", "name");
+				ListingMVC<CSGenioAcategory_type> listing = Models.ModelBase.Where<CSGenioAcategory_type>(m_userContext, false, income__category_type__nameConds, fields, offset, numberItems, sorts, "LED_INCOME__CATEGORY_TYPE__NAME", true, false, firstVisibleColumn: firstVisibleColumn);
+
+				TableCategory_typeName.SetPagination(page, numberItems, listing.HasMore, listing.GetTotal, listing.TotalRecords);
+				TableCategory_typeName.Query = query;
+				TableCategory_typeName.Elements = listing.RowsForViewModel((r) => new GenioMVC.Models.Category_type(m_userContext, r, true, _fieldsToSerialize_INCOME__CATEGORY_TYPE__NAME));
+
+				//created by [ MH ] at [ 14.04.2016 ] - Foi alterada a forma de retornar a key do novo registo inserido / editado no form de apoio do DBEdit.
+				//last update by [ MH ] at [ 10.05.2016 ] - Validação se key encontra-se no level atual, as chaves dos niveis anteriores devem ser ignorados.
+				if (Navigation.CurrentLevel.GetEntry("RETURN_category_type") != null)
+				{
+					this.ValType_id = Navigation.GetStrValue("RETURN_category_type");
+					Navigation.CurrentLevel.SetEntry("RETURN_category_type", null);
+				}
+
+				TableCategory_typeName.List = new SelectList(TableCategory_typeName.Elements.ToSelectList(x => x.ValName, x => x.ValCodcategory_type,  x => x.ValCodcategory_type == this.ValType_id), "Value", "Text", this.ValType_id);
+				//Seleciona se só um
+				if (TableCategory_typeName.List != null && TableCategory_typeName.List.Count() == 1)
+				{
+					this.ValType_id = TableCategory_typeName.List.First().Value;
+					Navigation.SetValue("category_type", this.ValType_id);
+				}
+				FillDependant_IncomeTableCategory_typeName();
+			}
+		}
+
+		/// <summary>
+		/// Get Dependant fields values -> TableCategory_typeName (DB)
+		/// </summary>
+		/// <param name="PKey">Primary Key of Category_type</param>
+		public ConcurrentDictionary<string, object> GetDependant_IncomeTableCategory_typeName(string PKey)
+		{
+			FieldRef[] refDependantFields = [CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName];
+
+			var returnEmptyDependants = false;
+			CriteriaSet wherecodition = CriteriaSet.And();
+
+			// Return default values
+			if (GenFunctions.emptyG(PKey) == 1)
+				returnEmptyDependants = true;
+
+			// Check if the limit(s) is filled if exists
+			// - - - - - - - - - - - - - - - - - - - - -
+
+			if (returnEmptyDependants)
+				return GetViewModelFieldValues(refDependantFields);
+
+			PersistentSupport sp = m_userContext.PersistentSupport;
+			User u = m_userContext.User;
+
+			CSGenioAcategory_type tempArea = new(u);
+
+			// Fields to select
+			SelectQuery querySelect = new();
+			querySelect.PageSize(1);
+			foreach (FieldRef field in refDependantFields)
+				querySelect.Select(field);
+
+			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
+				.Where(wherecodition.Equal(CSGenioAcategory_type.FldCodcategory_type, PKey));
+
+			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
+			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
+
+			ArrayList values = sp.executeReaderOneRow(querySelect);
+			bool useDefaults = values.Count == 0;
+
+			if (useDefaults)
+				return GetViewModelFieldValues(refDependantFields);
+			return GetViewModelFieldValues(refDependantFields, values);
+		}
+
+		/// <summary>
+		/// Fill Dependant fields values -> TableCategory_typeName (DB)
+		/// </summary>
+		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
+		public void FillDependant_IncomeTableCategory_typeName(bool lazyLoad = false)
+		{
+			var row = GetDependant_IncomeTableCategory_typeName(this.ValType_id);
+			try
+			{
+
+				// Fill List fields
+				this.ValType_id = ViewModelConversion.ToString(row["category_type.codcategory_type"]);
+				TableCategory_typeName.Value = (string)row["category_type.name"];
+				if (GenFunctions.emptyG(this.ValType_id) == 1)
+				{
+					this.ValType_id = "";
+					TableCategory_typeName.Value = "";
+					Navigation.ClearValue("category_type");
+				}
+				else if (lazyLoad)
+				{
+					TableCategory_typeName.SetPagination(1, 0, false, false, 1);
+					TableCategory_typeName.List = new SelectList(new List<SelectListItem>()
+					{
+						new SelectListItem
+						{
+							Value = Convert.ToString(this.ValType_id),
+							Text = Convert.ToString(TableCategory_typeName.Value),
+							Selected = true
+						}
+					}, "Value", "Text", this.ValType_id);
+				}
+
+				TableCategory_typeName.Selected = this.ValType_id;
+			}
+			catch (Exception ex)
+			{
+				CSGenio.framework.Log.Error(string.Format("FillDependant_Error (TableCategory_typeName): {0}; {1}", ex.Message, ex.InnerException != null ? ex.InnerException.Message : ""));
+			}
+		}
+
+		private readonly string[] _fieldsToSerialize_INCOME__CATEGORY_TYPE__NAME = ["Category_type", "Category_type.ValCodcategory_type", "Category_type.ValZzstate", "Category_type.ValName"];
+
+		/// <summary>
 		/// TableCategoryName -> (DB)
 		/// </summary>
 		/// <param name="qs"></param>
@@ -525,6 +738,10 @@ namespace GenioMVC.ViewModels.Income
 					this.ValCategory_id = DBConversion.ToString(hValue);
 				}
 			}
+			// Limits Generation
+
+			// Area limit
+			income__category__nameDoLoad &= AddCriteriaAreaLimit(income__category__nameConds, CSGenio.business.CSGenioAcategory_type.FldCodcategory_type, "category_type", this.ValType_id, true);
 
 			TableCategoryName = new TableDBEdit<Models.Category>
 			{
@@ -541,6 +758,9 @@ namespace GenioMVC.ViewModels.Income
 				FillDependant_IncomeTableCategoryName(lazyLoad);
 				return;
 			}
+
+			if (string.IsNullOrEmpty(this.ValType_id))
+				income__category__nameDoLoad = false;
 
 			if (income__category__nameDoLoad)
 			{
@@ -631,6 +851,15 @@ namespace GenioMVC.ViewModels.Income
 				returnEmptyDependants = true;
 
 			// Check if the limit(s) is filled if exists
+			{
+				object hValue = Navigation.GetValue("category_type");
+				if (!(hValue is Array))
+				{
+					if (GenFunctions.emptyG(hValue) == 1)
+						returnEmptyDependants = true;
+					wherecodition.Equal(CSGenioAcategory.FldType_id, hValue);
+				}
+			}
 			// - - - - - - - - - - - - - - - - - - - - -
 
 			if (returnEmptyDependants)
@@ -1117,17 +1346,20 @@ namespace GenioMVC.ViewModels.Income
 			return identifier switch
 			{
 				"income.category_id" => ViewModelConversion.ToString(modelValue),
+				"income.type_id" => ViewModelConversion.ToString(modelValue),
 				"income.member_id" => ViewModelConversion.ToString(modelValue),
 				"income.source_id" => ViewModelConversion.ToString(modelValue),
 				"income.income_id" => ViewModelConversion.ToNumeric(modelValue),
 				"income.value" => ViewModelConversion.ToNumeric(modelValue),
-				"income.description" => ViewModelConversion.ToString(modelValue),
 				"income.date" => ViewModelConversion.ToDateTime(modelValue),
+				"income.description" => ViewModelConversion.ToString(modelValue),
 				"income.created_by" => ViewModelConversion.ToString(modelValue),
 				"income.created_at" => ViewModelConversion.ToDateTime(modelValue),
 				"income.updated_by" => ViewModelConversion.ToString(modelValue),
 				"income.updated_at" => ViewModelConversion.ToDateTime(modelValue),
 				"income.codincome" => ViewModelConversion.ToString(modelValue),
+				"category_type.codcategory_type" => ViewModelConversion.ToString(modelValue),
+				"category_type.name" => ViewModelConversion.ToString(modelValue),
 				"category.codcategory" => ViewModelConversion.ToString(modelValue),
 				"category.name" => ViewModelConversion.ToString(modelValue),
 				"member.codmember" => ViewModelConversion.ToString(modelValue),

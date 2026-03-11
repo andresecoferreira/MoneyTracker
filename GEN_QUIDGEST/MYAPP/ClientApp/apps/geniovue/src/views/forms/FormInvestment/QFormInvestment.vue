@@ -123,7 +123,28 @@
 							v-bind="controls.INVESTMENT__PSEUD__NEWGRP01"
 							:is-visible="controls.INVESTMENT__PSEUD__NEWGRP01.isVisible">
 							<!-- Start INVESTMENT__PSEUD__NEWGRP01 -->
-							<q-row v-if="controls.INVESTMENT__CATEGORY__NAME.isVisible || controls.INVESTMENT__MEMBER__NAME.isVisible || controls.INVESTMENT__SOURCE__TITLE.isVisible">
+							<q-row v-if="controls.INVESTMENT__CATEGORY_TYPE__NAME.isVisible || controls.INVESTMENT__CATEGORY__NAME.isVisible">
+								<q-col
+									v-if="controls.INVESTMENT__CATEGORY_TYPE__NAME.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.INVESTMENT__CATEGORY_TYPE__NAME.isVisible"
+										class="i-text"
+										v-bind="controls.INVESTMENT__CATEGORY_TYPE__NAME"
+										v-on="controls.INVESTMENT__CATEGORY_TYPE__NAME.handlers"
+										:loading="controls.INVESTMENT__CATEGORY_TYPE__NAME.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.INVESTMENT__CATEGORY_TYPE__NAME.isVisible"
+											v-bind="controls.INVESTMENT__CATEGORY_TYPE__NAME.props"
+											v-on="controls.INVESTMENT__CATEGORY_TYPE__NAME.handlers" />
+										<q-see-more-investment-category-type-name
+											v-if="controls.INVESTMENT__CATEGORY_TYPE__NAME.seeMoreIsVisible"
+											v-bind="controls.INVESTMENT__CATEGORY_TYPE__NAME.seeMoreParams"
+											v-on="controls.INVESTMENT__CATEGORY_TYPE__NAME.handlers" />
+									</base-input-structure>
+								</q-col>
 								<q-col
 									v-if="controls.INVESTMENT__CATEGORY__NAME.isVisible"
 									cols="auto">
@@ -145,6 +166,8 @@
 											v-on="controls.INVESTMENT__CATEGORY__NAME.handlers" />
 									</base-input-structure>
 								</q-col>
+							</q-row>
+							<q-row v-if="controls.INVESTMENT__MEMBER__NAME.isVisible || controls.INVESTMENT__SOURCE__TITLE.isVisible">
 								<q-col
 									v-if="controls.INVESTMENT__MEMBER__NAME.isVisible"
 									cols="auto">
@@ -408,6 +431,7 @@
 		name: 'QFormInvestment',
 
 		components: {
+			QSeeMoreInvestmentCategoryTypeName: defineAsyncComponent(() => import('@/views/forms/FormInvestment/dbedits/InvestmentCategoryTypeNameSeeMore.vue')),
 			QSeeMoreInvestmentCategoryName: defineAsyncComponent(() => import('@/views/forms/FormInvestment/dbedits/InvestmentCategoryNameSeeMore.vue')),
 			QSeeMoreInvestmentMemberName: defineAsyncComponent(() => import('@/views/forms/FormInvestment/dbedits/InvestmentMemberNameSeeMore.vue')),
 			QSeeMoreInvestmentSourceTitle: defineAsyncComponent(() => import('@/views/forms/FormInvestment/dbedits/InvestmentSourceTitleSeeMore.vue')),
@@ -711,7 +735,37 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['INVESTMENT__CATEGORY__NAME', 'INVESTMENT__MEMBER__NAME', 'INVESTMENT__SOURCE__TITLE', 'INVESTMENT__INVESTMENT__VALUE', 'INVESTMENT__INVESTMENT__DATE', 'INVESTMENT__INVESTMENT__DESCRIPTION'],
+						directChildren: ['INVESTMENT__CATEGORY_TYPE__NAME', 'INVESTMENT__CATEGORY__NAME', 'INVESTMENT__MEMBER__NAME', 'INVESTMENT__SOURCE__TITLE', 'INVESTMENT__INVESTMENT__VALUE', 'INVESTMENT__INVESTMENT__DATE', 'INVESTMENT__INVESTMENT__DESCRIPTION'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					INVESTMENT__CATEGORY_TYPE__NAME: new fieldControlClass.LookupControl({
+						modelField: 'TableCategory_typeName',
+						valueChangeEvent: 'fieldChange:category_type.name',
+						id: 'INVESTMENT__CATEGORY_TYPE__NAME',
+						name: 'NAME',
+						size: 'large',
+						label: computed(() => this.Resources.CATEGORY_TYPE34342),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'INVESTMENT__PSEUD__NEWGRP01',
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValType_id',
+							dependencyEvent: 'fieldChange:investment.type_id'
+						},
+						dependentFields: () => ({
+							set 'category_type.codcategory_type'(value) { vm.model.ValType_id.updateValue(value) },
+							set 'category_type.name'(value) { vm.model.TableCategory_typeName.updateValue(value) },
+						}),
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -744,6 +798,12 @@
 						}),
 						mustBeFilled: true,
 						controlLimits: [
+							{
+								identifier: ['category_type', 'investment.type_id'],
+								dependencyEvents: ['fieldChange:investment.type_id'],
+								dependencyField: 'INVESTMENT.TYPE_ID',
+								fnValueSelector: (model) => model.ValType_id.value
+							},
 						],
 					}, this),
 					INVESTMENT__MEMBER__NAME: new fieldControlClass.LookupControl({
@@ -954,6 +1014,10 @@
 						get ValName() { return vm.model.TableCategoryName.value },
 						set ValName(value) { vm.model.TableCategoryName.updateValue(value) },
 					},
+					Category_type: {
+						get ValName() { return vm.model.TableCategory_typeName.value },
+						set ValName(value) { vm.model.TableCategory_typeName.updateValue(value) },
+					},
 					Investment: {
 						get ValCategory_id() { return vm.model.ValCategory_id.value },
 						set ValCategory_id(value) { vm.model.ValCategory_id.updateValue(value) },
@@ -971,6 +1035,8 @@
 						set ValMember_id(value) { vm.model.ValMember_id.updateValue(value) },
 						get ValSource_id() { return vm.model.ValSource_id.value },
 						set ValSource_id(value) { vm.model.ValSource_id.updateValue(value) },
+						get ValType_id() { return vm.model.ValType_id.value },
+						set ValType_id(value) { vm.model.ValType_id.updateValue(value) },
 						get ValUpdated_at() { return vm.model.ValUpdated_at.value },
 						set ValUpdated_at(value) { vm.model.ValUpdated_at.updateValue(value) },
 						get ValUpdated_by() { return vm.model.ValUpdated_by.value },
@@ -995,6 +1061,8 @@
 						get member() { return vm.model.ValMember_id },
 						/** The foreign key to the SOURCE table */
 						get source() { return vm.model.ValSource_id },
+						/** The foreign key to the CATEGORY_TYPE table */
+						get category_type() { return vm.model.ValType_id },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

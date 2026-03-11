@@ -105,6 +105,17 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "type_id", FieldType.KEY_INT);
+			Qfield.FieldDescription = "Category Type";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "CATEGORY_TYPE34342";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "value", FieldType.NUMERIC);
 			Qfield.FieldDescription = "Value";
 			Qfield.FieldSize =  12;
@@ -210,6 +221,7 @@ namespace CSGenio.business
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
 			info.ParentTables.Add("category", new Relation("MNT", "mntexpense", "expense", "codexpense", "category_id", "MNT", "mntcategory", "category", "codcategory", "codcategory"));
+			info.ParentTables.Add("category_type", new Relation("MNT", "mntexpense", "expense", "codexpense", "type_id", "MNT", "mntcategory_type", "category_type", "codcategory_type", "codcategory_type"));
 			info.ParentTables.Add("member", new Relation("MNT", "mntexpense", "expense", "codexpense", "member_id", "MNT", "mntmember", "member", "codmember", "codmember"));
 			info.ParentTables.Add("source", new Relation("MNT", "mntexpense", "expense", "codexpense", "source_id", "MNT", "mntsource", "source", "codsource", "codsource"));
 		}
@@ -222,11 +234,11 @@ namespace CSGenio.business
 			// Pathways
 			//------------------------------
 			info.Pathways = new Dictionary<string, string>(5);
+			info.Pathways.Add("category_type","category_type");
 			info.Pathways.Add("member","member");
 			info.Pathways.Add("category","category");
 			info.Pathways.Add("source","source");
 			info.Pathways.Add("group","member");
-			info.Pathways.Add("category_type","category");
 		}
 
 		/// <summary>
@@ -416,6 +428,17 @@ namespace CSGenio.business
 		{
 			get { return (string)returnValueField(FldSource_id); }
 			set { insertNameValueField(FldSource_id, value); }
+		}
+
+		/// <summary>Field : "Category Type" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldType_id { get { return m_fldType_id; } }
+		private static FieldRef m_fldType_id = new FieldRef("expense", "type_id");
+
+		/// <summary>Field : "Category Type" Tipo: "CE" Formula:  ""</summary>
+		public string ValType_id
+		{
+			get { return (string)returnValueField(FldType_id); }
+			set { insertNameValueField(FldType_id, value); }
 		}
 
 		/// <summary>Field : "Value" Tipo: "N" Formula:  ""</summary>
@@ -614,7 +637,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX EXPENSE]/
 
  
-              
+               
 
 	}
 }

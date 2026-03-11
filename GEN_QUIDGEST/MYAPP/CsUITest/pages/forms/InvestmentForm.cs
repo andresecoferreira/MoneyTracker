@@ -18,6 +18,12 @@ public class InvestmentForm : Form
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#INVESTMENT__PSEUD__NEWGRP01-container");
 
 	/// <summary>
+	/// Category Type
+	/// </summary>
+	public LookupControl Category_typeName => new LookupControl(driver, ContainerLocator, "container-INVESTMENT__CATEGORY_TYPE__NAME");
+	public SeeMorePage Category_typeNameSeeMorePage => new SeeMorePage(driver, "INVESTMENT", "INVESTMENT__CATEGORY_TYPE__NAME");
+
+	/// <summary>
 	/// Category
 	/// </summary>
 	public LookupControl CategoryName => new LookupControl(driver, ContainerLocator, "container-INVESTMENT__CATEGORY__NAME");

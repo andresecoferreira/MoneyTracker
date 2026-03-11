@@ -18,6 +18,12 @@ public class ExpenseForm : Form
 	public CollapsibleZoneControl PseudNewgrp02 => new CollapsibleZoneControl(driver, ContainerLocator, "#EXPENSE_PSEUDNEWGRP02-container");
 
 	/// <summary>
+	/// Category Type
+	/// </summary>
+	public LookupControl Category_typeName => new LookupControl(driver, ContainerLocator, "container-EXPENSE__CATEGORY_TYPE__NAME");
+	public SeeMorePage Category_typeNameSeeMorePage => new SeeMorePage(driver, "EXPENSE", "EXPENSE__CATEGORY_TYPE__NAME");
+
+	/// <summary>
 	/// Category
 	/// </summary>
 	public LookupControl CategoryName => new LookupControl(driver, ContainerLocator, "container-EXPENSE__CATEGORY__NAME");
@@ -41,11 +47,6 @@ public class ExpenseForm : Form
 	public BaseInputControl ExpenseValue => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__VALUE", "#EXPENSE__EXPENSE__VALUE");
 
 	/// <summary>
-	/// Description
-	/// </summary>
-	public BaseInputControl ExpenseDescription => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__DESCRIPTION", "#EXPENSE__EXPENSE__DESCRIPTION");
-
-	/// <summary>
 	/// Date
 	/// </summary>
 	public DateInputControl ExpenseDate => new DateInputControl(driver, ContainerLocator, "#EXPENSE__EXPENSE__DATE");
@@ -54,6 +55,11 @@ public class ExpenseForm : Form
 	/// Invoice
 	/// </summary>
 	public DocumentControl ExpenseInvoice => new DocumentControl(driver, ContainerLocator, "EXPENSE__EXPENSE__INVOICE-container");
+
+	/// <summary>
+	/// Description
+	/// </summary>
+	public BaseInputControl ExpenseDescription => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__DESCRIPTION", "#EXPENSE__EXPENSE__DESCRIPTION");
 
 	/// <summary>
 	/// Control
