@@ -132,6 +132,9 @@ namespace CSGenio.business
 		{
 			// Daughters Relations
 			//------------------------------
+			info.ChildTable = new ChildRelation[2];
+			info.ChildTable[0]= new ChildRelation("member_psw", new String[] {"member_id"}, DeleteProc.NA);
+			info.ChildTable[1]= new ChildRelation("account", new String[] {"member_id"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------
@@ -240,6 +243,10 @@ namespace CSGenio.business
 			// Ephs
 			//------------------------------
 			info.Ephs=new Hashtable();
+			EPHField[] camposEPH;
+						camposEPH = new EPHField[1];
+			camposEPH[0] = new EPHField("MEMBERPSW", "member", "codmember", "=", false);
+			info.Ephs.Add(new Par("MNT", "50"), camposEPH);
 
 			// Table minimum roles and access levels
 			//------------------------------

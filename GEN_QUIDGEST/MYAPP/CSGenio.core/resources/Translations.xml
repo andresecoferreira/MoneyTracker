@@ -21,6 +21,9 @@
   <msg id="Changed on" code="CHANGED_ON19727">
     <ENUS>Changed on</ENUS>
   </msg>
+  <msg id="Barclays" code="BARCLAYS52239">
+    <ENUS>Barclays</ENUS>
+  </msg>
   <msg id="Process Types" code="PROCESS_TYPES19050">
     <ENUS>Process Types</ENUS>
   </msg>
@@ -33,6 +36,9 @@
   <msg id="Login attempts" code="LOGIN_ATTEMPTS62337">
     <ENUS>Login attempts</ENUS>
   </msg>
+  <msg id="Member_PSWs" code="MEMBER_PSWS64786">
+    <ENUS>Member_PSWs</ENUS>
+  </msg>
   <msg id="Process Type" code="PROCESS_TYPE50593">
     <ENUS>Process Type</ENUS>
   </msg>
@@ -41,6 +47,9 @@
   </msg>
   <msg id="Notification ID" code="NOTIFICATION_ID25507">
     <ENUS>Notification ID</ENUS>
+  </msg>
+  <msg id="Balance" code="BALANCE13297">
+    <ENUS>Balance</ENUS>
   </msg>
   <msg id="Async process argument" code="ASYNC_PROCESS_ARGUME19111">
     <ENUS>Async process argument</ENUS>
@@ -57,6 +66,9 @@
   <msg id="Date" code="DATE18475">
     <ENUS>Date</ENUS>
   </msg>
+  <msg id="Checking Account" code="CHECKING_ACCOUNT17850">
+    <ENUS>Checking Account</ENUS>
+  </msg>
   <msg id="Groupx" code="GROUPX56899">
     <ENUS>Groupx</ENUS>
   </msg>
@@ -66,6 +78,9 @@
   <msg id="Aviso" code="AVISO03237">
     <ENUS>Aviso</ENUS>
   </msg>
+  <msg id="Owner" code="OWNER09558">
+    <ENUS>Owner</ENUS>
+  </msg>
   <msg id="Duration" code="DURATION40426">
     <ENUS>Duration</ENUS>
   </msg>
@@ -74,6 +89,9 @@
   </msg>
   <msg id="To" code="TO55217">
     <ENUS>To</ENUS>
+  </msg>
+  <msg id="PSW" code="PSW13972">
+    <ENUS>PSW</ENUS>
   </msg>
   <msg id="Modules" code="MODULES33542">
     <ENUS>Modules</ENUS>
@@ -98,6 +116,9 @@
   </msg>
   <msg id="Client ip address" code="CLIENT_IP_ADDRESS62089">
     <ENUS>Client ip address</ENUS>
+  </msg>
+  <msg id="Digital Wallet" code="DIGITAL_WALLET00561">
+    <ENUS>Digital Wallet</ENUS>
   </msg>
   <msg id="Consulta" code="CONSULTA40695">
     <ENUS>Consulta</ENUS>
@@ -132,8 +153,14 @@
   <msg id="Sucesso" code="SUCESSO65230">
     <ENUS>Sucesso</ENUS>
   </msg>
+  <msg id="Caixa Geral de Depósitos" code="CAIXA_GERAL_DE_DEPOS46856">
+    <ENUS>Caixa Geral de Depósitos</ENUS>
+  </msg>
   <msg id="Host" code="HOST49573">
     <ENUS>Host</ENUS>
+  </msg>
+  <msg id="Crédito Agrícola" code="CREDITO_AGRICOLA06541">
+    <ENUS>Crédito Agrícola</ENUS>
   </msg>
   <msg id="Async process arguments" code="ASYNC_PROCESS_ARGUME13794">
     <ENUS>Async process arguments</ENUS>
@@ -143,6 +170,12 @@
   </msg>
   <msg id="Document" code="DOCUMENT00695">
     <ENUS>Document</ENUS>
+  </msg>
+  <msg id="Accounts" code="ACCOUNTS54906">
+    <ENUS>Accounts</ENUS>
+  </msg>
+  <msg id="Account Type" code="ACCOUNT_TYPE62303">
+    <ENUS>Account Type</ENUS>
   </msg>
   <msg id="Terminado" code="TERMINADO46276">
     <ENUS>Terminado</ENUS>
@@ -156,6 +189,9 @@
   <msg id="Created by" code="CREATED_BY12292">
     <ENUS>Created by</ENUS>
   </msg>
+  <msg id="Bankinter" code="BANKINTER32282">
+    <ENUS>Bankinter</ENUS>
+  </msg>
   <msg id="Real time status" code="REAL_TIME_STATUS00476">
     <ENUS>Real time status</ENUS>
   </msg>
@@ -168,11 +204,26 @@
   <msg id="Changed by" code="CHANGED_BY08967">
     <ENUS>Changed by</ENUS>
   </msg>
+  <msg id="Santander Totta" code="SANTANDER_TOTTA33421">
+    <ENUS>Santander Totta</ENUS>
+  </msg>
   <msg id="Erro" code="ERRO38355">
     <ENUS>Erro</ENUS>
   </msg>
+  <msg id="BBVA" code="BBVA62372">
+    <ENUS>BBVA</ENUS>
+  </msg>
+  <msg id="Cash" code="CASH27299">
+    <ENUS>Cash</ENUS>
+  </msg>
   <msg id="Group" code="GROUP38232">
     <ENUS>Group</ENUS>
+  </msg>
+  <msg id="Account" code="ACCOUNT64260">
+    <ENUS>Account</ENUS>
+  </msg>
+  <msg id="Montepio" code="MONTEPIO14226">
+    <ENUS>Montepio</ENUS>
   </msg>
   <msg id="Description" code="DESCRIPTION07383">
     <ENUS>Description</ENUS>
@@ -185,6 +236,9 @@
   </msg>
   <msg id="E-Mail" code="E_MAIL26803">
     <ENUS>E-Mail</ENUS>
+  </msg>
+  <msg id="Bank" code="BANK26563">
+    <ENUS>Bank</ENUS>
   </msg>
   <msg id="Manual destination" code="MANUAL_DESTINATION21892">
     <ENUS>Manual destination</ENUS>
@@ -201,8 +255,17 @@
   <msg id="Modo de processamento" code="MODO_DE_PROCESSAMENT14469">
     <ENUS>Modo de processamento</ENUS>
   </msg>
+  <msg id="Title" code="TITLE21885">
+    <ENUS>Title</ENUS>
+  </msg>
   <msg id="Resultados" code="RESULTADOS20000">
     <ENUS>Resultados</ENUS>
+  </msg>
+  <msg id="Loan" code="LOAN50644">
+    <ENUS>Loan</ENUS>
+  </msg>
+  <msg id="Credit Card" code="CREDIT_CARD46407">
+    <ENUS>Credit Card</ENUS>
   </msg>
   <msg id="User Authorization" code="USER_AUTHORIZATION53599">
     <ENUS>User Authorization</ENUS>
@@ -225,17 +288,38 @@
   <msg id="A cancelar" code="A_CANCELAR43988">
     <ENUS>A cancelar</ENUS>
   </msg>
+  <msg id="Account Number" code="ACCOUNT_NUMBER58504">
+    <ENUS>Account Number</ENUS>
+  </msg>
   <msg id="Individual" code="INDIVIDUAL42893">
     <ENUS>Individual</ENUS>
   </msg>
   <msg id="Horário" code="HORARIO56549">
     <ENUS>Horário</ENUS>
   </msg>
+  <msg id="Novo Banco" code="NOVO_BANCO19183">
+    <ENUS>Novo Banco</ENUS>
+  </msg>
   <msg id="HTML format?" code="HTML_FORMAT_60293">
     <ENUS>HTML format?</ENUS>
   </msg>
+  <msg id="Type" code="TYPE00312">
+    <ENUS>Type</ENUS>
+  </msg>
   <msg id="User ID" code="USER_ID13914">
     <ENUS>User ID</ENUS>
+  </msg>
+  <msg id="Member_PSW" code="MEMBER_PSW31555">
+    <ENUS>Member_PSW</ENUS>
+  </msg>
+  <msg id="Other" code="OTHER37293">
+    <ENUS>Other</ENUS>
+  </msg>
+  <msg id="Banco Invest" code="BANCO_INVEST63938">
+    <ENUS>Banco Invest</ENUS>
+  </msg>
+  <msg id="ActivoBank" code="ACTIVOBANK40861">
+    <ENUS>ActivoBank</ENUS>
   </msg>
   <msg id="Roles" code="ROLES61449">
     <ENUS>Roles</ENUS>
@@ -249,11 +333,20 @@
   <msg id="Obs" code="OBS42026">
     <ENUS>Obs</ENUS>
   </msg>
+  <msg id="Banks" code="BANKS53855">
+    <ENUS>Banks</ENUS>
+  </msg>
   <msg id="Enabled?" code="ENABLED_33995">
     <ENUS>Enabled?</ENUS>
   </msg>
   <msg id="Notification Email Signature" code="NOTIFICATION_EMAIL_S62518">
     <ENUS>Notification Email Signature</ENUS>
+  </msg>
+  <msg id="Retirement Plan" code="RETIREMENT_PLAN57267">
+    <ENUS>Retirement Plan</ENUS>
+  </msg>
+  <msg id="Savings Account" code="SAVINGS_ACCOUNT04205">
+    <ENUS>Savings Account</ENUS>
   </msg>
   <msg id="Create a website alert" code="CREATE_A_WEBSITE_ALE02013">
     <ENUS>Create a website alert</ENUS>
@@ -263,6 +356,9 @@
   </msg>
   <msg id="Executed by external app" code="EXECUTED_BY_EXTERNAL36156">
     <ENUS>Executed by external app</ENUS>
+  </msg>
+  <msg id="CTT" code="CTT12892">
+    <ENUS>CTT</ENUS>
   </msg>
   <msg id="Canceled by" code="CANCELED_BY01167">
     <ENUS>Canceled by</ENUS>
@@ -284,6 +380,9 @@
   </msg>
   <msg id="Birthday" code="BIRTHDAY30236">
     <ENUS>Birthday</ENUS>
+  </msg>
+  <msg id="Millennium BCP" code="MILLENNIUM_BCP40100">
+    <ENUS>Millennium BCP</ENUS>
   </msg>
   <msg id="Password type" code="PASSWORD_TYPE03035">
     <ENUS>Password type</ENUS>
@@ -335,6 +434,9 @@
   </msg>
   <msg id="Process type" code="PROCESS_TYPE25967">
     <ENUS>Process type</ENUS>
+  </msg>
+  <msg id="Account Types" code="ACCOUNT_TYPES39337">
+    <ENUS>Account Types</ENUS>
   </msg>
   <msg id="Gravar" code="GRAVAR45301">
     <ENUS>Gravar</ENUS>

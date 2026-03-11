@@ -115,6 +115,23 @@
 						</base-input-structure>
 					</q-col>
 				</q-row>
+				<q-row v-if="controls.GROUP___PSEUDMEMBERS_.isVisible">
+					<q-col
+						v-if="controls.GROUP___PSEUDMEMBERS_.isVisible"
+						cols="auto">
+						<q-table
+							v-if="controls.GROUP___PSEUDMEMBERS_.isVisible"
+							v-bind="controls.GROUP___PSEUDMEMBERS_"
+							v-on="controls.GROUP___PSEUDMEMBERS_.handlers">
+							<template #header>
+								<q-table-config
+									:table-ctrl="controls.GROUP___PSEUDMEMBERS_"
+									v-on="controls.GROUP___PSEUDMEMBERS_.handlers" />
+							</template>
+							<!-- USE /[MANUAL MNT CUSTOM_TABLE GROUP___PSEUDMEMBERS_]/ -->
+						</q-table>
+					</q-col>
+				</q-row>
 			</template>
 		</q-container>
 	</teleport>
@@ -246,7 +263,7 @@
 					route: 'form-GROUP',
 					area: 'GROUP',
 					primaryKey: 'ValCodgroup',
-					designation: computed(() => this.Resources.GROUPX56899),
+					designation: computed(() => this.Resources.GROUP38232),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
 					availableAgents: [],
@@ -474,6 +491,200 @@
 						controlLimits: [
 						],
 					}, this),
+					GROUP___PSEUDMEMBERS_: new fieldControlClass.TableListControl({
+						id: 'GROUP___PSEUDMEMBERS_',
+						name: 'MEMBERS',
+						size: '',
+						label: computed(() => this.Resources.MEMBERS31628),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						controller: 'GROUP',
+						action: 'Group_ValMembers',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.ImageColumn({
+								order: 1,
+								name: 'ValPhoto',
+								area: 'MEMBER',
+								field: 'PHOTO',
+								label: computed(() => this.Resources.PHOTO51874),
+								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
+								scrollData: 3,
+								sortable: false,
+								searchable: false,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValName',
+								area: 'MEMBER',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 80,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'ValEmail',
+								area: 'MEMBER',
+								field: 'EMAIL',
+								label: computed(() => this.Resources.E_MAIL26803),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValMembers',
+							serverMode: true,
+							pkColumn: 'ValCodmember',
+							tableAlias: 'MEMBER',
+							tableNamePlural: computed(() => this.Resources.MEMBERS31628),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.MEMBERS31628),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false
+							},
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'MEMBER',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'MEMBER',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'MEMBER',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'MEMBER',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'MEMBER',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+								id: 'RCA__MEMBER',
+								name: '_MEMBER',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'MEMBER',
+									mode: 'SHOW',
+									isControlled: true
+								}
+							},
+							formsDefinition: {
+								'MEMBER': {
+									fnKeySelector: (row) => row.Fields.ValCodmember,
+									isPopup: true
+								},
+							},
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-MEMBER', 'changed-GROUP'],
+						uuid: 'Group_ValMembers',
+						allSelectedRows: 'false',
+						controlLimits: [
+							{
+								identifier: ['id', 'group'],
+								dependencyEvents: ['fieldChange:group.codgroup'],
+								dependencyField: 'GROUP.CODGROUP',
+								fnValueSelector: (model) => model.ValCodgroup.value
+							},
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -487,6 +698,7 @@
 				]),
 
 				tableFields: readonly([
+					'GROUP___PSEUDMEMBERS_',
 				]),
 
 				timelineFields: readonly([

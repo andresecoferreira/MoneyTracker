@@ -23,6 +23,7 @@ namespace CSGenio.framework
             };
 
             todosEphs = new() {
+			    {"MNT", new MNTEPH("MNT")},
             };
 		}
 

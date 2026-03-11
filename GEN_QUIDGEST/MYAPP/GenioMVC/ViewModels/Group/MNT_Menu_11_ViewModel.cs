@@ -31,7 +31,7 @@ namespace GenioMVC.ViewModels.Group
 
 		/// <inheritdoc/>
 		[JsonPropertyName("uuid")]
-		public override string Uuid => "95f51055-bf43-4b3b-8e7b-3aa8e21b2eb1";
+		public override string Uuid => "afb743fd-3bbb-4170-8534-70e09c850d33";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -127,7 +127,7 @@ namespace GenioMVC.ViewModels.Group
 		/// <param name="userContext">The current user request context</param>
 		public MNT_Menu_11_ViewModel(UserContext userContext) : base(userContext)
 		{
-			this.RoleToShow = CSGenio.framework.Role.ROLE_1;
+			this.RoleToShow = CSGenio.framework.Role.AUTHORIZED;
 		}
 
 		/// <summary>

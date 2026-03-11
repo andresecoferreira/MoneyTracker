@@ -9,8 +9,7 @@ namespace CSGenio.framework
 	public sealed class LevelAccess
 	{
         public readonly static LevelAccess DESAUTORIZADO = new LevelAccess(0);		    // Desautorizado
-        public readonly static LevelAccess NV0 = new LevelAccess(0); //Desautorizado
-        public readonly static LevelAccess NV1 = new LevelAccess(1); //Consulta
+        public readonly static LevelAccess NV50 = new LevelAccess(50); //Member
         public readonly static LevelAccess NV99 = new LevelAccess(99); //Administrador
 
         private readonly int levelValue;	// identifier do level de acesso

@@ -108,6 +108,168 @@ export class GroupOption {
 
 /* eslint-enable @typescript-eslint/no-unused-vars */
 /**
+ * The Accout_Type array.
+ */
+export class QArrayAccout_type
+{
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	constructor(fnResources)
+	{
+		this.type = 'C'
+		this.pluralName = 'ACCOUNT_TYPES39337'
+		this.singularName = 'ACCOUNT_TYPE62303'
+
+		this.elements = [
+			new Option({
+				num: 1,
+				key: 'CA',
+				resourceId: 'CASH27299',
+				fnResources,
+			}),
+			new Option({
+				num: 2,
+				key: 'CH',
+				resourceId: 'CHECKING_ACCOUNT17850',
+				fnResources,
+			}),
+			new Option({
+				num: 3,
+				key: 'SA',
+				resourceId: 'SAVINGS_ACCOUNT04205',
+				fnResources,
+			}),
+			new Option({
+				num: 4,
+				key: 'RE',
+				resourceId: 'RETIREMENT_PLAN57267',
+				fnResources,
+			}),
+			new Option({
+				num: 5,
+				key: 'LO',
+				resourceId: 'LOAN50644',
+				fnResources,
+			}),
+			new Option({
+				num: 6,
+				key: 'CR',
+				resourceId: 'CREDIT_CARD46407',
+				fnResources,
+			}),
+			new Option({
+				num: 7,
+				key: 'DI',
+				resourceId: 'DIGITAL_WALLET00561',
+				fnResources,
+			}),
+		]
+
+	}
+}
+
+/**
+ * The Banks array.
+ */
+export class QArrayBanks
+{
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	constructor(fnResources)
+	{
+		this.type = 'C'
+		this.pluralName = 'BANKS53855'
+		this.singularName = 'BANKS53855'
+
+		this.elements = [
+			new Option({
+				num: 1,
+				key: 'CGD',
+				resourceId: 'CAIXA_GERAL_DE_DEPOS46856',
+				fnResources,
+			}),
+			new Option({
+				num: 2,
+				key: 'BCP',
+				resourceId: 'MILLENNIUM_BCP40100',
+				fnResources,
+			}),
+			new Option({
+				num: 3,
+				key: 'SAN',
+				resourceId: 'SANTANDER_TOTTA33421',
+				fnResources,
+			}),
+			new Option({
+				num: 4,
+				key: 'NOV',
+				resourceId: 'NOVO_BANCO19183',
+				fnResources,
+			}),
+			new Option({
+				num: 5,
+				key: 'AGR',
+				resourceId: 'CREDITO_AGRICOLA06541',
+				fnResources,
+			}),
+			new Option({
+				num: 6,
+				key: 'MON',
+				resourceId: 'MONTEPIO14226',
+				fnResources,
+			}),
+			new Option({
+				num: 7,
+				key: 'CTT',
+				resourceId: 'CTT12892',
+				fnResources,
+			}),
+			new Option({
+				num: 8,
+				key: 'ACT',
+				resourceId: 'ACTIVOBANK40861',
+				fnResources,
+			}),
+			new Option({
+				num: 9,
+				key: 'BAN',
+				resourceId: 'BANKINTER32282',
+				fnResources,
+			}),
+			new Option({
+				num: 10,
+				key: 'BBVA',
+				resourceId: 'BBVA62372',
+				fnResources,
+			}),
+			new Option({
+				num: 11,
+				key: 'BAR',
+				resourceId: 'BARCLAYS52239',
+				fnResources,
+			}),
+			new Option({
+				num: 12,
+				key: 'INV',
+				resourceId: 'BANCO_INVEST63938',
+				fnResources,
+			}),
+			new Option({
+				num: 13,
+				key: 'Banco Finant',
+				resourceId: '',
+				fnResources,
+			}),
+			new Option({
+				num: 14,
+				key: 'OTH',
+				resourceId: 'OTHER37293',
+				fnResources,
+			}),
+		]
+
+	}
+}
+
+/**
  * The s_modpro array.
  */
 export class QArrayS_modpro
@@ -376,6 +538,8 @@ export class QArrayS_tpproc
 
 
 export default {
+	QArrayAccout_type,
+	QArrayBanks,
 	QArrayS_modpro,
 	QArrayS_module,
 	QArrayS_prstat,

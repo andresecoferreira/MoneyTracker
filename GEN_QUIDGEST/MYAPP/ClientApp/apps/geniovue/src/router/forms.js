@@ -15,5 +15,17 @@ export default function getFormsRoutes()
 				isPopup: false
 			}
 		},
+		{
+			path: '/:culture/:system/:module/form/MEMBER/:mode/:id?',
+			name: 'form-MEMBER',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormMember/QFormMember.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'MEMBER',
+				humanKeyFields: ['ValName'],
+				isPopup: true
+			}
+		},
 	]
 }

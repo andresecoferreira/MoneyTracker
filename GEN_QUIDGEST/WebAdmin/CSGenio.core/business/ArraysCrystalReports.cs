@@ -20,6 +20,35 @@ namespace CSGenio.business
 
             StringBuilder Qresult = new StringBuilder();
             
+			// accout_type
+            Qresult = new StringBuilder();
+			            Qresult.AppendLine("if {{{0}}} = \"CA\" then \"Cash\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"CH\" then \"Checking Account\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"SA\" then \"Savings Account\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"RE\" then \"Retirement Plan\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"LO\" then \"Loan\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"CR\" then \"Credit Card\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"DI\" then \"Digital Wallet\" else");
+            Qresult.Append("\"                                              \"");
+            todasArrays.Add("accout_type", Qresult.ToString());
+			// banks
+            Qresult = new StringBuilder();
+			            Qresult.AppendLine("if {{{0}}} = \"CGD\" then \"Caixa Geral de Depósitos\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"BCP\" then \"Millennium BCP\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"SAN\" then \"Santander Totta\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"NOV\" then \"Novo Banco\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"AGR\" then \"Crédito Agrícola\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"MON\" then \"Montepio\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"CTT\" then \"CTT\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"ACT\" then \"ActivoBank\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"BAN\" then \"Bankinter\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"BBVA\" then \"BBVA\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"BAR\" then \"Barclays\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"INV\" then \"Banco Invest\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"Banco Finant\" then \"\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"OTH\" then \"Other\" else");
+            Qresult.Append("\"                                              \"");
+            todasArrays.Add("banks", Qresult.ToString());
 			// s_modpro
             Qresult = new StringBuilder();
 			            Qresult.AppendLine("if {{{0}}} = \"INDIV\" then \"Individual\" else");

@@ -297,7 +297,7 @@
 							}
 						},
 						globalEvents: ['changed-GROUP'],
-						uuid: '95f51055-bf43-4b3b-8e7b-3aa8e21b2eb1',
+						uuid: 'afb743fd-3bbb-4170-8534-70e09c850d33',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)

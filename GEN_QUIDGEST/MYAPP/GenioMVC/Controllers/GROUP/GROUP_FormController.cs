@@ -33,12 +33,12 @@ namespace GenioMVC.Controllers
 	{
 		#region NavigationLocation Names
 
-		private static readonly NavigationLocation ACTION_GROUP_CANCEL = new("GROUPX56899", "Group_Cancel", "Group") { vueRouteName = "form-GROUP", mode = "CANCEL" };
-		private static readonly NavigationLocation ACTION_GROUP_SHOW = new("GROUPX56899", "Group_Show", "Group") { vueRouteName = "form-GROUP", mode = "SHOW" };
-		private static readonly NavigationLocation ACTION_GROUP_NEW = new("GROUPX56899", "Group_New", "Group") { vueRouteName = "form-GROUP", mode = "NEW" };
-		private static readonly NavigationLocation ACTION_GROUP_EDIT = new("GROUPX56899", "Group_Edit", "Group") { vueRouteName = "form-GROUP", mode = "EDIT" };
-		private static readonly NavigationLocation ACTION_GROUP_DUPLICATE = new("GROUPX56899", "Group_Duplicate", "Group") { vueRouteName = "form-GROUP", mode = "DUPLICATE" };
-		private static readonly NavigationLocation ACTION_GROUP_DELETE = new("GROUPX56899", "Group_Delete", "Group") { vueRouteName = "form-GROUP", mode = "DELETE" };
+		private static readonly NavigationLocation ACTION_GROUP_CANCEL = new("GROUP38232", "Group_Cancel", "Group") { vueRouteName = "form-GROUP", mode = "CANCEL" };
+		private static readonly NavigationLocation ACTION_GROUP_SHOW = new("GROUP38232", "Group_Show", "Group") { vueRouteName = "form-GROUP", mode = "SHOW" };
+		private static readonly NavigationLocation ACTION_GROUP_NEW = new("GROUP38232", "Group_New", "Group") { vueRouteName = "form-GROUP", mode = "NEW" };
+		private static readonly NavigationLocation ACTION_GROUP_EDIT = new("GROUP38232", "Group_Edit", "Group") { vueRouteName = "form-GROUP", mode = "EDIT" };
+		private static readonly NavigationLocation ACTION_GROUP_DUPLICATE = new("GROUP38232", "Group_Duplicate", "Group") { vueRouteName = "form-GROUP", mode = "DUPLICATE" };
+		private static readonly NavigationLocation ACTION_GROUP_DELETE = new("GROUP38232", "Group_Delete", "Group") { vueRouteName = "form-GROUP", mode = "DELETE" };
 
 		#endregion
 
@@ -391,6 +391,55 @@ namespace GenioMVC.Controllers
 
 		#endregion
 
+
+		public class Group_ValMembersModel : RequestLookupModel
+		{
+			public Group_ViewModel Model { get; set; }
+		}
+
+		//
+		// GET: /Group/Group_ValMembers
+		// POST: /Group/Group_ValMembers
+		[ActionName("Group_ValMembers")]
+		public ActionResult Group_ValMembers([FromBody] Group_ValMembersModel requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			// If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
+			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_member")))
+				UserContext.Current.SetPersistenceReadOnly(true);
+			else
+			{
+				Navigation.DestroyEntry("ForcePrimaryRead_member");
+				UserContext.Current.SetPersistenceReadOnly(false);
+			}
+
+			NameValueCollection requestValues = [];
+			if (queryParams != null)
+			{
+				// Add to request values
+				foreach (var kv in queryParams)
+					requestValues.Add(kv.Key, kv.Value);
+			}
+
+			Models.Group parentCtx = requestModel.Model == null ? null : new(m_userContext);
+			requestModel.Model?.Init(m_userContext);
+			requestModel.Model?.MapToModel(parentCtx);
+			Group_ValMembers_ViewModel model = new(m_userContext, parentCtx);
+
+			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
+				requestModel.TableConfiguration,
+				requestModel.UserTableConfigName,
+				requestModel.LoadDefaultView);
+
+			// Determine rows per page
+			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(CSGenio.framework.Configuration.NrRegDBedit, "");
+
+			model.setModes(Request.Query["m"].ToString());
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
 
 		// POST: /Group/Group_SaveEdit
 		[HttpPost]

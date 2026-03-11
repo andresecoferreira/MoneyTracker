@@ -288,6 +288,58 @@ namespace CSGenio.business
                 }
             }
                 
+
+            /* --- MNTACCOUNT --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAaccount.FldCodaccount)
+                .From(CSGenioAaccount.AreaACCOUNT)
+                .Where(CriteriaSet.And().In(CSGenioAaccount.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAaccount model = new CSGenioAaccount(user);
+                model.ValCodaccount = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- MNTMEMBER_PSW --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAmember_psw.FldCodmember_psw)
+                .From(CSGenioAmember_psw.AreaMEMBER_PSW)
+                .Where(CriteriaSet.And().In(CSGenioAmember_psw.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAmember_psw model = new CSGenioAmember_psw(user);
+                model.ValCodmember_psw = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
             
             //Hard Coded Tabels
             //These can be directly removed
