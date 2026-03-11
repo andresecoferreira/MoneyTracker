@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Category_type
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldName, CSGenioAcategory_type.FldLogo };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldLogo, CSGenioAcategory_type.FldName };
 
 			ListingMVC<CSGenioAcategory_type> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -146,7 +146,7 @@ namespace GenioMVC.ViewModels.Category_type
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 20, 0, true),
+				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.TYPE00312, 20, 0, true),
 			];
 		}
 
@@ -330,7 +330,7 @@ namespace GenioMVC.ViewModels.Category_type
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldName, CSGenioAcategory_type.FldLogo };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldLogo, CSGenioAcategory_type.FldName };
 
 
 			// Totalizers
@@ -342,7 +342,7 @@ namespace GenioMVC.ViewModels.Category_type
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("category_type", "name");
+				firstVisibleColumn ??= new FieldRef("category_type", "logo");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -528,7 +528,7 @@ namespace GenioMVC.ViewModels.Category_type
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Category_type", "Category_type.ValCodcategory_type", "Category_type.ValZzstate", "Category_type.ValName", "Category_type.ValLogo"
+			"Category_type", "Category_type.ValCodcategory_type", "Category_type.ValZzstate", "Category_type.ValLogo", "Category_type.ValName"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

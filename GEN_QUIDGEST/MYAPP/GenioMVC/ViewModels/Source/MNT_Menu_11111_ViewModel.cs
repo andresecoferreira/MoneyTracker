@@ -103,7 +103,7 @@ namespace GenioMVC.ViewModels.Source
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAsource.FldCodsource, CSGenioAsource.FldZzstate, CSGenioAsource.FldAccount_number, CSGenioAsource.FldTitle, CSGenioAsource.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAsource.FldBank, CSGenioAsource.FldBalance, CSGenioAsource.FldType };
+			FieldRef[] fields = new FieldRef[] { CSGenioAsource.FldCodsource, CSGenioAsource.FldZzstate, CSGenioAsource.FldType, CSGenioAsource.FldTitle };
 
 			ListingMVC<CSGenioAsource> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -163,12 +163,8 @@ namespace GenioMVC.ViewModels.Source
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAsource.FldAccount_number, FieldType.TEXT, Resources.Resources.ACCOUNT_NUMBER58504, 20, 0, true),
-				new Exports.QColumn(CSGenioAsource.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
-				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
-				new Exports.QColumn(CSGenioAsource.FldBank, FieldType.ARRAY_TEXT, Resources.Resources.BANK26563, 12, 0, true, "Banks"),
-				new Exports.QColumn(CSGenioAsource.FldBalance, FieldType.NUMERIC, Resources.Resources.BALANCE13297, 15, 2, true),
 				new Exports.QColumn(CSGenioAsource.FldType, FieldType.ARRAY_TEXT, Resources.Resources.TYPE00312, 2, 0, true, "Accout_Type"),
+				new Exports.QColumn(CSGenioAsource.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
 			];
 		}
 
@@ -337,8 +333,6 @@ namespace GenioMVC.ViewModels.Source
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-			allSortOrders.Add("SOURCE.ACCOUNT_NUMBER", new OrderedDictionary());
-			allSortOrders["SOURCE.ACCOUNT_NUMBER"].Add("SOURCE.ACCOUNT_NUMBER", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -350,14 +344,8 @@ namespace GenioMVC.ViewModels.Source
 
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "source", allSortOrders);
 
-			if (sorts == null || sorts.Count == 0)
-			{
-				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAsource.FldAccount_number), SortOrder.Ascending));
 
-			}
-
-			FieldRef[] fields = new FieldRef[] { CSGenioAsource.FldCodsource, CSGenioAsource.FldZzstate, CSGenioAsource.FldAccount_number, CSGenioAsource.FldTitle, CSGenioAsource.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAsource.FldBank, CSGenioAsource.FldBalance, CSGenioAsource.FldType };
+			FieldRef[] fields = new FieldRef[] { CSGenioAsource.FldCodsource, CSGenioAsource.FldZzstate, CSGenioAsource.FldType, CSGenioAsource.FldTitle };
 
 
 			// Totalizers
@@ -369,7 +357,7 @@ namespace GenioMVC.ViewModels.Source
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("source", "account_number");
+				firstVisibleColumn ??= new FieldRef("source", "type");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -540,8 +528,6 @@ namespace GenioMVC.ViewModels.Source
 				{
 					case "source":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "member":
-						model.Member.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
@@ -593,17 +579,13 @@ namespace GenioMVC.ViewModels.Source
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Source", "Source.ValCodsource", "Source.ValZzstate", "Source.ValAccount_number", "Source.ValTitle", "Member", "Member.ValName", "Source.ValBank", "Source.ValBalance", "Source.ValType", "Source.ValMember_id"
+			"Source", "Source.ValCodsource", "Source.ValZzstate", "Source.ValType", "Source.ValTitle", "Source.ValMember_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValAccount_number", CSGenioAsource.FldAccount_number, typeof(string)),
-			new TableSearchColumn("ValTitle", CSGenioAsource.FldTitle, typeof(string), defaultSearch : true),
-			new TableSearchColumn("Member_ValName", CSGenioAmember.FldName, typeof(string)),
-			new TableSearchColumn("ValBank", CSGenioAsource.FldBank, typeof(string), array : "Banks"),
-			new TableSearchColumn("ValBalance", CSGenioAsource.FldBalance, typeof(decimal?)),
 			new TableSearchColumn("ValType", CSGenioAsource.FldType, typeof(string), array : "Accout_Type"),
+			new TableSearchColumn("ValTitle", CSGenioAsource.FldTitle, typeof(string), defaultSearch : true),
 		];
 	}
 }

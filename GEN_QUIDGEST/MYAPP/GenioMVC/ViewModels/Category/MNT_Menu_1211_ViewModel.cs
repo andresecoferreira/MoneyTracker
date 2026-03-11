@@ -102,7 +102,7 @@ namespace GenioMVC.ViewModels.Category
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldZzstate, CSGenioAcategory.FldDescription, CSGenioAcategory.FldName, CSGenioAcategory.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldZzstate, CSGenioAcategory.FldName, CSGenioAcategory.FldDescription };
 
 			ListingMVC<CSGenioAcategory> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -151,9 +151,8 @@ namespace GenioMVC.ViewModels.Category
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAcategory.FldDescription, FieldType.TEXT, Resources.Resources.DESCRIPTION07383, 30, 0, true),
 				new Exports.QColumn(CSGenioAcategory.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 20, 0, true),
-				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 20, 0, true),
+				new Exports.QColumn(CSGenioAcategory.FldDescription, FieldType.TEXT, Resources.Resources.DESCRIPTION07383, 30, 0, true),
 			];
 		}
 
@@ -340,7 +339,7 @@ namespace GenioMVC.ViewModels.Category
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldZzstate, CSGenioAcategory.FldDescription, CSGenioAcategory.FldName, CSGenioAcategory.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldZzstate, CSGenioAcategory.FldName, CSGenioAcategory.FldDescription };
 
 
 			// Totalizers
@@ -352,7 +351,7 @@ namespace GenioMVC.ViewModels.Category
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("category", "description");
+				firstVisibleColumn ??= new FieldRef("category", "name");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -505,8 +504,6 @@ namespace GenioMVC.ViewModels.Category
 				{
 					case "category":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "category_type":
-						model.Category_type.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
@@ -558,14 +555,13 @@ namespace GenioMVC.ViewModels.Category
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Category", "Category.ValCodcategory", "Category.ValZzstate", "Category.ValDescription", "Category.ValName", "Category_type", "Category_type.ValName", "Category.ValType_id"
+			"Category", "Category.ValCodcategory", "Category.ValZzstate", "Category.ValName", "Category.ValDescription", "Category.ValType_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValDescription", CSGenioAcategory.FldDescription, typeof(string)),
 			new TableSearchColumn("ValName", CSGenioAcategory.FldName, typeof(string), defaultSearch : true),
-			new TableSearchColumn("Category_type_ValName", CSGenioAcategory_type.FldName, typeof(string)),
+			new TableSearchColumn("ValDescription", CSGenioAcategory.FldDescription, typeof(string)),
 		];
 	}
 }

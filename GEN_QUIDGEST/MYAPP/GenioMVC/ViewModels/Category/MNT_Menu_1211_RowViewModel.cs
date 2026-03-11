@@ -37,19 +37,13 @@ public class MNT_Menu_1211_RowViewModel : Models.Category
 			{
 				Order = 1,
 				Area = "CATEGORY",
-				Field = "DESCRIPTION",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "CATEGORY",
-				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 3,
-				Area = "CATEGORY_TYPE",
-				Field = "NAME",
+				Field = "DESCRIPTION",
 			},
 		];
 	}

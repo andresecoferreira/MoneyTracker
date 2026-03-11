@@ -102,7 +102,7 @@ namespace GenioMVC.ViewModels.Member
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldPhone, CSGenioAmember.FldBirthday, CSGenioAmember.FldName, CSGenioAmember.FldGroup_id, CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldName, CSGenioAmember.FldPhoto, CSGenioAmember.FldEmail };
+			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldName, CSGenioAmember.FldPhoto, CSGenioAmember.FldEmail };
 
 			ListingMVC<CSGenioAmember> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -151,10 +151,7 @@ namespace GenioMVC.ViewModels.Member
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAmember.FldPhone, FieldType.TEXT, Resources.Resources.PHONE56703, 15, 0, true),
-				new Exports.QColumn(CSGenioAmember.FldBirthday, FieldType.DATE, Resources.Resources.BIRTHDAY30236, 8, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
-				new Exports.QColumn(CSGenioAgroup.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldEmail, FieldType.TEXT, Resources.Resources.E_MAIL26803, 30, 0, true),
 			];
 		}
@@ -322,8 +319,6 @@ namespace GenioMVC.ViewModels.Member
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-			allSortOrders.Add("MEMBER.PHONE", new OrderedDictionary());
-			allSortOrders["MEMBER.PHONE"].Add("MEMBER.PHONE", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -335,14 +330,8 @@ namespace GenioMVC.ViewModels.Member
 
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "member", allSortOrders);
 
-			if (sorts == null || sorts.Count == 0)
-			{
-				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAmember.FldPhone), SortOrder.Ascending));
 
-			}
-
-			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldPhone, CSGenioAmember.FldBirthday, CSGenioAmember.FldName, CSGenioAmember.FldGroup_id, CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldName, CSGenioAmember.FldPhoto, CSGenioAmember.FldEmail };
+			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldName, CSGenioAmember.FldPhoto, CSGenioAmember.FldEmail };
 
 
 			// Totalizers
@@ -354,7 +343,7 @@ namespace GenioMVC.ViewModels.Member
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("member", "phone");
+				firstVisibleColumn ??= new FieldRef("member", "name");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -507,8 +496,6 @@ namespace GenioMVC.ViewModels.Member
 				{
 					case "member":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "group":
-						model.Group.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
@@ -561,15 +548,12 @@ namespace GenioMVC.ViewModels.Member
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Member", "Member.ValCodmember", "Member.ValZzstate", "Member.ValPhone", "Member.ValBirthday", "Member.ValName", "Group", "Group.ValName", "Member.ValPhoto", "Member.ValEmail", "Member.ValGroup_id"
+			"Member", "Member.ValCodmember", "Member.ValZzstate", "Member.ValName", "Member.ValPhoto", "Member.ValEmail", "Member.ValGroup_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValPhone", CSGenioAmember.FldPhone, typeof(string)),
-			new TableSearchColumn("ValBirthday", CSGenioAmember.FldBirthday, typeof(DateTime?)),
 			new TableSearchColumn("ValName", CSGenioAmember.FldName, typeof(string), defaultSearch : true),
-			new TableSearchColumn("Group_ValName", CSGenioAgroup.FldName, typeof(string)),
 			new TableSearchColumn("ValEmail", CSGenioAmember.FldEmail, typeof(string)),
 		];
 		protected void SetTicketToImageFields(Models.Member row)

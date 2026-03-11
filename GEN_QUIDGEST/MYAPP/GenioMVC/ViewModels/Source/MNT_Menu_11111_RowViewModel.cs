@@ -37,37 +37,13 @@ public class MNT_Menu_11111_RowViewModel : Models.Source
 			{
 				Order = 1,
 				Area = "SOURCE",
-				Field = "ACCOUNT_NUMBER",
+				Field = "TYPE",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "SOURCE",
 				Field = "TITLE",
-			},
-			new ListColumn()
-			{
-				Order = 3,
-				Area = "MEMBER",
-				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 4,
-				Area = "SOURCE",
-				Field = "BANK",
-			},
-			new ListColumn()
-			{
-				Order = 5,
-				Area = "SOURCE",
-				Field = "BALANCE",
-			},
-			new ListColumn()
-			{
-				Order = 6,
-				Area = "SOURCE",
-				Field = "TYPE",
 			},
 		];
 	}

@@ -134,7 +134,7 @@
 				model: new MenuViewModel(this),
 
 				controls: {
-					menu: new controlClass.TableListControl({
+					menu: new controlClass.TableSpecialRenderingControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MNT_Menu_1111',
 						controller: 'MEMBER',
@@ -148,26 +148,6 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValPhone',
-								area: 'MEMBER',
-								field: 'PHONE',
-								label: computed(() => this.Resources.PHONE56703),
-								dataLength: 15,
-								scrollData: 15,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 2,
-								name: 'ValBirthday',
-								area: 'MEMBER',
-								field: 'BIRTHDAY',
-								label: computed(() => this.Resources.BIRTHDAY30236),
-								scrollData: 8,
-								dateTimeType: 'date',
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 3,
 								name: 'ValName',
 								area: 'MEMBER',
 								field: 'NAME',
@@ -176,19 +156,8 @@
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
-								name: 'Group.ValName',
-								area: 'GROUP',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-								pkColumn: 'ValCodgroup',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
-								order: 5,
+								order: 2,
 								name: 'ValPhoto',
 								area: 'MEMBER',
 								field: 'PHOTO',
@@ -200,7 +169,7 @@
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 6,
+								order: 3,
 								name: 'ValEmail',
 								area: 'MEMBER',
 								field: 'EMAIL',
@@ -344,13 +313,98 @@
 							defaultSearchColumnName: 'ValName',
 							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: 'ValPhone',
+								columnName: '',
 								sortOrder: 'asc'
 							}
 						},
 						globalEvents: ['changed-MEMBER', 'changed-GROUP'],
 						uuid: 'cf3e4797-e7dc-477c-82ca-b23c38682277',
 						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'CARDS',
+								type: 'cards',
+								subtype: 'card-horizontal',
+								label: computed(() => this.Resources.CARTOES27587),
+								order: 1,
+								mappingVariables: readonly({
+									title: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.NAME',
+										]
+									},
+									subtitle: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.EMAIL',
+										]
+									},
+									image: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.PHOTO',
+										]
+									},
+								}),
+								styleVariables: {
+									actionsAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									actionsStyle: {
+										rawValue: 'dropdown',
+										isMapped: false
+									},
+									backgroundColor: {
+										rawValue: 'auto',
+										isMapped: false
+									},
+									customFollowupDefaultTarget: {
+										rawValue: 'blank',
+										isMapped: false
+									},
+									customInsertCard: {
+										rawValue: false,
+										isMapped: false
+									},
+									customInsertCardStyle: {
+										rawValue: 'secondary',
+										isMapped: false
+									},
+									displayMode: {
+										rawValue: 'grid',
+										isMapped: false
+									},
+									gridMode: {
+										rawValue: 'fixed',
+										isMapped: false
+									},
+									containerAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									hoverScaleAmount: {
+										rawValue: '1.00',
+										isMapped: false
+									},
+									showColumnTitles: {
+										rawValue: false,
+										isMapped: false
+									},
+									showEmptyColumnTitles: {
+										rawValue: true,
+										isMapped: false
+									},
+									size: {
+										rawValue: 'regular',
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+						],
 						headerLevel: 1,
 						/** Menu limits */
 						controlLimits: [

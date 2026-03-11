@@ -134,7 +134,7 @@
 				model: new MenuViewModel(this),
 
 				controls: {
-					menu: new controlClass.TableListControl({
+					menu: new controlClass.TableSpecialRenderingControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MNT_Menu_121',
 						controller: 'CATEGORY_TYPE',
@@ -146,18 +146,8 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.TextColumn({
-								order: 1,
-								name: 'ValName',
-								area: 'CATEGORY_TYPE',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 20,
-								scrollData: 20,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.ImageColumn({
-								order: 2,
+								order: 1,
 								name: 'ValLogo',
 								area: 'CATEGORY_TYPE',
 								field: 'LOGO',
@@ -166,6 +156,16 @@
 								scrollData: 3,
 								sortable: false,
 								searchable: false,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValName',
+								area: 'CATEGORY_TYPE',
+								field: 'NAME',
+								label: computed(() => this.Resources.TYPE00312),
+								dataLength: 20,
+								scrollData: 20,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
@@ -310,6 +310,93 @@
 						globalEvents: ['changed-CATEGORY_TYPE'],
 						uuid: '3eb026c3-e7ba-4d49-8b5e-5fbbdd29f9d6',
 						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'CARDS',
+								type: 'cards',
+								subtype: 'card-img-thumbnail',
+								label: computed(() => this.Resources.CARTOES27587),
+								order: 1,
+								mappingVariables: readonly({
+									title: {
+										allowsMultiple: false,
+										sources: [
+											'CATEGORY_TYPE.NAME',
+										]
+									},
+									image: {
+										allowsMultiple: false,
+										sources: [
+											'CATEGORY_TYPE.LOGO',
+										]
+									},
+								}),
+								styleVariables: {
+									actionsAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									actionsPlacement: {
+										rawValue: 'footer',
+										isMapped: false
+									},
+									actionsStyle: {
+										rawValue: 'dropdown',
+										isMapped: false
+									},
+									backgroundColor: {
+										rawValue: 'auto',
+										isMapped: false
+									},
+									contentAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									customFollowupDefaultTarget: {
+										rawValue: 'blank',
+										isMapped: false
+									},
+									customInsertCard: {
+										rawValue: false,
+										isMapped: false
+									},
+									customInsertCardStyle: {
+										rawValue: 'secondary',
+										isMapped: false
+									},
+									displayMode: {
+										rawValue: 'grid',
+										isMapped: false
+									},
+									gridMode: {
+										rawValue: 'fixed',
+										isMapped: false
+									},
+									containerAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									hoverScaleAmount: {
+										rawValue: '1.00',
+										isMapped: false
+									},
+									showColumnTitles: {
+										rawValue: false,
+										isMapped: false
+									},
+									showEmptyColumnTitles: {
+										rawValue: true,
+										isMapped: false
+									},
+									size: {
+										rawValue: 'regular',
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+						],
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)
 					}, this),

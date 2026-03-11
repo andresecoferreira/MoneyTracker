@@ -37,35 +37,17 @@ public class MNT_Menu_1111_RowViewModel : Models.Member
 			{
 				Order = 1,
 				Area = "MEMBER",
-				Field = "PHONE",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "MEMBER",
-				Field = "BIRTHDAY",
-			},
-			new ListColumn()
-			{
-				Order = 3,
-				Area = "MEMBER",
-				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 4,
-				Area = "GROUP",
-				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 5,
-				Area = "MEMBER",
 				Field = "PHOTO",
 			},
 			new ListColumn()
 			{
-				Order = 6,
+				Order = 3,
 				Area = "MEMBER",
 				Field = "EMAIL",
 			},
