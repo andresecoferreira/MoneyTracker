@@ -93,60 +93,53 @@
 
 		<q-container
 			fluid
-			data-key="GROUP"
+			data-key="MEMBER_PSW"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.GROUP___GROUPNAME____.isVisible">
+				<q-row v-if="controls.MEMBER_PSW__MEMBER__NAME.isVisible">
 					<q-col
-						v-if="controls.GROUP___GROUPNAME____.isVisible"
+						v-if="controls.MEMBER_PSW__MEMBER__NAME.isVisible"
 						cols="auto">
 						<base-input-structure
-							v-if="controls.GROUP___GROUPNAME____.isVisible"
+							v-if="controls.MEMBER_PSW__MEMBER__NAME.isVisible"
 							class="i-text"
-							v-bind="controls.GROUP___GROUPNAME____"
-							v-on="controls.GROUP___GROUPNAME____.handlers"
-							:loading="controls.GROUP___GROUPNAME____.props.loading"
+							v-bind="controls.MEMBER_PSW__MEMBER__NAME"
+							v-on="controls.MEMBER_PSW__MEMBER__NAME.handlers"
+							:loading="controls.MEMBER_PSW__MEMBER__NAME.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.GROUP___GROUPNAME____.props"
-								@blur="onBlur(controls.GROUP___GROUPNAME____, model.ValName.value)"
-								@change="model.ValName.fnUpdateValueOnChange" />
+							<q-lookup
+								v-if="controls.MEMBER_PSW__MEMBER__NAME.isVisible"
+								v-bind="controls.MEMBER_PSW__MEMBER__NAME.props"
+								v-on="controls.MEMBER_PSW__MEMBER__NAME.handlers" />
+							<q-see-more-member-psw-member-name
+								v-if="controls.MEMBER_PSW__MEMBER__NAME.seeMoreIsVisible"
+								v-bind="controls.MEMBER_PSW__MEMBER__NAME.seeMoreParams"
+								v-on="controls.MEMBER_PSW__MEMBER__NAME.handlers" />
 						</base-input-structure>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.GROUP___PSEUDMEMBERS_.isVisible">
+				<q-row v-if="controls.MEMBER_PSW__PSW__NOME.isVisible">
 					<q-col
-						v-if="controls.GROUP___PSEUDMEMBERS_.isVisible"
+						v-if="controls.MEMBER_PSW__PSW__NOME.isVisible"
 						cols="auto">
-						<q-table
-							v-if="controls.GROUP___PSEUDMEMBERS_.isVisible"
-							v-bind="controls.GROUP___PSEUDMEMBERS_"
-							v-on="controls.GROUP___PSEUDMEMBERS_.handlers">
-							<template #header>
-								<q-table-config
-									:table-ctrl="controls.GROUP___PSEUDMEMBERS_"
-									v-on="controls.GROUP___PSEUDMEMBERS_.handlers" />
-							</template>
-							<!-- USE /[MANUAL MNT CUSTOM_TABLE GROUP___PSEUDMEMBERS_]/ -->
-						</q-table>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.GROUP__PSEUD__MEMBER_USER.isVisible">
-					<q-col
-						v-if="controls.GROUP__PSEUD__MEMBER_USER.isVisible"
-						cols="auto">
-						<q-table
-							v-if="controls.GROUP__PSEUD__MEMBER_USER.isVisible"
-							v-bind="controls.GROUP__PSEUD__MEMBER_USER"
-							v-on="controls.GROUP__PSEUD__MEMBER_USER.handlers">
-							<template #header>
-								<q-table-config
-									:table-ctrl="controls.GROUP__PSEUD__MEMBER_USER"
-									v-on="controls.GROUP__PSEUD__MEMBER_USER.handlers" />
-							</template>
-							<!-- USE /[MANUAL MNT CUSTOM_TABLE GROUP__PSEUD__MEMBER_USER]/ -->
-						</q-table>
+						<base-input-structure
+							v-if="controls.MEMBER_PSW__PSW__NOME.isVisible"
+							class="i-text"
+							v-bind="controls.MEMBER_PSW__PSW__NOME"
+							v-on="controls.MEMBER_PSW__PSW__NOME.handlers"
+							:loading="controls.MEMBER_PSW__PSW__NOME.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-lookup
+								v-if="controls.MEMBER_PSW__PSW__NOME.isVisible"
+								v-bind="controls.MEMBER_PSW__PSW__NOME.props"
+								v-on="controls.MEMBER_PSW__PSW__NOME.handlers" />
+							<q-see-more-member-psw-psw-nome
+								v-if="controls.MEMBER_PSW__PSW__NOME.seeMoreIsVisible"
+								v-bind="controls.MEMBER_PSW__PSW__NOME.seeMoreParams"
+								v-on="controls.MEMBER_PSW__PSW__NOME.handlers" />
+						</base-input-structure>
 					</q-col>
 				</q-row>
 			</template>
@@ -207,19 +200,21 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import FormViewModel from './QFormGroupViewModel.js'
+	import FormViewModel from './QFormMemberPswViewModel.js'
 
-	const requiredTextResources = ['QFormGroup', 'hardcoded', 'messages']
+	const requiredTextResources = ['QFormMemberPsw', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_INCLUDEJS GROUP]/
+// USE /[MANUAL MNT FORM_INCLUDEJS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QFormGroup',
+		name: 'QFormMemberPsw',
 
 		components: {
+			QSeeMoreMemberPswMemberName: defineAsyncComponent(() => import('@/views/forms/FormMemberPsw/dbedits/MemberPswMemberNameSeeMore.vue')),
+			QSeeMoreMemberPswPswNome: defineAsyncComponent(() => import('@/views/forms/FormMemberPsw/dbedits/MemberPswPswNomeSeeMore.vue')),
 		},
 
 		mixins: [
@@ -233,8 +228,8 @@
 			nestedRouteParams: {
 				type: Object,
 				default: () => ({
-					name: 'GROUP',
-					location: 'form-GROUP',
+					name: 'MEMBER_PSW',
+					location: 'form-MEMBER_PSW',
 					params: {
 						isNested: true
 					}
@@ -267,20 +262,20 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QFormGroup', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QFormMemberPsw', false),
 
 				interfaceMetadata: {
-					id: 'QFormGroup', // Used for resources
+					id: 'QFormMemberPsw', // Used for resources
 					requiredTextResources
 				},
 
 				formInfo: {
 					type: 'normal',
-					name: 'GROUP',
-					route: 'form-GROUP',
-					area: 'GROUP',
-					primaryKey: 'ValCodgroup',
-					designation: computed(() => this.Resources.GROUP38232),
+					name: 'MEMBER_PSW',
+					route: 'form-MEMBER_PSW',
+					area: 'MEMBER_PSW',
+					primaryKey: 'ValCodmember_psw',
+					designation: computed(() => this.Resources.MEMBER_PSW31555),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
 					availableAgents: [],
@@ -495,393 +490,62 @@
 				},
 
 				controls: {
-					GROUP___GROUPNAME____: new fieldControlClass.StringControl({
-						modelField: 'ValName',
-						valueChangeEvent: 'fieldChange:group.name',
-						id: 'GROUP___GROUPNAME____',
+					MEMBER_PSW__MEMBER__NAME: new fieldControlClass.LookupControl({
+						modelField: 'TableMemberName',
+						valueChangeEvent: 'fieldChange:member.name',
+						id: 'MEMBER_PSW__MEMBER__NAME',
 						name: 'NAME',
 						size: 'xxlarge',
-						label: computed(() => this.Resources.NAME31974),
+						label: computed(() => this.Resources.MEMBER00534),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxLength: 50,
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
+						},
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
+						},
+						lookupKeyModelField: {
+							name: 'ValMember_id',
+							dependencyEvent: 'fieldChange:member_psw.member_id'
+						},
+						dependentFields: () => ({
+							set 'member.codmember'(value) { vm.model.ValMember_id.updateValue(value) },
+							set 'member.name'(value) { vm.model.TableMemberName.updateValue(value) },
+						}),
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
-					GROUP___PSEUDMEMBERS_: new fieldControlClass.TableListControl({
-						id: 'GROUP___PSEUDMEMBERS_',
-						name: 'MEMBERS',
-						size: '',
-						label: computed(() => this.Resources.MEMBERS31628),
+					MEMBER_PSW__PSW__NOME: new fieldControlClass.LookupControl({
+						modelField: 'TablePswNome',
+						valueChangeEvent: 'fieldChange:psw.nome',
+						id: 'MEMBER_PSW__PSW__NOME',
+						name: 'NOME',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.USER57012),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						controller: 'GROUP',
-						action: 'Group_ValMembers',
-						hasDependencies: false,
-						isInCollapsible: false,
-						columnsOriginal: [
-							new listColumnTypes.ImageColumn({
-								order: 1,
-								name: 'ValPhoto',
-								area: 'MEMBER',
-								field: 'PHOTO',
-								label: computed(() => this.Resources.PHOTO51874),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'ValName',
-								area: 'MEMBER',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 80,
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 3,
-								name: 'ValEmail',
-								area: 'MEMBER',
-								field: 'EMAIL',
-								label: computed(() => this.Resources.E_MAIL26803),
-								dataLength: 50,
-								scrollData: 30,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-						],
-						config: {
-							name: 'ValMembers',
-							serverMode: true,
-							pkColumn: 'ValCodmember',
-							tableAlias: 'MEMBER',
-							tableNamePlural: computed(() => this.Resources.MEMBERS31628),
-							viewManagement: '',
-							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.MEMBERS31628),
-							showAlternatePagination: true,
-							permissions: {
-							},
-							searchBarConfig: {
-								visibility: false
-							},
-							allowColumnFilters: false,
-							allowColumnSort: true,
-							crudActions: [
-								{
-									id: 'show',
-									name: 'show',
-									title: computed(() => this.Resources.CONSULTAR57388),
-									icon: {
-										icon: 'view'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER',
-										mode: 'SHOW',
-										isControlled: true
-									}
-								},
-								{
-									id: 'edit',
-									name: 'edit',
-									title: computed(() => this.Resources.EDITAR11616),
-									icon: {
-										icon: 'pencil'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER',
-										mode: 'EDIT',
-										isControlled: true
-									}
-								},
-								{
-									id: 'duplicate',
-									name: 'duplicate',
-									title: computed(() => this.Resources.DUPLICAR09748),
-									icon: {
-										icon: 'duplicate'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER',
-										mode: 'DUPLICATE',
-										isControlled: true
-									}
-								},
-								{
-									id: 'delete',
-									name: 'delete',
-									title: computed(() => this.Resources.ELIMINAR21155),
-									icon: {
-										icon: 'delete'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER',
-										mode: 'DELETE',
-										isControlled: true
-									}
-								}
-							],
-							generalActions: [
-								{
-									id: 'insert',
-									name: 'insert',
-									title: computed(() => this.Resources.INSERIR43365),
-									icon: {
-										icon: 'add'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER',
-										mode: 'NEW',
-										repeatInsertion: false,
-										isControlled: true
-									}
-								},
-							],
-							generalCustomActions: [
-							],
-							groupActions: [
-							],
-							customActions: [
-							],
-							MCActions: [
-							],
-							rowClickAction: {
-								id: 'RCA__MEMBER',
-								name: '_MEMBER',
-								title: '',
-								isInReadOnly: true,
-								params: {
-									isRoute: true,
-									action: vm.openFormAction,
-									type: 'form',
-									formName: 'MEMBER',
-									mode: 'SHOW',
-									isControlled: true
-								}
-							},
-							formsDefinition: {
-								'MEMBER': {
-									fnKeySelector: (row) => row.Fields.ValCodmember,
-									isPopup: true
-								},
-							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
-							defaultColumnSorting: {
-								columnName: '',
-								sortOrder: 'asc'
-							}
+						externalCallbacks: {
+							getModelField: vm.getModelField,
+							getModelFieldValue: vm.getModelFieldValue,
+							setModelFieldValue: vm.setModelFieldValue
 						},
-						globalEvents: ['changed-MEMBER', 'changed-GROUP'],
-						uuid: 'Group_ValMembers',
-						allSelectedRows: 'false',
-						controlLimits: [
-							{
-								identifier: ['id', 'group'],
-								dependencyEvents: ['fieldChange:group.codgroup'],
-								dependencyField: 'GROUP.CODGROUP',
-								fnValueSelector: (model) => model.ValCodgroup.value
-							},
-						],
-					}, this),
-					GROUP__PSEUD__MEMBER_USER: new fieldControlClass.TableListControl({
-						id: 'GROUP__PSEUD__MEMBER_USER',
-						name: 'MEMBER_USER',
-						size: '',
-						label: computed(() => this.Resources.MEMBER_PSWS64786),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						controller: 'GROUP',
-						action: 'Group_ValMember_user',
-						hasDependencies: false,
-						isInCollapsible: false,
-						columnsOriginal: [
-							new listColumnTypes.TextColumn({
-								order: 1,
-								name: 'ValMember_id',
-								area: 'MEMBER_PSW',
-								field: 'MEMBER_ID',
-								label: computed(() => this.Resources.MEMBER00534),
-								dataLength: 8,
-								scrollData: 8,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'ValPsw_id',
-								area: 'MEMBER_PSW',
-								field: 'PSW_ID',
-								label: computed(() => this.Resources.PSW13972),
-								dataLength: 8,
-								scrollData: 8,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-						],
-						config: {
-							name: 'ValMember_user',
-							serverMode: true,
-							pkColumn: 'ValCodmember_psw',
-							tableAlias: 'MEMBER_PSW',
-							tableNamePlural: computed(() => this.Resources.MEMBER_PSWS64786),
-							viewManagement: '',
-							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.MEMBER_PSWS64786),
-							showAlternatePagination: true,
-							permissions: {
-							},
-							searchBarConfig: {
-								visibility: false
-							},
-							allowColumnFilters: false,
-							allowColumnSort: true,
-							crudActions: [
-								{
-									id: 'show',
-									name: 'show',
-									title: computed(() => this.Resources.CONSULTAR57388),
-									icon: {
-										icon: 'view'
-									},
-									isInReadOnly: true,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER_PSW',
-										mode: 'SHOW',
-										isControlled: true
-									}
-								},
-								{
-									id: 'edit',
-									name: 'edit',
-									title: computed(() => this.Resources.EDITAR11616),
-									icon: {
-										icon: 'pencil'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER_PSW',
-										mode: 'EDIT',
-										isControlled: true
-									}
-								},
-								{
-									id: 'duplicate',
-									name: 'duplicate',
-									title: computed(() => this.Resources.DUPLICAR09748),
-									icon: {
-										icon: 'duplicate'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER_PSW',
-										mode: 'DUPLICATE',
-										isControlled: true
-									}
-								},
-								{
-									id: 'delete',
-									name: 'delete',
-									title: computed(() => this.Resources.ELIMINAR21155),
-									icon: {
-										icon: 'delete'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER_PSW',
-										mode: 'DELETE',
-										isControlled: true
-									}
-								}
-							],
-							generalActions: [
-								{
-									id: 'insert',
-									name: 'insert',
-									title: computed(() => this.Resources.INSERIR43365),
-									icon: {
-										icon: 'add'
-									},
-									isInReadOnly: false,
-									params: {
-										action: vm.openFormAction,
-										type: 'form',
-										formName: 'MEMBER_PSW',
-										mode: 'NEW',
-										repeatInsertion: false,
-										isControlled: true
-									}
-								},
-							],
-							generalCustomActions: [
-							],
-							groupActions: [
-							],
-							customActions: [
-							],
-							MCActions: [
-							],
-							rowClickAction: {
-								id: 'RCA__MEMBER_PSW',
-								name: '_MEMBER_PSW',
-								title: '',
-								isInReadOnly: true,
-								params: {
-									isRoute: true,
-									action: vm.openFormAction,
-									type: 'form',
-									formName: 'MEMBER_PSW',
-									mode: 'SHOW',
-									isControlled: true
-								}
-							},
-							formsDefinition: {
-								'MEMBER_PSW': {
-									fnKeySelector: (row) => row.Fields.ValCodmember_psw,
-									isPopup: false
-								},
-							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
-							defaultColumnSorting: {
-								columnName: '',
-								sortOrder: 'asc'
-							}
+						externalProperties: {
+							modelKeys: computed(() => vm.modelKeys)
 						},
-						globalEvents: ['changed-MEMBER', 'changed-PSW', 'changed-MEMBER_PSW'],
-						uuid: 'Group_ValMember_user',
-						allSelectedRows: 'false',
+						lookupKeyModelField: {
+							name: 'ValPsw_id',
+							dependencyEvent: 'fieldChange:member_psw.psw_id'
+						},
+						dependentFields: () => ({
+							set 'psw.codpsw'(value) { vm.model.ValPsw_id.updateValue(value) },
+							set 'psw.nome'(value) { vm.model.TablePswNome.updateValue(value) },
+						}),
+						mustBeFilled: true,
 						controlLimits: [
-							{
-								identifier: ['id', 'group'],
-								dependencyEvents: ['fieldChange:group.codgroup'],
-								dependencyField: 'GROUP.CODGROUP',
-								fnValueSelector: (model) => model.ValCodgroup.value
-							},
 						],
 					}, this),
 				},
@@ -897,8 +561,6 @@
 				]),
 
 				tableFields: readonly([
-					'GROUP___PSEUDMEMBERS_',
-					'GROUP__PSEUD__MEMBER_USER',
 				]),
 
 				timelineFields: readonly([
@@ -908,13 +570,27 @@
 				 * The Data API for easy access to model variables.
 				 */
 				dataApi: {
-					Group: {
-						get ValName() { return vm.model.ValName.value },
-						set ValName(value) { vm.model.ValName.updateValue(value) },
+					Member: {
+						get ValName() { return vm.model.TableMemberName.value },
+						set ValName(value) { vm.model.TableMemberName.updateValue(value) },
+					},
+					Member_psw: {
+						get ValMember_id() { return vm.model.ValMember_id.value },
+						set ValMember_id(value) { vm.model.ValMember_id.updateValue(value) },
+						get ValPsw_id() { return vm.model.ValPsw_id.value },
+						set ValPsw_id(value) { vm.model.ValPsw_id.updateValue(value) },
+					},
+					Psw: {
+						get ValNome() { return vm.model.TablePswNome.value },
+						set ValNome(value) { vm.model.TablePswNome.updateValue(value) },
 					},
 					keys: {
-						/** The primary key of the GROUP table */
-						get group() { return vm.model.ValCodgroup },
+						/** The primary key of the MEMBER_PSW table */
+						get member_psw() { return vm.model.ValCodmember_psw },
+						/** The foreign key to the MEMBER table */
+						get member() { return vm.model.ValMember_id },
+						/** The foreign key to the PSW table */
+						get psw() { return vm.model.ValPsw_id },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},
@@ -954,7 +630,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_CODEJS GROUP]/
+// USE /[MANUAL MNT FORM_CODEJS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -962,7 +638,7 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT GROUP]/
+// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -981,7 +657,7 @@
 				this.emitEvent('before-load-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_LOAD_JS GROUP]/
+// USE /[MANUAL MNT BEFORE_LOAD_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -1001,7 +677,7 @@
 				this.emitEvent('after-load-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_LOADED_JS GROUP]/
+// USE /[MANUAL MNT FORM_LOADED_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 			},
@@ -1048,7 +724,7 @@
 				this.emitEvent('before-apply-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_APPLY_JS GROUP]/
+// USE /[MANUAL MNT BEFORE_APPLY_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -1068,7 +744,7 @@
 				this.emitEvent('after-apply-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT AFTER_APPLY_JS GROUP]/
+// USE /[MANUAL MNT AFTER_APPLY_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 			},
@@ -1115,7 +791,7 @@
 				this.emitEvent('before-save-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_SAVE_JS GROUP]/
+// USE /[MANUAL MNT BEFORE_SAVE_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -1135,7 +811,7 @@
 				this.emitEvent('after-save-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT AFTER_SAVE_JS GROUP]/
+// USE /[MANUAL MNT AFTER_SAVE_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -1150,7 +826,7 @@
 				this.emitEvent('before-delete-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_DEL_JS GROUP]/
+// USE /[MANUAL MNT BEFORE_DEL_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -1165,7 +841,7 @@
 				this.emitEvent('after-delete-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT AFTER_DEL_JS GROUP]/
+// USE /[MANUAL MNT AFTER_DEL_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -1185,7 +861,7 @@
 				this.emitEvent('before-exit-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_EXIT_JS GROUP]/
+// USE /[MANUAL MNT BEFORE_EXIT_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -1205,7 +881,7 @@
 				this.emitEvent('after-exit-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT AFTER_EXIT_JS GROUP]/
+// USE /[MANUAL MNT AFTER_EXIT_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 			},
@@ -1221,7 +897,7 @@
 			onUpdate(fieldName, fieldObject, fieldValue, oldFieldValue)
 			{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT DLGUPDT GROUP]/
+// USE /[MANUAL MNT DLGUPDT MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -1237,7 +913,7 @@
 			onBlur(fieldObject, fieldValue)
 			{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT CTRLBLR GROUP]/
+// USE /[MANUAL MNT CTRLBLR MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -1254,14 +930,14 @@
 			onControlUpdate(controlField, control, fieldValue)
 			{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT CTRLUPD GROUP]/
+// USE /[MANUAL MNT CTRLUPD MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 				this.afterControlUpdate(controlField, fieldValue)
 			},
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FUNCTIONS_JS GROUP]/
+// USE /[MANUAL MNT FUNCTIONS_JS MEMBER_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},

@@ -465,6 +465,9 @@
   <msg id="Cc" code="CC35482">
     <ENUS>Cc</ENUS>
   </msg>
+  <msg id="User" code="USER57012">
+    <ENUS>User</ENUS>
+  </msg>
   <msg id="a:" code="A_47238">
     <ENUS>to:</ENUS>
   </msg>

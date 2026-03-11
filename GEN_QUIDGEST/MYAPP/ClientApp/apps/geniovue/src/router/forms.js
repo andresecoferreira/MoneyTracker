@@ -27,5 +27,17 @@ export default function getFormsRoutes()
 				isPopup: true
 			}
 		},
+		{
+			path: '/:culture/:system/:module/form/MEMBER_PSW/:mode/:id?',
+			name: 'form-MEMBER_PSW',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormMemberPsw/QFormMemberPsw.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'MEMBER_PSW',
+				humanKeyFields: [],
+				isPopup: false
+			}
+		},
 	]
 }
