@@ -14,7 +14,7 @@ using System.Linq;
 namespace CSGenio.business
 {
 	/// <summary>
-	/// SOURCE
+	/// Account
 	/// </summary>
 	public class CSGenioAsource : DbArea
 	{
@@ -206,9 +206,9 @@ namespace CSGenio.business
 			info.Alias="source";
 			info.IsDomain = true;
 			info.PersistenceType = PersistenceType.Database;
-			info.AreaDesignation="SOURCE";
-			info.AreaPluralDesignation="SOURCES";
-			info.DescriptionCav="SOURCE48097";
+			info.AreaDesignation="Account";
+			info.AreaPluralDesignation="Accounts";
+			info.DescriptionCav="ACCOUNT64260";
 
 			//sincronização
 			info.SyncIncrementalDateStart = TimeSpan.FromHours(8);

@@ -36,7 +36,7 @@ export default function getFormsRoutes()
 				routeType: 'form',
 				baseArea: 'GROUP',
 				humanKeyFields: ['ValName'],
-				isPopup: false
+				isPopup: true
 			}
 		},
 		{
@@ -52,14 +52,14 @@ export default function getFormsRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/:module/form/MEMBER_PSW/:mode/:id?',
-			name: 'form-MEMBER_PSW',
+			path: '/:culture/:system/:module/form/SOURCE/:mode/:id?',
+			name: 'form-SOURCE',
 			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormMemberPsw/QFormMemberPsw.vue'),
+			component: () => import('@/views/forms/FormSource/QFormSource.vue'),
 			meta: {
 				routeType: 'form',
-				baseArea: 'MEMBER_PSW',
-				humanKeyFields: [],
+				baseArea: 'SOURCE',
+				humanKeyFields: ['ValTitle'],
 				isPopup: false
 			}
 		},

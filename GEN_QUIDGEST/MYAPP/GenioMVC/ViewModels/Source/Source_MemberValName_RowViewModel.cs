@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Member_psw;
+namespace GenioMVC.ViewModels.Source;
 
-public class Member_psw_PswValNome_RowViewModel : Models.Psw
+public class Source_MemberValName_RowViewModel : Models.Member
 {
 	#region Constructors
 
-	public Member_psw_PswValNome_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public Source_MemberValName_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public Member_psw_PswValNome_RowViewModel(UserContext userContext, CSGenioApsw val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public Source_MemberValName_RowViewModel(UserContext userContext, CSGenioAmember val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,8 +36,8 @@ public class Member_psw_PswValNome_RowViewModel : Models.Psw
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "PSW",
-				Field = "NOME",
+				Area = "MEMBER",
+				Field = "NAME",
 			},
 		];
 	}

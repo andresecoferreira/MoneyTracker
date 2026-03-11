@@ -281,18 +281,17 @@
 							],
 							rowClickAction: {
 								id: 'RCA_MNT_1211',
-								name: 'form-CATEGORY_TYPE',
+								name: 'menu-MNT_1211',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
-											identifier: 'id',
+											identifier: 'category_type',
 											fnValueSelector: (row) => row.ValCodcategory_type
 										},
 									],
-									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'CATEGORY_TYPE'
+									action: vm.openMenuAction, type: 'menu', menuName: 'MNT_1211'
 								}
 							},
 							formsDefinition: {

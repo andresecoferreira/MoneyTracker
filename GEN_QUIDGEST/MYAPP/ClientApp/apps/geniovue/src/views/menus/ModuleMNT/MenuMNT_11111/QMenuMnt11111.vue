@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_111]/ -->
+					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_11111]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMNT_111ViewModel.js'
+	import MenuViewModel from './QMenuMNT_11111ViewModel.js'
 
-	const requiredTextResources = ['QMenuMNT_111', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMNT_11111', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_111]/
+// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_11111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMnt111',
+		name: 'QMenuMnt11111',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_111', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_11111', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMNT_111', // Used for resources
+					id: 'QMenuMNT_11111', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '111',
+					id: '11111',
 					isMenuList: true,
-					designation: computed(() => this.Resources.GROUPS45298),
-					acronym: 'MNT_111',
-					name: 'GROUP',
-					route: 'menu-MNT_111',
-					order: '111',
-					controller: 'GROUP',
-					action: 'MNT_Menu_111',
+					designation: computed(() => this.Resources.ACCOUNTS54906),
+					acronym: 'MNT_11111',
+					name: 'SOURCE',
+					route: 'menu-MNT_11111',
+					order: '11111',
+					controller: 'SOURCE',
+					action: 'MNT_Menu_11111',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MNT_Menu_111',
-						controller: 'GROUP',
-						action: 'MNT_Menu_111',
+						id: 'MNT_Menu_11111',
+						controller: 'SOURCE',
+						action: 'MNT_Menu_11111',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -148,24 +148,82 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValName',
-								area: 'GROUP',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
+								name: 'ValAccount_number',
+								area: 'SOURCE',
+								field: 'ACCOUNT_NUMBER',
+								label: computed(() => this.Resources.ACCOUNT_NUMBER58504),
+								dataLength: 20,
+								scrollData: 20,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValTitle',
+								area: 'SOURCE',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
 								dataLength: 50,
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'Member.ValName',
+								area: 'MEMBER',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 80,
+								scrollData: 30,
+								export: 1,
+								pkColumn: 'ValCodmember',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 4,
+								name: 'ValBank',
+								area: 'SOURCE',
+								field: 'BANK',
+								label: computed(() => this.Resources.BANK26563),
+								dataLength: 12,
+								scrollData: 12,
+								export: 1,
+								array: computed(() => new qProjArrays.QArrayBanks(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayBanks.type,
+								arrayDisplayMode: 'D',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 5,
+								name: 'ValBalance',
+								area: 'SOURCE',
+								field: 'BALANCE',
+								label: computed(() => this.Resources.BALANCE13297),
+								scrollData: 15,
+								maxDigits: 12,
+								decimalPlaces: 2,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 6,
+								name: 'ValType',
+								area: 'SOURCE',
+								field: 'TYPE',
+								label: computed(() => this.Resources.TYPE00312),
+								dataLength: 2,
+								scrollData: 2,
+								export: 1,
+								array: computed(() => new qProjArrays.QArrayAccout_type(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayAccout_type.type,
+								arrayDisplayMode: 'D',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MNT_Menu_111',
+							name: 'MNT_Menu_11111',
 							serverMode: true,
-							pkColumn: 'ValCodgroup',
-							tableAlias: 'GROUP',
-							tableNamePlural: computed(() => this.Resources.GROUPS45298),
+							pkColumn: 'ValCodsource',
+							tableAlias: 'SOURCE',
+							tableNamePlural: computed(() => this.Resources.ACCOUNTS54906),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.GROUPS45298),
+							tableTitle: computed(() => this.Resources.ACCOUNTS54906),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -186,7 +244,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'SOURCE',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -202,7 +260,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'SOURCE',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -218,7 +276,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'SOURCE',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -234,7 +292,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'SOURCE',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -252,7 +310,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'SOURCE',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -268,37 +326,55 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MNT_1111',
-								name: 'menu-MNT_1111',
+								id: 'RCA_MNT_111111',
+								name: 'form-SOURCE',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
-											identifier: 'group',
-											fnValueSelector: (row) => row.ValCodgroup
+											identifier: 'id',
+											fnValueSelector: (row) => row.ValCodsource
 										},
 									],
-									action: vm.openMenuAction, type: 'menu', menuName: 'MNT_1111'
+									isControlled: true,
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'SOURCE'
 								}
 							},
 							formsDefinition: {
-								'GROUP': {
-									fnKeySelector: (row) => row.Fields.ValCodgroup,
-									isPopup: true
+								'SOURCE': {
+									fnKeySelector: (row) => row.Fields.ValCodsource,
+									isPopup: false
 								},
 							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
 							defaultColumnSorting: {
-								columnName: 'ValName',
+								columnName: 'ValAccount_number',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-GROUP'],
-						uuid: 'b45f962d-1ce1-4f88-ae85-4f6232ef486c',
+						globalEvents: ['changed-MEMBER', 'changed-SOURCE'],
+						uuid: '73be29a6-7d32-443f-8589-e93ac84b47d1',
 						allSelectedRows: 'false',
 						headerLevel: 1,
+						/** Menu limits */
+						controlLimits: [
+							/** DB */
+							{
+								identifier: 'group',
+								dependencyEvents: [],
+								dependencyField: '',
+								fnValueSelector: () => vm.$route.params['group'],
+							},
+							/** DB */
+							{
+								identifier: 'member',
+								dependencyEvents: [],
+								dependencyField: '',
+								fnValueSelector: () => vm.$route.params['member'],
+							},
+						],
 						isActiveControl: computed(() => this.isActiveMenu)
 					}, this),
 				}
@@ -322,7 +398,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_111]/
+// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_11111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -330,18 +406,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_111]/
+// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_11111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FUNCTIONS_JS MNT_111]/
+// USE /[MANUAL MNT FUNCTIONS_JS MNT_11111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_111]/
+// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_11111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

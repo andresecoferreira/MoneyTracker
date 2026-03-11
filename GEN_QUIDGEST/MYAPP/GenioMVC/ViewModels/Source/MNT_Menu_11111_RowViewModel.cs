@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Category_type;
+namespace GenioMVC.ViewModels.Source;
 
-public class Category_type_ValCategories_RowViewModel : Models.Category
+public class MNT_Menu_11111_RowViewModel : Models.Source
 {
 	#region Constructors
 
-	public Category_type_ValCategories_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MNT_Menu_11111_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public Category_type_ValCategories_RowViewModel(UserContext userContext, CSGenioAcategory val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MNT_Menu_11111_RowViewModel(UserContext userContext, CSGenioAsource val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,8 +36,38 @@ public class Category_type_ValCategories_RowViewModel : Models.Category
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "CATEGORY",
+				Area = "SOURCE",
+				Field = "ACCOUNT_NUMBER",
+			},
+			new ListColumn()
+			{
+				Order = 2,
+				Area = "SOURCE",
+				Field = "TITLE",
+			},
+			new ListColumn()
+			{
+				Order = 3,
+				Area = "MEMBER",
 				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "SOURCE",
+				Field = "BANK",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "SOURCE",
+				Field = "BALANCE",
+			},
+			new ListColumn()
+			{
+				Order = 6,
+				Area = "SOURCE",
+				Field = "TYPE",
 			},
 		];
 	}

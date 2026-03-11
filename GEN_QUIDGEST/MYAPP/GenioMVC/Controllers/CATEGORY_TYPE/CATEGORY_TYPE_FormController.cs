@@ -392,55 +392,6 @@ namespace GenioMVC.Controllers
 		#endregion
 
 
-		public class Category_type_ValCategoriesModel : RequestLookupModel
-		{
-			public Category_type_ViewModel Model { get; set; }
-		}
-
-		//
-		// GET: /Category_type/Category_type_ValCategories
-		// POST: /Category_type/Category_type_ValCategories
-		[ActionName("Category_type_ValCategories")]
-		public ActionResult Category_type_ValCategories([FromBody] Category_type_ValCategoriesModel requestModel)
-		{
-			var queryParams = requestModel.QueryParams;
-
-			// If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
-			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_category")))
-				UserContext.Current.SetPersistenceReadOnly(true);
-			else
-			{
-				Navigation.DestroyEntry("ForcePrimaryRead_category");
-				UserContext.Current.SetPersistenceReadOnly(false);
-			}
-
-			NameValueCollection requestValues = [];
-			if (queryParams != null)
-			{
-				// Add to request values
-				foreach (var kv in queryParams)
-					requestValues.Add(kv.Key, kv.Value);
-			}
-
-			Models.Category_type parentCtx = requestModel.Model == null ? null : new(m_userContext);
-			requestModel.Model?.Init(m_userContext);
-			requestModel.Model?.MapToModel(parentCtx);
-			Category_type_ValCategories_ViewModel model = new(m_userContext, parentCtx);
-
-			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
-				requestModel.TableConfiguration,
-				requestModel.UserTableConfigName,
-				requestModel.LoadDefaultView);
-
-			// Determine rows per page
-			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(CSGenio.framework.Configuration.NrRegDBedit, "");
-
-			model.setModes(Request.Query["m"].ToString());
-			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
-
-			return JsonOK(model);
-		}
-
 		// POST: /Category_type/Category_type_SaveEdit
 		[HttpPost]
 		public ActionResult Category_type_SaveEdit([FromBody] Category_type_ViewModel model)

@@ -1,7 +1,7 @@
 ﻿<template>
 	<teleport
 		v-if="isReady"
-		to="#q-modal-see-more-member-psw-psw-nome-body">
+		to="#q-modal-see-more-source-member-name-body">
 		<q-row>
 			<q-table
 				v-bind="listCtrl"
@@ -46,10 +46,10 @@
 
 	import ViewModelBase from '@/mixins/viewModelBase.js'
 
-	const requiredTextResources = ['MEMBER_PSW__PSW__NOME_SeeMore', 'hardcoded', 'messages']
+	const requiredTextResources = ['SOURCE__MEMBER__NAME_SeeMore', 'hardcoded', 'messages']
 
 	export default {
-		name: 'MemberPswPswNomeSeeMore',
+		name: 'SourceMemberNameSeeMore',
 
 		inheritAttrs: false,
 
@@ -94,18 +94,18 @@
 			return {
 				isReady: false,
 
-				componentOnLoadProc: asyncProcM.getProcListMonitor('MEMBER_PSW__PSW__NOME_SeeMore', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('SOURCE__MEMBER__NAME_SeeMore', false),
 
 				interfaceMetadata: {
-					id: 'MEMBER_PSW__PSW__NOME_SeeMore', // Used for resources
+					id: 'SOURCE__MEMBER__NAME_SeeMore', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					acronym: 'MEMBER_PSW__PSW__NOME_SeeMore',
-					name: 'MEMBER_PSW__PSW__NOME_SeeMore',
-					controller: 'MEMBER_PSW',
-					action: 'MEMBER_PSW_PswValNome'
+					acronym: 'SOURCE__MEMBER__NAME_SeeMore',
+					name: 'SOURCE__MEMBER__NAME_SeeMore',
+					controller: 'SOURCE',
+					action: 'SOURCE_MemberValName'
 				},
 
 				listCtrl: new TableListControl(this.getListConfig(), this),
@@ -134,13 +134,13 @@
 			this.$eventHub.onMany(this.listCtrl.globalEvents, this.onTableDBDataChanged)
 
 			const modalProps = {
-				id: 'see-more-member-psw-psw-nome',
+				id: 'see-more-source-member-name',
 				dismissAction: this.close,
-				returnElement: 'MEMBER_PSW__PSW__NOME_see-more_button'
+				returnElement: 'SOURCE__MEMBER__NAME_see-more_button'
 			}
 			const props = {
 				class: 'q-dialog-see-more',
-				title: computed(() => this.Resources.PASSWORDS52247),
+				title: computed(() => this.Resources.MEMBERS31628),
 				buttons: [
 					{
 						id: 'dialog-button-close',
@@ -163,7 +163,7 @@
 			this.listCtrl.destroy()
 			this.componentOnLoadProc.destroy()
 
-			removeModal('see-more-member-psw-psw-nome')
+			removeModal('see-more-source-member-name')
 		},
 
 		methods: {
@@ -214,28 +214,28 @@
 				const vm = this
 				const listProps = {
 					configuration: {
-						controller: 'MEMBER_PSW',
-						action: 'Member_psw_PswValNome',
+						controller: 'SOURCE',
+						action: 'Source_MemberValName',
 						hasDependencies: false,
 						isInCollapsible: false,
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValNome',
-								area: 'PSW',
-								field: 'NOME',
+								name: 'ValName',
+								area: 'MEMBER',
+								field: 'NAME',
 								label: computed(() => this.Resources.NAME31974),
-								dataLength: 100,
-								scrollData: 100,
+								dataLength: 80,
+								scrollData: 80,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'Member_psw_PswValNome',
+							name: 'Source_MemberValName',
 							serverMode: true,
-							pkColumn: 'ValCodpsw',
-							tableAlias: 'PSW',
-							tableNamePlural: computed(() => this.Resources.PASSWORDS52247),
+							pkColumn: 'ValCodmember',
+							tableAlias: 'MEMBER',
+							tableNamePlural: computed(() => this.Resources.MEMBERS31628),
 							viewManagement: '',
 							showLimitsInfo: true,
 							tableTitle: '',
@@ -261,15 +261,15 @@
 							},
 							formsDefinition: {
 							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: 'ValNome',
+								columnName: 'ValName',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-PSW'],
-						uuid: 'Member_psw_Member_psw_PswValNome',
+						globalEvents: ['changed-MEMBER', 'changed-GROUP'],
+						uuid: 'Source_Source_MemberValName',
 						allSelectedRows: 'false',
 						handlers: {
 							rowAction: vm.handleRowAction

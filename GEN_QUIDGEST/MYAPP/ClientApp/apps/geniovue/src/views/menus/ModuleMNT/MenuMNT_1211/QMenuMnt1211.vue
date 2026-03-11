@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_111]/ -->
+					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_1211]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMNT_111ViewModel.js'
+	import MenuViewModel from './QMenuMNT_1211ViewModel.js'
 
-	const requiredTextResources = ['QMenuMNT_111', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMNT_1211', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_111]/
+// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_1211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMnt111',
+		name: 'QMenuMnt1211',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_111', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_1211', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMNT_111', // Used for resources
+					id: 'QMenuMNT_1211', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '111',
+					id: '1211',
 					isMenuList: true,
-					designation: computed(() => this.Resources.GROUPS45298),
-					acronym: 'MNT_111',
-					name: 'GROUP',
-					route: 'menu-MNT_111',
-					order: '111',
-					controller: 'GROUP',
-					action: 'MNT_Menu_111',
+					designation: computed(() => this.Resources.CATEGORIES06648),
+					acronym: 'MNT_1211',
+					name: 'CATEGORY',
+					route: 'menu-MNT_1211',
+					order: '1211',
+					controller: 'CATEGORY',
+					action: 'MNT_Menu_1211',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MNT_Menu_111',
-						controller: 'GROUP',
-						action: 'MNT_Menu_111',
+						id: 'MNT_Menu_1211',
+						controller: 'CATEGORY',
+						action: 'MNT_Menu_1211',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -148,24 +148,45 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValName',
-								area: 'GROUP',
-								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 50,
+								name: 'ValDescription',
+								area: 'CATEGORY',
+								field: 'DESCRIPTION',
+								label: computed(() => this.Resources.DESCRIPTION07383),
+								dataLength: 80,
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValName',
+								area: 'CATEGORY',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 20,
+								scrollData: 20,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 3,
+								name: 'Category_type.ValName',
+								area: 'CATEGORY_TYPE',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 20,
+								scrollData: 20,
+								export: 1,
+								pkColumn: 'ValCodcategory_type',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MNT_Menu_111',
+							name: 'MNT_Menu_1211',
 							serverMode: true,
-							pkColumn: 'ValCodgroup',
-							tableAlias: 'GROUP',
-							tableNamePlural: computed(() => this.Resources.GROUPS45298),
+							pkColumn: 'ValCodcategory',
+							tableAlias: 'CATEGORY',
+							tableNamePlural: computed(() => this.Resources.CATEGORIES06648),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.GROUPS45298),
+							tableTitle: computed(() => this.Resources.CATEGORIES06648),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -186,7 +207,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'CATEGORY',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -202,7 +223,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'CATEGORY',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -218,7 +239,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'CATEGORY',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -234,7 +255,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'CATEGORY',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -252,7 +273,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'GROUP',
+										formName: 'CATEGORY',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -268,37 +289,48 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MNT_1111',
-								name: 'menu-MNT_1111',
+								id: 'RCA_MNT_12111',
+								name: 'form-CATEGORY',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
-											identifier: 'group',
-											fnValueSelector: (row) => row.ValCodgroup
+											identifier: 'id',
+											fnValueSelector: (row) => row.ValCodcategory
 										},
 									],
-									action: vm.openMenuAction, type: 'menu', menuName: 'MNT_1111'
+									isControlled: true,
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'CATEGORY'
 								}
 							},
 							formsDefinition: {
-								'GROUP': {
-									fnKeySelector: (row) => row.Fields.ValCodgroup,
+								'CATEGORY': {
+									fnKeySelector: (row) => row.Fields.ValCodcategory,
 									isPopup: true
 								},
 							},
 							defaultSearchColumnName: 'ValName',
 							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: 'ValName',
+								columnName: 'ValDescription',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-GROUP'],
-						uuid: 'b45f962d-1ce1-4f88-ae85-4f6232ef486c',
+						globalEvents: ['changed-CATEGORY_TYPE', 'changed-CATEGORY'],
+						uuid: 'acbb24d9-8e90-4236-9540-59e26320a561',
 						allSelectedRows: 'false',
 						headerLevel: 1,
+						/** Menu limits */
+						controlLimits: [
+							/** DB */
+							{
+								identifier: 'category_type',
+								dependencyEvents: [],
+								dependencyField: '',
+								fnValueSelector: () => vm.$route.params['category_type'],
+							},
+						],
 						isActiveControl: computed(() => this.isActiveMenu)
 					}, this),
 				}
@@ -322,7 +354,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_111]/
+// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_1211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -330,18 +362,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_111]/
+// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_1211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FUNCTIONS_JS MNT_111]/
+// USE /[MANUAL MNT FUNCTIONS_JS MNT_1211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_111]/
+// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_1211]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

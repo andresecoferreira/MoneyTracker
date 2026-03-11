@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Group;
+namespace GenioMVC.ViewModels.Category;
 
-public class Group_ValMember_user_RowViewModel : Models.Member_psw
+public class MNT_Menu_1211_RowViewModel : Models.Category
 {
 	#region Constructors
 
-	public Group_ValMember_user_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MNT_Menu_1211_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public Group_ValMember_user_RowViewModel(UserContext userContext, CSGenioAmember_psw val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MNT_Menu_1211_RowViewModel(UserContext userContext, CSGenioAcategory val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,14 +36,20 @@ public class Group_ValMember_user_RowViewModel : Models.Member_psw
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "MEMBER_PSW",
-				Field = "MEMBER_ID",
+				Area = "CATEGORY",
+				Field = "DESCRIPTION",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "MEMBER_PSW",
-				Field = "PSW_ID",
+				Area = "CATEGORY",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 3,
+				Area = "CATEGORY_TYPE",
+				Field = "NAME",
 			},
 		];
 	}
