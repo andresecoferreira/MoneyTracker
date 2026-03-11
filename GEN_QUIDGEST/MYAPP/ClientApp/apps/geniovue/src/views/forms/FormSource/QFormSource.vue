@@ -233,87 +233,99 @@
 						</q-accordion>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.SOURCE__PSEUDNEWGRP03.isVisible">
-					<q-col v-if="controls.SOURCE__PSEUDNEWGRP03.isVisible">
+				<q-row v-if="controls.SOURCE__PSEUDNEWGRP05.isVisible">
+					<q-col v-if="controls.SOURCE__PSEUDNEWGRP05.isVisible">
 						<q-group-box-container
-							v-if="controls.SOURCE__PSEUDNEWGRP03.isVisible"
-							id="SOURCE__PSEUDNEWGRP03"
-							v-bind="controls.SOURCE__PSEUDNEWGRP03"
-							:is-visible="controls.SOURCE__PSEUDNEWGRP03.isVisible">
-							<!-- Start SOURCE__PSEUDNEWGRP03 -->
-							<q-row v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible || controls.SOURCE__SOURCE__CREATED_BY.isVisible">
-								<q-col
-									v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible || controls.SOURCE__SOURCE__CREATED_BY.isVisible"
-									cols="auto">
-									<base-input-structure
-										v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible"
-										class="i-text"
-										v-bind="controls.SOURCE__SOURCE__CREATED_AT"
-										v-on="controls.SOURCE__SOURCE__CREATED_AT.handlers"
-										:loading="controls.SOURCE__SOURCE__CREATED_AT.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-date-time-picker
-											v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible"
-											v-bind="controls.SOURCE__SOURCE__CREATED_AT.props"
-											:model-value="model.ValCreated_at.value"
-											@reset-icon-click="model.ValCreated_at.fnUpdateValue(model.ValCreated_at.originalValue ?? new Date())"
-											@update:model-value="model.ValCreated_at.fnUpdateValue($event ?? '')" />
-									</base-input-structure>
-									<base-input-structure
-										v-if="controls.SOURCE__SOURCE__CREATED_BY.isVisible"
-										class="i-text"
-										v-bind="controls.SOURCE__SOURCE__CREATED_BY"
-										v-on="controls.SOURCE__SOURCE__CREATED_BY.handlers"
-										:loading="controls.SOURCE__SOURCE__CREATED_BY.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-text-field
-											v-bind="controls.SOURCE__SOURCE__CREATED_BY.props"
-											@blur="onBlur(controls.SOURCE__SOURCE__CREATED_BY, model.ValCreated_by.value)"
-											@change="model.ValCreated_by.fnUpdateValueOnChange" />
-									</base-input-structure>
+							v-if="controls.SOURCE__PSEUDNEWGRP05.isVisible"
+							id="SOURCE__PSEUDNEWGRP05"
+							v-bind="controls.SOURCE__PSEUDNEWGRP05"
+							:is-visible="controls.SOURCE__PSEUDNEWGRP05.isVisible">
+							<!-- Start SOURCE__PSEUDNEWGRP05 -->
+							<q-row v-if="controls.SOURCE__PSEUDNEWGRP03.isVisible">
+								<q-col v-if="controls.SOURCE__PSEUDNEWGRP03.isVisible">
+									<q-group-box-container
+										v-if="controls.SOURCE__PSEUDNEWGRP03.isVisible"
+										id="SOURCE__PSEUDNEWGRP03"
+										v-bind="controls.SOURCE__PSEUDNEWGRP03"
+										:is-visible="controls.SOURCE__PSEUDNEWGRP03.isVisible">
+										<!-- Start SOURCE__PSEUDNEWGRP03 -->
+										<q-row v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible || controls.SOURCE__SOURCE__CREATED_BY.isVisible">
+											<q-col
+												v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible || controls.SOURCE__SOURCE__CREATED_BY.isVisible"
+												cols="auto">
+												<base-input-structure
+													v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible"
+													class="i-text"
+													v-bind="controls.SOURCE__SOURCE__CREATED_AT"
+													v-on="controls.SOURCE__SOURCE__CREATED_AT.handlers"
+													:loading="controls.SOURCE__SOURCE__CREATED_AT.props.loading"
+													:reporting-mode-on="reportingModeCAV"
+													:suggestion-mode-on="suggestionModeOn">
+													<q-date-time-picker
+														v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible"
+														v-bind="controls.SOURCE__SOURCE__CREATED_AT.props"
+														:model-value="model.ValCreated_at.value"
+														@reset-icon-click="model.ValCreated_at.fnUpdateValue(model.ValCreated_at.originalValue ?? new Date())"
+														@update:model-value="model.ValCreated_at.fnUpdateValue($event ?? '')" />
+												</base-input-structure>
+												<base-input-structure
+													v-if="controls.SOURCE__SOURCE__CREATED_BY.isVisible"
+													class="i-text"
+													v-bind="controls.SOURCE__SOURCE__CREATED_BY"
+													v-on="controls.SOURCE__SOURCE__CREATED_BY.handlers"
+													:loading="controls.SOURCE__SOURCE__CREATED_BY.props.loading"
+													:reporting-mode-on="reportingModeCAV"
+													:suggestion-mode-on="suggestionModeOn">
+													<q-text-field
+														v-bind="controls.SOURCE__SOURCE__CREATED_BY.props"
+														@blur="onBlur(controls.SOURCE__SOURCE__CREATED_BY, model.ValCreated_by.value)"
+														@change="model.ValCreated_by.fnUpdateValueOnChange" />
+												</base-input-structure>
+											</q-col>
+										</q-row>
+										<q-row v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible || controls.SOURCE__SOURCE__UPDATED_BY.isVisible">
+											<q-col
+												v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
+												cols="auto">
+												<base-input-structure
+													v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
+													class="i-text"
+													v-bind="controls.SOURCE__SOURCE__UPDATED_AT"
+													v-on="controls.SOURCE__SOURCE__UPDATED_AT.handlers"
+													:loading="controls.SOURCE__SOURCE__UPDATED_AT.props.loading"
+													:reporting-mode-on="reportingModeCAV"
+													:suggestion-mode-on="suggestionModeOn">
+													<q-date-time-picker
+														v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
+														v-bind="controls.SOURCE__SOURCE__UPDATED_AT.props"
+														:model-value="model.ValUpdated_at.value"
+														@reset-icon-click="model.ValUpdated_at.fnUpdateValue(model.ValUpdated_at.originalValue ?? new Date())"
+														@update:model-value="model.ValUpdated_at.fnUpdateValue($event ?? '')" />
+												</base-input-structure>
+											</q-col>
+											<q-col
+												v-if="controls.SOURCE__SOURCE__UPDATED_BY.isVisible"
+												cols="auto">
+												<base-input-structure
+													v-if="controls.SOURCE__SOURCE__UPDATED_BY.isVisible"
+													class="i-text"
+													v-bind="controls.SOURCE__SOURCE__UPDATED_BY"
+													v-on="controls.SOURCE__SOURCE__UPDATED_BY.handlers"
+													:loading="controls.SOURCE__SOURCE__UPDATED_BY.props.loading"
+													:reporting-mode-on="reportingModeCAV"
+													:suggestion-mode-on="suggestionModeOn">
+													<q-text-field
+														v-bind="controls.SOURCE__SOURCE__UPDATED_BY.props"
+														@blur="onBlur(controls.SOURCE__SOURCE__UPDATED_BY, model.ValUpdated_by.value)"
+														@change="model.ValUpdated_by.fnUpdateValueOnChange" />
+												</base-input-structure>
+											</q-col>
+										</q-row>
+										<!-- End SOURCE__PSEUDNEWGRP03 -->
+									</q-group-box-container>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible || controls.SOURCE__SOURCE__UPDATED_BY.isVisible">
-								<q-col
-									v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
-									cols="auto">
-									<base-input-structure
-										v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
-										class="i-text"
-										v-bind="controls.SOURCE__SOURCE__UPDATED_AT"
-										v-on="controls.SOURCE__SOURCE__UPDATED_AT.handlers"
-										:loading="controls.SOURCE__SOURCE__UPDATED_AT.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-date-time-picker
-											v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
-											v-bind="controls.SOURCE__SOURCE__UPDATED_AT.props"
-											:model-value="model.ValUpdated_at.value"
-											@reset-icon-click="model.ValUpdated_at.fnUpdateValue(model.ValUpdated_at.originalValue ?? new Date())"
-											@update:model-value="model.ValUpdated_at.fnUpdateValue($event ?? '')" />
-									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.SOURCE__SOURCE__UPDATED_BY.isVisible"
-									cols="auto">
-									<base-input-structure
-										v-if="controls.SOURCE__SOURCE__UPDATED_BY.isVisible"
-										class="i-text"
-										v-bind="controls.SOURCE__SOURCE__UPDATED_BY"
-										v-on="controls.SOURCE__SOURCE__UPDATED_BY.handlers"
-										:loading="controls.SOURCE__SOURCE__UPDATED_BY.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-text-field
-											v-bind="controls.SOURCE__SOURCE__UPDATED_BY.props"
-											@blur="onBlur(controls.SOURCE__SOURCE__UPDATED_BY, model.ValUpdated_by.value)"
-											@change="model.ValUpdated_by.fnUpdateValueOnChange" />
-									</base-input-structure>
-								</q-col>
-							</q-row>
-							<!-- End SOURCE__PSEUDNEWGRP03 -->
+							<!-- End SOURCE__PSEUDNEWGRP05 -->
 						</q-group-box-container>
 					</q-col>
 				</q-row>
@@ -820,6 +832,19 @@
 						controlLimits: [
 						],
 					}, this),
+					SOURCE__PSEUDNEWGRP05: new fieldControlClass.GroupControl({
+						id: 'SOURCE__PSEUDNEWGRP05',
+						name: 'NEWGRP05',
+						size: 'block',
+						label: '',
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['SOURCE__PSEUDNEWGRP03'],
+						controlLimits: [
+						],
+					}, this),
 					SOURCE__PSEUDNEWGRP03: new fieldControlClass.GroupControl({
 						id: 'SOURCE__PSEUDNEWGRP03',
 						name: 'NEWGRP03',
@@ -827,6 +852,7 @@
 						label: computed(() => this.Resources.CONTROL15481),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP05',
 						isCollapsible: false,
 						anchored: false,
 						directChildren: ['SOURCE__SOURCE__CREATED_AT', 'SOURCE__SOURCE__CREATED_BY', 'SOURCE__SOURCE__UPDATED_AT', 'SOURCE__SOURCE__UPDATED_BY'],
@@ -902,6 +928,7 @@
 					'SOURCE__PSEUDNEWGRP04',
 					'SOURCE__PSEUDNEWGRP01',
 					'SOURCE__PSEUDNEWGRP02',
+					'SOURCE__PSEUDNEWGRP05',
 					'SOURCE__PSEUDNEWGRP03',
 				]),
 

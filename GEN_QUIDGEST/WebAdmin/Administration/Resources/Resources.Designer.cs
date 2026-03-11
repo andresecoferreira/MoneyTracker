@@ -214,6 +214,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Incomes"
+        /// </summary>
+        public static string INCOMES07328 {
+            get {
+                return ResourceManager.GetString("INCOMES07328", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Balance"
         /// </summary>
         public static string BALANCE13297 {
@@ -480,6 +489,15 @@ namespace Administration.Resources {
         public static string ASYNC_PROCESS_ATTACH04785 {
             get {
                 return ResourceManager.GetString("ASYNC_PROCESS_ATTACH04785", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Investment"
+        /// </summary>
+        public static string INVESTMENT14761 {
+            get {
+                return ResourceManager.GetString("INVESTMENT14761", resourceCulture);
             }
         }
 
@@ -790,6 +808,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Transaction"
+        /// </summary>
+        public static string TRANSACTION51851 {
+            get {
+                return ResourceManager.GetString("TRANSACTION51851", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Account"
         /// </summary>
         public static string ACCOUNT64260 {
@@ -804,6 +831,15 @@ namespace Administration.Resources {
         public static string MONTEPIO14226 {
             get {
                 return ResourceManager.GetString("MONTEPIO14226", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "ID"
+        /// </summary>
+        public static string ID48520 {
+            get {
+                return ResourceManager.GetString("ID48520", resourceCulture);
             }
         }
 
@@ -880,6 +916,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "info"
+        /// </summary>
+        public static string INFO02225 {
+            get {
+                return ResourceManager.GetString("INFO02225", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Process mode"
         /// </summary>
         public static string PROCESS_MODE22419 {
@@ -948,6 +993,15 @@ namespace Administration.Resources {
         public static string USER_AUTHORIZATION53599 {
             get {
                 return ResourceManager.GetString("USER_AUTHORIZATION53599", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Income"
+        /// </summary>
+        public static string INCOME04695 {
+            get {
+                return ResourceManager.GetString("INCOME04695", resourceCulture);
             }
         }
 
@@ -1348,6 +1402,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Invoice"
+        /// </summary>
+        public static string INVOICE63068 {
+            get {
+                return ResourceManager.GetString("INVOICE63068", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Birthday"
         /// </summary>
         public static string BIRTHDAY30236 {
@@ -1515,6 +1578,15 @@ namespace Administration.Resources {
         public static string CANCELAR49513 {
             get {
                 return ResourceManager.GetString("CANCELAR49513", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Investments"
+        /// </summary>
+        public static string INVESTMENTS32097 {
+            get {
+                return ResourceManager.GetString("INVESTMENTS32097", resourceCulture);
             }
         }
 

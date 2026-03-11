@@ -46,10 +46,14 @@ namespace CSGenio.business
         private static AreaRef m_AreaEXPENSE = new AreaRef("MNT", "mntexpense", "expense");
         public static AreaRef AreaCATEGORY { get { return m_AreaCATEGORY; } }
         private static AreaRef m_AreaCATEGORY = new AreaRef("MNT", "mntcategory", "category");
+        public static AreaRef AreaINCOME { get { return m_AreaINCOME; } }
+        private static AreaRef m_AreaINCOME = new AreaRef("MNT", "mntincome", "income");
         public static AreaRef AreaMEMBER_PSW { get { return m_AreaMEMBER_PSW; } }
         private static AreaRef m_AreaMEMBER_PSW = new AreaRef("MNT", "mntmember_psw", "member_psw");
         public static AreaRef AreaS_ARG { get { return m_AreaS_ARG; } }
         private static AreaRef m_AreaS_ARG = new AreaRef("MNT", "asyncprocessargument", "s_arg");
+        public static AreaRef AreaINVESTMENT { get { return m_AreaINVESTMENT; } }
+        private static AreaRef m_AreaINVESTMENT = new AreaRef("MNT", "mntinvestment", "investment");
         //areas hardcoded
         public static AreaRef AreaDELEGA { get { return m_AreaDELEGA; } }
         private static AreaRef m_AreaDELEGA = new AreaRef("MNTdelega", "delega");
@@ -94,8 +98,10 @@ namespace CSGenio.business
             "s_nes",
             "expense",
             "category",
+            "income",
             "member_psw",
             "s_arg",
+            "investment",
         });
 
         /// <summary>

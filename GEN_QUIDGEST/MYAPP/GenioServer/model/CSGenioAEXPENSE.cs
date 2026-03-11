@@ -54,6 +54,144 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "expense_id", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Id";
+			Qfield.FieldSize =  6;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 6;
+			Qfield.CavDesignation = "ID36840";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+            Qfield.NotDup = true;
+			argumentsListByArea = new List<ByAreaArguments>();
+			Qfield.BlockWhen = new ConditionFormula(argumentsListByArea, 0, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return true;
+			});
+			Qfield.DefaultValue = new DefaultValue(DefaultValue.getGreaterPlus1_int, "expense_id");
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "category_id", FieldType.KEY_INT);
+			Qfield.FieldDescription = "Category";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "CATEGORY18978";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "member_id", FieldType.KEY_INT);
+			Qfield.FieldDescription = "Member";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "MEMBER00534";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "source_id", FieldType.KEY_INT);
+			Qfield.FieldDescription = "Account";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "ACCOUNT64260";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "value", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Value";
+			Qfield.FieldSize =  12;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 12;
+			Qfield.CavDesignation = "VALUE10285";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "description", FieldType.TEXT);
+			Qfield.FieldDescription = "Description";
+			Qfield.FieldSize =  200;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "DESCRIPTION07383";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "date", FieldType.DATE);
+			Qfield.FieldDescription = "Date";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "DATE18475";
+
+            Qfield.NotNull = true;
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "invoice", FieldType.DOCUMENT);
+			Qfield.FieldDescription = "Invoice";
+			Qfield.FieldSize =  50;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "INVOICE63068";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+			Qfield = new Field(info.Alias, "invoicefk", FieldType.KEY_INT);
+			Qfield.FieldSize = 8;
+			Qfield.FieldDescription = "Chave estrangeira para o documento";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "updated_at", FieldType.DATETIMESECONDS);
+			Qfield.FieldDescription = "Updated At";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "UPDATED_AT48366";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "created_at", FieldType.DATETIMESECONDS);
+			Qfield.FieldDescription = "Created At";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "CREATED_AT09073";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "created_by", FieldType.TEXT);
+			Qfield.FieldDescription = "Created By";
+			Qfield.FieldSize =  100;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "CREATED_BY58035";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "updated_by", FieldType.TEXT);
+			Qfield.FieldDescription = "Updated By";
+			Qfield.FieldSize =  100;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "UPDATED_AT48366";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -71,6 +209,9 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
+			info.ParentTables.Add("category", new Relation("MNT", "mntexpense", "expense", "codexpense", "category_id", "MNT", "mntcategory", "category", "codcategory", "codcategory"));
+			info.ParentTables.Add("member", new Relation("MNT", "mntexpense", "expense", "codexpense", "member_id", "MNT", "mntmember", "member", "codmember", "codmember"));
+			info.ParentTables.Add("source", new Relation("MNT", "mntexpense", "expense", "codexpense", "source_id", "MNT", "mntsource", "source", "codsource", "codsource"));
 		}
 
 		/// <summary>
@@ -80,7 +221,12 @@ namespace CSGenio.business
 		{
 			// Pathways
 			//------------------------------
-			info.Pathways = new Dictionary<string, string>(0);
+			info.Pathways = new Dictionary<string, string>(5);
+			info.Pathways.Add("member","member");
+			info.Pathways.Add("category","category");
+			info.Pathways.Add("source","source");
+			info.Pathways.Add("group","member");
+			info.Pathways.Add("category_type","category");
 		}
 
 		/// <summary>
@@ -93,6 +239,9 @@ namespace CSGenio.business
 
 
 
+			info.SequentialDefaultValues = new string[] {
+			 "expense_id"
+			};
 
 
 
@@ -119,7 +268,7 @@ namespace CSGenio.business
 			info.ShadowTabKeyName="";
 
 			info.PrimaryKeyName="codexpense";
-			info.HumanKeyName="";
+			info.HumanKeyName="expense_id,".TrimEnd(',');
 			info.Alias="expense";
 			info.IsDomain = true;
 			info.PersistenceType = PersistenceType.Database;
@@ -160,9 +309,19 @@ namespace CSGenio.business
 
 			// Automatic audit stamps in BD
             //------------------------------
+			info.StampFieldsIns = new string[] {
+                "created_by","created_at"
+			};
 
+			info.StampFieldsAlt = new string[] {
+                "updated_by","updated_at"
+			};
             // Documents in DB
             //------------------------------
+			info.DocumsForeignKeys = new List<String> {
+			 "invoicefk"
+			};
+			info.HasVersionManagment = true; //a true por omissão, quando o Qfield no genio tiver criado preencher por esse Qvalue
 
             // Historics
             //------------------------------
@@ -173,6 +332,10 @@ namespace CSGenio.business
 			// Ephs
 			//------------------------------
 			info.Ephs=new Hashtable();
+			EPHField[] camposEPH;
+						camposEPH = new EPHField[1];
+			camposEPH[0] = new EPHField("MEMBERPSW", "member", "codmember", "=", false);
+			info.Ephs.Add(new Par("MNT", "50"), camposEPH);
 
 			// Table minimum roles and access levels
 			//------------------------------
@@ -209,6 +372,149 @@ namespace CSGenio.business
 		{
 			get { return (string)returnValueField(FldCodexpense); }
 			set { insertNameValueField(FldCodexpense, value); }
+		}
+
+		/// <summary>Field : "Id" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldExpense_id { get { return m_fldExpense_id; } }
+		private static FieldRef m_fldExpense_id = new FieldRef("expense", "expense_id");
+
+		/// <summary>Field : "Id" Tipo: "N" Formula:  ""</summary>
+		public decimal ValExpense_id
+		{
+			get { return (decimal)returnValueField(FldExpense_id); }
+			set { insertNameValueField(FldExpense_id, value); }
+		}
+
+		/// <summary>Field : "Category" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldCategory_id { get { return m_fldCategory_id; } }
+		private static FieldRef m_fldCategory_id = new FieldRef("expense", "category_id");
+
+		/// <summary>Field : "Category" Tipo: "CE" Formula:  ""</summary>
+		public string ValCategory_id
+		{
+			get { return (string)returnValueField(FldCategory_id); }
+			set { insertNameValueField(FldCategory_id, value); }
+		}
+
+		/// <summary>Field : "Member" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldMember_id { get { return m_fldMember_id; } }
+		private static FieldRef m_fldMember_id = new FieldRef("expense", "member_id");
+
+		/// <summary>Field : "Member" Tipo: "CE" Formula:  ""</summary>
+		public string ValMember_id
+		{
+			get { return (string)returnValueField(FldMember_id); }
+			set { insertNameValueField(FldMember_id, value); }
+		}
+
+		/// <summary>Field : "Account" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldSource_id { get { return m_fldSource_id; } }
+		private static FieldRef m_fldSource_id = new FieldRef("expense", "source_id");
+
+		/// <summary>Field : "Account" Tipo: "CE" Formula:  ""</summary>
+		public string ValSource_id
+		{
+			get { return (string)returnValueField(FldSource_id); }
+			set { insertNameValueField(FldSource_id, value); }
+		}
+
+		/// <summary>Field : "Value" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldValue { get { return m_fldValue; } }
+		private static FieldRef m_fldValue = new FieldRef("expense", "value");
+
+		/// <summary>Field : "Value" Tipo: "N" Formula:  ""</summary>
+		public decimal ValValue
+		{
+			get { return (decimal)returnValueField(FldValue); }
+			set { insertNameValueField(FldValue, value); }
+		}
+
+		/// <summary>Field : "Description" Tipo: "C" Formula:  ""</summary>
+		public static FieldRef FldDescription { get { return m_fldDescription; } }
+		private static FieldRef m_fldDescription = new FieldRef("expense", "description");
+
+		/// <summary>Field : "Description" Tipo: "C" Formula:  ""</summary>
+		public string ValDescription
+		{
+			get { return (string)returnValueField(FldDescription); }
+			set { insertNameValueField(FldDescription, value); }
+		}
+
+		/// <summary>Field : "Date" Tipo: "D" Formula:  ""</summary>
+		public static FieldRef FldDate { get { return m_fldDate; } }
+		private static FieldRef m_fldDate = new FieldRef("expense", "date");
+
+		/// <summary>Field : "Date" Tipo: "D" Formula:  ""</summary>
+		public DateTime ValDate
+		{
+			get { return (DateTime)returnValueField(FldDate); }
+			set { insertNameValueField(FldDate, value); }
+		}
+
+		/// <summary>Field : "Invoice" Tipo: "IB" Formula:  ""</summary>
+		public static FieldRef FldInvoice { get { return m_fldInvoice; } }
+		private static FieldRef m_fldInvoice = new FieldRef("expense", "invoice");
+
+		/// <summary>Field : "Invoice" Tipo: "IB" Formula:  ""</summary>
+		public string ValInvoice
+		{
+			get { return (string)returnValueField(FldInvoice); }
+			set { insertNameValueField(FldInvoice, value); }
+		}
+
+		/// <summary>Field : "Invoice FK" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldInvoicefk { get { return m_fldInvoicefk; } }
+		private static FieldRef m_fldInvoicefk = new FieldRef("expense", "invoicefk");
+
+		/// <summary>Field : "Invoice FK" Tipo: "CE" Formula:  ""</summary>
+		public string ValInvoicefk
+		{
+			get { return (string)returnValueField(FldInvoicefk); }
+			set { insertNameValueField(FldInvoicefk, value); }
+		}
+
+		/// <summary>Field : "Updated At" Tipo: "ED" Formula:  ""</summary>
+		public static FieldRef FldUpdated_at { get { return m_fldUpdated_at; } }
+		private static FieldRef m_fldUpdated_at = new FieldRef("expense", "updated_at");
+
+		/// <summary>Field : "Updated At" Tipo: "ED" Formula:  ""</summary>
+		public DateTime ValUpdated_at
+		{
+			get { return (DateTime)returnValueField(FldUpdated_at); }
+			set { insertNameValueField(FldUpdated_at, value); }
+		}
+
+		/// <summary>Field : "Created At" Tipo: "OD" Formula:  ""</summary>
+		public static FieldRef FldCreated_at { get { return m_fldCreated_at; } }
+		private static FieldRef m_fldCreated_at = new FieldRef("expense", "created_at");
+
+		/// <summary>Field : "Created At" Tipo: "OD" Formula:  ""</summary>
+		public DateTime ValCreated_at
+		{
+			get { return (DateTime)returnValueField(FldCreated_at); }
+			set { insertNameValueField(FldCreated_at, value); }
+		}
+
+		/// <summary>Field : "Created By" Tipo: "ON" Formula:  ""</summary>
+		public static FieldRef FldCreated_by { get { return m_fldCreated_by; } }
+		private static FieldRef m_fldCreated_by = new FieldRef("expense", "created_by");
+
+		/// <summary>Field : "Created By" Tipo: "ON" Formula:  ""</summary>
+		public string ValCreated_by
+		{
+			get { return (string)returnValueField(FldCreated_by); }
+			set { insertNameValueField(FldCreated_by, value); }
+		}
+
+		/// <summary>Field : "Updated By" Tipo: "EN" Formula:  ""</summary>
+		public static FieldRef FldUpdated_by { get { return m_fldUpdated_by; } }
+		private static FieldRef m_fldUpdated_by = new FieldRef("expense", "updated_by");
+
+		/// <summary>Field : "Updated By" Tipo: "EN" Formula:  ""</summary>
+		public string ValUpdated_by
+		{
+			get { return (string)returnValueField(FldUpdated_by); }
+			set { insertNameValueField(FldUpdated_by, value); }
 		}
 
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
@@ -308,7 +614,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX EXPENSE]/
 
  
-  
+              
 
 	}
 }

@@ -55,32 +55,6 @@ namespace CSGenio.business
             }
                 
 
-            /* --- MNTEXPENSE --- */
-            dm = sp.Execute(
-                new SelectQuery()
-                .Select(CSGenioAexpense.FldCodexpense)
-                .From(CSGenioAexpense.AreaEXPENSE)
-                .Where(CriteriaSet.And().In(CSGenioAexpense.FldZzstate, zzstateToRemove))
-                );
-
-            for (int i = 0; i < dm.NumRows; i++)
-            {
-                CSGenioAexpense model = new CSGenioAexpense(user);
-                model.ValCodexpense = dm.GetKey(i, 0);
-
-                try
-                {
-                    model.delete(sp);
-                }
-                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
-                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
-                catch(BusinessException ex)
-                {
-                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
-                }
-            }
-                
-
             /* --- MNTGROUP --- */
             dm = sp.Execute(
                 new SelectQuery()
@@ -405,6 +379,84 @@ namespace CSGenio.business
             {
                 CSGenioAsource model = new CSGenioAsource(user);
                 model.ValCodsource = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- MNTEXPENSE --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAexpense.FldCodexpense)
+                .From(CSGenioAexpense.AreaEXPENSE)
+                .Where(CriteriaSet.And().In(CSGenioAexpense.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAexpense model = new CSGenioAexpense(user);
+                model.ValCodexpense = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- MNTINCOME --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAincome.FldCodincome)
+                .From(CSGenioAincome.AreaINCOME)
+                .Where(CriteriaSet.And().In(CSGenioAincome.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAincome model = new CSGenioAincome(user);
+                model.ValCodincome = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- MNTINVESTMENT --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAinvestment.FldCodinvestment)
+                .From(CSGenioAinvestment.AreaINVESTMENT)
+                .Where(CriteriaSet.And().In(CSGenioAinvestment.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAinvestment model = new CSGenioAinvestment(user);
+                model.ValCodinvestment = dm.GetKey(i, 0);
 
                 try
                 {

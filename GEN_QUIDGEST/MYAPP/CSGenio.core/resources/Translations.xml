@@ -51,6 +51,9 @@
   <msg id="Notification ID" code="NOTIFICATION_ID25507">
     <ENUS>Notification ID</ENUS>
   </msg>
+  <msg id="Incomes" code="INCOMES07328">
+    <ENUS>Incomes</ENUS>
+  </msg>
   <msg id="Balance" code="BALANCE13297">
     <ENUS>Balance</ENUS>
   </msg>
@@ -140,6 +143,9 @@
   </msg>
   <msg id="Async process attachments" code="ASYNC_PROCESS_ATTACH04785">
     <ENUS>Async process attachments</ENUS>
+  </msg>
+  <msg id="Investment" code="INVESTMENT14761">
+    <ENUS>Investment</ENUS>
   </msg>
   <msg id="Em fila de espera" code="EM_FILA_DE_ESPERA21822">
     <ENUS>Em fila de espera</ENUS>
@@ -243,11 +249,17 @@
   <msg id="Created At" code="CREATED_AT09073">
     <ENUS>Created At</ENUS>
   </msg>
+  <msg id="Transaction" code="TRANSACTION51851">
+    <ENUS>Transaction</ENUS>
+  </msg>
   <msg id="Account" code="ACCOUNT64260">
     <ENUS>Account</ENUS>
   </msg>
   <msg id="Montepio" code="MONTEPIO14226">
     <ENUS>Montepio</ENUS>
+  </msg>
+  <msg id="ID" code="ID48520">
+    <ENUS>ID</ENUS>
   </msg>
   <msg id="Users Managment" code="USERS_MANAGMENT13226">
     <ENUS>Users Managment</ENUS>
@@ -273,6 +285,9 @@
   <msg id="Saves on DB?" code="SAVES_ON_DB_61384">
     <ENUS>Saves on DB?</ENUS>
   </msg>
+  <msg id="info" code="INFO02225">
+    <ENUS>info</ENUS>
+  </msg>
   <msg id="Process mode" code="PROCESS_MODE22419">
     <ENUS>Process mode</ENUS>
   </msg>
@@ -296,6 +311,9 @@
   </msg>
   <msg id="User Authorization" code="USER_AUTHORIZATION53599">
     <ENUS>User Authorization</ENUS>
+  </msg>
+  <msg id="Income" code="INCOME04695">
+    <ENUS>Income</ENUS>
   </msg>
   <msg id="Passwords" code="PASSWORDS52247">
     <ENUS>Passwords</ENUS>
@@ -429,6 +447,9 @@
   <msg id="Created on" code="CREATED_ON00051">
     <ENUS>Created on</ENUS>
   </msg>
+  <msg id="Invoice" code="INVOICE63068">
+    <ENUS>Invoice</ENUS>
+  </msg>
   <msg id="Birthday" code="BIRTHDAY30236">
     <ENUS>Birthday</ENUS>
   </msg>
@@ -485,6 +506,9 @@
   </msg>
   <msg id="Cancelar" code="CANCELAR49513">
     <ENUS>Cancelar</ENUS>
+  </msg>
+  <msg id="Investments" code="INVESTMENTS32097">
+    <ENUS>Investments</ENUS>
   </msg>
   <msg id="Expiration date" code="EXPIRATION_DATE34293">
     <ENUS>Expiration date</ENUS>

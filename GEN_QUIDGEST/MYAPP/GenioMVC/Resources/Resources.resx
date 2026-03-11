@@ -168,6 +168,9 @@
 	<data name="NOTIFICATION_ID25507" xml:space="preserve">
 		<value>Notification ID</value>
 	</data>
+	<data name="INCOMES07328" xml:space="preserve">
+		<value>Incomes</value>
+	</data>
 	<data name="BALANCE13297" xml:space="preserve">
 		<value>Balance</value>
 	</data>
@@ -257,6 +260,9 @@
 	</data>
 	<data name="ASYNC_PROCESS_ATTACH04785" xml:space="preserve">
 		<value>Async process attachments</value>
+	</data>
+	<data name="INVESTMENT14761" xml:space="preserve">
+		<value>Investment</value>
 	</data>
 	<data name="EM_FILA_DE_ESPERA21822" xml:space="preserve">
 		<value>Em fila de espera</value>
@@ -360,11 +366,17 @@
 	<data name="CREATED_AT09073" xml:space="preserve">
 		<value>Created At</value>
 	</data>
+	<data name="TRANSACTION51851" xml:space="preserve">
+		<value>Transaction</value>
+	</data>
 	<data name="ACCOUNT64260" xml:space="preserve">
 		<value>Account</value>
 	</data>
 	<data name="MONTEPIO14226" xml:space="preserve">
 		<value>Montepio</value>
+	</data>
+	<data name="ID48520" xml:space="preserve">
+		<value>ID</value>
 	</data>
 	<data name="USERS_MANAGMENT13226" xml:space="preserve">
 		<value>Users Managment</value>
@@ -390,6 +402,9 @@
 	<data name="SAVES_ON_DB_61384" xml:space="preserve">
 		<value>Saves on DB?</value>
 	</data>
+	<data name="INFO02225" xml:space="preserve">
+		<value>info</value>
+	</data>
 	<data name="PROCESS_MODE22419" xml:space="preserve">
 		<value>Process mode</value>
 	</data>
@@ -413,6 +428,9 @@
 	</data>
 	<data name="USER_AUTHORIZATION53599" xml:space="preserve">
 		<value>User Authorization</value>
+	</data>
+	<data name="INCOME04695" xml:space="preserve">
+		<value>Income</value>
 	</data>
 	<data name="PASSWORDS52247" xml:space="preserve">
 		<value>Passwords</value>
@@ -546,6 +564,9 @@
 	<data name="CREATED_ON00051" xml:space="preserve">
 		<value>Created on</value>
 	</data>
+	<data name="INVOICE63068" xml:space="preserve">
+		<value>Invoice</value>
+	</data>
 	<data name="BIRTHDAY30236" xml:space="preserve">
 		<value>Birthday</value>
 	</data>
@@ -602,6 +623,9 @@
 	</data>
 	<data name="CANCELAR49513" xml:space="preserve">
 		<value>Cancelar</value>
+	</data>
+	<data name="INVESTMENTS32097" xml:space="preserve">
+		<value>Investments</value>
 	</data>
 	<data name="EXPIRATION_DATE34293" xml:space="preserve">
 		<value>Expiration date</value>

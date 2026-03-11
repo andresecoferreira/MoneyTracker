@@ -79,6 +79,20 @@ export default function getMenusRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/MNT/menu/MNT_311',
+			name: 'menu-MNT_311',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_311/QMenuMnt311.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MNT',
+				order: '311',
+				baseArea: 'EXPENSE',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValExpense_id'],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/MNT/menu/MNT_1211',
 			name: 'menu-MNT_1211',
 			component: () => import('@/views/menus/ModuleMNT/MenuMNT_1211/QMenuMnt1211.vue'),
@@ -95,6 +109,20 @@ export default function getMenusRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/MNT/menu/MNT_321',
+			name: 'menu-MNT_321',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_321/QMenuMnt321.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MNT',
+				order: '321',
+				baseArea: 'INCOME',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValIncome_id'],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/MNT/menu/MNT_131',
 			name: 'menu-MNT_131',
 			component: () => import('@/views/menus/ModuleMNT/MenuMNT_131/QMenuMnt131.vue'),
@@ -105,6 +133,20 @@ export default function getMenusRoutes()
 				baseArea: 'MEMBER_PSW',
 				hasInitialPHE: false,
 				humanKeyFields: [],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/MNT/menu/MNT_331',
+			name: 'menu-MNT_331',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_331/QMenuMnt331.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MNT',
+				order: '331',
+				baseArea: 'INVESTMENT',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValInvestment_id'],
 				isPopup: false
 			}
 		},

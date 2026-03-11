@@ -54,6 +54,11 @@ public class SourceForm : Form
 	public BaseInputControl SourceBalance => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__BALANCE", "#SOURCE__SOURCE__BALANCE");
 
 	/// <summary>
+	/// 
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp05 => new CollapsibleZoneControl(driver, ContainerLocator, "#SOURCE__PSEUDNEWGRP05-container");
+
+	/// <summary>
 	/// Control
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp03 => new CollapsibleZoneControl(driver, ContainerLocator, "#SOURCE__PSEUDNEWGRP03-container");

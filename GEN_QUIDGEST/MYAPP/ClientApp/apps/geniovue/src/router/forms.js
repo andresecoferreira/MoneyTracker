@@ -28,6 +28,18 @@ export default function getFormsRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/:module/form/EXPENSE/:mode/:id?',
+			name: 'form-EXPENSE',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormExpense/QFormExpense.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'EXPENSE',
+				humanKeyFields: ['ValExpense_id'],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/:module/form/GROUP/:mode/:id?',
 			name: 'form-GROUP',
 			props: route => propsConverter(route),
@@ -37,6 +49,30 @@ export default function getFormsRoutes()
 				baseArea: 'GROUP',
 				humanKeyFields: ['ValName'],
 				isPopup: true
+			}
+		},
+		{
+			path: '/:culture/:system/:module/form/INCOME/:mode/:id?',
+			name: 'form-INCOME',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormIncome/QFormIncome.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'INCOME',
+				humanKeyFields: ['ValIncome_id'],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/:module/form/INVESTMENT/:mode/:id?',
+			name: 'form-INVESTMENT',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormInvestment/QFormInvestment.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'INVESTMENT',
+				humanKeyFields: ['ValInvestment_id'],
+				isPopup: false
 			}
 		},
 		{

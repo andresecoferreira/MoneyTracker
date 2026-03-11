@@ -27,6 +27,121 @@ namespace GenioMVC.Models
 		[ShouldSerialize("Expense.ValCodexpense")]
 		public string ValCodexpense { get { return klass.ValCodexpense; } set { klass.ValCodexpense = value; } }
 
+		[DisplayName("Id")]
+		/// <summary>Field : "Id" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValExpense_id")]
+		[NumericAttribute(0)]
+		public decimal? ValExpense_id { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValExpense_id, 0)); } set { klass.ValExpense_id = Convert.ToDecimal(value); } }
+
+		[DisplayName("Category")]
+		/// <summary>Field : "Category" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValCategory_id")]
+		public string ValCategory_id { get { return klass.ValCategory_id; } set { klass.ValCategory_id = value; } }
+
+		private Category _category;
+		[DisplayName("Category")]
+		[ShouldSerialize("Category")]
+		public virtual Category Category
+		{
+			get
+			{
+				if (!isEmptyModel && (_category == null || (!string.IsNullOrEmpty(ValCategory_id) && (_category.isEmptyModel || _category.klass.QPrimaryKey != ValCategory_id))))
+					_category = Models.Category.Find(ValCategory_id, m_userContext, Identifier, _fieldsToSerialize);
+				_category ??= new Models.Category(m_userContext, true, _fieldsToSerialize);
+				return _category;
+			}
+			set { _category = value; }
+		}
+
+		[DisplayName("Member")]
+		/// <summary>Field : "Member" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValMember_id")]
+		public string ValMember_id { get { return klass.ValMember_id; } set { klass.ValMember_id = value; } }
+
+		private Member _member;
+		[DisplayName("Member")]
+		[ShouldSerialize("Member")]
+		public virtual Member Member
+		{
+			get
+			{
+				if (!isEmptyModel && (_member == null || (!string.IsNullOrEmpty(ValMember_id) && (_member.isEmptyModel || _member.klass.QPrimaryKey != ValMember_id))))
+					_member = Models.Member.Find(ValMember_id, m_userContext, Identifier, _fieldsToSerialize);
+				_member ??= new Models.Member(m_userContext, true, _fieldsToSerialize);
+				return _member;
+			}
+			set { _member = value; }
+		}
+
+		[DisplayName("Account")]
+		/// <summary>Field : "Account" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValSource_id")]
+		public string ValSource_id { get { return klass.ValSource_id; } set { klass.ValSource_id = value; } }
+
+		private Source _source;
+		[DisplayName("Source")]
+		[ShouldSerialize("Source")]
+		public virtual Source Source
+		{
+			get
+			{
+				if (!isEmptyModel && (_source == null || (!string.IsNullOrEmpty(ValSource_id) && (_source.isEmptyModel || _source.klass.QPrimaryKey != ValSource_id))))
+					_source = Models.Source.Find(ValSource_id, m_userContext, Identifier, _fieldsToSerialize);
+				_source ??= new Models.Source(m_userContext, true, _fieldsToSerialize);
+				return _source;
+			}
+			set { _source = value; }
+		}
+
+		[DisplayName("Value")]
+		/// <summary>Field : "Value" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValValue")]
+		[NumericAttribute(0)]
+		public decimal? ValValue { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValValue, 0)); } set { klass.ValValue = Convert.ToDecimal(value); } }
+
+		[DisplayName("Description")]
+		/// <summary>Field : "Description" Tipo: "C" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValDescription")]
+		public string ValDescription { get { return klass.ValDescription; } set { klass.ValDescription = value; } }
+
+		[DisplayName("Date")]
+		/// <summary>Field : "Date" Tipo: "D" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValDate")]
+		[DataType(DataType.Date)]
+		[DateAttribute("D")]
+		public DateTime? ValDate { get { return klass.ValDate; } set { klass.ValDate = value ?? DateTime.MinValue; } }
+
+		[DisplayName("Invoice")]
+		/// <summary>Field : "Invoice" Tipo: "IB" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValInvoice")]
+		[Document("ValInvoice", false, false, false)]
+		public string ValInvoice { get { return klass.ValInvoice; } set { klass.ValInvoice = value; } }
+		public string ValInvoicefk { get { return klass.ValInvoicefk; } set { klass.ValInvoicefk = value; } }
+
+		[DisplayName("Updated At")]
+		/// <summary>Field : "Updated At" Tipo: "ED" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValUpdated_at")]
+		[DataType(DataType.Date)]
+		[DateAttribute("ED")]
+		public DateTime? ValUpdated_at { get { return klass.ValUpdated_at; } set { klass.ValUpdated_at = value ?? DateTime.MinValue;  } }
+
+		[DisplayName("Created At")]
+		/// <summary>Field : "Created At" Tipo: "OD" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValCreated_at")]
+		[DataType(DataType.Date)]
+		[DateAttribute("OD")]
+		public DateTime? ValCreated_at { get { return klass.ValCreated_at; } set { klass.ValCreated_at = value ?? DateTime.Now;  } }
+
+		[DisplayName("Created By")]
+		/// <summary>Field : "Created By" Tipo: "ON" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValCreated_by")]
+		public string ValCreated_by { get { return klass.ValCreated_by; } set { klass.ValCreated_by = value; } }
+
+		[DisplayName("Updated By")]
+		/// <summary>Field : "Updated By" Tipo: "EN" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValUpdated_by")]
+		public string ValUpdated_by { get { return klass.ValUpdated_by; } set { klass.ValUpdated_by = value; } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Expense.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
@@ -58,6 +173,18 @@ namespace GenioMVC.Models
 			{
 				switch (Qfield.Area)
 				{
+					case "category":
+						_category ??= new Category(m_userContext, true, _fieldsToSerialize);
+						_category.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
+					case "member":
+						_member ??= new Member(m_userContext, true, _fieldsToSerialize);
+						_member.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
+					case "source":
+						_source ??= new Source(m_userContext, true, _fieldsToSerialize);
+						_source.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
 					default:
 						break;
 				}
