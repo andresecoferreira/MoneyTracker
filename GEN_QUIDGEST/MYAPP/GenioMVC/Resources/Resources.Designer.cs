@@ -810,6 +810,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Users Managment"
+		/// </summary>
+		public static string USERS_MANAGMENT13226 {
+			get {
+				return ResourceManager.GetString("USERS_MANAGMENT13226", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Description"
 		/// </summary>
 		public static string DESCRIPTION07383 {
@@ -1035,6 +1044,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Categories Managment"
+		/// </summary>
+		public static string CATEGORIES_MANAGMENT14051 {
+			get {
+				return ResourceManager.GetString("CATEGORIES_MANAGMENT14051", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Horário"
 		/// </summary>
 		public static string HORARIO56549 {
@@ -1058,6 +1076,15 @@ namespace GenioMVC.Resources
 		public static string HTML_FORMAT_60293 {
 			get {
 				return ResourceManager.GetString("HTML_FORMAT_60293", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Group Management"
+		/// </summary>
+		public static string GROUP_MANAGEMENT53232 {
+			get {
+				return ResourceManager.GetString("GROUP_MANAGEMENT53232", resourceCulture);
 			}
 		}
 

@@ -366,6 +366,9 @@
 	<data name="MONTEPIO14226" xml:space="preserve">
 		<value>Montepio</value>
 	</data>
+	<data name="USERS_MANAGMENT13226" xml:space="preserve">
+		<value>Users Managment</value>
+	</data>
 	<data name="DESCRIPTION07383" xml:space="preserve">
 		<value>Description</value>
 	</data>
@@ -441,6 +444,9 @@
 	<data name="INDIVIDUAL42893" xml:space="preserve">
 		<value>Individual</value>
 	</data>
+	<data name="CATEGORIES_MANAGMENT14051" xml:space="preserve">
+		<value>Categories Managment</value>
+	</data>
 	<data name="HORARIO56549" xml:space="preserve">
 		<value>Horário</value>
 	</data>
@@ -449,6 +455,9 @@
 	</data>
 	<data name="HTML_FORMAT_60293" xml:space="preserve">
 		<value>HTML format?</value>
+	</data>
+	<data name="GROUP_MANAGEMENT53232" xml:space="preserve">
+		<value>Group Management</value>
 	</data>
 	<data name="TYPE00312" xml:space="preserve">
 		<value>Type</value>

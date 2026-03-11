@@ -249,6 +249,9 @@
   <msg id="Montepio" code="MONTEPIO14226">
     <ENUS>Montepio</ENUS>
   </msg>
+  <msg id="Users Managment" code="USERS_MANAGMENT13226">
+    <ENUS>Users Managment</ENUS>
+  </msg>
   <msg id="Description" code="DESCRIPTION07383">
     <ENUS>Description</ENUS>
   </msg>
@@ -324,6 +327,9 @@
   <msg id="Individual" code="INDIVIDUAL42893">
     <ENUS>Individual</ENUS>
   </msg>
+  <msg id="Categories Managment" code="CATEGORIES_MANAGMENT14051">
+    <ENUS>Categories Managment</ENUS>
+  </msg>
   <msg id="Horário" code="HORARIO56549">
     <ENUS>Horário</ENUS>
   </msg>
@@ -332,6 +338,9 @@
   </msg>
   <msg id="HTML format?" code="HTML_FORMAT_60293">
     <ENUS>HTML format?</ENUS>
+  </msg>
+  <msg id="Group Management" code="GROUP_MANAGEMENT53232">
+    <ENUS>Group Management</ENUS>
   </msg>
   <msg id="Type" code="TYPE00312">
     <ENUS>Type</ENUS>
