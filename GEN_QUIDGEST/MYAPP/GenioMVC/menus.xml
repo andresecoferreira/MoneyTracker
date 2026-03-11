@@ -28,5 +28,11 @@
         </MENU>
       </MENU>
     </MENU>
+    <MENU TYPE="ITEM" DESC="ACCOUNTS54906" SIGLA="💲" ID="2" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="2" DEFAULTACTION="">
+      <ACCESS>50</ACCESS>
+      <MENU TYPE="ITEM" DESC="ACCOUNTS54906" ID="21" PRTID="2" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_21" ACTVUE="menu-MNT_21" CONT="SOURCE" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="21">
+        <MENU TYPE="ITEM" ID="211" PRTID="21" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="211" />
+      </MENU>
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>
