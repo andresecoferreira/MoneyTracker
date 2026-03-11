@@ -42,26 +42,26 @@ public class MNT_Menu_331_RowViewModel : Models.Investment
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "INVESTMENT",
-				Field = "TYPE_ID",
+				Area = "CATEGORY_TYPE",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "INVESTMENT",
-				Field = "CATEGORY_ID",
+				Area = "CATEGORY",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 4,
-				Area = "INVESTMENT",
-				Field = "VALUE",
+				Area = "MEMBER",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 5,
-				Area = "MEMBER",
-				Field = "NAME",
+				Area = "INVESTMENT",
+				Field = "VALUE",
 			},
 		];
 	}

@@ -42,26 +42,26 @@ public class MNT_Menu_311_RowViewModel : Models.Expense
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "EXPENSE",
-				Field = "TYPE_ID",
+				Area = "CATEGORY_TYPE",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "EXPENSE",
-				Field = "CATEGORY_ID",
+				Area = "CATEGORY",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 4,
-				Area = "EXPENSE",
-				Field = "VALUE",
+				Area = "MEMBER",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 5,
 				Area = "EXPENSE",
-				Field = "MEMBER_ID",
+				Field = "VALUE",
 			},
 		];
 	}

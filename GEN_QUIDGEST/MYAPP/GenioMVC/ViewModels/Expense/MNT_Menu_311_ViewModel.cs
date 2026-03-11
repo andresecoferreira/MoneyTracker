@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Expense
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAexpense.FldCodexpense, CSGenioAexpense.FldZzstate, CSGenioAexpense.FldExpense_id, CSGenioAexpense.FldType_id, CSGenioAexpense.FldCategory_id, CSGenioAexpense.FldValue, CSGenioAexpense.FldMember_id };
+			FieldRef[] fields = new FieldRef[] { CSGenioAexpense.FldCodexpense, CSGenioAexpense.FldZzstate, CSGenioAexpense.FldExpense_id, CSGenioAexpense.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAexpense.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAexpense.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAexpense.FldValue };
 
 			ListingMVC<CSGenioAexpense> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -147,10 +147,10 @@ namespace GenioMVC.ViewModels.Expense
 			return
 			[
 				new Exports.QColumn(CSGenioAexpense.FldExpense_id, FieldType.NUMERIC, Resources.Resources.ID36840, 6, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldType_id, FieldType.KEY_INT, Resources.Resources.CATEGORY_TYPE34342, 8, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldCategory_id, FieldType.KEY_INT, Resources.Resources.CATEGORY18978, 8, 0, true),
+				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.CATEGORY_TYPE34342, 20, 0, true),
+				new Exports.QColumn(CSGenioAcategory.FldName, FieldType.TEXT, Resources.Resources.CATEGORY18978, 20, 0, true),
+				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.MEMBER00534, 30, 0, true),
 				new Exports.QColumn(CSGenioAexpense.FldValue, FieldType.NUMERIC, Resources.Resources.VALUE10285, 12, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldMember_id, FieldType.KEY_INT, Resources.Resources.MEMBER00534, 8, 0, true),
 			];
 		}
 
@@ -326,7 +326,7 @@ namespace GenioMVC.ViewModels.Expense
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "expense", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAexpense.FldCodexpense, CSGenioAexpense.FldZzstate, CSGenioAexpense.FldExpense_id, CSGenioAexpense.FldType_id, CSGenioAexpense.FldCategory_id, CSGenioAexpense.FldValue, CSGenioAexpense.FldMember_id };
+			FieldRef[] fields = new FieldRef[] { CSGenioAexpense.FldCodexpense, CSGenioAexpense.FldZzstate, CSGenioAexpense.FldExpense_id, CSGenioAexpense.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAexpense.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAexpense.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAexpense.FldValue };
 
 
 			// Totalizers
@@ -472,6 +472,12 @@ namespace GenioMVC.ViewModels.Expense
 				{
 					case "expense":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
+					case "category_type":
+						model.Category_type.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
+					case "category":
+						model.Category.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
+					case "member":
+						model.Member.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
@@ -523,16 +529,16 @@ namespace GenioMVC.ViewModels.Expense
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Expense", "Expense.ValCodexpense", "Expense.ValZzstate", "Expense.ValExpense_id", "Expense.ValType_id", "Expense.ValCategory_id", "Expense.ValValue", "Expense.ValMember_id", "Expense.ValSource_id"
+			"Expense", "Expense.ValCodexpense", "Expense.ValZzstate", "Expense.ValExpense_id", "Category_type", "Category_type.ValName", "Category", "Category.ValName", "Member", "Member.ValName", "Expense.ValValue", "Expense.ValCategory_id", "Expense.ValType_id", "Expense.ValMember_id", "Expense.ValSource_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
 			new TableSearchColumn("ValExpense_id", CSGenioAexpense.FldExpense_id, typeof(decimal?), defaultSearch : true),
-			new TableSearchColumn("ValType_id", CSGenioAexpense.FldType_id, typeof(string)),
-			new TableSearchColumn("ValCategory_id", CSGenioAexpense.FldCategory_id, typeof(string)),
+			new TableSearchColumn("Category_type_ValName", CSGenioAcategory_type.FldName, typeof(string)),
+			new TableSearchColumn("Category_ValName", CSGenioAcategory.FldName, typeof(string)),
+			new TableSearchColumn("Member_ValName", CSGenioAmember.FldName, typeof(string)),
 			new TableSearchColumn("ValValue", CSGenioAexpense.FldValue, typeof(decimal?)),
-			new TableSearchColumn("ValMember_id", CSGenioAexpense.FldMember_id, typeof(string)),
 		];
 	}
 }

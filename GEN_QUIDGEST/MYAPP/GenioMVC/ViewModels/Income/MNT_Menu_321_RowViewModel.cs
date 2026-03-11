@@ -42,26 +42,26 @@ public class MNT_Menu_321_RowViewModel : Models.Income
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "INCOME",
-				Field = "TYPE_ID",
+				Area = "CATEGORY_TYPE",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "INCOME",
-				Field = "CATEGORY_ID",
+				Area = "CATEGORY",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 4,
-				Area = "INCOME",
-				Field = "VALUE",
+				Area = "MEMBER",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 5,
 				Area = "INCOME",
-				Field = "MEMBER_ID",
+				Field = "VALUE",
 			},
 		];
 	}

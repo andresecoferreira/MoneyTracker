@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Investment
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldType_id, CSGenioAinvestment.FldCategory_id, CSGenioAinvestment.FldValue, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAinvestment.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAinvestment.FldValue };
 
 			ListingMVC<CSGenioAinvestment> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -147,10 +147,10 @@ namespace GenioMVC.ViewModels.Investment
 			return
 			[
 				new Exports.QColumn(CSGenioAinvestment.FldInvestment_id, FieldType.NUMERIC, Resources.Resources.ID36840, 6, 0, true),
-				new Exports.QColumn(CSGenioAinvestment.FldType_id, FieldType.KEY_INT, Resources.Resources.CATEGORY_TYPE34342, 8, 0, true),
-				new Exports.QColumn(CSGenioAinvestment.FldCategory_id, FieldType.KEY_INT, Resources.Resources.CATEGORY18978, 8, 0, true),
-				new Exports.QColumn(CSGenioAinvestment.FldValue, FieldType.NUMERIC, Resources.Resources.VALUE10285, 12, 0, true),
+				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.CATEGORY_TYPE34342, 20, 0, true),
+				new Exports.QColumn(CSGenioAcategory.FldName, FieldType.TEXT, Resources.Resources.CATEGORY18978, 20, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
+				new Exports.QColumn(CSGenioAinvestment.FldValue, FieldType.NUMERIC, Resources.Resources.VALUE10285, 12, 0, true),
 			];
 		}
 
@@ -326,7 +326,7 @@ namespace GenioMVC.ViewModels.Investment
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "investment", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldType_id, CSGenioAinvestment.FldCategory_id, CSGenioAinvestment.FldValue, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAinvestment.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAinvestment.FldValue };
 
 
 			// Totalizers
@@ -472,6 +472,10 @@ namespace GenioMVC.ViewModels.Investment
 				{
 					case "investment":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
+					case "category_type":
+						model.Category_type.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
+					case "category":
+						model.Category.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					case "member":
 						model.Member.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
@@ -525,16 +529,16 @@ namespace GenioMVC.ViewModels.Investment
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Investment", "Investment.ValCodinvestment", "Investment.ValZzstate", "Investment.ValInvestment_id", "Investment.ValType_id", "Investment.ValCategory_id", "Investment.ValValue", "Member", "Member.ValName", "Investment.ValMember_id", "Investment.ValSource_id"
+			"Investment", "Investment.ValCodinvestment", "Investment.ValZzstate", "Investment.ValInvestment_id", "Category_type", "Category_type.ValName", "Category", "Category.ValName", "Member", "Member.ValName", "Investment.ValValue", "Investment.ValCategory_id", "Investment.ValType_id", "Investment.ValMember_id", "Investment.ValSource_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
 			new TableSearchColumn("ValInvestment_id", CSGenioAinvestment.FldInvestment_id, typeof(decimal?), defaultSearch : true),
-			new TableSearchColumn("ValType_id", CSGenioAinvestment.FldType_id, typeof(string)),
-			new TableSearchColumn("ValCategory_id", CSGenioAinvestment.FldCategory_id, typeof(string)),
-			new TableSearchColumn("ValValue", CSGenioAinvestment.FldValue, typeof(decimal?)),
+			new TableSearchColumn("Category_type_ValName", CSGenioAcategory_type.FldName, typeof(string)),
+			new TableSearchColumn("Category_ValName", CSGenioAcategory.FldName, typeof(string)),
 			new TableSearchColumn("Member_ValName", CSGenioAmember.FldName, typeof(string)),
+			new TableSearchColumn("ValValue", CSGenioAinvestment.FldValue, typeof(decimal?)),
 		];
 	}
 }
