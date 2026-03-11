@@ -37,22 +37,18 @@ namespace GenioMVC.ViewModels.Source
 
 		#endregion
 		/// <summary>
-		/// Title: "Title" | Type: "C"
+		/// Title: "Type" | Type: "AC"
 		/// </summary>
-		public string ValTitle { get; set; }
+		public string ValType { get; set; }
 		/// <summary>
 		/// Title: "Owner" | Type: "C"
 		/// </summary>
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Member> TableMemberName { get; set; }
 		/// <summary>
-		/// Title: "Type" | Type: "AC"
+		/// Title: "Title" | Type: "C"
 		/// </summary>
-		public string ValType { get; set; }
-		/// <summary>
-		/// Title: "Balance" | Type: "N"
-		/// </summary>
-		public decimal? ValBalance { get; set; }
+		public string ValTitle { get; set; }
 		/// <summary>
 		/// Title: "Bank" | Type: "AC"
 		/// </summary>
@@ -61,6 +57,30 @@ namespace GenioMVC.ViewModels.Source
 		/// Title: "Account Number" | Type: "C"
 		/// </summary>
 		public string ValAccount_number { get; set; }
+		/// <summary>
+		/// Title: "Balance" | Type: "N"
+		/// </summary>
+		public decimal? ValBalance { get; set; }
+		/// <summary>
+		/// Title: "Created At" | Type: "OD"
+		/// </summary>
+		[ValidateSetAccess]
+		public DateTime? ValCreated_at { get; set; }
+		/// <summary>
+		/// Title: "Created By" | Type: "ON"
+		/// </summary>
+		[ValidateSetAccess]
+		public string ValCreated_by { get; set; }
+		/// <summary>
+		/// Title: "Updated At" | Type: "ED"
+		/// </summary>
+		[ValidateSetAccess]
+		public DateTime? ValUpdated_at { get; set; }
+		/// <summary>
+		/// Title: "Updated By" | Type: "EN"
+		/// </summary>
+		[ValidateSetAccess]
+		public string ValUpdated_by { get; set; }
 
 		#region Navigations
 		#endregion
@@ -193,11 +213,15 @@ namespace GenioMVC.ViewModels.Source
 			try
 			{
 				ValMember_id = ViewModelConversion.ToString(m.ValMember_id);
-				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValType = ViewModelConversion.ToString(m.ValType);
-				ValBalance = ViewModelConversion.ToNumeric(m.ValBalance);
+				ValTitle = ViewModelConversion.ToString(m.ValTitle);
 				ValBank = ViewModelConversion.ToString(m.ValBank);
 				ValAccount_number = ViewModelConversion.ToString(m.ValAccount_number);
+				ValBalance = ViewModelConversion.ToNumeric(m.ValBalance);
+				ValCreated_at = ViewModelConversion.ToDateTime(m.ValCreated_at);
+				ValCreated_by = ViewModelConversion.ToString(m.ValCreated_by);
+				ValUpdated_at = ViewModelConversion.ToDateTime(m.ValUpdated_at);
+				ValUpdated_by = ViewModelConversion.ToString(m.ValUpdated_by);
 				ValCodsource = ViewModelConversion.ToString(m.ValCodsource);
 			}
 			catch (Exception)
@@ -225,12 +249,24 @@ namespace GenioMVC.ViewModels.Source
 			try
 			{
 				m.ValMember_id = ViewModelConversion.ToString(ValMember_id);
-				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValType = ViewModelConversion.ToString(ValType);
-				m.ValBalance = ViewModelConversion.ToNumeric(ValBalance);
+				m.ValTitle = ViewModelConversion.ToString(ValTitle);
 				m.ValBank = ViewModelConversion.ToString(ValBank);
 				m.ValAccount_number = ViewModelConversion.ToString(ValAccount_number);
+				m.ValBalance = ViewModelConversion.ToNumeric(ValBalance);
 				m.ValCodsource = ViewModelConversion.ToString(ValCodsource);
+
+				/*
+					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
+						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
+				*/
+				if (!HasDisabledUserValuesSecurity)
+					return;
+
+				m.ValCreated_at = ViewModelConversion.ToDateTime(ValCreated_at);
+				m.ValCreated_by = ViewModelConversion.ToString(ValCreated_by);
+				m.ValUpdated_at = ViewModelConversion.ToDateTime(ValUpdated_at);
+				m.ValUpdated_by = ViewModelConversion.ToString(ValUpdated_by);
 			}
 			catch (Exception)
 			{
@@ -258,20 +294,20 @@ namespace GenioMVC.ViewModels.Source
 					case "source.member_id":
 						this.ValMember_id = ViewModelConversion.ToString(_value);
 						break;
-					case "source.title":
-						this.ValTitle = ViewModelConversion.ToString(_value);
-						break;
 					case "source.type":
 						this.ValType = ViewModelConversion.ToString(_value);
 						break;
-					case "source.balance":
-						this.ValBalance = ViewModelConversion.ToNumeric(_value);
+					case "source.title":
+						this.ValTitle = ViewModelConversion.ToString(_value);
 						break;
 					case "source.bank":
 						this.ValBank = ViewModelConversion.ToString(_value);
 						break;
 					case "source.account_number":
 						this.ValAccount_number = ViewModelConversion.ToString(_value);
+						break;
+					case "source.balance":
+						this.ValBalance = ViewModelConversion.ToNumeric(_value);
 						break;
 					case "source.codsource":
 						this.ValCodsource = ViewModelConversion.ToString(_value);
@@ -401,14 +437,14 @@ namespace GenioMVC.ViewModels.Source
 
 
 			validator.Required("ValMember_id", Resources.Resources.OWNER09558, ViewModelConversion.ToString(ValMember_id), FieldType.KEY_INT.GetFormatting());
+
+			validator.Required("ValType", Resources.Resources.TYPE00312, ViewModelConversion.ToString(ValType), FieldType.ARRAY_TEXT.GetFormatting());
 			validator.StringLength("ValTitle", Resources.Resources.TITLE21885, ValTitle, 50);
 
 			validator.Required("ValTitle", Resources.Resources.TITLE21885, ViewModelConversion.ToString(ValTitle), FieldType.TEXT.GetFormatting());
-
-			validator.Required("ValType", Resources.Resources.TYPE00312, ViewModelConversion.ToString(ValType), FieldType.ARRAY_TEXT.GetFormatting());
+			validator.StringLength("ValAccount_number", Resources.Resources.ACCOUNT_NUMBER58504, ValAccount_number, 20);
 
 			validator.Required("ValBalance", Resources.Resources.BALANCE13297, ViewModelConversion.ToNumeric(ValBalance), FieldType.NUMERIC.GetFormatting());
-			validator.StringLength("ValAccount_number", Resources.Resources.ACCOUNT_NUMBER58504, ValAccount_number, 20);
 
 
 			return validator.GetResult();
@@ -647,11 +683,15 @@ namespace GenioMVC.ViewModels.Source
 			return identifier switch
 			{
 				"source.member_id" => ViewModelConversion.ToString(modelValue),
-				"source.title" => ViewModelConversion.ToString(modelValue),
 				"source.type" => ViewModelConversion.ToString(modelValue),
-				"source.balance" => ViewModelConversion.ToNumeric(modelValue),
+				"source.title" => ViewModelConversion.ToString(modelValue),
 				"source.bank" => ViewModelConversion.ToString(modelValue),
 				"source.account_number" => ViewModelConversion.ToString(modelValue),
+				"source.balance" => ViewModelConversion.ToNumeric(modelValue),
+				"source.created_at" => ViewModelConversion.ToDateTime(modelValue),
+				"source.created_by" => ViewModelConversion.ToString(modelValue),
+				"source.updated_at" => ViewModelConversion.ToDateTime(modelValue),
+				"source.updated_by" => ViewModelConversion.ToString(modelValue),
 				"source.codsource" => ViewModelConversion.ToString(modelValue),
 				"member.codmember" => ViewModelConversion.ToString(modelValue),
 				"member.name" => ViewModelConversion.ToString(modelValue),

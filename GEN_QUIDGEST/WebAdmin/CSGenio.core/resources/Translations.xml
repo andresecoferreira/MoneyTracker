@@ -9,6 +9,9 @@
   <msg id="Desautorizado" code="DESAUTORIZADO34584">
     <ENUS>Desautorizado</ENUS>
   </msg>
+  <msg id="New Group" code="NEW_GROUP63448">
+    <ENUS>New Group</ENUS>
+  </msg>
   <msg id="Async process attachment" code="ASYNC_PROCESS_ATTACH34417">
     <ENUS>Async process attachment</ENUS>
   </msg>
@@ -62,6 +65,9 @@
   </msg>
   <msg id="Value" code="VALUE10285">
     <ENUS>Value</ENUS>
+  </msg>
+  <msg id="Info" code="INFO27076">
+    <ENUS>Info</ENUS>
   </msg>
   <msg id="Date" code="DATE18475">
     <ENUS>Date</ENUS>
@@ -156,6 +162,9 @@
   <msg id="Sends attachment?" code="SENDS_ATTACHMENT_64661">
     <ENUS>Sends attachment?</ENUS>
   </msg>
+  <msg id="Details" code="DETAILS19591">
+    <ENUS>Details</ENUS>
+  </msg>
   <msg id="Sucesso" code="SUCESSO65230">
     <ENUS>Sucesso</ENUS>
   </msg>
@@ -230,6 +239,9 @@
   </msg>
   <msg id="Group" code="GROUP38232">
     <ENUS>Group</ENUS>
+  </msg>
+  <msg id="Created At" code="CREATED_AT09073">
+    <ENUS>Created At</ENUS>
   </msg>
   <msg id="Account" code="ACCOUNT64260">
     <ENUS>Account</ENUS>
@@ -330,6 +342,9 @@
   <msg id="SOURCES" code="SOURCES41454">
     <ENUS>SOURCES</ENUS>
   </msg>
+  <msg id="Created By" code="CREATED_BY58035">
+    <ENUS>Created By</ENUS>
+  </msg>
   <msg id="Member_PSW" code="MEMBER_PSW31555">
     <ENUS>Member_PSW</ENUS>
   </msg>
@@ -417,6 +432,9 @@
   <msg id="Password type" code="PASSWORD_TYPE03035">
     <ENUS>Password type</ENUS>
   </msg>
+  <msg id="Updated At" code="UPDATED_AT48366">
+    <ENUS>Updated At</ENUS>
+  </msg>
   <msg id="System" code="SYSTEM02957">
     <ENUS>System</ENUS>
   </msg>
@@ -438,11 +456,17 @@
   <msg id="Percentage" code="PERCENTAGE57728">
     <ENUS>Percentage</ENUS>
   </msg>
+  <msg id="Updated By" code="UPDATED_BY38656">
+    <ENUS>Updated By</ENUS>
+  </msg>
   <msg id="Username" code="USERNAME51409">
     <ENUS>Username</ENUS>
   </msg>
   <msg id="Sender" code="SENDER07671">
     <ENUS>Sender</ENUS>
+  </msg>
+  <msg id="Control" code="CONTROL15481">
+    <ENUS>Control</ENUS>
   </msg>
   <msg id="Unidade orgânica" code="UNIDADE_ORGANICA38383">
     <ENUS>Unidade orgânica</ENUS>
@@ -8678,9 +8702,6 @@
   </msg>
   <msg id="Schema" code="SCHEMA58822">
     <ENUS>Schema</ENUS>
-  </msg>
-  <msg id="Info" code="INFO27076">
-    <ENUS>Info</ENUS>
   </msg>
   <msg id="The reindex task is already stopped!" code="THE_REINDEX_TASK_IS_22139">
     <ENUS>The reindex task is already stopped!</ENUS>

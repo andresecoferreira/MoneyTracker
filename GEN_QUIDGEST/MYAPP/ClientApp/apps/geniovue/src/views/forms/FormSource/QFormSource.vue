@@ -96,114 +96,225 @@
 			data-key="SOURCE"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.SOURCE__SOURCE__TITLE.isVisible">
-					<q-col
-						v-if="controls.SOURCE__SOURCE__TITLE.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.SOURCE__SOURCE__TITLE.isVisible"
-							class="i-text"
-							v-bind="controls.SOURCE__SOURCE__TITLE"
-							v-on="controls.SOURCE__SOURCE__TITLE.handlers"
-							:loading="controls.SOURCE__SOURCE__TITLE.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.SOURCE__SOURCE__TITLE.props"
-								@blur="onBlur(controls.SOURCE__SOURCE__TITLE, model.ValTitle.value)"
-								@change="model.ValTitle.fnUpdateValueOnChange" />
-						</base-input-structure>
+				<q-row v-if="controls.SOURCE__PSEUDNEWGRP04.isVisible">
+					<q-col v-if="controls.SOURCE__PSEUDNEWGRP04.isVisible">
+						<q-accordion
+							v-if="controls.SOURCE__PSEUDNEWGRP04.isVisible"
+							id="SOURCE__PSEUDNEWGRP04"
+							v-model="controls.SOURCE__PSEUDNEWGRP04.openChild">
+							<!-- Start SOURCE__PSEUDNEWGRP04 -->
+							<q-accordion-item
+								v-if="controls.SOURCE__PSEUDNEWGRP01.isVisible"
+								id="SOURCE__PSEUDNEWGRP01-container"
+								value="SOURCE__PSEUDNEWGRP01"
+								:title="controls.SOURCE__PSEUDNEWGRP01.label">
+								<!-- Start SOURCE__PSEUDNEWGRP01 -->
+								<q-row v-if="controls.SOURCE__SOURCE__TYPE.isVisible || controls.SOURCE__MEMBER__NAME.isVisible">
+									<q-col
+										v-if="controls.SOURCE__SOURCE__TYPE.isVisible || controls.SOURCE__MEMBER__NAME.isVisible"
+										cols="auto">
+										<base-input-structure
+											v-if="controls.SOURCE__SOURCE__TYPE.isVisible"
+											class="i-text"
+											v-bind="controls.SOURCE__SOURCE__TYPE"
+											v-on="controls.SOURCE__SOURCE__TYPE.handlers"
+											:loading="controls.SOURCE__SOURCE__TYPE.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-select
+												v-if="controls.SOURCE__SOURCE__TYPE.isVisible"
+												v-bind="controls.SOURCE__SOURCE__TYPE.props"
+												@update:model-value="model.ValType.fnUpdateValue" />
+										</base-input-structure>
+										<base-input-structure
+											v-if="controls.SOURCE__MEMBER__NAME.isVisible"
+											class="i-text"
+											v-bind="controls.SOURCE__MEMBER__NAME"
+											v-on="controls.SOURCE__MEMBER__NAME.handlers"
+											:loading="controls.SOURCE__MEMBER__NAME.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-lookup
+												v-if="controls.SOURCE__MEMBER__NAME.isVisible"
+												v-bind="controls.SOURCE__MEMBER__NAME.props"
+												v-on="controls.SOURCE__MEMBER__NAME.handlers" />
+											<q-see-more-source-member-name
+												v-if="controls.SOURCE__MEMBER__NAME.seeMoreIsVisible"
+												v-bind="controls.SOURCE__MEMBER__NAME.seeMoreParams"
+												v-on="controls.SOURCE__MEMBER__NAME.handlers" />
+										</base-input-structure>
+									</q-col>
+								</q-row>
+								<q-row v-if="controls.SOURCE__SOURCE__TITLE.isVisible">
+									<q-col
+										v-if="controls.SOURCE__SOURCE__TITLE.isVisible"
+										cols="auto">
+										<base-input-structure
+											v-if="controls.SOURCE__SOURCE__TITLE.isVisible"
+											class="i-text"
+											v-bind="controls.SOURCE__SOURCE__TITLE"
+											v-on="controls.SOURCE__SOURCE__TITLE.handlers"
+											:loading="controls.SOURCE__SOURCE__TITLE.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-text-field
+												v-bind="controls.SOURCE__SOURCE__TITLE.props"
+												@blur="onBlur(controls.SOURCE__SOURCE__TITLE, model.ValTitle.value)"
+												@change="model.ValTitle.fnUpdateValueOnChange" />
+										</base-input-structure>
+									</q-col>
+								</q-row>
+								<!-- End SOURCE__PSEUDNEWGRP01 -->
+							</q-accordion-item>
+							<q-accordion-item
+								v-if="controls.SOURCE__PSEUDNEWGRP02.isVisible"
+								id="SOURCE__PSEUDNEWGRP02-container"
+								value="SOURCE__PSEUDNEWGRP02"
+								:title="controls.SOURCE__PSEUDNEWGRP02.label">
+								<!-- Start SOURCE__PSEUDNEWGRP02 -->
+								<q-row v-if="controls.SOURCE__SOURCE__BANK.isVisible || controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible">
+									<q-col
+										v-if="controls.SOURCE__SOURCE__BANK.isVisible"
+										cols="auto">
+										<base-input-structure
+											v-if="controls.SOURCE__SOURCE__BANK.isVisible"
+											class="i-text"
+											v-bind="controls.SOURCE__SOURCE__BANK"
+											v-on="controls.SOURCE__SOURCE__BANK.handlers"
+											:loading="controls.SOURCE__SOURCE__BANK.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-select
+												v-if="controls.SOURCE__SOURCE__BANK.isVisible"
+												v-bind="controls.SOURCE__SOURCE__BANK.props"
+												@update:model-value="model.ValBank.fnUpdateValue" />
+										</base-input-structure>
+									</q-col>
+									<q-col
+										v-if="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible"
+										cols="auto">
+										<base-input-structure
+											v-if="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible"
+											class="i-text"
+											v-bind="controls.SOURCE__SOURCE__ACCOUNT_NUMBER"
+											v-on="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.handlers"
+											:loading="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-text-field
+												v-bind="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.props"
+												@blur="onBlur(controls.SOURCE__SOURCE__ACCOUNT_NUMBER, model.ValAccount_number.value)"
+												@change="model.ValAccount_number.fnUpdateValueOnChange" />
+										</base-input-structure>
+									</q-col>
+								</q-row>
+								<q-row v-if="controls.SOURCE__SOURCE__BALANCE.isVisible">
+									<q-col
+										v-if="controls.SOURCE__SOURCE__BALANCE.isVisible"
+										cols="auto">
+										<base-input-structure
+											v-if="controls.SOURCE__SOURCE__BALANCE.isVisible"
+											class="i-text"
+											v-bind="controls.SOURCE__SOURCE__BALANCE"
+											v-on="controls.SOURCE__SOURCE__BALANCE.handlers"
+											:loading="controls.SOURCE__SOURCE__BALANCE.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-numeric-input
+												v-if="controls.SOURCE__SOURCE__BALANCE.isVisible"
+												v-bind="controls.SOURCE__SOURCE__BALANCE.props"
+												@update:model-value="model.ValBalance.fnUpdateValue" />
+										</base-input-structure>
+									</q-col>
+								</q-row>
+								<!-- End SOURCE__PSEUDNEWGRP02 -->
+							</q-accordion-item>
+							<!-- End SOURCE__PSEUDNEWGRP04 -->
+						</q-accordion>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.SOURCE__MEMBER__NAME.isVisible">
-					<q-col
-						v-if="controls.SOURCE__MEMBER__NAME.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.SOURCE__MEMBER__NAME.isVisible"
-							class="i-text"
-							v-bind="controls.SOURCE__MEMBER__NAME"
-							v-on="controls.SOURCE__MEMBER__NAME.handlers"
-							:loading="controls.SOURCE__MEMBER__NAME.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-lookup
-								v-if="controls.SOURCE__MEMBER__NAME.isVisible"
-								v-bind="controls.SOURCE__MEMBER__NAME.props"
-								v-on="controls.SOURCE__MEMBER__NAME.handlers" />
-							<q-see-more-source-member-name
-								v-if="controls.SOURCE__MEMBER__NAME.seeMoreIsVisible"
-								v-bind="controls.SOURCE__MEMBER__NAME.seeMoreParams"
-								v-on="controls.SOURCE__MEMBER__NAME.handlers" />
-						</base-input-structure>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.SOURCE__SOURCE__TYPE.isVisible || controls.SOURCE__SOURCE__BALANCE.isVisible">
-					<q-col
-						v-if="controls.SOURCE__SOURCE__TYPE.isVisible || controls.SOURCE__SOURCE__BALANCE.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.SOURCE__SOURCE__TYPE.isVisible"
-							class="i-text"
-							v-bind="controls.SOURCE__SOURCE__TYPE"
-							v-on="controls.SOURCE__SOURCE__TYPE.handlers"
-							:loading="controls.SOURCE__SOURCE__TYPE.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-select
-								v-if="controls.SOURCE__SOURCE__TYPE.isVisible"
-								v-bind="controls.SOURCE__SOURCE__TYPE.props"
-								@update:model-value="model.ValType.fnUpdateValue" />
-						</base-input-structure>
-						<base-input-structure
-							v-if="controls.SOURCE__SOURCE__BALANCE.isVisible"
-							class="i-text"
-							v-bind="controls.SOURCE__SOURCE__BALANCE"
-							v-on="controls.SOURCE__SOURCE__BALANCE.handlers"
-							:loading="controls.SOURCE__SOURCE__BALANCE.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-numeric-input
-								v-if="controls.SOURCE__SOURCE__BALANCE.isVisible"
-								v-bind="controls.SOURCE__SOURCE__BALANCE.props"
-								@update:model-value="model.ValBalance.fnUpdateValue" />
-						</base-input-structure>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.SOURCE__SOURCE__BANK.isVisible || controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible">
-					<q-col
-						v-if="controls.SOURCE__SOURCE__BANK.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.SOURCE__SOURCE__BANK.isVisible"
-							class="i-text"
-							v-bind="controls.SOURCE__SOURCE__BANK"
-							v-on="controls.SOURCE__SOURCE__BANK.handlers"
-							:loading="controls.SOURCE__SOURCE__BANK.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-select
-								v-if="controls.SOURCE__SOURCE__BANK.isVisible"
-								v-bind="controls.SOURCE__SOURCE__BANK.props"
-								@update:model-value="model.ValBank.fnUpdateValue" />
-						</base-input-structure>
-					</q-col>
-					<q-col
-						v-if="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible"
-							class="i-text"
-							v-bind="controls.SOURCE__SOURCE__ACCOUNT_NUMBER"
-							v-on="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.handlers"
-							:loading="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.props"
-								@blur="onBlur(controls.SOURCE__SOURCE__ACCOUNT_NUMBER, model.ValAccount_number.value)"
-								@change="model.ValAccount_number.fnUpdateValueOnChange" />
-						</base-input-structure>
+				<q-row v-if="controls.SOURCE__PSEUDNEWGRP03.isVisible">
+					<q-col v-if="controls.SOURCE__PSEUDNEWGRP03.isVisible">
+						<q-group-box-container
+							v-if="controls.SOURCE__PSEUDNEWGRP03.isVisible"
+							id="SOURCE__PSEUDNEWGRP03"
+							v-bind="controls.SOURCE__PSEUDNEWGRP03"
+							:is-visible="controls.SOURCE__PSEUDNEWGRP03.isVisible">
+							<!-- Start SOURCE__PSEUDNEWGRP03 -->
+							<q-row v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible || controls.SOURCE__SOURCE__CREATED_BY.isVisible">
+								<q-col
+									v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible || controls.SOURCE__SOURCE__CREATED_BY.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible"
+										class="i-text"
+										v-bind="controls.SOURCE__SOURCE__CREATED_AT"
+										v-on="controls.SOURCE__SOURCE__CREATED_AT.handlers"
+										:loading="controls.SOURCE__SOURCE__CREATED_AT.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.SOURCE__SOURCE__CREATED_AT.isVisible"
+											v-bind="controls.SOURCE__SOURCE__CREATED_AT.props"
+											:model-value="model.ValCreated_at.value"
+											@reset-icon-click="model.ValCreated_at.fnUpdateValue(model.ValCreated_at.originalValue ?? new Date())"
+											@update:model-value="model.ValCreated_at.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+									<base-input-structure
+										v-if="controls.SOURCE__SOURCE__CREATED_BY.isVisible"
+										class="i-text"
+										v-bind="controls.SOURCE__SOURCE__CREATED_BY"
+										v-on="controls.SOURCE__SOURCE__CREATED_BY.handlers"
+										:loading="controls.SOURCE__SOURCE__CREATED_BY.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.SOURCE__SOURCE__CREATED_BY.props"
+											@blur="onBlur(controls.SOURCE__SOURCE__CREATED_BY, model.ValCreated_by.value)"
+											@change="model.ValCreated_by.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible || controls.SOURCE__SOURCE__UPDATED_BY.isVisible">
+								<q-col
+									v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
+										class="i-text"
+										v-bind="controls.SOURCE__SOURCE__UPDATED_AT"
+										v-on="controls.SOURCE__SOURCE__UPDATED_AT.handlers"
+										:loading="controls.SOURCE__SOURCE__UPDATED_AT.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
+											v-bind="controls.SOURCE__SOURCE__UPDATED_AT.props"
+											:model-value="model.ValUpdated_at.value"
+											@reset-icon-click="model.ValUpdated_at.fnUpdateValue(model.ValUpdated_at.originalValue ?? new Date())"
+											@update:model-value="model.ValUpdated_at.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-col>
+								<q-col
+									v-if="controls.SOURCE__SOURCE__UPDATED_BY.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.SOURCE__SOURCE__UPDATED_BY.isVisible"
+										class="i-text"
+										v-bind="controls.SOURCE__SOURCE__UPDATED_BY"
+										v-on="controls.SOURCE__SOURCE__UPDATED_BY.handlers"
+										:loading="controls.SOURCE__SOURCE__UPDATED_BY.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.SOURCE__SOURCE__UPDATED_BY.props"
+											@blur="onBlur(controls.SOURCE__SOURCE__UPDATED_BY, model.ValUpdated_by.value)"
+											@change="model.ValUpdated_by.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<!-- End SOURCE__PSEUDNEWGRP03 -->
+						</q-group-box-container>
 					</q-col>
 				</q-row>
 			</template>
@@ -553,17 +664,51 @@
 				},
 
 				controls: {
-					SOURCE__SOURCE__TITLE: new fieldControlClass.StringControl({
-						modelField: 'ValTitle',
-						valueChangeEvent: 'fieldChange:source.title',
-						id: 'SOURCE__SOURCE__TITLE',
-						name: 'TITLE',
-						size: 'xxlarge',
-						label: computed(() => this.Resources.TITLE21885),
+					SOURCE__PSEUDNEWGRP04: new fieldControlClass.AccordionControl({
+						id: 'SOURCE__PSEUDNEWGRP04',
+						name: 'NEWGRP04',
+						size: 'block',
+						label: computed(() => this.Resources.NEW_GROUP63448),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxLength: 50,
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['SOURCE__PSEUDNEWGRP01', 'SOURCE__PSEUDNEWGRP02'],
 						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					SOURCE__PSEUDNEWGRP01: new fieldControlClass.GroupControl({
+						id: 'SOURCE__PSEUDNEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.INFO27076),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP04',
+						isInAccordion: true,
+						isCollapsible: true,
+						anchored: false,
+						directChildren: ['SOURCE__SOURCE__TYPE', 'SOURCE__MEMBER__NAME', 'SOURCE__SOURCE__TITLE'],
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					SOURCE__SOURCE__TYPE: new fieldControlClass.ArrayStringControl({
+						modelField: 'ValType',
+						valueChangeEvent: 'fieldChange:source.type',
+						id: 'SOURCE__SOURCE__TYPE',
+						name: 'TYPE',
+						size: 'medium',
+						label: computed(() => this.Resources.TYPE00312),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP01',
+						maxLength: 2,
+						mustBeFilled: true,
+						arrayName: 'Accout_Type',
+						helpShortItem: 'None',
+						helpDetailedItem: 'None',
 						controlLimits: [
 						],
 					}, this),
@@ -572,10 +717,11 @@
 						valueChangeEvent: 'fieldChange:member.name',
 						id: 'SOURCE__MEMBER__NAME',
 						name: 'NAME',
-						size: 'xxlarge',
+						size: 'xlarge',
 						label: computed(() => this.Resources.OWNER09558),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP01',
 						externalCallbacks: {
 							getModelField: vm.getModelField,
 							getModelFieldValue: vm.getModelFieldValue,
@@ -596,34 +742,33 @@
 						controlLimits: [
 						],
 					}, this),
-					SOURCE__SOURCE__TYPE: new fieldControlClass.ArrayStringControl({
-						modelField: 'ValType',
-						valueChangeEvent: 'fieldChange:source.type',
-						id: 'SOURCE__SOURCE__TYPE',
-						name: 'TYPE',
-						size: 'medium',
-						label: computed(() => this.Resources.TYPE00312),
+					SOURCE__SOURCE__TITLE: new fieldControlClass.StringControl({
+						modelField: 'ValTitle',
+						valueChangeEvent: 'fieldChange:source.title',
+						id: 'SOURCE__SOURCE__TITLE',
+						name: 'TITLE',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.TITLE21885),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxLength: 2,
+						container: 'SOURCE__PSEUDNEWGRP01',
+						maxLength: 50,
 						mustBeFilled: true,
-						arrayName: 'Accout_Type',
-						helpShortItem: 'None',
-						helpDetailedItem: 'None',
 						controlLimits: [
 						],
 					}, this),
-					SOURCE__SOURCE__BALANCE: new fieldControlClass.NumberControl({
-						modelField: 'ValBalance',
-						valueChangeEvent: 'fieldChange:source.balance',
-						id: 'SOURCE__SOURCE__BALANCE',
-						name: 'BALANCE',
-						size: 'medium',
-						label: computed(() => this.Resources.BALANCE13297),
+					SOURCE__PSEUDNEWGRP02: new fieldControlClass.GroupControl({
+						id: 'SOURCE__PSEUDNEWGRP02',
+						name: 'NEWGRP02',
+						size: 'block',
+						label: computed(() => this.Resources.DETAILS19591),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						maxIntegers: 12,
-						maxDecimals: 2,
+						container: 'SOURCE__PSEUDNEWGRP04',
+						isInAccordion: true,
+						isCollapsible: true,
+						anchored: false,
+						directChildren: ['SOURCE__SOURCE__BANK', 'SOURCE__SOURCE__ACCOUNT_NUMBER', 'SOURCE__SOURCE__BALANCE'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -637,6 +782,7 @@
 						label: computed(() => this.Resources.BANK26563),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP02',
 						maxLength: 12,
 						arrayName: 'Banks',
 						helpShortItem: 'None',
@@ -653,7 +799,93 @@
 						label: computed(() => this.Resources.ACCOUNT_NUMBER58504),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP02',
 						maxLength: 20,
+						controlLimits: [
+						],
+					}, this),
+					SOURCE__SOURCE__BALANCE: new fieldControlClass.NumberControl({
+						modelField: 'ValBalance',
+						valueChangeEvent: 'fieldChange:source.balance',
+						id: 'SOURCE__SOURCE__BALANCE',
+						name: 'BALANCE',
+						size: 'medium',
+						label: computed(() => this.Resources.BALANCE13297),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP02',
+						maxIntegers: 12,
+						maxDecimals: 2,
+						mustBeFilled: true,
+						controlLimits: [
+						],
+					}, this),
+					SOURCE__PSEUDNEWGRP03: new fieldControlClass.GroupControl({
+						id: 'SOURCE__PSEUDNEWGRP03',
+						name: 'NEWGRP03',
+						size: 'block',
+						label: computed(() => this.Resources.CONTROL15481),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['SOURCE__SOURCE__CREATED_AT', 'SOURCE__SOURCE__CREATED_BY', 'SOURCE__SOURCE__UPDATED_AT', 'SOURCE__SOURCE__UPDATED_BY'],
+						controlLimits: [
+						],
+					}, this),
+					SOURCE__SOURCE__CREATED_AT: new fieldControlClass.DateControl({
+						modelField: 'ValCreated_at',
+						valueChangeEvent: 'fieldChange:source.created_at',
+						id: 'SOURCE__SOURCE__CREATED_AT',
+						name: 'CREATED_AT',
+						size: 'small',
+						label: computed(() => this.Resources.CREATED_AT09073),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP03',
+						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
+					SOURCE__SOURCE__CREATED_BY: new fieldControlClass.StringControl({
+						modelField: 'ValCreated_by',
+						valueChangeEvent: 'fieldChange:source.created_by',
+						id: 'SOURCE__SOURCE__CREATED_BY',
+						name: 'CREATED_BY',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.CREATED_BY58035),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP03',
+						maxLength: 100,
+						controlLimits: [
+						],
+					}, this),
+					SOURCE__SOURCE__UPDATED_AT: new fieldControlClass.DateControl({
+						modelField: 'ValUpdated_at',
+						valueChangeEvent: 'fieldChange:source.updated_at',
+						id: 'SOURCE__SOURCE__UPDATED_AT',
+						name: 'UPDATED_AT',
+						size: 'small',
+						label: computed(() => this.Resources.UPDATED_AT48366),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP03',
+						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
+					SOURCE__SOURCE__UPDATED_BY: new fieldControlClass.StringControl({
+						modelField: 'ValUpdated_by',
+						valueChangeEvent: 'fieldChange:source.updated_by',
+						id: 'SOURCE__SOURCE__UPDATED_BY',
+						name: 'UPDATED_BY',
+						size: 'xxlarge',
+						label: computed(() => this.Resources.UPDATED_BY38656),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP03',
+						maxLength: 100,
 						controlLimits: [
 						],
 					}, this),
@@ -667,6 +899,10 @@
 				}),
 
 				groupFields: readonly([
+					'SOURCE__PSEUDNEWGRP04',
+					'SOURCE__PSEUDNEWGRP01',
+					'SOURCE__PSEUDNEWGRP02',
+					'SOURCE__PSEUDNEWGRP03',
 				]),
 
 				tableFields: readonly([
@@ -690,12 +926,20 @@
 						set ValBalance(value) { vm.model.ValBalance.updateValue(value) },
 						get ValBank() { return vm.model.ValBank.value },
 						set ValBank(value) { vm.model.ValBank.updateValue(value) },
+						get ValCreated_at() { return vm.model.ValCreated_at.value },
+						set ValCreated_at(value) { vm.model.ValCreated_at.updateValue(value) },
+						get ValCreated_by() { return vm.model.ValCreated_by.value },
+						set ValCreated_by(value) { vm.model.ValCreated_by.updateValue(value) },
 						get ValMember_id() { return vm.model.ValMember_id.value },
 						set ValMember_id(value) { vm.model.ValMember_id.updateValue(value) },
 						get ValTitle() { return vm.model.ValTitle.value },
 						set ValTitle(value) { vm.model.ValTitle.updateValue(value) },
 						get ValType() { return vm.model.ValType.value },
 						set ValType(value) { vm.model.ValType.updateValue(value) },
+						get ValUpdated_at() { return vm.model.ValUpdated_at.value },
+						set ValUpdated_at(value) { vm.model.ValUpdated_at.updateValue(value) },
+						get ValUpdated_by() { return vm.model.ValUpdated_by.value },
+						set ValUpdated_by(value) { vm.model.ValUpdated_by.updateValue(value) },
 					},
 					keys: {
 						/** The primary key of the SOURCE table */

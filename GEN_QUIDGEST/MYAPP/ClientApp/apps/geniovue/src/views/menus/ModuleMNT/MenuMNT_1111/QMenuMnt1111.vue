@@ -324,7 +324,7 @@
 							{
 								id: 'CARDS',
 								type: 'cards',
-								subtype: 'card-horizontal',
+								subtype: 'card',
 								label: computed(() => this.Resources.CARTOES27587),
 								order: 1,
 								mappingVariables: readonly({
@@ -352,12 +352,20 @@
 										rawValue: 'left',
 										isMapped: false
 									},
+									actionsPlacement: {
+										rawValue: 'footer',
+										isMapped: false
+									},
 									actionsStyle: {
 										rawValue: 'dropdown',
 										isMapped: false
 									},
 									backgroundColor: {
 										rawValue: 'auto',
+										isMapped: false
+									},
+									contentAlignment: {
+										rawValue: 'left',
 										isMapped: false
 									},
 									customFollowupDefaultTarget: {
@@ -386,6 +394,10 @@
 									},
 									hoverScaleAmount: {
 										rawValue: '1.00',
+										isMapped: false
+									},
+									imageShape: {
+										rawValue: 'rectangular',
 										isMapped: false
 									},
 									showColumnTitles: {

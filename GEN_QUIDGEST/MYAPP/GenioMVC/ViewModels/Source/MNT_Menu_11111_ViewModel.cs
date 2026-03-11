@@ -243,7 +243,7 @@ namespace GenioMVC.ViewModels.Source
 
 			// Limitation by Zzstate
 			if (!Navigation.checkFormMode("SOURCE", FormMode.New)) // TODO: Check in Duplicate mode
-				crs = extendWithZzstateCondition(crs, CSGenioAsource.FldZzstate, null);
+				crs = extendWithZzstateCondition(crs, CSGenioAsource.FldZzstate, CSGenioAsource.FldCreated_by);
 
 
 			if (tableReload)

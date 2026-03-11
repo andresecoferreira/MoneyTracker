@@ -88,6 +88,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "New Group"
+        /// </summary>
+        public static string NEW_GROUP63448 {
+            get {
+                return ResourceManager.GetString("NEW_GROUP63448", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Async process attachment"
         /// </summary>
         public static string ASYNC_PROCESS_ATTACH34417 {
@@ -246,6 +255,15 @@ namespace Administration.Resources {
         public static string VALUE10285 {
             get {
                 return ResourceManager.GetString("VALUE10285", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Info"
+        /// </summary>
+        public static string INFO27076 {
+            get {
+                return ResourceManager.GetString("INFO27076", resourceCulture);
             }
         }
 
@@ -529,6 +547,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Details"
+        /// </summary>
+        public static string DETAILS19591 {
+            get {
+                return ResourceManager.GetString("DETAILS19591", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Sucesso"
         /// </summary>
         public static string SUCESSO65230 {
@@ -750,6 +777,15 @@ namespace Administration.Resources {
         public static string GROUP38232 {
             get {
                 return ResourceManager.GetString("GROUP38232", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Created At"
+        /// </summary>
+        public static string CREATED_AT09073 {
+            get {
+                return ResourceManager.GetString("CREATED_AT09073", resourceCulture);
             }
         }
 
@@ -1051,6 +1087,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Created By"
+        /// </summary>
+        public static string CREATED_BY58035 {
+            get {
+                return ResourceManager.GetString("CREATED_BY58035", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Member_PSW"
         /// </summary>
         public static string MEMBER_PSW31555 {
@@ -1312,6 +1357,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Updated At"
+        /// </summary>
+        public static string UPDATED_AT48366 {
+            get {
+                return ResourceManager.GetString("UPDATED_AT48366", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "System"
         /// </summary>
         public static string SYSTEM02957 {
@@ -1375,6 +1429,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Updated By"
+        /// </summary>
+        public static string UPDATED_BY38656 {
+            get {
+                return ResourceManager.GetString("UPDATED_BY38656", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Username"
         /// </summary>
         public static string USERNAME51409 {
@@ -1389,6 +1452,15 @@ namespace Administration.Resources {
         public static string SENDER07671 {
             get {
                 return ResourceManager.GetString("SENDER07671", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Control"
+        /// </summary>
+        public static string CONTROL15481 {
+            get {
+                return ResourceManager.GetString("CONTROL15481", resourceCulture);
             }
         }
 
@@ -26094,15 +26166,6 @@ namespace Administration.Resources {
         public static string SCHEMA58822 {
             get {
                 return ResourceManager.GetString("SCHEMA58822", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to "Info"
-        /// </summary>
-        public static string INFO27076 {
-            get {
-                return ResourceManager.GetString("INFO27076", resourceCulture);
             }
         }
 

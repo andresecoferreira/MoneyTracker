@@ -217,7 +217,7 @@
 						controller: 'SOURCE',
 						action: 'Source_MemberValName',
 						hasDependencies: false,
-						isInCollapsible: false,
+						isInCollapsible: true,
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,

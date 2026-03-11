@@ -8,9 +8,19 @@ namespace quidgest.uitests.pages.forms;
 public class SourceForm : Form
 {
 	/// <summary>
-	/// Title
+	/// New Group
 	/// </summary>
-	public BaseInputControl SourceTitle => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__TITLE", "#SOURCE__SOURCE__TITLE");
+	public IWebElement PseudNewgrp04 => throw new NotImplementedException();
+
+	/// <summary>
+	/// Info
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#SOURCE__PSEUDNEWGRP01-container");
+
+	/// <summary>
+	/// Type
+	/// </summary>
+	public EnumControl SourceType => new EnumControl(driver, ContainerLocator, "container-SOURCE__SOURCE__TYPE");
 
 	/// <summary>
 	/// Owner
@@ -19,14 +29,14 @@ public class SourceForm : Form
 	public SeeMorePage MemberNameSeeMorePage => new SeeMorePage(driver, "SOURCE", "SOURCE__MEMBER__NAME");
 
 	/// <summary>
-	/// Type
+	/// Title
 	/// </summary>
-	public EnumControl SourceType => new EnumControl(driver, ContainerLocator, "container-SOURCE__SOURCE__TYPE");
+	public BaseInputControl SourceTitle => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__TITLE", "#SOURCE__SOURCE__TITLE");
 
 	/// <summary>
-	/// Balance
+	/// Details
 	/// </summary>
-	public BaseInputControl SourceBalance => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__BALANCE", "#SOURCE__SOURCE__BALANCE");
+	public CollapsibleZoneControl PseudNewgrp02 => new CollapsibleZoneControl(driver, ContainerLocator, "#SOURCE__PSEUDNEWGRP02-container");
 
 	/// <summary>
 	/// Bank
@@ -37,6 +47,36 @@ public class SourceForm : Form
 	/// Account Number
 	/// </summary>
 	public BaseInputControl SourceAccount_number => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__ACCOUNT_NUMBER", "#SOURCE__SOURCE__ACCOUNT_NUMBER");
+
+	/// <summary>
+	/// Balance
+	/// </summary>
+	public BaseInputControl SourceBalance => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__BALANCE", "#SOURCE__SOURCE__BALANCE");
+
+	/// <summary>
+	/// Control
+	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp03 => new CollapsibleZoneControl(driver, ContainerLocator, "#SOURCE__PSEUDNEWGRP03-container");
+
+	/// <summary>
+	/// Created At
+	/// </summary>
+	public BaseInputControl SourceCreated_at => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__CREATED_AT", "#SOURCE__SOURCE__CREATED_AT");
+
+	/// <summary>
+	/// Created By
+	/// </summary>
+	public BaseInputControl SourceCreated_by => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__CREATED_BY", "#SOURCE__SOURCE__CREATED_BY");
+
+	/// <summary>
+	/// Updated At
+	/// </summary>
+	public BaseInputControl SourceUpdated_at => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__UPDATED_AT", "#SOURCE__SOURCE__UPDATED_AT");
+
+	/// <summary>
+	/// Updated By
+	/// </summary>
+	public BaseInputControl SourceUpdated_by => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__UPDATED_BY", "#SOURCE__SOURCE__UPDATED_BY");
 
 	public SourceForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
 		: base(driver, mode, "SOURCE", containerLocator: containerLocator) { }

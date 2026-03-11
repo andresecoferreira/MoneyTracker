@@ -65,15 +65,16 @@ export default class ViewModel extends FormViewModelBase
 		this.stopWatchers.push(watch(() => this.ValMember_id.value, (newValue, oldValue) => this.onUpdate('source.member_id', this.ValMember_id, newValue, oldValue)))
 
 		/** The remaining form fields. */
-		this.ValTitle = reactive(new modelFieldType.String({
-			id: 'ValTitle',
-			originId: 'ValTitle',
+		this.ValType = reactive(new modelFieldType.String({
+			id: 'ValType',
+			originId: 'ValType',
 			area: 'SOURCE',
-			field: 'TITLE',
-			maxLength: 50,
-			description: computed(() => this.Resources.TITLE21885),
-		}).cloneFrom(values?.ValTitle))
-		this.stopWatchers.push(watch(() => this.ValTitle.value, (newValue, oldValue) => this.onUpdate('source.title', this.ValTitle, newValue, oldValue)))
+			field: 'TYPE',
+			maxLength: 2,
+			arrayOptions: computed(() => new qProjArrays.QArrayAccout_type(vm.$getResource).elements),
+			description: computed(() => this.Resources.TYPE00312),
+		}).cloneFrom(values?.ValType))
+		this.stopWatchers.push(watch(() => this.ValType.value, (newValue, oldValue) => this.onUpdate('source.type', this.ValType, newValue, oldValue)))
 
 		this.TableMemberName = reactive(new modelFieldType.String({
 			type: 'Lookup',
@@ -87,27 +88,15 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.TableMemberName))
 		this.stopWatchers.push(watch(() => this.TableMemberName.value, (newValue, oldValue) => this.onUpdate('member.name', this.TableMemberName, newValue, oldValue)))
 
-		this.ValType = reactive(new modelFieldType.String({
-			id: 'ValType',
-			originId: 'ValType',
+		this.ValTitle = reactive(new modelFieldType.String({
+			id: 'ValTitle',
+			originId: 'ValTitle',
 			area: 'SOURCE',
-			field: 'TYPE',
-			maxLength: 2,
-			arrayOptions: computed(() => new qProjArrays.QArrayAccout_type(vm.$getResource).elements),
-			description: computed(() => this.Resources.TYPE00312),
-		}).cloneFrom(values?.ValType))
-		this.stopWatchers.push(watch(() => this.ValType.value, (newValue, oldValue) => this.onUpdate('source.type', this.ValType, newValue, oldValue)))
-
-		this.ValBalance = reactive(new modelFieldType.Number({
-			id: 'ValBalance',
-			originId: 'ValBalance',
-			area: 'SOURCE',
-			field: 'BALANCE',
-			maxDigits: 12,
-			decimalDigits: 2,
-			description: computed(() => this.Resources.BALANCE13297),
-		}).cloneFrom(values?.ValBalance))
-		this.stopWatchers.push(watch(() => this.ValBalance.value, (newValue, oldValue) => this.onUpdate('source.balance', this.ValBalance, newValue, oldValue)))
+			field: 'TITLE',
+			maxLength: 50,
+			description: computed(() => this.Resources.TITLE21885),
+		}).cloneFrom(values?.ValTitle))
+		this.stopWatchers.push(watch(() => this.ValTitle.value, (newValue, oldValue) => this.onUpdate('source.title', this.ValTitle, newValue, oldValue)))
 
 		this.ValBank = reactive(new modelFieldType.String({
 			id: 'ValBank',
@@ -151,6 +140,59 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.ACCOUNT_NUMBER58504),
 		}).cloneFrom(values?.ValAccount_number))
 		this.stopWatchers.push(watch(() => this.ValAccount_number.value, (newValue, oldValue) => this.onUpdate('source.account_number', this.ValAccount_number, newValue, oldValue)))
+
+		this.ValBalance = reactive(new modelFieldType.Number({
+			id: 'ValBalance',
+			originId: 'ValBalance',
+			area: 'SOURCE',
+			field: 'BALANCE',
+			maxDigits: 12,
+			decimalDigits: 2,
+			description: computed(() => this.Resources.BALANCE13297),
+		}).cloneFrom(values?.ValBalance))
+		this.stopWatchers.push(watch(() => this.ValBalance.value, (newValue, oldValue) => this.onUpdate('source.balance', this.ValBalance, newValue, oldValue)))
+
+		this.ValCreated_at = reactive(new modelFieldType.Date({
+			id: 'ValCreated_at',
+			originId: 'ValCreated_at',
+			area: 'SOURCE',
+			field: 'CREATED_AT',
+			isFixed: true,
+			description: computed(() => this.Resources.CREATED_AT09073),
+		}).cloneFrom(values?.ValCreated_at))
+		this.stopWatchers.push(watch(() => this.ValCreated_at.value, (newValue, oldValue) => this.onUpdate('source.created_at', this.ValCreated_at, newValue, oldValue)))
+
+		this.ValCreated_by = reactive(new modelFieldType.String({
+			id: 'ValCreated_by',
+			originId: 'ValCreated_by',
+			area: 'SOURCE',
+			field: 'CREATED_BY',
+			maxLength: 100,
+			isFixed: true,
+			description: computed(() => this.Resources.CREATED_BY58035),
+		}).cloneFrom(values?.ValCreated_by))
+		this.stopWatchers.push(watch(() => this.ValCreated_by.value, (newValue, oldValue) => this.onUpdate('source.created_by', this.ValCreated_by, newValue, oldValue)))
+
+		this.ValUpdated_at = reactive(new modelFieldType.Date({
+			id: 'ValUpdated_at',
+			originId: 'ValUpdated_at',
+			area: 'SOURCE',
+			field: 'UPDATED_AT',
+			isFixed: true,
+			description: computed(() => this.Resources.UPDATED_AT48366),
+		}).cloneFrom(values?.ValUpdated_at))
+		this.stopWatchers.push(watch(() => this.ValUpdated_at.value, (newValue, oldValue) => this.onUpdate('source.updated_at', this.ValUpdated_at, newValue, oldValue)))
+
+		this.ValUpdated_by = reactive(new modelFieldType.String({
+			id: 'ValUpdated_by',
+			originId: 'ValUpdated_by',
+			area: 'SOURCE',
+			field: 'UPDATED_BY',
+			maxLength: 100,
+			isFixed: true,
+			description: computed(() => this.Resources.UPDATED_BY38656),
+		}).cloneFrom(values?.ValUpdated_by))
+		this.stopWatchers.push(watch(() => this.ValUpdated_by.value, (newValue, oldValue) => this.onUpdate('source.updated_by', this.ValUpdated_by, newValue, oldValue)))
 	}
 
 	/**
