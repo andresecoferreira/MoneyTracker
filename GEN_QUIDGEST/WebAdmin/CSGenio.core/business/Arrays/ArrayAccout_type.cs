@@ -53,6 +53,10 @@ namespace CSGenio.business
 		/// Digital Wallet
 		/// </summary>
 		public const string E_DI_7 = "DI";
+		/// <summary>
+		/// Other
+		/// </summary>
+		public const string E_OT_8 = "OT";
 
 		/// <summary>
 		/// Prevents a default instance of the <see cref="ArrayAccout_type"/> class from being created.
@@ -74,6 +78,7 @@ namespace CSGenio.business
 				{ E_LO_5, new ArrayElement() { ResourceId = "LOAN50644", HelpId = "", Group = "" } },
 				{ E_CR_6, new ArrayElement() { ResourceId = "CREDIT_CARD46407", HelpId = "", Group = "" } },
 				{ E_DI_7, new ArrayElement() { ResourceId = "DIGITAL_WALLET00561", HelpId = "", Group = "" } },
+				{ E_OT_8, new ArrayElement() { ResourceId = "OTHER37293", HelpId = "", Group = "" } },
 			};
 		}
 

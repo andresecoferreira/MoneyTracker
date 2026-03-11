@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_11]/ -->
+					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_111]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMNT_11ViewModel.js'
+	import MenuViewModel from './QMenuMNT_111ViewModel.js'
 
-	const requiredTextResources = ['QMenuMNT_11', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMNT_111', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_11]/
+// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMnt11',
+		name: 'QMenuMnt111',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_11', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_111', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMNT_11', // Used for resources
+					id: 'QMenuMNT_111', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '11',
+					id: '111',
 					isMenuList: true,
 					designation: computed(() => this.Resources.GROUPS45298),
-					acronym: 'MNT_11',
+					acronym: 'MNT_111',
 					name: 'GROUP',
-					route: 'menu-MNT_11',
-					order: '11',
+					route: 'menu-MNT_111',
+					order: '111',
 					controller: 'GROUP',
-					action: 'MNT_Menu_11',
+					action: 'MNT_Menu_111',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MNT_Menu_11',
+						id: 'MNT_Menu_111',
 						controller: 'GROUP',
-						action: 'MNT_Menu_11',
+						action: 'MNT_Menu_111',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -158,7 +158,7 @@
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MNT_Menu_11',
+							name: 'MNT_Menu_111',
 							serverMode: true,
 							pkColumn: 'ValCodgroup',
 							tableAlias: 'GROUP',
@@ -268,7 +268,7 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MNT_111',
+								id: 'RCA_MNT_1111',
 								name: 'form-GROUP',
 								isVisible: true,
 								params: {
@@ -323,7 +323,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_11]/
+// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -331,18 +331,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_11]/
+// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FUNCTIONS_JS MNT_11]/
+// USE /[MANUAL MNT FUNCTIONS_JS MNT_111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_11]/
+// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_111]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

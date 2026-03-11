@@ -15,23 +15,23 @@ using GenioMVC.Models.Navigation;
 using Quidgest.Persistence;
 using Quidgest.Persistence.GenericQuery;
 
-namespace GenioMVC.ViewModels.Group
+namespace GenioMVC.ViewModels.Category_type
 {
-	public class MNT_Menu_11_ViewModel : MenuListViewModel<Models.Group>
+	public class MNT_Menu_121_ViewModel : MenuListViewModel<Models.Category_type>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("table")]
-		public TablePartial<MNT_Menu_11_RowViewModel> Menu { get; set; }
+		public TablePartial<MNT_Menu_121_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public override string TableAlias => "group";
+		public override string TableAlias => "category_type";
 
 		/// <inheritdoc/>
 		[JsonPropertyName("uuid")]
-		public override string Uuid => "b45f962d-1ce1-4f88-ae85-4f6232ef486c";
+		public override string Uuid => "3eb026c3-e7ba-4d49-8b5e-5fbbdd29f9d6";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -82,7 +82,7 @@ namespace GenioMVC.ViewModels.Group
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL MNT LIST_LIMITS 11]/
+// USE /[MANUAL MNT LIST_LIMITS 121]/
 
 			return crs;
 		}
@@ -90,24 +90,25 @@ namespace GenioMVC.ViewModels.Group
 		public override int GetCount(User user)
 		{
 			CSGenio.persistence.PersistentSupport sp = m_userContext.PersistentSupport;
-			var areaBase = CSGenio.business.Area.createArea("group", user, "MNT");
+			var areaBase = CSGenio.business.Area.createArea("category_type", user, "MNT");
 
 			//gets eph conditions to be applied in listing
-			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML11");
-			conditions.Equal(CSGenioAgroup.FldZzstate, 0); //valid zzstate only
+			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML121");
+			conditions.Equal(CSGenioAcategory_type.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldZzstate, CSGenioAgroup.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldName, CSGenioAcategory_type.FldLogo };
 
-			ListingMVC<CSGenioAgroup> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
+			ListingMVC<CSGenioAcategory_type> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
 
 			// Menu relations:
 			if (qs.FromTable == null)
 				qs.From(areaBase.QSystem, areaBase.TableName, areaBase.Alias);
+
 
 
 
@@ -119,23 +120,23 @@ namespace GenioMVC.ViewModels.Group
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public MNT_Menu_11_ViewModel() : base(null!) { }
+		public MNT_Menu_121_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MNT_Menu_11_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="MNT_Menu_121_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public MNT_Menu_11_ViewModel(UserContext userContext) : base(userContext)
+		public MNT_Menu_121_ViewModel(UserContext userContext) : base(userContext)
 		{
 			this.RoleToShow = CSGenio.framework.Role.AUTHORIZED;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MNT_Menu_11_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="MNT_Menu_121_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public MNT_Menu_11_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public MNT_Menu_121_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -145,17 +146,17 @@ namespace GenioMVC.ViewModels.Group
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAgroup.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
+				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 20, 0, true),
 			];
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAgroup> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAcategory_type> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 			LoadToExport(out listing, out conditions, out columns, tableConfig, requestValues, ajaxRequest);
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAgroup> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAcategory_type> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			listing = null;
 			conditions = null;
@@ -186,7 +187,7 @@ namespace GenioMVC.ViewModels.Group
 
 			crs ??= CriteriaSet.And();
 
-			Menu ??= new TablePartial<MNT_Menu_11_RowViewModel>();
+			Menu ??= new TablePartial<MNT_Menu_121_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -209,25 +210,25 @@ namespace GenioMVC.ViewModels.Group
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Group.AddEPH<CSGenioAgroup>(ref u, crs, "ML11");
+				crs = Models.Category_type.AddEPH<CSGenioAcategory_type>(ref u, crs, "ML121");
 
 				// Export only records with ZZState == 0
-				crs.Equal(CSGenioAgroup.FldZzstate, 0);
+				crs.Equal(CSGenioAcategory_type.FldZzstate, 0);
 
 				return crs;
 			}
 
 			// Limitation by Zzstate
-			if (!Navigation.checkFormMode("GROUP", FormMode.New)) // TODO: Check in Duplicate mode
-				crs = extendWithZzstateCondition(crs, CSGenioAgroup.FldZzstate, null);
+			if (!Navigation.checkFormMode("CATEGORY_TYPE", FormMode.New)) // TODO: Check in Duplicate mode
+				crs = extendWithZzstateCondition(crs, CSGenioAcategory_type.FldZzstate, null);
 
 
 			if (tableReload)
 			{
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_group");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_group");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_category_type");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_category_type");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Group.AddEPH<CSGenioAgroup>(ref u, null, "ML11"));
+					crs.Equals(Models.Category_type.AddEPH<CSGenioAcategory_type>(ref u, null, "ML121"));
 			}
 
 			return crs;
@@ -252,7 +253,7 @@ namespace GenioMVC.ViewModels.Group
 		/// <param name="conditions">The conditions.</param>
 		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAgroup> listing = null;
+			ListingMVC<CSGenioAcategory_type> listing = null;
 
 			Load(numberListItems, requestValues, ajaxRequest, false, ref listing, ref conditions);
 		}
@@ -266,7 +267,7 @@ namespace GenioMVC.ViewModels.Group
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAgroup> Qlisting, ref CriteriaSet conditions)
+		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAcategory_type> Qlisting, ref CriteriaSet conditions)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 
@@ -285,7 +286,7 @@ namespace GenioMVC.ViewModels.Group
 		/// <param name="conditions">The conditions.</param>
 		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAgroup> listing = null;
+			ListingMVC<CSGenioAcategory_type> listing = null;
 
 			Load(tableConfig, requestValues, ajaxRequest, isToExport, ref listing, ref conditions);
 		}
@@ -299,18 +300,18 @@ namespace GenioMVC.ViewModels.Group
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAgroup> Qlisting, ref CriteriaSet conditions)
+		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAcategory_type> Qlisting, ref CriteriaSet conditions)
 		{
 			User u = m_userContext.User;
-			Menu = new TablePartial<MNT_Menu_11_RowViewModel>();
+			Menu = new TablePartial<MNT_Menu_121_RowViewModel>();
 
-			CriteriaSet mnt_menu_11Conds = CriteriaSet.And();
+			CriteriaSet mnt_menu_121Conds = CriteriaSet.And();
 			bool tableReload = true;
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-			allSortOrders.Add("GROUP.NAME", new OrderedDictionary());
-			allSortOrders["GROUP.NAME"].Add("GROUP.NAME", "A");
+			allSortOrders.Add("CATEGORY_TYPE.NAME", new OrderedDictionary());
+			allSortOrders["CATEGORY_TYPE.NAME"].Add("CATEGORY_TYPE.NAME", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -320,16 +321,16 @@ namespace GenioMVC.ViewModels.Group
 			if (pageNumber < 1)
 				pageNumber = 1;
 
-			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "group", allSortOrders);
+			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "category_type", allSortOrders);
 
 			if (sorts == null || sorts.Count == 0)
 			{
 				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAgroup.FldName), SortOrder.Ascending));
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAcategory_type.FldName), SortOrder.Ascending));
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldZzstate, CSGenioAgroup.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldName, CSGenioAcategory_type.FldLogo };
 
 
 			// Totalizers
@@ -341,7 +342,7 @@ namespace GenioMVC.ViewModels.Group
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("group", "name");
+				firstVisibleColumn ??= new FieldRef("category_type", "name");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -352,8 +353,8 @@ namespace GenioMVC.ViewModels.Group
 			{
 				Limit limit = new Limit();
 				limit.TipoLimite = LimitType.EPH;
-				CSGenioAgroup model_limit_area = new CSGenioAgroup(m_userContext.User);
-				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML11");
+				CSGenioAcategory_type model_limit_area = new CSGenioAcategory_type(m_userContext.User);
+				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML121");
 				if (area_EPH_limits.Count > 0)
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
@@ -362,11 +363,11 @@ namespace GenioMVC.ViewModels.Group
 			if (conditions == null)
 				conditions = CriteriaSet.And();
 
-			conditions.SubSets.Add(mnt_menu_11Conds);
-			mnt_menu_11Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+			conditions.SubSets.Add(mnt_menu_121Conds);
+			mnt_menu_121Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 			tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL MNT OVERRQ 11]/
+// USE /[MANUAL MNT OVERRQ 121]/
 
 			bool distinct = false;
 
@@ -378,29 +379,29 @@ namespace GenioMVC.ViewModels.Group
 				var exportColumns = GetExportColumns(tableConfig.ColumnConfigurations);
 				var exportFieldRefs = exportColumns.Select(eCol => eCol.Field).Where(fldRef => fldRef != null).ToArray();
 
-				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAgroup>(m_userContext, false, ref mnt_menu_11Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML11", true, firstVisibleColumn: firstVisibleColumn);
+				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAcategory_type>(m_userContext, false, ref mnt_menu_121Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML121", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL MNT OVERRQLSTEXP 11]/
+// USE /[MANUAL MNT OVERRQLSTEXP 121]/
 
 				return;
 			}
 
 			if (tableReload)
 			{
-// USE /[MANUAL MNT OVERRQLIST 11]/
+// USE /[MANUAL MNT OVERRQLIST 121]/
 
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_group");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_group");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_category_type");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_category_type");
 				CriteriaSet m_PagingPosEPHs = null;
 
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 				{
-					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAgroup.GetInformation(), QMVC_POS_RECORD, sorts, mnt_menu_11Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAcategory_type.GetInformation(), QMVC_POS_RECORD, sorts, mnt_menu_121Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 					if (m_iCurPag != -1)
 						pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 				}
 
-				ListingMVC<CSGenioAgroup> listing = Models.ModelBase.Where<CSGenioAgroup>(m_userContext, distinct, mnt_menu_11Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML11", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+				ListingMVC<CSGenioAcategory_type> listing = Models.ModelBase.Where<CSGenioAcategory_type>(m_userContext, distinct, mnt_menu_121Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML121", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 				if (listing.CurrentPage > 0)
 					pageNumber = listing.CurrentPage;
@@ -412,15 +413,15 @@ namespace GenioMVC.ViewModels.Group
 				//Set document field values to objects
 				SetDocumentFields(listing);
 
-				Menu.Elements = MapMNT_Menu_11(listing);
+				Menu.Elements = MapMNT_Menu_121(listing);
 
-				Menu.Identifier = "ML11";
+				Menu.Identifier = "ML121";
 				Menu.Slots = new Dictionary<string, List<object>>();
 
 				// Last updated by [CJP] at [2015.02.03]
 				// Adds the identifier to each element
 				foreach (var element in Menu.Elements)
-					element.Identifier = "ML11";
+					element.Identifier = "ML121";
 
 				Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -439,9 +440,9 @@ namespace GenioMVC.ViewModels.Group
 			LoadUserTableConfigNameProperties();
 		}
 
-		private List<MNT_Menu_11_RowViewModel> MapMNT_Menu_11(ListingMVC<CSGenioAgroup> Qlisting)
+		private List<MNT_Menu_121_RowViewModel> MapMNT_Menu_121(ListingMVC<CSGenioAcategory_type> Qlisting)
 		{
-			List<MNT_Menu_11_RowViewModel> Elements = [];
+			List<MNT_Menu_121_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -450,7 +451,7 @@ namespace GenioMVC.ViewModels.Group
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapMNT_Menu_11(row));
+					Elements.Add(MapMNT_Menu_121(row));
 					i++;
 				}
 			}
@@ -459,13 +460,13 @@ namespace GenioMVC.ViewModels.Group
 		}
 
 		/// <summary>
-		/// Maps a single CSGenioAgroup row
-		/// to a MNT_Menu_11_RowViewModel object.
+		/// Maps a single CSGenioAcategory_type row
+		/// to a MNT_Menu_121_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private MNT_Menu_11_RowViewModel MapMNT_Menu_11(CSGenioAgroup row)
+		private MNT_Menu_121_RowViewModel MapMNT_Menu_121(CSGenioAcategory_type row)
 		{
-			var model = new MNT_Menu_11_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new MNT_Menu_121_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -473,7 +474,7 @@ namespace GenioMVC.ViewModels.Group
 			{
 				switch (Qfield.Area)
 				{
-					case "group":
+					case "category_type":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
@@ -482,6 +483,7 @@ namespace GenioMVC.ViewModels.Group
 
 			model.InitRowData();
 
+			SetTicketToImageFields(model);
 			return model;
 		}
 
@@ -500,19 +502,19 @@ namespace GenioMVC.ViewModels.Group
 		/// Sets the document field values to objects.
 		/// </summary>
 		/// <param name="listing">The rows</param>
-		private void SetDocumentFields(ListingMVC<CSGenioAgroup> listing)
+		private void SetDocumentFields(ListingMVC<CSGenioAcategory_type> listing)
 		{
 		}
 
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.Group m)
+		public override void MapFromModel(Models.Category_type m)
 		{
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.Group m)
+		public override void MapToModel(Models.Category_type m)
 		{
 		}
 
@@ -520,18 +522,25 @@ namespace GenioMVC.ViewModels.Group
 
 		#region Custom code
 
-// USE /[MANUAL MNT VIEWMODEL_CUSTOM MNT_MENU_11]/
+// USE /[MANUAL MNT VIEWMODEL_CUSTOM MNT_MENU_121]/
 
 		#endregion
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Group", "Group.ValCodgroup", "Group.ValZzstate", "Group.ValName"
+			"Category_type", "Category_type.ValCodcategory_type", "Category_type.ValZzstate", "Category_type.ValName", "Category_type.ValLogo"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValName", CSGenioAgroup.FldName, typeof(string), defaultSearch : true),
+			new TableSearchColumn("ValName", CSGenioAcategory_type.FldName, typeof(string), defaultSearch : true),
 		];
+		protected void SetTicketToImageFields(Models.Category_type row)
+		{
+			if (row == null)
+				return;
+
+			row.ValLogoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaCATEGORY_TYPE, CSGenioAcategory_type.FldLogo.Field, null, row.ValCodcategory_type);
+		}
 	}
 }

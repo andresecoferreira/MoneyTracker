@@ -17,19 +17,19 @@ using JsonIgnoreAttribute = System.Text.Json.Serialization.JsonIgnoreAttribute;
 
 namespace GenioMVC.Models
 {
-	public class Account : ModelBase
+	public class Source : ModelBase
 	{
 		[JsonIgnore]
-		public CSGenioAaccount klass { get { return baseklass as CSGenioAaccount; } set { baseklass = value; } }
+		public CSGenioAsource klass { get { return baseklass as CSGenioAsource; } set { baseklass = value; } }
 
 		[Key]
 		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
-		[ShouldSerialize("Account.ValCodaccount")]
-		public string ValCodaccount { get { return klass.ValCodaccount; } set { klass.ValCodaccount = value; } }
+		[ShouldSerialize("Source.ValCodsource")]
+		public string ValCodsource { get { return klass.ValCodsource; } set { klass.ValCodsource = value; } }
 
 		[DisplayName("Type")]
 		/// <summary>Field : "Type" Tipo: "AC" Formula:  ""</summary>
-		[ShouldSerialize("Account.ValType")]
+		[ShouldSerialize("Source.ValType")]
 		[DataArray("Accout_type", GenioMVC.Helpers.ArrayType.Character)]
 		public string ValType { get { return klass.ValType; } set { klass.ValType = value; } }
 		[JsonIgnore]
@@ -37,18 +37,18 @@ namespace GenioMVC.Models
 
 		[DisplayName("Title")]
 		/// <summary>Field : "Title" Tipo: "C" Formula:  ""</summary>
-		[ShouldSerialize("Account.ValTitle")]
+		[ShouldSerialize("Source.ValTitle")]
 		public string ValTitle { get { return klass.ValTitle; } set { klass.ValTitle = value; } }
 
 		[DisplayName("Balance")]
 		/// <summary>Field : "Balance" Tipo: "N" Formula:  ""</summary>
-		[ShouldSerialize("Account.ValBalance")]
+		[ShouldSerialize("Source.ValBalance")]
 		[NumericAttribute(2)]
 		public decimal? ValBalance { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValBalance, 2)); } set { klass.ValBalance = Convert.ToDecimal(value); } }
 
 		[DisplayName("Bank")]
 		/// <summary>Field : "Bank" Tipo: "AC" Formula:  ""</summary>
-		[ShouldSerialize("Account.ValBank")]
+		[ShouldSerialize("Source.ValBank")]
 		[DataArray("Banks", GenioMVC.Helpers.ArrayType.Character)]
 		public string ValBank { get { return klass.ValBank; } set { klass.ValBank = value; } }
 		[JsonIgnore]
@@ -56,12 +56,12 @@ namespace GenioMVC.Models
 
 		[DisplayName("Account Number")]
 		/// <summary>Field : "Account Number" Tipo: "C" Formula:  ""</summary>
-		[ShouldSerialize("Account.ValAccount_number")]
+		[ShouldSerialize("Source.ValAccount_number")]
 		public string ValAccount_number { get { return klass.ValAccount_number; } set { klass.ValAccount_number = value; } }
 
-		[DisplayName("Owner")]
-		/// <summary>Field : "Owner" Tipo: "CE" Formula:  ""</summary>
-		[ShouldSerialize("Account.ValMember_id")]
+		[DisplayName("Member")]
+		/// <summary>Field : "Member" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Source.ValMember_id")]
 		public string ValMember_id { get { return klass.ValMember_id; } set { klass.ValMember_id = value; } }
 
 		private Member _member;
@@ -80,19 +80,19 @@ namespace GenioMVC.Models
 		}
 
 		[DisplayName("ZZSTATE")]
-		[ShouldSerialize("Account.ValZzstate")]
+		[ShouldSerialize("Source.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
 		public virtual int ValZzstate { get { return klass.ValZzstate; } set { klass.ValZzstate = value; } }
 
-		public Account(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext)
+		public Source(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext)
 		{
-			klass = new CSGenioAaccount(userContext.User);
+			klass = new CSGenioAsource(userContext.User);
 			isEmptyModel = isEmpty;
 			if (fieldsToSerialize != null)
 				SetFieldsToSerialize(fieldsToSerialize);
 		}
 
-		public Account(UserContext userContext, CSGenioAaccount val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext)
+		public Source(UserContext userContext, CSGenioAsource val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext)
 		{
 			klass = val;
 			isEmptyModel = isEmpty;
@@ -101,7 +101,7 @@ namespace GenioMVC.Models
 			FillRelatedAreas(val);
 		}
 
-		public void FillRelatedAreas(CSGenioAaccount csgenioa)
+		public void FillRelatedAreas(CSGenioAsource csgenioa)
 		{
 			if (csgenioa == null)
 				return;
@@ -129,17 +129,17 @@ namespace GenioMVC.Models
 		/// <param name="fieldsToSerialize">The fields to serialize.</param>
 		/// <param name="fieldsToQuery">The fields to query.</param>
 		/// <returns>Model or NULL</returns>
-		public static Account Find(string id, UserContext userCtx, string identifier = null, string[] fieldsToSerialize = null, string[] fieldsToQuery = null)
+		public static Source Find(string id, UserContext userCtx, string identifier = null, string[] fieldsToSerialize = null, string[] fieldsToQuery = null)
 		{
-			var record = Find<CSGenioAaccount>(id, userCtx, identifier, fieldsToQuery);
-			return record == null ? null : new Account(userCtx, record, false, fieldsToSerialize) { Identifier = identifier };
+			var record = Find<CSGenioAsource>(id, userCtx, identifier, fieldsToQuery);
+			return record == null ? null : new Source(userCtx, record, false, fieldsToSerialize) { Identifier = identifier };
 		}
 
-		public static List<Account> AllModel(UserContext userCtx, CriteriaSet args = null, string identifier = null)
+		public static List<Source> AllModel(UserContext userCtx, CriteriaSet args = null, string identifier = null)
 		{
-			return Where<CSGenioAaccount>(userCtx, false, args, numRegs: -1, identifier: identifier).RowsForViewModel<Account>((r) => new Account(userCtx, r));
+			return Where<CSGenioAsource>(userCtx, false, args, numRegs: -1, identifier: identifier).RowsForViewModel<Source>((r) => new Source(userCtx, r));
 		}
 
-// USE /[MANUAL MNT MODEL ACCOUNT]/
+// USE /[MANUAL MNT MODEL SOURCE]/
 	}
 }

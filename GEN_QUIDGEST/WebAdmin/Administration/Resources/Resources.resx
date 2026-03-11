@@ -195,6 +195,9 @@
   <data name="AVISO03237" xml:space="preserve">
     <value>Aviso</value>
   </data>
+  <data name="ADMIN32587" xml:space="preserve">
+    <value>Admin</value>
+  </data>
   <data name="OWNER09558" xml:space="preserve">
     <value>Owner</value>
   </data>
@@ -240,6 +243,9 @@
   <data name="CONSULTA40695" xml:space="preserve">
     <value>Consulta</value>
   </data>
+  <data name="CATEGORIES06648" xml:space="preserve">
+    <value>Categories</value>
+  </data>
   <data name="PHOTO51874" xml:space="preserve">
     <value>Photo</value>
   </data>
@@ -279,6 +285,9 @@
   <data name="CREDITO_AGRICOLA06541" xml:space="preserve">
     <value>Crédito Agrícola</value>
   </data>
+  <data name="CATEGORY_TYPE34342" xml:space="preserve">
+    <value>Category Type</value>
+  </data>
   <data name="ASYNC_PROCESS_ARGUME13794" xml:space="preserve">
     <value>Async process arguments</value>
   </data>
@@ -293,6 +302,9 @@
   </data>
   <data name="ACCOUNT_TYPE62303" xml:space="preserve">
     <value>Account Type</value>
+  </data>
+  <data name="EXPENSE49437" xml:space="preserve">
+    <value>Expense</value>
   </data>
   <data name="TERMINADO46276" xml:space="preserve">
     <value>Terminado</value>
@@ -393,6 +405,12 @@
   <data name="NOTIFICATION_MESSAGE31108" xml:space="preserve">
     <value>Notification Message</value>
   </data>
+  <data name="EXPENSES11381" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="CATEGORY18978" xml:space="preserve">
+    <value>Category</value>
+  </data>
   <data name="ROLE60946" xml:space="preserve">
     <value>Role</value>
   </data>
@@ -426,6 +444,9 @@
   <data name="USER_ID13914" xml:space="preserve">
     <value>User ID</value>
   </data>
+  <data name="SOURCES41454" xml:space="preserve">
+    <value>SOURCES</value>
+  </data>
   <data name="MEMBER_PSW31555" xml:space="preserve">
     <value>Member_PSW</value>
   </data>
@@ -452,6 +473,9 @@
   </data>
   <data name="BANKS53855" xml:space="preserve">
     <value>Banks</value>
+  </data>
+  <data name="SOURCE48097" xml:space="preserve">
+    <value>SOURCE</value>
   </data>
   <data name="ENABLED_33995" xml:space="preserve">
     <value>Enabled?</value>
@@ -486,6 +510,9 @@
   <data name="START_TIME30037" xml:space="preserve">
     <value>Start time</value>
   </data>
+  <data name="CATEGORY_TYPES63920" xml:space="preserve">
+    <value>Category Types</value>
+  </data>
   <data name="AGGREGATE05721" xml:space="preserve">
     <value>Aggregate</value>
   </data>
@@ -497,6 +524,9 @@
   </data>
   <data name="BIRTHDAY30236" xml:space="preserve">
     <value>Birthday</value>
+  </data>
+  <data name="LOGO62483" xml:space="preserve">
+    <value>Logo</value>
   </data>
   <data name="MILLENNIUM_BCP40100" xml:space="preserve">
     <value>Millennium BCP</value>
@@ -9260,9 +9290,6 @@
   </data>
   <data name="REGULAR05607" xml:space="preserve">
     <value>Regular</value>
-  </data>
-  <data name="ADMIN32587" xml:space="preserve">
-    <value>Admin</value>
   </data>
   <data name="ESTE_NOME_JA_EXISTE_51368" xml:space="preserve">
     <value>This name already exists!</value>

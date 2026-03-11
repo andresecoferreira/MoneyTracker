@@ -133,8 +133,8 @@ namespace CSGenio.business
 			// Daughters Relations
 			//------------------------------
 			info.ChildTable = new ChildRelation[2];
-			info.ChildTable[0]= new ChildRelation("member_psw", new String[] {"member_id"}, DeleteProc.NA);
-			info.ChildTable[1]= new ChildRelation("account", new String[] {"member_id"}, DeleteProc.NA);
+			info.ChildTable[0]= new ChildRelation("source", new String[] {"member_id"}, DeleteProc.NA);
+			info.ChildTable[1]= new ChildRelation("member_psw", new String[] {"member_id"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------

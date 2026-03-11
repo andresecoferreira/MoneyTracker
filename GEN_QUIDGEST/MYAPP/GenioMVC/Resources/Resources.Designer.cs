@@ -297,6 +297,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Admin"
+		/// </summary>
+		public static string ADMIN32587 {
+			get {
+				return ResourceManager.GetString("ADMIN32587", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Owner"
 		/// </summary>
 		public static string OWNER09558 {
@@ -432,6 +441,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Categories"
+		/// </summary>
+		public static string CATEGORIES06648 {
+			get {
+				return ResourceManager.GetString("CATEGORIES06648", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Photo"
 		/// </summary>
 		public static string PHOTO51874 {
@@ -549,6 +567,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Category Type"
+		/// </summary>
+		public static string CATEGORY_TYPE34342 {
+			get {
+				return ResourceManager.GetString("CATEGORY_TYPE34342", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Async process arguments"
 		/// </summary>
 		public static string ASYNC_PROCESS_ARGUME13794 {
@@ -590,6 +617,15 @@ namespace GenioMVC.Resources
 		public static string ACCOUNT_TYPE62303 {
 			get {
 				return ResourceManager.GetString("ACCOUNT_TYPE62303", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Expense"
+		/// </summary>
+		public static string EXPENSE49437 {
+			get {
+				return ResourceManager.GetString("EXPENSE49437", resourceCulture);
 			}
 		}
 
@@ -891,6 +927,24 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Expenses"
+		/// </summary>
+		public static string EXPENSES11381 {
+			get {
+				return ResourceManager.GetString("EXPENSES11381", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Category"
+		/// </summary>
+		public static string CATEGORY18978 {
+			get {
+				return ResourceManager.GetString("CATEGORY18978", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Role"
 		/// </summary>
 		public static string ROLE60946 {
@@ -990,6 +1044,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "SOURCES"
+		/// </summary>
+		public static string SOURCES41454 {
+			get {
+				return ResourceManager.GetString("SOURCES41454", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Member_PSW"
 		/// </summary>
 		public static string MEMBER_PSW31555 {
@@ -1067,6 +1130,15 @@ namespace GenioMVC.Resources
 		public static string BANKS53855 {
 			get {
 				return ResourceManager.GetString("BANKS53855", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "SOURCE"
+		/// </summary>
+		public static string SOURCE48097 {
+			get {
+				return ResourceManager.GetString("SOURCE48097", resourceCulture);
 			}
 		}
 
@@ -1170,6 +1242,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Category Types"
+		/// </summary>
+		public static string CATEGORY_TYPES63920 {
+			get {
+				return ResourceManager.GetString("CATEGORY_TYPES63920", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Aggregate"
 		/// </summary>
 		public static string AGGREGATE05721 {
@@ -1202,6 +1283,15 @@ namespace GenioMVC.Resources
 		public static string BIRTHDAY30236 {
 			get {
 				return ResourceManager.GetString("BIRTHDAY30236", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Logo"
+		/// </summary>
+		public static string LOGO62483 {
+			get {
+				return ResourceManager.GetString("LOGO62483", resourceCulture);
 			}
 		}
 
@@ -27491,15 +27581,6 @@ namespace GenioMVC.Resources
 		public static string REGULAR05607 {
 			get {
 				return ResourceManager.GetString("REGULAR05607", resourceCulture);
-			}
-		}
-
-		/// <summary>
-		///   Looks up a localized string similar to "Admin"
-		/// </summary>
-		public static string ADMIN32587 {
-			get {
-				return ResourceManager.GetString("ADMIN32587", resourceCulture);
 			}
 		}
 

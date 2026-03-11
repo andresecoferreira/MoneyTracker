@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Group;
+namespace GenioMVC.ViewModels.Category_type;
 
-public class MNT_Menu_11_RowViewModel : Models.Group
+public class Category_type_ValCategories_RowViewModel : Models.Category
 {
 	#region Constructors
 
-	public MNT_Menu_11_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public Category_type_ValCategories_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MNT_Menu_11_RowViewModel(UserContext userContext, CSGenioAgroup val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public Category_type_ValCategories_RowViewModel(UserContext userContext, CSGenioAcategory val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,7 +36,7 @@ public class MNT_Menu_11_RowViewModel : Models.Group
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "GROUP",
+				Area = "CATEGORY",
 				Field = "NAME",
 			},
 		];

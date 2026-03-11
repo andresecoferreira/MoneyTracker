@@ -29,6 +29,7 @@ namespace CSGenio.business
 			            Qresult.AppendLine("if {{{0}}} = \"LO\" then \"Loan\" else");
 			            Qresult.AppendLine("if {{{0}}} = \"CR\" then \"Credit Card\" else");
 			            Qresult.AppendLine("if {{{0}}} = \"DI\" then \"Digital Wallet\" else");
+			            Qresult.AppendLine("if {{{0}}} = \"OT\" then \"Other\" else");
             Qresult.Append("\"                                              \"");
             todasArrays.Add("accout_type", Qresult.ToString());
 			// banks

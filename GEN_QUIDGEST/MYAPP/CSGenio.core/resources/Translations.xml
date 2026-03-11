@@ -78,6 +78,9 @@
   <msg id="Aviso" code="AVISO03237">
     <ENUS>Aviso</ENUS>
   </msg>
+  <msg id="Admin" code="ADMIN32587">
+    <ENUS>Admin</ENUS>
+  </msg>
   <msg id="Owner" code="OWNER09558">
     <ENUS>Owner</ENUS>
   </msg>
@@ -123,6 +126,9 @@
   <msg id="Consulta" code="CONSULTA40695">
     <ENUS>Consulta</ENUS>
   </msg>
+  <msg id="Categories" code="CATEGORIES06648">
+    <ENUS>Categories</ENUS>
+  </msg>
   <msg id="Photo" code="PHOTO51874">
     <ENUS>Photo</ENUS>
   </msg>
@@ -162,6 +168,9 @@
   <msg id="Crédito Agrícola" code="CREDITO_AGRICOLA06541">
     <ENUS>Crédito Agrícola</ENUS>
   </msg>
+  <msg id="Category Type" code="CATEGORY_TYPE34342">
+    <ENUS>Category Type</ENUS>
+  </msg>
   <msg id="Async process arguments" code="ASYNC_PROCESS_ARGUME13794">
     <ENUS>Async process arguments</ENUS>
   </msg>
@@ -176,6 +185,9 @@
   </msg>
   <msg id="Account Type" code="ACCOUNT_TYPE62303">
     <ENUS>Account Type</ENUS>
+  </msg>
+  <msg id="Expense" code="EXPENSE49437">
+    <ENUS>Expense</ENUS>
   </msg>
   <msg id="Terminado" code="TERMINADO46276">
     <ENUS>Terminado</ENUS>
@@ -276,6 +288,12 @@
   <msg id="Notification Message" code="NOTIFICATION_MESSAGE31108">
     <ENUS>Notification Message</ENUS>
   </msg>
+  <msg id="Expenses" code="EXPENSES11381">
+    <ENUS>Expenses</ENUS>
+  </msg>
+  <msg id="Category" code="CATEGORY18978">
+    <ENUS>Category</ENUS>
+  </msg>
   <msg id="Role" code="ROLE60946">
     <ENUS>Role</ENUS>
   </msg>
@@ -309,6 +327,9 @@
   <msg id="User ID" code="USER_ID13914">
     <ENUS>User ID</ENUS>
   </msg>
+  <msg id="SOURCES" code="SOURCES41454">
+    <ENUS>SOURCES</ENUS>
+  </msg>
   <msg id="Member_PSW" code="MEMBER_PSW31555">
     <ENUS>Member_PSW</ENUS>
   </msg>
@@ -335,6 +356,9 @@
   </msg>
   <msg id="Banks" code="BANKS53855">
     <ENUS>Banks</ENUS>
+  </msg>
+  <msg id="SOURCE" code="SOURCE48097">
+    <ENUS>SOURCE</ENUS>
   </msg>
   <msg id="Enabled?" code="ENABLED_33995">
     <ENUS>Enabled?</ENUS>
@@ -369,6 +393,9 @@
   <msg id="Start time" code="START_TIME30037">
     <ENUS>Start time</ENUS>
   </msg>
+  <msg id="Category Types" code="CATEGORY_TYPES63920">
+    <ENUS>Category Types</ENUS>
+  </msg>
   <msg id="Aggregate" code="AGGREGATE05721">
     <ENUS>Aggregate</ENUS>
   </msg>
@@ -380,6 +407,9 @@
   </msg>
   <msg id="Birthday" code="BIRTHDAY30236">
     <ENUS>Birthday</ENUS>
+  </msg>
+  <msg id="Logo" code="LOGO62483">
+    <ENUS>Logo</ENUS>
   </msg>
   <msg id="Millennium BCP" code="MILLENNIUM_BCP40100">
     <ENUS>Millennium BCP</ENUS>
@@ -9143,9 +9173,6 @@
   </msg>
   <msg id="Regular" code="REGULAR05607">
     <ENUS>Regular</ENUS>
-  </msg>
-  <msg id="Admin" code="ADMIN32587">
-    <ENUS>Admin</ENUS>
   </msg>
   <msg id="Este nome já existe!" code="ESTE_NOME_JA_EXISTE_51368">
     <ENUS>This name already exists!</ENUS>

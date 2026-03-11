@@ -21,11 +21,11 @@ using Quidgest.Persistence.GenericQuery;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-// USE /[MANUAL MNT INCLUDE_CONTROLLER ACCOUNT]/
+// USE /[MANUAL MNT INCLUDE_CONTROLLER SOURCE]/
 
 namespace GenioMVC.Controllers
 {
-	public partial class AccountController : ControllerBase
+	public partial class SourceController : ControllerBase
 	{
 
 

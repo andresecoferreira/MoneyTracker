@@ -26,24 +26,30 @@ namespace CSGenio.business
         private static AreaRef m_AreaS_UA = new AreaRef("MNT", "userauthorization", "s_ua");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
         private static AreaRef m_AreaS_APR = new AreaRef("MNT", "asyncprocess", "s_apr");
+        public static AreaRef AreaCATEGORY_TYPE { get { return m_AreaCATEGORY_TYPE; } }
+        private static AreaRef m_AreaCATEGORY_TYPE = new AreaRef("MNT", "mntcategory_type", "category_type");
         public static AreaRef AreaMEM { get { return m_AreaMEM; } }
         private static AreaRef m_AreaMEM = new AreaRef("MNT", "mntmem", "mem");
         public static AreaRef AreaS_PAX { get { return m_AreaS_PAX; } }
         private static AreaRef m_AreaS_PAX = new AreaRef("MNT", "asyncprocessattachments", "s_pax");
         public static AreaRef AreaGROUP { get { return m_AreaGROUP; } }
         private static AreaRef m_AreaGROUP = new AreaRef("MNT", "mntgroup", "group");
+        public static AreaRef AreaSOURCE { get { return m_AreaSOURCE; } }
+        private static AreaRef m_AreaSOURCE = new AreaRef("MNT", "mntsource", "source");
         public static AreaRef AreaPSW { get { return m_AreaPSW; } }
         private static AreaRef m_AreaPSW = new AreaRef("MNT", "userlogin", "psw");
         public static AreaRef AreaMEMBER { get { return m_AreaMEMBER; } }
         private static AreaRef m_AreaMEMBER = new AreaRef("MNT", "mntmember", "member");
         public static AreaRef AreaS_NES { get { return m_AreaS_NES; } }
         private static AreaRef m_AreaS_NES = new AreaRef("MNT", "notificationemailsignature", "s_nes");
+        public static AreaRef AreaEXPENSE { get { return m_AreaEXPENSE; } }
+        private static AreaRef m_AreaEXPENSE = new AreaRef("MNT", "mntexpense", "expense");
+        public static AreaRef AreaCATEGORY { get { return m_AreaCATEGORY; } }
+        private static AreaRef m_AreaCATEGORY = new AreaRef("MNT", "mntcategory", "category");
         public static AreaRef AreaMEMBER_PSW { get { return m_AreaMEMBER_PSW; } }
         private static AreaRef m_AreaMEMBER_PSW = new AreaRef("MNT", "mntmember_psw", "member_psw");
         public static AreaRef AreaS_ARG { get { return m_AreaS_ARG; } }
         private static AreaRef m_AreaS_ARG = new AreaRef("MNT", "asyncprocessargument", "s_arg");
-        public static AreaRef AreaACCOUNT { get { return m_AreaACCOUNT; } }
-        private static AreaRef m_AreaACCOUNT = new AreaRef("MNT", "mntaccount", "account");
         //areas hardcoded
         public static AreaRef AreaDELEGA { get { return m_AreaDELEGA; } }
         private static AreaRef m_AreaDELEGA = new AreaRef("MNTdelega", "delega");
@@ -78,15 +84,18 @@ namespace CSGenio.business
             "s_nm",
             "s_ua",
             "s_apr",
+            "category_type",
             "mem",
             "s_pax",
             "group",
+            "source",
             "psw",
             "member",
             "s_nes",
+            "expense",
+            "category",
             "member_psw",
             "s_arg",
-            "account",
         });
 
         /// <summary>

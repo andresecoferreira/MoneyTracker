@@ -5,13 +5,27 @@ export default function getMenusRoutes()
 {
 	return [
 		{
-			path: '/:culture/:system/MNT/menu/MNT_11',
-			name: 'menu-MNT_11',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_11/QMenuMnt11.vue'),
+			path: '/:culture/:system/MNT/menu/MNT_121',
+			name: 'menu-MNT_121',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_121/QMenuMnt121.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MNT',
-				order: '11',
+				order: '121',
+				baseArea: 'CATEGORY_TYPE',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValName'],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/MNT/menu/MNT_111',
+			name: 'menu-MNT_111',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_111/QMenuMnt111.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MNT',
+				order: '111',
 				baseArea: 'GROUP',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],

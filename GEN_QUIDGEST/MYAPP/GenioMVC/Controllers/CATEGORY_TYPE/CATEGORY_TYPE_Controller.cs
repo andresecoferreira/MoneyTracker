@@ -20,36 +20,53 @@ using GenioMVC.Models.Exception;
 using GenioMVC.Models.Navigation;
 using GenioMVC.Resources;
 using GenioMVC.ViewModels;
+using GenioMVC.ViewModels.Category_type;
 using GenioServer.business;
 using CSGenio.core.ai;
 
 using Quidgest.Persistence.GenericQuery;
 
-// USE /[MANUAL MNT INCLUDE_CONTROLLER ACCOUNT]/
+// USE /[MANUAL MNT INCLUDE_CONTROLLER CATEGORY_TYPE]/
 
 namespace GenioMVC.Controllers
 {
-	public partial class AccountController : ControllerBase
+	public partial class Category_typeController : ControllerBase
 	{
 		private IChatbotService _aiService;
-		public AccountController(UserContextService userContext, IChatbotService aiService) : base(userContext)
+		public Category_typeController(UserContextService userContext, IChatbotService aiService) : base(userContext)
 		{
 			_aiService = aiService;
 		}
 
-// USE /[MANUAL MNT CONTROLLER_NAVIGATION ACCOUNT]/
+// USE /[MANUAL MNT CONTROLLER_NAVIGATION CATEGORY_TYPE]/
 
 
 
 		private List<string> GetActionIds(CriteriaSet crs, CSGenio.persistence.PersistentSupport sp = null)
 		{
-			CSGenio.business.Area area = CSGenio.business.Area.createArea<CSGenioAaccount>(UserContext.Current.User, UserContext.Current.User.CurrentModule);
+			CSGenio.business.Area area = CSGenio.business.Area.createArea<CSGenioAcategory_type>(UserContext.Current.User, UserContext.Current.User.CurrentModule);
 			return base.GetActionIds(crs, sp, area);
 		}
 
-// USE /[MANUAL MNT MANUAL_CONTROLLER ACCOUNT]/
+// USE /[MANUAL MNT MANUAL_CONTROLLER CATEGORY_TYPE]/
 
 
+
+
+
+		/// <summary>
+		/// Recalculate formulas of the "Category_type" form. (++, CT, SR, CL and U1)
+		/// </summary>
+		/// <param name="formData">Current form data</param>
+		/// <returns></returns>
+		[HttpPost]
+		public JsonResult RecalculateFormulas_Category_type([FromBody]Category_type_ViewModel formData)
+		{
+			return GenericRecalculateFormulas(formData, "category_type",
+				(primaryKey) => Models.Category_type.Find(primaryKey, UserContext.Current, "FCATEGORY_TYPE"),
+				(model) => formData.MapToModel(model as Models.Category_type)
+			);
+		}
 
 		/// <summary>
 		/// Get "See more..." tree structure
@@ -89,7 +106,7 @@ namespace GenioMVC.Controllers
 		/// <returns>A JSON response with the result of the operation</returns>
 		public ActionResult GetDocumsTickets([FromBody] RequestDocumGetTicketsModel requestModel)
 		{
-			return base.GetDocumsTickets("ACCOUNT", requestModel.FieldName, requestModel.KeyValue);
+			return base.GetDocumsTickets("CATEGORY_TYPE", requestModel.FieldName, requestModel.KeyValue);
 		}
 
 		/// <summary>

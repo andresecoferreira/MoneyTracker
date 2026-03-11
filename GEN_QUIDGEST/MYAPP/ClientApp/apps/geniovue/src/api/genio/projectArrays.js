@@ -162,6 +162,12 @@ export class QArrayAccout_type
 				resourceId: 'DIGITAL_WALLET00561',
 				fnResources,
 			}),
+			new Option({
+				num: 8,
+				key: 'OT',
+				resourceId: 'OTHER37293',
+				fnResources,
+			}),
 		]
 
 	}

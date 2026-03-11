@@ -4,6 +4,30 @@ export default function getFormsRoutes()
 {
 	return [
 		{
+			path: '/:culture/:system/:module/form/CATEGORY/:mode/:id?',
+			name: 'form-CATEGORY',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormCategory/QFormCategory.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'CATEGORY',
+				humanKeyFields: ['ValName'],
+				isPopup: true
+			}
+		},
+		{
+			path: '/:culture/:system/:module/form/CATEGORY_TYPE/:mode/:id?',
+			name: 'form-CATEGORY_TYPE',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormCategoryType/QFormCategoryType.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'CATEGORY_TYPE',
+				humanKeyFields: ['ValName'],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/:module/form/GROUP/:mode/:id?',
 			name: 'form-GROUP',
 			props: route => propsConverter(route),

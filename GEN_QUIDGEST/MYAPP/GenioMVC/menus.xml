@@ -1,10 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-16"?>
 <ArrayOfMenuEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <MenuEntry TYPE="ITEM" DESC="MY_APPLICATION56216" ID="MNT" IMG="" IMGVUE="" LVL="0" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false">
-    <MENU TYPE="ITEM" DESC="GROUPS45298" SIGLA="" ID="1" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1" DEFAULTACTION="">
-      <ACCESS />
-      <MENU TYPE="ITEM" DESC="GROUPS45298" ID="11" PRTID="1" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_11" ACTVUE="menu-MNT_11" CONT="GROUP" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="11">
-        <MENU TYPE="ITEM" ID="111" PRTID="11" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="111" />
+    <MENU TYPE="ITEM" DESC="ADMIN32587" SIGLA="🛠️" ID="1" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1" DEFAULTACTION="">
+      <ACCESS>99</ACCESS>
+      <MENU TYPE="ITEM" DESC="GROUPS45298" SIGLA="" ID="11" PRTID="1" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="11" DEFAULTACTION="">
+        <ACCESS />
+        <MENU TYPE="ITEM" DESC="GROUPS45298" ID="111" PRTID="11" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_111" ACTVUE="menu-MNT_111" CONT="GROUP" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="111">
+          <MENU TYPE="ITEM" ID="1111" PRTID="111" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1111" />
+        </MENU>
+      </MENU>
+      <MENU TYPE="ITEM" DESC="CATEGORY_TYPES63920" SIGLA="" ID="12" PRTID="1" HELPTITLE="" LVL="2" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="12" DEFAULTACTION="">
+        <ACCESS />
+        <MENU TYPE="ITEM" DESC="CATEGORY_TYPES63920" ID="121" PRTID="12" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_121" ACTVUE="menu-MNT_121" CONT="CATEGORY_TYPE" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="121">
+          <MENU TYPE="ITEM" ID="1211" PRTID="121" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1211" />
+        </MENU>
       </MENU>
     </MENU>
   </MenuEntry>

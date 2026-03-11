@@ -14,23 +14,23 @@ using System.Linq;
 namespace CSGenio.business
 {
 	/// <summary>
-	/// Account
+	/// Category
 	/// </summary>
-	public class CSGenioAaccount : DbArea
+	public class CSGenioAcategory : DbArea
 	{
 		/// <summary>
 		/// Meta-information on this area
 		/// </summary>
 		protected readonly static AreaInfo informacao = InicializaAreaInfo();
 
-		public CSGenioAaccount(User user, string module)
+		public CSGenioAcategory(User user, string module)
 		{
             this.user = user;
             this.module = module;
-			// USE /[MANUAL MNT CONSTRUTOR ACCOUNT]/
+			// USE /[MANUAL MNT CONSTRUTOR CATEGORY]/
 		}
 
-		public CSGenioAaccount(User user) : this(user, user.CurrentModule)
+		public CSGenioAcategory(User user) : this(user, user.CurrentModule)
 		{
 		}
 
@@ -44,7 +44,7 @@ namespace CSGenio.business
 			List<ByAreaArguments> argumentsListByArea;
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "codaccount", FieldType.KEY_INT);
+			Qfield = new Field(info.Alias, "codcategory", FieldType.KEY_INT);
 			Qfield.FieldDescription = "";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
@@ -54,81 +54,32 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "type", FieldType.ARRAY_TEXT);
-			Qfield.FieldDescription = "Type";
-			Qfield.FieldSize =  2;
-			Qfield.MQueue = false;
-			Qfield.CavDesignation = "TYPE00312";
-
-            Qfield.NotNull = true;
-			Qfield.Dupmsg = "";
-            Qfield.ArrayName = "dbo.GetValArrayCaccout_type";
-            Qfield.ArrayClassName = "Accout_type";
-			info.RegisterFieldDB(Qfield);
-
-			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "title", FieldType.TEXT);
-			Qfield.FieldDescription = "Title";
-			Qfield.FieldSize =  50;
-			Qfield.MQueue = false;
-			Qfield.CavDesignation = "TITLE21885";
-
-            Qfield.NotNull = true;
-			Qfield.Dupmsg = "";
-			info.RegisterFieldDB(Qfield);
-
-			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "balance", FieldType.NUMERIC);
-			Qfield.FieldDescription = "Balance";
-			Qfield.FieldSize =  15;
-			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 12;
-			Qfield.Decimals = 2;
-			Qfield.CavDesignation = "BALANCE13297";
-
-            Qfield.NotNull = true;
-			Qfield.Dupmsg = "";
-			Qfield.DefaultValue = new DefaultValue(0);
-			info.RegisterFieldDB(Qfield);
-
-			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "bank", FieldType.ARRAY_TEXT);
-			Qfield.FieldDescription = "Bank";
-			Qfield.FieldSize =  12;
-			Qfield.MQueue = false;
-			Qfield.CavDesignation = "BANK26563";
-
-			Qfield.Dupmsg = "";
-			argumentsListByArea = new List<ByAreaArguments>();
-			argumentsListByArea.Add(new ByAreaArguments(new string[] {"type"}, new int[] {0}, "account", "codaccount"));
-			Qfield.ShowWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
-				return ((string)args[0])!="CA";
-			});
-            Qfield.ArrayName = "dbo.GetValArrayCbanks";
-            Qfield.ArrayClassName = "Banks";
-			info.RegisterFieldDB(Qfield);
-
-			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "account_number", FieldType.TEXT);
-			Qfield.FieldDescription = "Account Number";
+			Qfield = new Field(info.Alias, "name", FieldType.TEXT);
+			Qfield.FieldDescription = "Name";
 			Qfield.FieldSize =  20;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "ACCOUNT_NUMBER58504";
+			Qfield.CavDesignation = "NAME31974";
 
+            Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
-			argumentsListByArea = new List<ByAreaArguments>();
-			argumentsListByArea.Add(new ByAreaArguments(new string[] {"type"}, new int[] {0}, "account", "codaccount"));
-			Qfield.ShowWhen = new ConditionFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
-				return ((string)args[0])!="CA";
-			});
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "member_id", FieldType.KEY_INT);
-			Qfield.FieldDescription = "Owner";
+			Qfield = new Field(info.Alias, "description", FieldType.TEXT);
+			Qfield.FieldDescription = "Description";
+			Qfield.FieldSize =  80;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "DESCRIPTION07383";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "type_id", FieldType.KEY_INT);
+			Qfield.FieldDescription = "Type";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "OWNER09558";
+			Qfield.CavDesignation = "TYPE00312";
 
             Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
@@ -152,7 +103,7 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
-			info.ParentTables.Add("member", new Relation("MNT", "mntaccount", "account", "codaccount", "member_id", "MNT", "mntmember", "member", "codmember", "codmember"));
+			info.ParentTables.Add("category_type", new Relation("MNT", "mntcategory", "category", "codcategory", "type_id", "MNT", "mntcategory_type", "category_type", "codcategory_type", "codcategory_type"));
 		}
 
 		/// <summary>
@@ -162,9 +113,8 @@ namespace CSGenio.business
 		{
 			// Pathways
 			//------------------------------
-			info.Pathways = new Dictionary<string, string>(2);
-			info.Pathways.Add("member","member");
-			info.Pathways.Add("group","member");
+			info.Pathways = new Dictionary<string, string>(1);
+			info.Pathways.Add("category_type","category_type");
 		}
 
 		/// <summary>
@@ -176,10 +126,6 @@ namespace CSGenio.business
 			//------------------------------
 
 
-
-			info.DefaultValues = new string[] {
-			 "balance"
-			};
 
 
 
@@ -194,7 +140,7 @@ namespace CSGenio.business
 		}
 
 		/// <summary>
-		/// static CSGenioAaccount()
+		/// static CSGenioAcategory()
 		/// </summary>
 		private static AreaInfo InicializaAreaInfo()
 		{
@@ -202,18 +148,18 @@ namespace CSGenio.business
 
 			// Area meta-information
 			info.QSystem="MNT";
-			info.TableName="mntaccount";
+			info.TableName="mntcategory";
 			info.ShadowTabName="";
 			info.ShadowTabKeyName="";
 
-			info.PrimaryKeyName="codaccount";
-			info.HumanKeyName="title,".TrimEnd(',');
-			info.Alias="account";
+			info.PrimaryKeyName="codcategory";
+			info.HumanKeyName="name,".TrimEnd(',');
+			info.Alias="category";
 			info.IsDomain = true;
 			info.PersistenceType = PersistenceType.Database;
-			info.AreaDesignation="Account";
-			info.AreaPluralDesignation="Accounts";
-			info.DescriptionCav="ACCOUNT64260";
+			info.AreaDesignation="Category";
+			info.AreaPluralDesignation="Categories";
+			info.DescriptionCav="CATEGORY18978";
 
 			//sincronização
 			info.SyncIncrementalDateStart = TimeSpan.FromHours(8);
@@ -261,10 +207,6 @@ namespace CSGenio.business
 			// Ephs
 			//------------------------------
 			info.Ephs=new Hashtable();
-			EPHField[] camposEPH;
-						camposEPH = new EPHField[1];
-			camposEPH[0] = new EPHField("MEMBERPSW", "member", "codmember", "=", false);
-			info.Ephs.Add(new Par("MNT", "50"), camposEPH);
 
 			// Table minimum roles and access levels
 			//------------------------------
@@ -293,85 +235,52 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
-		public static FieldRef FldCodaccount { get { return m_fldCodaccount; } }
-		private static FieldRef m_fldCodaccount = new FieldRef("account", "codaccount");
+		public static FieldRef FldCodcategory { get { return m_fldCodcategory; } }
+		private static FieldRef m_fldCodcategory = new FieldRef("category", "codcategory");
 
 		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
-		public string ValCodaccount
+		public string ValCodcategory
 		{
-			get { return (string)returnValueField(FldCodaccount); }
-			set { insertNameValueField(FldCodaccount, value); }
+			get { return (string)returnValueField(FldCodcategory); }
+			set { insertNameValueField(FldCodcategory, value); }
 		}
 
-		/// <summary>Field : "Type" Tipo: "AC" Formula:  ""</summary>
-		public static FieldRef FldType { get { return m_fldType; } }
-		private static FieldRef m_fldType = new FieldRef("account", "type");
+		/// <summary>Field : "Name" Tipo: "C" Formula:  ""</summary>
+		public static FieldRef FldName { get { return m_fldName; } }
+		private static FieldRef m_fldName = new FieldRef("category", "name");
 
-		/// <summary>Field : "Type" Tipo: "AC" Formula:  ""</summary>
-		public string ValType
+		/// <summary>Field : "Name" Tipo: "C" Formula:  ""</summary>
+		public string ValName
 		{
-			get { return (string)returnValueField(FldType); }
-			set { insertNameValueField(FldType, value); }
+			get { return (string)returnValueField(FldName); }
+			set { insertNameValueField(FldName, value); }
 		}
 
-		/// <summary>Field : "Title" Tipo: "C" Formula:  ""</summary>
-		public static FieldRef FldTitle { get { return m_fldTitle; } }
-		private static FieldRef m_fldTitle = new FieldRef("account", "title");
+		/// <summary>Field : "Description" Tipo: "C" Formula:  ""</summary>
+		public static FieldRef FldDescription { get { return m_fldDescription; } }
+		private static FieldRef m_fldDescription = new FieldRef("category", "description");
 
-		/// <summary>Field : "Title" Tipo: "C" Formula:  ""</summary>
-		public string ValTitle
+		/// <summary>Field : "Description" Tipo: "C" Formula:  ""</summary>
+		public string ValDescription
 		{
-			get { return (string)returnValueField(FldTitle); }
-			set { insertNameValueField(FldTitle, value); }
+			get { return (string)returnValueField(FldDescription); }
+			set { insertNameValueField(FldDescription, value); }
 		}
 
-		/// <summary>Field : "Balance" Tipo: "N" Formula:  ""</summary>
-		public static FieldRef FldBalance { get { return m_fldBalance; } }
-		private static FieldRef m_fldBalance = new FieldRef("account", "balance");
+		/// <summary>Field : "Type" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldType_id { get { return m_fldType_id; } }
+		private static FieldRef m_fldType_id = new FieldRef("category", "type_id");
 
-		/// <summary>Field : "Balance" Tipo: "N" Formula:  ""</summary>
-		public decimal ValBalance
+		/// <summary>Field : "Type" Tipo: "CE" Formula:  ""</summary>
+		public string ValType_id
 		{
-			get { return (decimal)returnValueField(FldBalance); }
-			set { insertNameValueField(FldBalance, value); }
-		}
-
-		/// <summary>Field : "Bank" Tipo: "AC" Formula:  ""</summary>
-		public static FieldRef FldBank { get { return m_fldBank; } }
-		private static FieldRef m_fldBank = new FieldRef("account", "bank");
-
-		/// <summary>Field : "Bank" Tipo: "AC" Formula:  ""</summary>
-		public string ValBank
-		{
-			get { return (string)returnValueField(FldBank); }
-			set { insertNameValueField(FldBank, value); }
-		}
-
-		/// <summary>Field : "Account Number" Tipo: "C" Formula:  ""</summary>
-		public static FieldRef FldAccount_number { get { return m_fldAccount_number; } }
-		private static FieldRef m_fldAccount_number = new FieldRef("account", "account_number");
-
-		/// <summary>Field : "Account Number" Tipo: "C" Formula:  ""</summary>
-		public string ValAccount_number
-		{
-			get { return (string)returnValueField(FldAccount_number); }
-			set { insertNameValueField(FldAccount_number, value); }
-		}
-
-		/// <summary>Field : "Owner" Tipo: "CE" Formula:  ""</summary>
-		public static FieldRef FldMember_id { get { return m_fldMember_id; } }
-		private static FieldRef m_fldMember_id = new FieldRef("account", "member_id");
-
-		/// <summary>Field : "Owner" Tipo: "CE" Formula:  ""</summary>
-		public string ValMember_id
-		{
-			get { return (string)returnValueField(FldMember_id); }
-			set { insertNameValueField(FldMember_id, value); }
+			get { return (string)returnValueField(FldType_id); }
+			set { insertNameValueField(FldType_id, value); }
 		}
 
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
-		private static FieldRef m_fldZzstate = new FieldRef("account", "zzstate");
+		private static FieldRef m_fldZzstate = new FieldRef("category", "zzstate");
 
 
 
@@ -392,12 +301,12 @@ namespace CSGenio.business
 		/// <param name="forUpdate">True if you are preparing to update this record, false otherwise</param>
         /// <returns>An area with the fields requests of the record read or null if the key does not exist</returns>
         /// <remarks>Persistence operations should not be used on a partially positioned register</remarks>
-        public static CSGenioAaccount search(PersistentSupport sp, string key, User user, string[] fields = null, bool forUpdate = false)
+        public static CSGenioAcategory search(PersistentSupport sp, string key, User user, string[] fields = null, bool forUpdate = false)
         {
 			if (string.IsNullOrEmpty(key))
 				return null;
 
-		    CSGenioAaccount area = new CSGenioAaccount(user, user.CurrentModule);
+		    CSGenioAcategory area = new CSGenioAcategory(user, user.CurrentModule);
 
             if (sp.getRecord(area, key, fields, forUpdate))
                 return area;
@@ -424,9 +333,9 @@ namespace CSGenio.business
         /// <param name="noLock">NOLOCK</param>
         /// <returns>A list of area records with all fields populated</returns>
         /// <remarks>Persistence operations should not be used on a partially positioned register</remarks>
-        public static List<CSGenioAaccount> searchList(PersistentSupport sp, User user, CriteriaSet where, string[] fields = null, bool distinct = false, bool noLock = false)
+        public static List<CSGenioAcategory> searchList(PersistentSupport sp, User user, CriteriaSet where, string[] fields = null, bool distinct = false, bool noLock = false)
         {
-				return sp.searchListWhere<CSGenioAaccount>(where, user, fields, distinct, noLock);
+				return sp.searchListWhere<CSGenioAcategory>(where, user, fields, distinct, noLock);
         }
 
 
@@ -440,9 +349,9 @@ namespace CSGenio.business
         /// <param name="listing">List configuration</param>
         /// <returns>A list of area records with all fields populated</returns>
         /// <remarks>Persistence operations should not be used on a partially positioned register</remarks>
-        public static void searchListAdvancedWhere(PersistentSupport sp, User user, CriteriaSet where, ListingMVC<CSGenioAaccount> listing)
+        public static void searchListAdvancedWhere(PersistentSupport sp, User user, CriteriaSet where, ListingMVC<CSGenioAcategory> listing)
         {
-			sp.searchListAdvancedWhere<CSGenioAaccount>(where, listing);
+			sp.searchListAdvancedWhere<CSGenioAcategory>(where, listing);
         }
 
 
@@ -463,10 +372,10 @@ namespace CSGenio.business
 
 
 
-		// USE /[MANUAL MNT TABAUX ACCOUNT]/
+		// USE /[MANUAL MNT TABAUX CATEGORY]/
 
  
-        
+     
 
 	}
 }

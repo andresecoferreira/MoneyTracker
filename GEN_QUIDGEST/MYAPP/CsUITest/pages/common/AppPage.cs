@@ -104,6 +104,8 @@ public class AppPage: PageObject
 		module = "MNT";
 		res.AddModule(module);
 		res.AddMenu(module, "1", null);
+		res.AddMenu(module, "11", "1");
+		res.AddMenu(module, "12", "1");
         return res;
     }
 }
