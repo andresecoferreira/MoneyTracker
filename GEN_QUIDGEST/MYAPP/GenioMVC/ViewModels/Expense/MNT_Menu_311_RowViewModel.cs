@@ -36,20 +36,20 @@ public class MNT_Menu_311_RowViewModel : Models.Expense
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "MEMBER",
-				Field = "NAME",
+				Area = "EXPENSE",
+				Field = "EXPENSE_ID",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "EXPENSE",
-				Field = "CREATED_AT",
+				Field = "TYPE_ID",
 			},
 			new ListColumn()
 			{
 				Order = 3,
 				Area = "EXPENSE",
-				Field = "DESCRIPTION",
+				Field = "CATEGORY_ID",
 			},
 			new ListColumn()
 			{
@@ -61,49 +61,7 @@ public class MNT_Menu_311_RowViewModel : Models.Expense
 			{
 				Order = 5,
 				Area = "EXPENSE",
-				Field = "UPDATED_BY",
-			},
-			new ListColumn()
-			{
-				Order = 6,
-				Area = "EXPENSE",
-				Field = "CREATED_BY",
-			},
-			new ListColumn()
-			{
-				Order = 7,
-				Area = "EXPENSE",
-				Field = "EXPENSE_ID",
-			},
-			new ListColumn()
-			{
-				Order = 8,
-				Area = "CATEGORY",
-				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 9,
-				Area = "EXPENSE",
-				Field = "DATE",
-			},
-			new ListColumn()
-			{
-				Order = 10,
-				Area = "EXPENSE",
-				Field = "UPDATED_AT",
-			},
-			new ListColumn()
-			{
-				Order = 11,
-				Area = "EXPENSE",
-				Field = "INVOICE",
-			},
-			new ListColumn()
-			{
-				Order = 12,
-				Area = "SOURCE",
-				Field = "TITLE",
+				Field = "MEMBER_ID",
 			},
 		];
 	}

@@ -37,19 +37,19 @@ public class MNT_Menu_331_RowViewModel : Models.Investment
 			{
 				Order = 1,
 				Area = "INVESTMENT",
-				Field = "CREATED_BY",
+				Field = "INVESTMENT_ID",
 			},
 			new ListColumn()
 			{
 				Order = 2,
 				Area = "INVESTMENT",
-				Field = "DATE",
+				Field = "TYPE_ID",
 			},
 			new ListColumn()
 			{
 				Order = 3,
 				Area = "INVESTMENT",
-				Field = "INVESTMENT_ID",
+				Field = "CATEGORY_ID",
 			},
 			new ListColumn()
 			{
@@ -60,42 +60,6 @@ public class MNT_Menu_331_RowViewModel : Models.Investment
 			new ListColumn()
 			{
 				Order = 5,
-				Area = "INVESTMENT",
-				Field = "UPDATED_AT",
-			},
-			new ListColumn()
-			{
-				Order = 6,
-				Area = "INVESTMENT",
-				Field = "UPDATED_BY",
-			},
-			new ListColumn()
-			{
-				Order = 7,
-				Area = "INVESTMENT",
-				Field = "CREATED_AT",
-			},
-			new ListColumn()
-			{
-				Order = 8,
-				Area = "SOURCE",
-				Field = "TITLE",
-			},
-			new ListColumn()
-			{
-				Order = 9,
-				Area = "INVESTMENT",
-				Field = "DESCRIPTION",
-			},
-			new ListColumn()
-			{
-				Order = 10,
-				Area = "CATEGORY",
-				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 11,
 				Area = "MEMBER",
 				Field = "NAME",
 			},

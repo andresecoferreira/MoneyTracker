@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Investment
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldCreated_by, CSGenioAinvestment.FldDate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldValue, CSGenioAinvestment.FldUpdated_at, CSGenioAinvestment.FldUpdated_by, CSGenioAinvestment.FldCreated_at, CSGenioAinvestment.FldSource_id, CSGenioAsource.FldCodsource, CSGenioAsource.FldTitle, CSGenioAinvestment.FldDescription, CSGenioAinvestment.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldType_id, CSGenioAinvestment.FldCategory_id, CSGenioAinvestment.FldValue, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName };
 
 			ListingMVC<CSGenioAinvestment> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -146,16 +146,10 @@ namespace GenioMVC.ViewModels.Investment
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAinvestment.FldCreated_by, FieldType.TEXT, Resources.Resources.CREATED_BY58035, 30, 0, true),
-				new Exports.QColumn(CSGenioAinvestment.FldDate, FieldType.DATE, Resources.Resources.DATE18475, 8, 0, true),
 				new Exports.QColumn(CSGenioAinvestment.FldInvestment_id, FieldType.NUMERIC, Resources.Resources.ID36840, 6, 0, true),
+				new Exports.QColumn(CSGenioAinvestment.FldType_id, FieldType.KEY_INT, Resources.Resources.CATEGORY_TYPE34342, 8, 0, true),
+				new Exports.QColumn(CSGenioAinvestment.FldCategory_id, FieldType.KEY_INT, Resources.Resources.CATEGORY18978, 8, 0, true),
 				new Exports.QColumn(CSGenioAinvestment.FldValue, FieldType.NUMERIC, Resources.Resources.VALUE10285, 12, 0, true),
-				new Exports.QColumn(CSGenioAinvestment.FldUpdated_at, FieldType.DATETIMESECONDS, Resources.Resources.UPDATED_AT48366, 8, 0, true),
-				new Exports.QColumn(CSGenioAinvestment.FldUpdated_by, FieldType.TEXT, Resources.Resources.UPDATED_BY38656, 30, 0, true),
-				new Exports.QColumn(CSGenioAinvestment.FldCreated_at, FieldType.DATETIMESECONDS, Resources.Resources.CREATED_AT09073, 8, 0, true),
-				new Exports.QColumn(CSGenioAsource.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
-				new Exports.QColumn(CSGenioAinvestment.FldDescription, FieldType.TEXT, Resources.Resources.DESCRIPTION07383, 30, 0, true),
-				new Exports.QColumn(CSGenioAcategory.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 20, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
 			];
 		}
@@ -320,8 +314,6 @@ namespace GenioMVC.ViewModels.Investment
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-			allSortOrders.Add("INVESTMENT.CREATED_BY", new OrderedDictionary());
-			allSortOrders["INVESTMENT.CREATED_BY"].Add("INVESTMENT.CREATED_BY", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -333,14 +325,8 @@ namespace GenioMVC.ViewModels.Investment
 
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "investment", allSortOrders);
 
-			if (sorts == null || sorts.Count == 0)
-			{
-				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAinvestment.FldCreated_by), SortOrder.Ascending));
 
-			}
-
-			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldCreated_by, CSGenioAinvestment.FldDate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldValue, CSGenioAinvestment.FldUpdated_at, CSGenioAinvestment.FldUpdated_by, CSGenioAinvestment.FldCreated_at, CSGenioAinvestment.FldSource_id, CSGenioAsource.FldCodsource, CSGenioAsource.FldTitle, CSGenioAinvestment.FldDescription, CSGenioAinvestment.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldType_id, CSGenioAinvestment.FldCategory_id, CSGenioAinvestment.FldValue, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName };
 
 
 			// Totalizers
@@ -352,7 +338,7 @@ namespace GenioMVC.ViewModels.Investment
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("investment", "created_by");
+				firstVisibleColumn ??= new FieldRef("investment", "investment_id");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -486,10 +472,6 @@ namespace GenioMVC.ViewModels.Investment
 				{
 					case "investment":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "source":
-						model.Source.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "category":
-						model.Category.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					case "member":
 						model.Member.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
@@ -543,21 +525,15 @@ namespace GenioMVC.ViewModels.Investment
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Investment", "Investment.ValCodinvestment", "Investment.ValZzstate", "Investment.ValCreated_by", "Investment.ValDate", "Investment.ValInvestment_id", "Investment.ValValue", "Investment.ValUpdated_at", "Investment.ValUpdated_by", "Investment.ValCreated_at", "Source", "Source.ValTitle", "Investment.ValDescription", "Category", "Category.ValName", "Member", "Member.ValName", "Investment.ValCategory_id", "Investment.ValType_id", "Investment.ValMember_id", "Investment.ValSource_id"
+			"Investment", "Investment.ValCodinvestment", "Investment.ValZzstate", "Investment.ValInvestment_id", "Investment.ValType_id", "Investment.ValCategory_id", "Investment.ValValue", "Member", "Member.ValName", "Investment.ValMember_id", "Investment.ValSource_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValCreated_by", CSGenioAinvestment.FldCreated_by, typeof(string)),
-			new TableSearchColumn("ValDate", CSGenioAinvestment.FldDate, typeof(DateTime?)),
 			new TableSearchColumn("ValInvestment_id", CSGenioAinvestment.FldInvestment_id, typeof(decimal?), defaultSearch : true),
+			new TableSearchColumn("ValType_id", CSGenioAinvestment.FldType_id, typeof(string)),
+			new TableSearchColumn("ValCategory_id", CSGenioAinvestment.FldCategory_id, typeof(string)),
 			new TableSearchColumn("ValValue", CSGenioAinvestment.FldValue, typeof(decimal?)),
-			new TableSearchColumn("ValUpdated_at", CSGenioAinvestment.FldUpdated_at, typeof(DateTime?)),
-			new TableSearchColumn("ValUpdated_by", CSGenioAinvestment.FldUpdated_by, typeof(string)),
-			new TableSearchColumn("ValCreated_at", CSGenioAinvestment.FldCreated_at, typeof(DateTime?)),
-			new TableSearchColumn("Source_ValTitle", CSGenioAsource.FldTitle, typeof(string)),
-			new TableSearchColumn("ValDescription", CSGenioAinvestment.FldDescription, typeof(string)),
-			new TableSearchColumn("Category_ValName", CSGenioAcategory.FldName, typeof(string)),
 			new TableSearchColumn("Member_ValName", CSGenioAmember.FldName, typeof(string)),
 		];
 	}

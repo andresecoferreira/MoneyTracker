@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Expense
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAexpense.FldCodexpense, CSGenioAexpense.FldZzstate, CSGenioAexpense.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAexpense.FldCreated_at, CSGenioAexpense.FldDescription, CSGenioAexpense.FldValue, CSGenioAexpense.FldUpdated_by, CSGenioAexpense.FldCreated_by, CSGenioAexpense.FldExpense_id, CSGenioAexpense.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAexpense.FldDate, CSGenioAexpense.FldUpdated_at, CSGenioAexpense.FldInvoice, CSGenioAexpense.FldSource_id, CSGenioAsource.FldCodsource, CSGenioAsource.FldTitle };
+			FieldRef[] fields = new FieldRef[] { CSGenioAexpense.FldCodexpense, CSGenioAexpense.FldZzstate, CSGenioAexpense.FldExpense_id, CSGenioAexpense.FldType_id, CSGenioAexpense.FldCategory_id, CSGenioAexpense.FldValue, CSGenioAexpense.FldMember_id };
 
 			ListingMVC<CSGenioAexpense> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -146,18 +146,11 @@ namespace GenioMVC.ViewModels.Expense
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldCreated_at, FieldType.DATETIMESECONDS, Resources.Resources.CREATED_AT09073, 8, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldDescription, FieldType.TEXT, Resources.Resources.DESCRIPTION07383, 30, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldValue, FieldType.NUMERIC, Resources.Resources.VALUE10285, 12, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldUpdated_by, FieldType.TEXT, Resources.Resources.UPDATED_BY38656, 30, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldCreated_by, FieldType.TEXT, Resources.Resources.CREATED_BY58035, 30, 0, true),
 				new Exports.QColumn(CSGenioAexpense.FldExpense_id, FieldType.NUMERIC, Resources.Resources.ID36840, 6, 0, true),
-				new Exports.QColumn(CSGenioAcategory.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 20, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldDate, FieldType.DATE, Resources.Resources.DATE18475, 8, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldUpdated_at, FieldType.DATETIMESECONDS, Resources.Resources.UPDATED_AT48366, 8, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldInvoice, FieldType.DOCUMENT, Resources.Resources.INVOICE63068, 30, 0, true),
-				new Exports.QColumn(CSGenioAsource.FldTitle, FieldType.TEXT, Resources.Resources.TITLE21885, 30, 0, true),
+				new Exports.QColumn(CSGenioAexpense.FldType_id, FieldType.KEY_INT, Resources.Resources.CATEGORY_TYPE34342, 8, 0, true),
+				new Exports.QColumn(CSGenioAexpense.FldCategory_id, FieldType.KEY_INT, Resources.Resources.CATEGORY18978, 8, 0, true),
+				new Exports.QColumn(CSGenioAexpense.FldValue, FieldType.NUMERIC, Resources.Resources.VALUE10285, 12, 0, true),
+				new Exports.QColumn(CSGenioAexpense.FldMember_id, FieldType.KEY_INT, Resources.Resources.MEMBER00534, 8, 0, true),
 			];
 		}
 
@@ -321,8 +314,6 @@ namespace GenioMVC.ViewModels.Expense
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-			allSortOrders.Add("EXPENSE.CREATED_AT", new OrderedDictionary());
-			allSortOrders["EXPENSE.CREATED_AT"].Add("EXPENSE.CREATED_AT", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -334,14 +325,8 @@ namespace GenioMVC.ViewModels.Expense
 
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "expense", allSortOrders);
 
-			if (sorts == null || sorts.Count == 0)
-			{
-				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAexpense.FldCreated_at), SortOrder.Ascending));
 
-			}
-
-			FieldRef[] fields = new FieldRef[] { CSGenioAexpense.FldCodexpense, CSGenioAexpense.FldZzstate, CSGenioAexpense.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAexpense.FldCreated_at, CSGenioAexpense.FldDescription, CSGenioAexpense.FldValue, CSGenioAexpense.FldUpdated_by, CSGenioAexpense.FldCreated_by, CSGenioAexpense.FldExpense_id, CSGenioAexpense.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAexpense.FldDate, CSGenioAexpense.FldUpdated_at, CSGenioAexpense.FldInvoice, CSGenioAexpense.FldInvoicefk, CSGenioAexpense.FldSource_id, CSGenioAsource.FldCodsource, CSGenioAsource.FldTitle };
+			FieldRef[] fields = new FieldRef[] { CSGenioAexpense.FldCodexpense, CSGenioAexpense.FldZzstate, CSGenioAexpense.FldExpense_id, CSGenioAexpense.FldType_id, CSGenioAexpense.FldCategory_id, CSGenioAexpense.FldValue, CSGenioAexpense.FldMember_id };
 
 
 			// Totalizers
@@ -353,7 +338,7 @@ namespace GenioMVC.ViewModels.Expense
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("member", "name");
+				firstVisibleColumn ??= new FieldRef("expense", "expense_id");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -487,12 +472,6 @@ namespace GenioMVC.ViewModels.Expense
 				{
 					case "expense":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "member":
-						model.Member.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "category":
-						model.Category.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
-					case "source":
-						model.Source.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
 				}
@@ -520,27 +499,6 @@ namespace GenioMVC.ViewModels.Expense
 		/// <param name="listing">The rows</param>
 		private void SetDocumentFields(ListingMVC<CSGenioAexpense> listing)
 		{
-			if (listing.Rows == null)
-				return;
-
-			foreach (CSGenioAexpense row in listing.Rows)
-			{
-				{
-					if (!string.IsNullOrEmpty((string)row.returnValueField("expense.invoicefk")))
-					{
-						ResourceQuery resource = new("Expense", "ValInvoice", "ValInvoicefk", row.ValCodexpense);
-						string ticket = QResources.CreateTicketEncryptedBase64(m_userContext.User.Name, m_userContext.User.Location, resource);
-
-						row.insertNameValueField("expense.invoice", Newtonsoft.Json.JsonConvert.SerializeObject(new
-						{
-							fileName = row.returnValueField("expense.invoice"),
-							ticket
-						}));
-					}
-					else
-						row.removeFieldValue("expense.invoice");
-				}
-			}
 		}
 
 		#region Mapper
@@ -565,23 +523,16 @@ namespace GenioMVC.ViewModels.Expense
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Expense", "Expense.ValCodexpense", "Expense.ValZzstate", "Member", "Member.ValName", "Expense.ValCreated_at", "Expense.ValDescription", "Expense.ValValue", "Expense.ValUpdated_by", "Expense.ValCreated_by", "Expense.ValExpense_id", "Category", "Category.ValName", "Expense.ValDate", "Expense.ValUpdated_at", "Expense.ValInvoice", "Source", "Source.ValTitle", "Expense.ValCategory_id", "Expense.ValType_id", "Expense.ValMember_id", "Expense.ValSource_id"
+			"Expense", "Expense.ValCodexpense", "Expense.ValZzstate", "Expense.ValExpense_id", "Expense.ValType_id", "Expense.ValCategory_id", "Expense.ValValue", "Expense.ValMember_id", "Expense.ValSource_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("Member_ValName", CSGenioAmember.FldName, typeof(string)),
-			new TableSearchColumn("ValCreated_at", CSGenioAexpense.FldCreated_at, typeof(DateTime?)),
-			new TableSearchColumn("ValDescription", CSGenioAexpense.FldDescription, typeof(string)),
-			new TableSearchColumn("ValValue", CSGenioAexpense.FldValue, typeof(decimal?)),
-			new TableSearchColumn("ValUpdated_by", CSGenioAexpense.FldUpdated_by, typeof(string)),
-			new TableSearchColumn("ValCreated_by", CSGenioAexpense.FldCreated_by, typeof(string)),
 			new TableSearchColumn("ValExpense_id", CSGenioAexpense.FldExpense_id, typeof(decimal?), defaultSearch : true),
-			new TableSearchColumn("Category_ValName", CSGenioAcategory.FldName, typeof(string)),
-			new TableSearchColumn("ValDate", CSGenioAexpense.FldDate, typeof(DateTime?)),
-			new TableSearchColumn("ValUpdated_at", CSGenioAexpense.FldUpdated_at, typeof(DateTime?)),
-			new TableSearchColumn("ValInvoice", CSGenioAexpense.FldInvoice, typeof(string)),
-			new TableSearchColumn("Source_ValTitle", CSGenioAsource.FldTitle, typeof(string)),
+			new TableSearchColumn("ValType_id", CSGenioAexpense.FldType_id, typeof(string)),
+			new TableSearchColumn("ValCategory_id", CSGenioAexpense.FldCategory_id, typeof(string)),
+			new TableSearchColumn("ValValue", CSGenioAexpense.FldValue, typeof(decimal?)),
+			new TableSearchColumn("ValMember_id", CSGenioAexpense.FldMember_id, typeof(string)),
 		];
 	}
 }

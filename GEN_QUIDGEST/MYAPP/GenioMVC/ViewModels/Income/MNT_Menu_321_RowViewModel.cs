@@ -37,67 +37,31 @@ public class MNT_Menu_321_RowViewModel : Models.Income
 			{
 				Order = 1,
 				Area = "INCOME",
-				Field = "DESCRIPTION",
+				Field = "INCOME_ID",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "CATEGORY",
-				Field = "NAME",
+				Area = "INCOME",
+				Field = "TYPE_ID",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "SOURCE",
-				Field = "TITLE",
+				Area = "INCOME",
+				Field = "CATEGORY_ID",
 			},
 			new ListColumn()
 			{
 				Order = 4,
-				Area = "MEMBER",
-				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 5,
-				Area = "INCOME",
-				Field = "UPDATED_BY",
-			},
-			new ListColumn()
-			{
-				Order = 6,
-				Area = "INCOME",
-				Field = "CREATED_AT",
-			},
-			new ListColumn()
-			{
-				Order = 7,
-				Area = "INCOME",
-				Field = "UPDATED_AT",
-			},
-			new ListColumn()
-			{
-				Order = 8,
 				Area = "INCOME",
 				Field = "VALUE",
 			},
 			new ListColumn()
 			{
-				Order = 9,
+				Order = 5,
 				Area = "INCOME",
-				Field = "INCOME_ID",
-			},
-			new ListColumn()
-			{
-				Order = 10,
-				Area = "INCOME",
-				Field = "CREATED_BY",
-			},
-			new ListColumn()
-			{
-				Order = 11,
-				Area = "INCOME",
-				Field = "DATE",
+				Field = "MEMBER_ID",
 			},
 		];
 	}
