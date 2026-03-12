@@ -77,12 +77,12 @@ namespace CSGenio.business
 
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "total_sum", FieldType.NUMERIC);
-			Qfield.FieldDescription = "Sum";
+			Qfield.FieldDescription = "Total";
 			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
 			Qfield.IntegerDigits = 9;
 			Qfield.Decimals = 2;
-			Qfield.CavDesignation = "SUM60816";
+			Qfield.CavDesignation = "TOTAL49307";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
@@ -276,11 +276,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldLogo, value); }
 		}
 
-		/// <summary>Field : "Sum" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
+		/// <summary>Field : "Total" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
 		public static FieldRef FldTotal_sum { get { return m_fldTotal_sum; } }
 		private static FieldRef m_fldTotal_sum = new FieldRef("category_type", "total_sum");
 
-		/// <summary>Field : "Sum" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
+		/// <summary>Field : "Total" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
 		public decimal ValTotal_sum
 		{
 			get { return (decimal)returnValueField(FldTotal_sum); }

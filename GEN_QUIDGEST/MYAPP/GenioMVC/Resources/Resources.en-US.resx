@@ -336,6 +336,9 @@
 	<data name="ACCOUNTS54906" xml:space="preserve">
 		<value>Accounts</value>
 	</data>
+	<data name="TOTAL49307" xml:space="preserve">
+		<value>Total</value>
+	</data>
 	<data name="ACCOUNT_TYPE62303" xml:space="preserve">
 		<value>Account Type</value>
 	</data>
@@ -7151,9 +7154,6 @@
 	</data>
 	<data name="ESTATISTICA_DE_ERROS29150" xml:space="preserve">
 		<value>Error statistics</value>
-	</data>
-	<data name="TOTAL49307" xml:space="preserve">
-		<value>Total</value>
 	</data>
 	<data name="IMPORTAR_UTILIZADORE27134" xml:space="preserve">
 		<value>Import users from AD</value>

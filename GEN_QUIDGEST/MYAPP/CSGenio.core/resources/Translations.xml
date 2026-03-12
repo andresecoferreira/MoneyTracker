@@ -219,6 +219,9 @@
   <msg id="Accounts" code="ACCOUNTS54906">
     <ENUS>Accounts</ENUS>
   </msg>
+  <msg id="Total" code="TOTAL49307">
+    <ENUS>Total</ENUS>
+  </msg>
   <msg id="Account Type" code="ACCOUNT_TYPE62303">
     <ENUS>Account Type</ENUS>
   </msg>
@@ -7034,9 +7037,6 @@
   </msg>
   <msg id="Estatística de erros" code="ESTATISTICA_DE_ERROS29150">
     <ENUS>Error statistics</ENUS>
-  </msg>
-  <msg id="Total" code="TOTAL49307">
-    <ENUS>Total</ENUS>
   </msg>
   <msg id="Importar utilizadores de AD" code="IMPORTAR_UTILIZADORE27134">
     <ENUS>Import users from AD</ENUS>

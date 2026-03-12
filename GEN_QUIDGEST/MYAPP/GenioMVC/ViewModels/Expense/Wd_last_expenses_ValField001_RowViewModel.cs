@@ -48,12 +48,18 @@ public class Wd_last_expenses_ValField001_RowViewModel : Models.Expense
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "MEMBER",
+				Area = "CATEGORY",
 				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 4,
+				Area = "MEMBER",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 5,
 				Area = "EXPENSE",
 				Field = "VALUE",
 			},

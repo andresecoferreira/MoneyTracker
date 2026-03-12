@@ -498,7 +498,7 @@
 										isMapped: false
 									},
 									showPieLabel: {
-										rawValue: 'outside',
+										rawValue: 'inside',
 										isMapped: false
 									},
 									lineMarker: {
@@ -550,7 +550,7 @@
 										isMapped: false
 									},
 									legendVerticalAlign: {
-										rawValue: 'middle',
+										rawValue: 'bottom',
 										isMapped: false
 									},
 									stackingType: {

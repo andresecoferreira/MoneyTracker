@@ -718,6 +718,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Total"
+        /// </summary>
+        public static string TOTAL49307 {
+            get {
+                return ResourceManager.GetString("TOTAL49307", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Account Type"
         /// </summary>
         public static string ACCOUNT_TYPE62303 {
@@ -21162,15 +21171,6 @@ namespace Administration.Resources {
         public static string ESTATISTICA_DE_ERROS29150 {
             get {
                 return ResourceManager.GetString("ESTATISTICA_DE_ERROS29150", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to "Total"
-        /// </summary>
-        public static string TOTAL49307 {
-            get {
-                return ResourceManager.GetString("TOTAL49307", resourceCulture);
             }
         }
 

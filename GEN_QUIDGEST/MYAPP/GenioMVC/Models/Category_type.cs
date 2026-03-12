@@ -40,8 +40,8 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public string ValLogoQTicket = null;
 
-		[DisplayName("Sum")]
-		/// <summary>Field : "Sum" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
+		[DisplayName("Total")]
+		/// <summary>Field : "Total" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
 		[ShouldSerialize("Category_type.ValTotal_sum")]
 		[NumericAttribute(2)]
 		public decimal? ValTotal_sum { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValTotal_sum, 2)); } set { klass.ValTotal_sum = Convert.ToDecimal(value); } }
