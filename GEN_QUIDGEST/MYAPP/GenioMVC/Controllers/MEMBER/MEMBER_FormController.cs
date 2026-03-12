@@ -437,6 +437,55 @@ namespace GenioMVC.Controllers
 			return JsonOK(model);
 		}
 
+		public class Member_ValSourcesModel : RequestLookupModel
+		{
+			public Member_ViewModel Model { get; set; }
+		}
+
+		//
+		// GET: /Member/Member_ValSources
+		// POST: /Member/Member_ValSources
+		[ActionName("Member_ValSources")]
+		public ActionResult Member_ValSources([FromBody] Member_ValSourcesModel requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			// If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
+			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_source")))
+				UserContext.Current.SetPersistenceReadOnly(true);
+			else
+			{
+				Navigation.DestroyEntry("ForcePrimaryRead_source");
+				UserContext.Current.SetPersistenceReadOnly(false);
+			}
+
+			NameValueCollection requestValues = [];
+			if (queryParams != null)
+			{
+				// Add to request values
+				foreach (var kv in queryParams)
+					requestValues.Add(kv.Key, kv.Value);
+			}
+
+			Models.Member parentCtx = requestModel.Model == null ? null : new(m_userContext);
+			requestModel.Model?.Init(m_userContext);
+			requestModel.Model?.MapToModel(parentCtx);
+			Member_ValSources_ViewModel model = new(m_userContext, parentCtx);
+
+			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
+				requestModel.TableConfiguration,
+				requestModel.UserTableConfigName,
+				requestModel.LoadDefaultView);
+
+			// Determine rows per page
+			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(5, "");
+
+			model.setModes(Request.Query["m"].ToString());
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
+
 		// POST: /Member/Member_SaveEdit
 		[HttpPost]
 		public ActionResult Member_SaveEdit([FromBody] Member_ViewModel model)

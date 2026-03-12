@@ -71,6 +71,19 @@ export default class ViewModel extends FormViewModelBase
 			area: 'SOURCE',
 			field: 'TYPE',
 			maxLength: 2,
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				execCondition() { return qApi.emptyC(this.ValType.value) },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: "CA"
+					return "CA"
+				},
+				dependencyEvents: [],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyC,
+			},
 			arrayOptions: computed(() => new qProjArrays.QArrayAccout_type(vm.$getResource).elements),
 			description: computed(() => this.Resources.TYPE00312),
 		}).cloneFrom(values?.ValType))

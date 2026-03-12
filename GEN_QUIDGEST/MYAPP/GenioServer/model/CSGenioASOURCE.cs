@@ -62,6 +62,11 @@ namespace CSGenio.business
 
             Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
+			argumentsListByArea= new List<ByAreaArguments>();
+			Qfield.DefaultValue = new DefaultValue(new InternalOperationFormula(argumentsListByArea, 0, delegate(object []args,User user,string module,PersistentSupport sp) {
+				return (object)("CA");
+			}));
+
             Qfield.ArrayName = "dbo.GetValArrayCaccout_type";
             Qfield.ArrayClassName = "Accout_type";
 			info.RegisterFieldDB(Qfield);
@@ -220,6 +225,10 @@ namespace CSGenio.business
 
 
 
+			info.DefaultValues = new string[] {
+			 "type"
+			};
+
 
 
 
@@ -344,11 +353,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldCodsource, value); }
 		}
 
-		/// <summary>Field : "Type" Tipo: "AC" Formula:  ""</summary>
+		/// <summary>Field : "Type" Tipo: "AC" Formula: DG ""CA""</summary>
 		public static FieldRef FldType { get { return m_fldType; } }
 		private static FieldRef m_fldType = new FieldRef("source", "type");
 
-		/// <summary>Field : "Type" Tipo: "AC" Formula:  ""</summary>
+		/// <summary>Field : "Type" Tipo: "AC" Formula: DG ""CA""</summary>
 		public string ValType
 		{
 			get { return (string)returnValueField(FldType); }

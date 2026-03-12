@@ -6,16 +6,16 @@ using GenioMVC.Models.Navigation;
 
 namespace GenioMVC.ViewModels.Member;
 
-public class MNT_Menu_1111_RowViewModel : Models.Member
+public class Member_ValSources_RowViewModel : Models.Source
 {
 	#region Constructors
 
-	public MNT_Menu_1111_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public Member_ValSources_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MNT_Menu_1111_RowViewModel(UserContext userContext, CSGenioAmember val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public Member_ValSources_RowViewModel(UserContext userContext, CSGenioAsource val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,20 +36,14 @@ public class MNT_Menu_1111_RowViewModel : Models.Member
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "MEMBER",
-				Field = "PHOTO",
+				Area = "SOURCE",
+				Field = "TYPE",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "MEMBER",
-				Field = "NAME",
-			},
-			new ListColumn()
-			{
-				Order = 3,
-				Area = "MEMBER",
-				Field = "EMAIL",
+				Area = "SOURCE",
+				Field = "TITLE",
 			},
 		];
 	}

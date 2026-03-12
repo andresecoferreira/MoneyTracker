@@ -113,98 +113,139 @@
 						</base-input-structure>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible">
-					<q-col
-						v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.MEMBER__MEMBER__NAME.isVisible"
-							class="i-text"
-							v-bind="controls.MEMBER__MEMBER__NAME"
-							v-on="controls.MEMBER__MEMBER__NAME.handlers"
-							:loading="controls.MEMBER__MEMBER__NAME.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.MEMBER__MEMBER__NAME.props"
-								@blur="onBlur(controls.MEMBER__MEMBER__NAME, model.ValName.value)"
-								@change="model.ValName.fnUpdateValueOnChange" />
-						</base-input-structure>
-						<base-input-structure
-							v-if="controls.MEMBER__MEMBER__BIRTHDAY.isVisible"
-							class="i-text"
-							v-bind="controls.MEMBER__MEMBER__BIRTHDAY"
-							v-on="controls.MEMBER__MEMBER__BIRTHDAY.handlers"
-							:loading="controls.MEMBER__MEMBER__BIRTHDAY.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-date-time-picker
-								v-if="controls.MEMBER__MEMBER__BIRTHDAY.isVisible"
-								v-bind="controls.MEMBER__MEMBER__BIRTHDAY.props"
-								:model-value="model.ValBirthday.value"
-								@reset-icon-click="model.ValBirthday.fnUpdateValue(model.ValBirthday.originalValue ?? new Date())"
-								@update:model-value="model.ValBirthday.fnUpdateValue($event ?? '')" />
-						</base-input-structure>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.MEMBER__MEMBER__EMAIL.isVisible || controls.MEMBER__MEMBER__PHONE.isVisible">
-					<q-col
-						v-if="controls.MEMBER__MEMBER__EMAIL.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.MEMBER__MEMBER__EMAIL.isVisible"
-							class="i-text"
-							v-bind="controls.MEMBER__MEMBER__EMAIL"
-							v-on="controls.MEMBER__MEMBER__EMAIL.handlers"
-							:loading="controls.MEMBER__MEMBER__EMAIL.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-mask
-								v-if="controls.MEMBER__MEMBER__EMAIL.isVisible"
-								v-bind="controls.MEMBER__MEMBER__EMAIL"
-								:model-value="model.ValEmail.value"
-								@change="model.ValEmail.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-col>
-					<q-col
-						v-if="controls.MEMBER__MEMBER__PHONE.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.MEMBER__MEMBER__PHONE.isVisible"
-							class="i-text"
-							v-bind="controls.MEMBER__MEMBER__PHONE"
-							v-on="controls.MEMBER__MEMBER__PHONE.handlers"
-							:loading="controls.MEMBER__MEMBER__PHONE.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-text-field
-								v-bind="controls.MEMBER__MEMBER__PHONE.props"
-								@blur="onBlur(controls.MEMBER__MEMBER__PHONE, model.ValPhone.value)"
-								@change="model.ValPhone.fnUpdateValueOnChange" />
-						</base-input-structure>
-					</q-col>
-				</q-row>
-				<q-row v-if="controls.MEMBER__GROUPNAME____.isVisible">
-					<q-col
-						v-if="controls.MEMBER__GROUPNAME____.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.MEMBER__GROUPNAME____.isVisible"
-							class="i-text"
-							v-bind="controls.MEMBER__GROUPNAME____"
-							v-on="controls.MEMBER__GROUPNAME____.handlers"
-							:loading="controls.MEMBER__GROUPNAME____.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-lookup
-								v-if="controls.MEMBER__GROUPNAME____.isVisible"
-								v-bind="controls.MEMBER__GROUPNAME____.props"
-								v-on="controls.MEMBER__GROUPNAME____.handlers" />
-							<q-see-more-member-groupname
-								v-if="controls.MEMBER__GROUPNAME____.seeMoreIsVisible"
-								v-bind="controls.MEMBER__GROUPNAME____.seeMoreParams"
-								v-on="controls.MEMBER__GROUPNAME____.handlers" />
-						</base-input-structure>
+				<q-row v-if="controls.MEMBER__PSEUDNEWGRP01.isVisible">
+					<q-col v-if="controls.MEMBER__PSEUDNEWGRP01.isVisible">
+						<q-group-box-container
+							v-if="controls.MEMBER__PSEUDNEWGRP01.isVisible"
+							id="MEMBER__PSEUDNEWGRP01"
+							v-bind="controls.MEMBER__PSEUDNEWGRP01"
+							:is-visible="controls.MEMBER__PSEUDNEWGRP01.isVisible">
+							<!-- Start MEMBER__PSEUDNEWGRP01 -->
+							<q-row v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible">
+								<q-col
+									v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.MEMBER__MEMBER__NAME.isVisible"
+										class="i-text"
+										v-bind="controls.MEMBER__MEMBER__NAME"
+										v-on="controls.MEMBER__MEMBER__NAME.handlers"
+										:loading="controls.MEMBER__MEMBER__NAME.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.MEMBER__MEMBER__NAME.props"
+											@blur="onBlur(controls.MEMBER__MEMBER__NAME, model.ValName.value)"
+											@change="model.ValName.fnUpdateValueOnChange" />
+									</base-input-structure>
+									<base-input-structure
+										v-if="controls.MEMBER__MEMBER__BIRTHDAY.isVisible"
+										class="i-text"
+										v-bind="controls.MEMBER__MEMBER__BIRTHDAY"
+										v-on="controls.MEMBER__MEMBER__BIRTHDAY.handlers"
+										:loading="controls.MEMBER__MEMBER__BIRTHDAY.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.MEMBER__MEMBER__BIRTHDAY.isVisible"
+											v-bind="controls.MEMBER__MEMBER__BIRTHDAY.props"
+											:model-value="model.ValBirthday.value"
+											@reset-icon-click="model.ValBirthday.fnUpdateValue(model.ValBirthday.originalValue ?? new Date())"
+											@update:model-value="model.ValBirthday.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.MEMBER__MEMBER__EMAIL.isVisible || controls.MEMBER__MEMBER__PHONE.isVisible">
+								<q-col
+									v-if="controls.MEMBER__MEMBER__EMAIL.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.MEMBER__MEMBER__EMAIL.isVisible"
+										class="i-text"
+										v-bind="controls.MEMBER__MEMBER__EMAIL"
+										v-on="controls.MEMBER__MEMBER__EMAIL.handlers"
+										:loading="controls.MEMBER__MEMBER__EMAIL.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-mask
+											v-if="controls.MEMBER__MEMBER__EMAIL.isVisible"
+											v-bind="controls.MEMBER__MEMBER__EMAIL"
+											:model-value="model.ValEmail.value"
+											@change="model.ValEmail.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+								<q-col
+									v-if="controls.MEMBER__MEMBER__PHONE.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.MEMBER__MEMBER__PHONE.isVisible"
+										class="i-text"
+										v-bind="controls.MEMBER__MEMBER__PHONE"
+										v-on="controls.MEMBER__MEMBER__PHONE.handlers"
+										:loading="controls.MEMBER__MEMBER__PHONE.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.MEMBER__MEMBER__PHONE.props"
+											@blur="onBlur(controls.MEMBER__MEMBER__PHONE, model.ValPhone.value)"
+											@change="model.ValPhone.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.MEMBER__GROUPNAME____.isVisible">
+								<q-col
+									v-if="controls.MEMBER__GROUPNAME____.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.MEMBER__GROUPNAME____.isVisible"
+										class="i-text"
+										v-bind="controls.MEMBER__GROUPNAME____"
+										v-on="controls.MEMBER__GROUPNAME____.handlers"
+										:loading="controls.MEMBER__GROUPNAME____.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-lookup
+											v-if="controls.MEMBER__GROUPNAME____.isVisible"
+											v-bind="controls.MEMBER__GROUPNAME____.props"
+											v-on="controls.MEMBER__GROUPNAME____.handlers" />
+										<q-see-more-member-groupname
+											v-if="controls.MEMBER__GROUPNAME____.seeMoreIsVisible"
+											v-bind="controls.MEMBER__GROUPNAME____.seeMoreParams"
+											v-on="controls.MEMBER__GROUPNAME____.handlers" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.MEMBER__PSEUDNEWGRP03.isVisible">
+								<q-col v-if="controls.MEMBER__PSEUDNEWGRP03.isVisible">
+									<q-group-box-container
+										v-if="controls.MEMBER__PSEUDNEWGRP03.isVisible"
+										id="MEMBER__PSEUDNEWGRP03"
+										v-bind="controls.MEMBER__PSEUDNEWGRP03"
+										:is-visible="controls.MEMBER__PSEUDNEWGRP03.isVisible">
+										<!-- Start MEMBER__PSEUDNEWGRP03 -->
+										<q-row v-if="controls.MEMBER__PSEUDSOURCES_.isVisible">
+											<q-col
+												v-if="controls.MEMBER__PSEUDSOURCES_.isVisible"
+												cols="auto">
+												<q-table
+													v-if="controls.MEMBER__PSEUDSOURCES_.isVisible"
+													v-bind="controls.MEMBER__PSEUDSOURCES_"
+													v-on="controls.MEMBER__PSEUDSOURCES_.handlers">
+													<template #header>
+														<q-table-config
+															:table-ctrl="controls.MEMBER__PSEUDSOURCES_"
+															v-on="controls.MEMBER__PSEUDSOURCES_.handlers" />
+													</template>
+													<!-- USE /[MANUAL MNT CUSTOM_TABLE MEMBER__PSEUDSOURCES_]/ -->
+												</q-table>
+											</q-col>
+										</q-row>
+										<!-- End MEMBER__PSEUDNEWGRP03 -->
+									</q-group-box-container>
+								</q-col>
+							</q-row>
+							<!-- End MEMBER__PSEUDNEWGRP01 -->
+						</q-group-box-container>
 					</q-col>
 				</q-row>
 			</template>
@@ -571,15 +612,29 @@
 						controlLimits: [
 						],
 					}, this),
+					MEMBER__PSEUDNEWGRP01: new fieldControlClass.GroupControl({
+						id: 'MEMBER__PSEUDNEWGRP01',
+						name: 'NEWGRP01',
+						size: 'block',
+						label: computed(() => this.Resources.INFO27076),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['MEMBER__MEMBER__NAME', 'MEMBER__MEMBER__BIRTHDAY', 'MEMBER__MEMBER__EMAIL', 'MEMBER__MEMBER__PHONE', 'MEMBER__GROUPNAME____', 'MEMBER__PSEUDNEWGRP03'],
+						controlLimits: [
+						],
+					}, this),
 					MEMBER__MEMBER__NAME: new fieldControlClass.StringControl({
 						modelField: 'ValName',
 						valueChangeEvent: 'fieldChange:member.name',
 						id: 'MEMBER__MEMBER__NAME',
 						name: 'NAME',
-						size: 'xxlarge',
+						size: 'xlarge',
 						label: computed(() => this.Resources.NAME31974),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'MEMBER__PSEUDNEWGRP01',
 						maxLength: 80,
 						controlLimits: [
 						],
@@ -589,10 +644,11 @@
 						valueChangeEvent: 'fieldChange:member.birthday',
 						id: 'MEMBER__MEMBER__BIRTHDAY',
 						name: 'BIRTHDAY',
-						size: 'medium',
+						size: 'small',
 						label: computed(() => this.Resources.BIRTHDAY30236),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'MEMBER__PSEUDNEWGRP01',
 						dateTimeType: 'date',
 						controlLimits: [
 						],
@@ -602,10 +658,11 @@
 						valueChangeEvent: 'fieldChange:member.email',
 						id: 'MEMBER__MEMBER__EMAIL',
 						name: 'EMAIL',
-						size: 'xxlarge',
+						size: 'xlarge',
 						label: computed(() => this.Resources.E_MAIL26803),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'MEMBER__PSEUDNEWGRP01',
 						maxLength: 50,
 						controlLimits: [
 						],
@@ -615,10 +672,11 @@
 						valueChangeEvent: 'fieldChange:member.phone',
 						id: 'MEMBER__MEMBER__PHONE',
 						name: 'PHONE',
-						size: 'medium',
+						size: 'small',
 						label: computed(() => this.Resources.PHONE56703),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'MEMBER__PSEUDNEWGRP01',
 						maxLength: 15,
 						controlLimits: [
 						],
@@ -632,6 +690,7 @@
 						label: computed(() => this.Resources.GROUP38232),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'MEMBER__PSEUDNEWGRP01',
 						externalCallbacks: {
 							getModelField: vm.getModelField,
 							getModelFieldValue: vm.getModelFieldValue,
@@ -651,6 +710,205 @@
 						controlLimits: [
 						],
 					}, this),
+					MEMBER__PSEUDNEWGRP03: new fieldControlClass.GroupControl({
+						id: 'MEMBER__PSEUDNEWGRP03',
+						name: 'NEWGRP03',
+						size: 'block',
+						label: computed(() => this.Resources.ACCOUNTS54906),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'MEMBER__PSEUDNEWGRP01',
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['MEMBER__PSEUDSOURCES_'],
+						controlLimits: [
+						],
+					}, this),
+					MEMBER__PSEUDSOURCES_: new fieldControlClass.TableListControl({
+						id: 'MEMBER__PSEUDSOURCES_',
+						name: 'SOURCES',
+						size: 'xxlarge',
+						label: '',
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'MEMBER__PSEUDNEWGRP03',
+						controller: 'MEMBER',
+						action: 'Member_ValSources',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.ArrayColumn({
+								order: 1,
+								name: 'ValType',
+								area: 'SOURCE',
+								field: 'TYPE',
+								label: computed(() => this.Resources.TYPE00312),
+								dataLength: 2,
+								scrollData: 2,
+								export: 1,
+								array: computed(() => new qProjArrays.QArrayAccout_type(vm.$getResource).elements),
+								arrayType: qProjArrays.QArrayAccout_type.type,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'ValTitle',
+								area: 'SOURCE',
+								field: 'TITLE',
+								label: computed(() => this.Resources.TITLE21885),
+								dataLength: 50,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValSources',
+							serverMode: true,
+							pkColumn: 'ValCodsource',
+							tableAlias: 'SOURCE',
+							tableNamePlural: computed(() => this.Resources.ACCOUNTS54906),
+							viewManagement: '',
+							showLimitsInfo: true,
+							perPage: 5,
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false
+							},
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							crudActions: [
+								{
+									id: 'show',
+									name: 'show',
+									title: computed(() => this.Resources.CONSULTAR57388),
+									icon: {
+										icon: 'view'
+									},
+									isInReadOnly: true,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'SOURCE',
+										mode: 'SHOW',
+										isControlled: true
+									}
+								},
+								{
+									id: 'edit',
+									name: 'edit',
+									title: computed(() => this.Resources.EDITAR11616),
+									icon: {
+										icon: 'pencil'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'SOURCE',
+										mode: 'EDIT',
+										isControlled: true
+									}
+								},
+								{
+									id: 'duplicate',
+									name: 'duplicate',
+									title: computed(() => this.Resources.DUPLICAR09748),
+									icon: {
+										icon: 'duplicate'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'SOURCE',
+										mode: 'DUPLICATE',
+										isControlled: true
+									}
+								},
+								{
+									id: 'delete',
+									name: 'delete',
+									title: computed(() => this.Resources.ELIMINAR21155),
+									icon: {
+										icon: 'delete'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'SOURCE',
+										mode: 'DELETE',
+										isControlled: true
+									}
+								}
+							],
+							generalActions: [
+								{
+									id: 'insert',
+									name: 'insert',
+									title: computed(() => this.Resources.INSERIR43365),
+									icon: {
+										icon: 'add'
+									},
+									isInReadOnly: false,
+									params: {
+										action: vm.openFormAction,
+										type: 'form',
+										formName: 'SOURCE',
+										mode: 'NEW',
+										repeatInsertion: false,
+										isControlled: true
+									}
+								},
+							],
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+								id: 'RCA__SOURCE',
+								name: '_SOURCE',
+								title: '',
+								isInReadOnly: true,
+								params: {
+									isRoute: true,
+									action: vm.openFormAction,
+									type: 'form',
+									formName: 'SOURCE',
+									mode: 'SHOW',
+									isControlled: true
+								}
+							},
+							formsDefinition: {
+								'SOURCE': {
+									fnKeySelector: (row) => row.Fields.ValCodsource,
+									isPopup: false
+								},
+							},
+							defaultSearchColumnName: 'ValTitle',
+							defaultSearchColumnNameOriginal: 'ValTitle',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-MEMBER', 'changed-SOURCE'],
+						uuid: 'Member_ValSources',
+						allSelectedRows: 'false',
+						controlLimits: [
+							{
+								identifier: ['id', 'member'],
+								dependencyEvents: ['fieldChange:member.codmember'],
+								dependencyField: 'MEMBER.CODMEMBER',
+								fnValueSelector: (model) => model.ValCodmember.value
+							},
+						],
+					}, this),
 				},
 
 				model: new FormViewModel(this, {
@@ -661,9 +919,12 @@
 				}),
 
 				groupFields: readonly([
+					'MEMBER__PSEUDNEWGRP01',
+					'MEMBER__PSEUDNEWGRP03',
 				]),
 
 				tableFields: readonly([
+					'MEMBER__PSEUDSOURCES_',
 				]),
 
 				timelineFields: readonly([

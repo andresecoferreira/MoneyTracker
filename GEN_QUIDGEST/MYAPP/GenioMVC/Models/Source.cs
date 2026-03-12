@@ -28,7 +28,7 @@ namespace GenioMVC.Models
 		public string ValCodsource { get { return klass.ValCodsource; } set { klass.ValCodsource = value; } }
 
 		[DisplayName("Type")]
-		/// <summary>Field : "Type" Tipo: "AC" Formula:  ""</summary>
+		/// <summary>Field : "Type" Tipo: "AC" Formula: DG ""CA""</summary>
 		[ShouldSerialize("Source.ValType")]
 		[DataArray("Accout_type", GenioMVC.Helpers.ArrayType.Character)]
 		public string ValType { get { return klass.ValType; } set { klass.ValType = value; } }
