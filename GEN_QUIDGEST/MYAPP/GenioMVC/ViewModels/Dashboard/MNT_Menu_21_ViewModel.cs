@@ -49,8 +49,8 @@ namespace GenioMVC.ViewModels.Dashboard
 {
 					Id = "EXP_MEM",
 					Order = 10,
-					Width = 2,
-					Height = 2,
+					Width = 6,
+					Height = 4,
 					BorderStyle = "",
 					Required = true,
 					Visible = true,

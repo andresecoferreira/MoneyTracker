@@ -100,18 +100,6 @@ export default function getFormsRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/:module/form/MONTH/:mode/:id?',
-			name: 'form-MONTH',
-			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormMonth/QFormMonth.vue'),
-			meta: {
-				routeType: 'form',
-				baseArea: 'MONTH',
-				humanKeyFields: ['ValMonth_title'],
-				isPopup: false
-			}
-		},
-		{
 			path: '/:culture/:system/:module/form/SOURCE/:mode/:id?',
 			name: 'form-SOURCE',
 			props: route => propsConverter(route),
@@ -156,18 +144,6 @@ export default function getFormsRoutes()
 				routeType: 'form',
 				baseArea: 'EXPENSE',
 				humanKeyFields: ['ValExpense_id'],
-				isPopup: false
-			}
-		},
-		{
-			path: '/:culture/:system/:module/form/YEAR/:mode/:id?',
-			name: 'form-YEAR',
-			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormYear/QFormYear.vue'),
-			meta: {
-				routeType: 'form',
-				baseArea: 'YEAR',
-				humanKeyFields: ['ValYear_number'],
 				isPopup: false
 			}
 		},

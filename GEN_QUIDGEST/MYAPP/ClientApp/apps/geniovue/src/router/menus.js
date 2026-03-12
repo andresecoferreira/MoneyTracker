@@ -93,36 +93,6 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MNT/menu/MNT_141',
-			name: 'menu-MNT_141',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_141/QMenuMnt141.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'MNT',
-				order: '141',
-				baseArea: 'YEAR',
-				hasInitialPHE: false,
-				humanKeyFields: ['ValYear_number'],
-				isPopup: false
-			}
-		},
-		{
-			path: '/:culture/:system/MNT/menu/MNT_1411',
-			name: 'menu-MNT_1411',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_1411/QMenuMnt1411.vue'),
-			beforeEnter: [updateQueryParams],
-			meta: {
-				routeType: 'menu',
-				module: 'MNT',
-				order: '1411',
-				baseArea: 'MONTH',
-				hasInitialPHE: false,
-				humanKeyFields: ['ValMonth_title'],
-				limitations: ['year' /* DB */],
-				isPopup: false
-			}
-		},
-		{
 			path: '/:culture/:system/MNT/menu/MNT_411',
 			name: 'menu-MNT_411',
 			component: () => import('@/views/menus/ModuleMNT/MenuMNT_411/QMenuMnt411.vue'),
