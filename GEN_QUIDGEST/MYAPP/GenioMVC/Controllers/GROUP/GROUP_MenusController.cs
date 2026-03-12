@@ -158,6 +158,28 @@ namespace GenioMVC.Controllers
 				return JsonERROR(HandleException(e), model);
 			}
 
+			//FOR: FORM MENU GO BACK, OVERRIDE SKIP IF JUST ONE
+			bool AllowSkipIfOnlyOne = true;
+
+			// jumps if only one
+			var curRowsCount = model.Menu.Pagination.HasTotal ? model.Menu.Pagination.TotalRows : model.Menu.Elements.Count();
+			// only allow the jump if there are no filters
+			bool hasNoFilters = tableConfig.Filters.Count == 0;
+			bool isFirstDataLoad = (bool)requestModel?.IsFirstLoad;
+			bool isNoRedirect = (bool)requestModel?.NoRedirect;
+
+			if (isFirstDataLoad && curRowsCount == 1 && hasNoFilters && model.Menu.Elements.First().ValZzstate == 0 && AllowSkipIfOnlyOne)
+			{
+				// needs the routevalue for the primary key, because a get request to a get form action expects so
+				var primaryKey = model.Menu.Elements.First().ValCodgroup;
+				var navKey = "group";
+				Navigation.SetValue(navKey, primaryKey);
+				Navigation.SetValue("SkipIfJustOne", true);
+				var isPopup = querystring.Get("isPopup") ?? "false";
+				var noRedirect = isNoRedirect;
+
+				return RedirectToMenuAction("MNT_411", new { id = primaryKey, nav = Navigation.NavigationId, isHomePage, isPopup, noRedirect, skipLastMenu = true, group = primaryKey });
+			}
 
 			return JsonOK(model);
 		}
