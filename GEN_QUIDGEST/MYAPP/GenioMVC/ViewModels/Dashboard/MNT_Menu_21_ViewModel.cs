@@ -49,8 +49,8 @@ namespace GenioMVC.ViewModels.Dashboard
 {
 					Id = "TEST",
 					Order = 11,
-					Width = 2,
-					Height = 2,
+					Width = 6,
+					Height = 6,
 					BorderStyle = "",
 					Required = true,
 					Visible = true,
