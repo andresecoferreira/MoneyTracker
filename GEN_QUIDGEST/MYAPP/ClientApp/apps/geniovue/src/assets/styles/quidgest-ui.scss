@@ -1,1 +1,5 @@
-@use "@quidgest/ui";
+@use "@quidgest/ui" with (
+	$outline-color: rgba(14, 165, 164, 0.35),
+	$font-size-base: 0.7rem,
+	$headings-text-transform: uppercase,
+);

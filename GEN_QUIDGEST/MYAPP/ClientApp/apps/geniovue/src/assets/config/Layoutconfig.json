@@ -32,6 +32,7 @@
 			"single_page",
 			"embeded_page"
 		],
+		"chosen": "single_page",
 		"default": "single_page"
 	},
 	"LanguagePlacement": {
@@ -53,6 +54,7 @@
 			true,
 			false
 		],
+		"chosen": false,
 		"default": true
 	},
 	"BreadcrumbsContent": {
@@ -61,6 +63,7 @@
 			"detailed",
 			"hidden"
 		],
+		"chosen": "simplified",
 		"default": "detailed"
 	},
 	"RowActionDisplay": {
@@ -97,6 +100,7 @@
 			true,
 			false
 		],
+		"chosen": false,
 		"default": false
 	},
 	"BookmarkEnable": {
@@ -104,6 +108,7 @@
 			true,
 			false
 		],
+		"chosen": true,
 		"default": true
 	},
 	"ShowPasswordToggle": {
@@ -119,6 +124,7 @@
 			"light",
 			"secondary"
 		],
+		"chosen": "default",
 		"default": "default"
 	},
 	"HelpListShort": {
@@ -174,25 +180,61 @@
 		],
 		"default": "right"
 	},
-	"HeaderPlacement": {
+	"MenuStyle": {
 		"values": [
-			"in_contentPanel",
-			"in_menuPanel"
+			"simple_navbar",
+			"ribbon",
+			"double_navbar"
 		],
-		"default": "in_menuPanel"
+		"default": "simple_navbar"
 	},
-	"MenuBackgroundColor": {
+	"LogonPlacement": {
 		"values": [
-			"dark",
-			"light"
+			"in_header",
+			"in_navmenu"
 		],
-		"default": "dark"
+		"default": "in_header"
 	},
-	"MenuBrand": {
+	"HeaderEnable": {
 		"values": [
-			"Image",
-			"Text"
+			true,
+			false
 		],
-		"default": "Text"
+		"default": true
+	},
+	"LogoEnable": {
+		"values": [
+			true,
+			false
+		],
+		"default": true
+	},
+	"BrandIconEnable": {
+		"values": [
+			true,
+			false
+		],
+		"default": false
+	},
+	"LoginBrandEnable": {
+		"values": [
+			true,
+			false
+		],
+		"default": true
+	},
+	"ContainerWidth": {
+		"values": [
+			"whole_page",
+			"reduced"
+		],
+		"default": "whole_page"
+	},
+	"MenuAlign": {
+		"values": [
+			"left",
+			"right"
+		],
+		"default": "left"
 	}
 }

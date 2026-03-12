@@ -1,29 +1,27 @@
 ﻿<template>
-	<div
-		v-if="$app.layout.BookmarkEnable && userIsLoggedIn"
-		class="bookmarks__container">
-		<ul class="nav">
+	<div class="n-sidebar__section modules__container">
+		<ul
+			v-if="Object.keys(system.availableModules).length > 1"
+			class="nav nav-pills nav-sidebar n-sidebar__nav d-block">
 			<li
 				ref="menuContainer"
-				class="dropdown"
+				class="dropdown n-sidebar__nav-item nav-item"
 				@focusout="onFocusoutMenu">
 				<a
 					ref="menuButton"
-					class="bookmarks__header"
+					class="brand modules__header nav-link has-icon"
 					role="button"
 					href="#"
-					:aria-expanded="bookmarkMenuIsOpen"
-					:title="texts.favorites"
+					:aria-expanded="moduleMenuIsOpen"
+					:data-key="system.currentModule"
 					@click.stop.prevent="toggleMenu"
 					@keyup="menuItemKeyup">
-					<q-icon icon="bookmark" />
+					<module-header />
 				</a>
 
-				<bookmarks-content
-					:classes="['dropdown-menu', { 'show': bookmarkMenuIsOpen }, 'bookmarks__content']"
-					@menu-action="setBookmarkMenuState(false)"
-					@add="setBookmarkMenuState(false)"
-					@remove="focusItem"
+				<all-modules
+					:class="['dropdown-menu', { 'show': moduleMenuIsOpen }]"
+					@menu-action="setModuleMenuState(false)"
 					@keyup="menuItemKeyup" />
 			</li>
 		</ul>
@@ -31,19 +29,19 @@
 </template>
 
 <script>
-	import { computed } from 'vue'
-
-	import hardcodedTexts from '@/hardcodedTexts.js'
 	import LayoutHandlers from '@/mixins/layoutHandlers.js'
-	import BookmarksContent from '@/views/shared/BookmarksContent.vue'
+
+	import ModuleHeader from './ModuleHeader.vue'
+	import AllModules from '../AllModules.vue'
 
 	export default {
-		name: 'QBookmarks',
+		name: 'QModules',
 
 		emits: ['open-menu'],
 
 		components: {
-			BookmarksContent
+			ModuleHeader,
+			AllModules
 		},
 
 		mixins: [
@@ -52,18 +50,9 @@
 
 		expose: [],
 
-		data()
-		{
-			return {
-				texts: {
-					favorites: computed(() => this.Resources[hardcodedTexts.favorites])
-				}
-			}
-		},
-
 		methods: {
 			/**
-			 * Called when focusing away from the bookmarks button or dropdown.
+			 * Called when focusing away from the modules button or dropdown.
 			 */
 			onFocusoutMenu(event)
 			{
@@ -75,7 +64,7 @@
 					return
 
 				//Menu not focused. Close dropdown.
-				this.setBookmarkMenuState(false)
+				this.setModuleMenuState(false)
 			},
 
 			/**
@@ -96,7 +85,7 @@
 				this.focusItem()
 
 				//Close dropdown
-				this.setBookmarkMenuState(false)
+				this.setModuleMenuState(false)
 			},
 
 			/*
@@ -115,11 +104,11 @@
 			 */
 			toggleMenu()
 			{
-				//Toggle bookmarks menu
-				this.toggleBookmarksMenu()
+				//Toggle modules menu
+				this.toggleModulesMenu()
 
 				//Signal if opening
-				if(this.bookmarkMenuIsOpen)
+				if(this.moduleMenuIsOpen)
 					this.$emit('open-menu')
 			}
 		}
