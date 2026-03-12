@@ -1617,9 +1617,9 @@ namespace CSGenio.business
         }
 
         /// <summary>
-        /// My application theme variables
+        /// Money Tracker theme variables
         /// </summary>
-        private static readonly Dictionary<string, string> MYAPP_THEME_VARIABLES = new Dictionary<string, string>()
+        private static readonly Dictionary<string, string> MNT_THEME_VARIABLES = new Dictionary<string, string>()
         {
             { "$footer-bg", "transparent" },
             { "$menu-sidebar-width", "16rem" },
@@ -1697,8 +1697,8 @@ namespace CSGenio.business
         /// <returns>theme variable Value</returns>
         public static string GetThemeVariable(string appID, string variable)
         {
-            if ("MYAPP" == appID)
-                return MYAPP_THEME_VARIABLES[variable];
+            if ("MNT" == appID)
+                return MNT_THEME_VARIABLES[variable];
             return "";
         }
 
