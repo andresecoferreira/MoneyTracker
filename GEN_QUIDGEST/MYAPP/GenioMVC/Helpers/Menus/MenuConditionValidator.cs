@@ -41,6 +41,10 @@ namespace GenioMVC.Helpers.Menus
 
 			switch (menuID)
 			{
+				case "MNT5":
+				{
+					return 1==0;
+				}
 				default:
 					break;
 			}

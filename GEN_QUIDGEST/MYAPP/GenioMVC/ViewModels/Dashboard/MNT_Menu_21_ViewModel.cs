@@ -30,7 +30,7 @@ namespace GenioMVC.ViewModels.Dashboard
 					Id = "EXP_CAT",
 					Order = 3,
 					Width = 6,
-					Height = 4,
+					Height = 6,
 					BorderStyle = "secondary",
 					Required = true,
 					Visible = true,
@@ -51,10 +51,10 @@ namespace GenioMVC.ViewModels.Dashboard
 			[
 				new MenuWidget
 				{
-					Id = "Menu_4111",
+					Id = "Menu_NEW_EXPENSE",
 					Order = 2,
-					Width = 2,
-					Height = 2,
+					Width = 1,
+					Height = 1,
 					Style = "primary",
 					BorderStyle = "secondary",
 					RenderSubmenus = false,
@@ -64,8 +64,8 @@ namespace GenioMVC.ViewModels.Dashboard
 					Title = Resources.Resources.NEW_EXPENSE57711,
 					Group = "_ACTIONS",
 					Module = "MNT",
-					Path = "MNT" + " > " + string.Join(" > ", GenioMVC.Helpers.Menus.Menus.MenuTextPath("MNT", "4111")),
-					MenuEntry = GenioMVC.Helpers.Menus.Menus.FindMenu("MNT", "4111")
+					Path = "MNT" + " > " + string.Join(" > ", GenioMVC.Helpers.Menus.Menus.MenuTextPath("MNT", "NEW_EXPENSE")),
+					MenuEntry = GenioMVC.Helpers.Menus.Menus.FindMenu("MNT", "NEW_EXPENSE")
 				},
 			];
 		}

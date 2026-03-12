@@ -59,5 +59,9 @@
         </MENU>
       </MENU>
     </MENU>
+    <MENU TYPE="ITEM" DESC="NEW_EXPENSE57711" SIGLA="" ID="5" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="true" ISFORM="false" ORDER="5" DEFAULTACTION="">
+      <ACCESS />
+      <MENU TYPE="ITEM" ID="NEW_EXPENSE" PRTID="5" IMG="" ACT="GenGenio.MenuFormConsulta" ACTMVC="Expense_New" ACTVUE="form-EXPENSE" CONT="Expense" FILTERS="id = item.ValCodexpense" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="true" FORMMODE="NEW" ORDER="51" />
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>
