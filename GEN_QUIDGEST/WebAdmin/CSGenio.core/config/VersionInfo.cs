@@ -12,19 +12,19 @@ namespace CSGenio.framework
         /// <summary>
         /// Main application version number
         /// </summary>
-        public static int Version { get; } = 2522;
+        public static int Version { get; } = 2523;
 
         /// <summary>
         /// Version of the database
         /// CI/CD: Database schema version
         /// </summary>
-        public const int DatabaseSchema = 2522;
+        public const int DatabaseSchema = 2523;
 
         /// <summary>
         /// Version of the database indexes
         /// CI/CD: Database index version
         /// </summary>
-        public const int DatabaseIndex = 22;
+        public const int DatabaseIndex = 23;
 
         /// <summary>
         /// Version of the latest version change routines
@@ -45,7 +45,7 @@ namespace CSGenio.framework
         /// <summary>
         /// Generated version. Is incremented each time there is a generation
         /// </summary>
-        public const int Generation = 79;
+        public const int Generation = 80;
 
 
         /// <summary>

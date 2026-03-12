@@ -43,7 +43,25 @@ public class Wd_expenses_ValField001_RowViewModel : Models.Member
 			{
 				Order = 2,
 				Area = "MEMBER",
+				Field = "INCOME",
+			},
+			new ListColumn()
+			{
+				Order = 3,
+				Area = "MEMBER",
 				Field = "EXPENSES",
+			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "MEMBER",
+				Field = "INVESTMENT",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "MEMBER",
+				Field = "RESULT",
 			},
 		];
 	}

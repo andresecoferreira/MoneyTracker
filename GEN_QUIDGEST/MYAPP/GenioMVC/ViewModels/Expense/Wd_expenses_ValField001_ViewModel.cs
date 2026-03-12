@@ -129,7 +129,10 @@ namespace GenioMVC.ViewModels.Expense
 			return
 			[
 				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
+				new Exports.QColumn(CSGenioAmember.FldIncome, FieldType.CURRENCY, Resources.Resources.INCOME04695, 12, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldExpenses, FieldType.CURRENCY, Resources.Resources.EXPENSES11381, 12, 0, true),
+				new Exports.QColumn(CSGenioAmember.FldInvestment, FieldType.CURRENCY, Resources.Resources.INVESTMENT14761, 12, 0, true),
+				new Exports.QColumn(CSGenioAmember.FldResult, FieldType.CURRENCY, Resources.Resources.RESULT40974, 12, 0, true),
 			];
 		}
 
@@ -307,7 +310,7 @@ namespace GenioMVC.ViewModels.Expense
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "member", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldName, CSGenioAmember.FldExpenses };
+			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldName, CSGenioAmember.FldIncome, CSGenioAmember.FldExpenses, CSGenioAmember.FldInvestment, CSGenioAmember.FldResult };
 
 
 			// Totalizers
@@ -503,13 +506,16 @@ namespace GenioMVC.ViewModels.Expense
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Member", "Member.ValCodmember", "Member.ValZzstate", "Member.ValName", "Member.ValExpenses", "Member.ValGroup_id"
+			"Member", "Member.ValCodmember", "Member.ValZzstate", "Member.ValName", "Member.ValIncome", "Member.ValExpenses", "Member.ValInvestment", "Member.ValResult", "Member.ValGroup_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
 			new TableSearchColumn("ValName", CSGenioAmember.FldName, typeof(string), defaultSearch : true),
+			new TableSearchColumn("ValIncome", CSGenioAmember.FldIncome, typeof(decimal?)),
 			new TableSearchColumn("ValExpenses", CSGenioAmember.FldExpenses, typeof(decimal?)),
+			new TableSearchColumn("ValInvestment", CSGenioAmember.FldInvestment, typeof(decimal?)),
+			new TableSearchColumn("ValResult", CSGenioAmember.FldResult, typeof(decimal?)),
 		];
 	}
 }

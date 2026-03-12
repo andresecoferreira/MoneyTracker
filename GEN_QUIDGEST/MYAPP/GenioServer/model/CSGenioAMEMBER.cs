@@ -147,6 +147,47 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "income", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Income";
+			Qfield.FieldSize =  12;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 9;
+			Qfield.Decimals = 2;
+			Qfield.CavDesignation = "INCOME04695";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "investment", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Investment";
+			Qfield.FieldSize =  12;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 9;
+			Qfield.Decimals = 2;
+			Qfield.CavDesignation = "INVESTMENT14761";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "result", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Result";
+			Qfield.FieldSize =  12;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 9;
+			Qfield.Decimals = 2;
+			Qfield.CavDesignation = "RESULT40974";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"income","investment","expenses"}, new int[] {0,1,2}, "member", "codmember"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 3, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return ((decimal)args[0])-((decimal)args[1])-((decimal)args[2]);
+			});
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -195,12 +236,12 @@ namespace CSGenio.business
 
 
 			info.InternalOperationFields = new string[] {
-			 "age"
+			 "age","result"
 			};
 
 
 			info.RelatedSumFields = new string[] {
-			 "expenses"
+			 "expenses","income","investment"
 			};
 
 
@@ -412,6 +453,39 @@ namespace CSGenio.business
 			set { insertNameValueField(FldExpenses, value); }
 		}
 
+		/// <summary>Field : "Income" Tipo: "$" Formula: SR "[INCOME->VALUE]"</summary>
+		public static FieldRef FldIncome { get { return m_fldIncome; } }
+		private static FieldRef m_fldIncome = new FieldRef("member", "income");
+
+		/// <summary>Field : "Income" Tipo: "$" Formula: SR "[INCOME->VALUE]"</summary>
+		public decimal ValIncome
+		{
+			get { return (decimal)returnValueField(FldIncome); }
+			set { insertNameValueField(FldIncome, value); }
+		}
+
+		/// <summary>Field : "Investment" Tipo: "$" Formula: SR "[INVESTMENT->VALUE]"</summary>
+		public static FieldRef FldInvestment { get { return m_fldInvestment; } }
+		private static FieldRef m_fldInvestment = new FieldRef("member", "investment");
+
+		/// <summary>Field : "Investment" Tipo: "$" Formula: SR "[INVESTMENT->VALUE]"</summary>
+		public decimal ValInvestment
+		{
+			get { return (decimal)returnValueField(FldInvestment); }
+			set { insertNameValueField(FldInvestment, value); }
+		}
+
+		/// <summary>Field : "Result" Tipo: "$" Formula: + "[MEMBER->INCOME]-[MEMBER->INVESTMENT]-[MEMBER->EXPENSES]"</summary>
+		public static FieldRef FldResult { get { return m_fldResult; } }
+		private static FieldRef m_fldResult = new FieldRef("member", "result");
+
+		/// <summary>Field : "Result" Tipo: "$" Formula: + "[MEMBER->INCOME]-[MEMBER->INVESTMENT]-[MEMBER->EXPENSES]"</summary>
+		public decimal ValResult
+		{
+			get { return (decimal)returnValueField(FldResult); }
+			set { insertNameValueField(FldResult, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("member", "zzstate");
@@ -509,7 +583,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX MEMBER]/
 
  
-          
+             
 
 	}
 }
