@@ -112,6 +112,7 @@ public class AppPage: PageObject
 		res.AddMenu(module, "31", "3");
 		res.AddMenu(module, "32", "3");
 		res.AddMenu(module, "33", "3");
+		res.AddMenu(module, "4", null);
         return res;
     }
 }

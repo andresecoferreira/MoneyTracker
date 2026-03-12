@@ -55,5 +55,11 @@
         </MENU>
       </MENU>
     </MENU>
+    <MENU TYPE="ITEM" DESC="MEMBER_PSWS64786" SIGLA="" ID="4" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="4" DEFAULTACTION="">
+      <ACCESS />
+      <MENU TYPE="ITEM" DESC="MEMBER_PSWS64786" ID="41" PRTID="4" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_41" ACTVUE="menu-MNT_41" CONT="MEMBER_PSW" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="41">
+        <MENU TYPE="ITEM" ID="411" PRTID="41" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="411" />
+      </MENU>
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>
