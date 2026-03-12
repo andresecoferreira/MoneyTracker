@@ -842,7 +842,6 @@
 							set 'source.codsource'(value) { vm.model.ValSource_id.updateValue(value) },
 							set 'source.title'(value) { vm.model.TableSourceTitle.updateValue(value) },
 						}),
-						mustBeFilled: true,
 						controlLimits: [
 							{
 								identifier: ['member', 'income.member_id'],

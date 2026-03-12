@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Category_type
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldLogo, CSGenioAcategory_type.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldName };
 
 			ListingMVC<CSGenioAcategory_type> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -343,7 +343,7 @@ namespace GenioMVC.ViewModels.Category_type
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldLogo, CSGenioAcategory_type.FldName };
+			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldName };
 
 
 			// Totalizers
@@ -355,7 +355,7 @@ namespace GenioMVC.ViewModels.Category_type
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("category_type", "logo");
+				firstVisibleColumn ??= new FieldRef("category_type", "name");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -496,7 +496,6 @@ namespace GenioMVC.ViewModels.Category_type
 
 			model.InitRowData();
 
-			SetTicketToImageFields(model);
 			return model;
 		}
 
@@ -541,19 +540,12 @@ namespace GenioMVC.ViewModels.Category_type
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Category_type", "Category_type.ValCodcategory_type", "Category_type.ValZzstate", "Category_type.ValLogo", "Category_type.ValName"
+			"Category_type", "Category_type.ValCodcategory_type", "Category_type.ValZzstate", "Category_type.ValName"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
 			new TableSearchColumn("ValName", CSGenioAcategory_type.FldName, typeof(string), defaultSearch : true),
 		];
-		protected void SetTicketToImageFields(Models.Category_type row)
-		{
-			if (row == null)
-				return;
-
-			row.ValLogoQTicket = Helpers.Helpers.GetFileTicket(m_userContext.User, CSGenio.business.Area.AreaCATEGORY_TYPE, CSGenioAcategory_type.FldLogo.Field, null, row.ValCodcategory_type);
-		}
 	}
 }

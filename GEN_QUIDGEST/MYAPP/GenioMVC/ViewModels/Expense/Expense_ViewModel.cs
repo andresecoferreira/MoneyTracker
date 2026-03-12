@@ -135,6 +135,15 @@ namespace GenioMVC.ViewModels.Expense
 
 		#region Fields for formulas
 
+		// Field for formula
+		/// <summary>Used only for lazy loading of the MemberValAge field</summary>
+		[JsonIgnore]
+		[ValidateSetAccess]
+		public Func<decimal?> funcMemberValAge { get; set; }
+		private decimal? _auxMemberValAge { get; set; }
+		/// <summary>Field: "Age" Tipo: "N"</summary>
+		[ValidateSetAccess]
+		public decimal? MemberValAge { get { return funcMemberValAge != null ? funcMemberValAge() : _auxMemberValAge; } private set { funcMemberValAge = () => value; } }
 
 		#endregion
 
@@ -262,6 +271,7 @@ namespace GenioMVC.ViewModels.Expense
 				ValCreated_at = ViewModelConversion.ToDateTime(m.ValCreated_at);
 				ValUpdated_by = ViewModelConversion.ToString(m.ValUpdated_by);
 				ValUpdated_at = ViewModelConversion.ToDateTime(m.ValUpdated_at);
+				funcMemberValAge = () => ViewModelConversion.ToNumeric(m.Member.ValAge);
 				ValCodexpense = ViewModelConversion.ToString(m.ValCodexpense);
 			}
 			catch (Exception)
@@ -509,8 +519,6 @@ namespace GenioMVC.ViewModels.Expense
 			validator.Required("ValType_id", Resources.Resources.CATEGORY_TYPE34342, ViewModelConversion.ToString(ValType_id), FieldType.KEY_INT.GetFormatting());
 
 			validator.Required("ValMember_id", Resources.Resources.MEMBER00534, ViewModelConversion.ToString(ValMember_id), FieldType.KEY_INT.GetFormatting());
-
-			validator.Required("ValSource_id", Resources.Resources.ACCOUNT64260, ViewModelConversion.ToString(ValSource_id), FieldType.KEY_INT.GetFormatting());
 
 			validator.Required("ValValue", Resources.Resources.VALUE10285, ViewModelConversion.ToNumeric(ValValue), FieldType.NUMERIC.GetFormatting());
 
@@ -1074,7 +1082,7 @@ namespace GenioMVC.ViewModels.Expense
 		/// <param name="PKey">Primary Key of Member</param>
 		public ConcurrentDictionary<string, object> GetDependant_ExpenseTableMemberName(string PKey)
 		{
-			FieldRef[] refDependantFields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName];
+			FieldRef[] refDependantFields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAmember.FldAge];
 
 			var returnEmptyDependants = false;
 			CriteriaSet wherecodition = CriteriaSet.And();
@@ -1123,6 +1131,7 @@ namespace GenioMVC.ViewModels.Expense
 			var row = GetDependant_ExpenseTableMemberName(this.ValMember_id);
 			try
 			{
+				this.funcMemberValAge = () => (decimal?)row["member.age"];
 
 				// Fill List fields
 				this.ValMember_id = ViewModelConversion.ToString(row["member.codmember"]);
@@ -1386,6 +1395,7 @@ namespace GenioMVC.ViewModels.Expense
 				"expense.created_at" => ViewModelConversion.ToDateTime(modelValue),
 				"expense.updated_by" => ViewModelConversion.ToString(modelValue),
 				"expense.updated_at" => ViewModelConversion.ToDateTime(modelValue),
+				"member.age" => ViewModelConversion.ToNumeric(modelValue),
 				"expense.codexpense" => ViewModelConversion.ToString(modelValue),
 				"category_type.codcategory_type" => ViewModelConversion.ToString(modelValue),
 				"category_type.name" => ViewModelConversion.ToString(modelValue),

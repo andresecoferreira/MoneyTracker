@@ -482,8 +482,6 @@ namespace GenioMVC.ViewModels.Income
 
 			validator.Required("ValMember_id", Resources.Resources.MEMBER00534, ViewModelConversion.ToString(ValMember_id), FieldType.KEY_INT.GetFormatting());
 
-			validator.Required("ValSource_id", Resources.Resources.ACCOUNT64260, ViewModelConversion.ToString(ValSource_id), FieldType.KEY_INT.GetFormatting());
-
 			validator.Required("ValValue", Resources.Resources.VALUE10285, ViewModelConversion.ToNumeric(ValValue), FieldType.NUMERIC.GetFormatting());
 
 			validator.Required("ValDate", Resources.Resources.DATE18475, ViewModelConversion.ToDateTime(ValDate), FieldType.DATE.GetFormatting());

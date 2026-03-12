@@ -146,20 +146,8 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.ImageColumn({
-								order: 1,
-								name: 'ValLogo',
-								area: 'CATEGORY_TYPE',
-								field: 'LOGO',
-								label: computed(() => this.Resources.LOGO62483),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.LOGO62483)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 2,
+								order: 1,
 								name: 'ValName',
 								area: 'CATEGORY_TYPE',
 								field: 'NAME',
