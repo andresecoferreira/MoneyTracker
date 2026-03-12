@@ -29,7 +29,7 @@ namespace GenioMVC.Controllers
 	public partial class MemberController : ControllerBase
 	{
 		private static readonly NavigationLocation ACTION_MNT_MENU_1111 = new NavigationLocation("MEMBERS31628", "MNT_Menu_1111", "Member") { vueRouteName = "menu-MNT_1111" };
-		private static readonly NavigationLocation ACTION_MNT_MENU_41 = new NavigationLocation("MEMBERS31628", "MNT_Menu_41", "Member") { vueRouteName = "menu-MNT_41" };
+		private static readonly NavigationLocation ACTION_MNT_MENU_21 = new NavigationLocation("MEMBERS31628", "MNT_Menu_21", "Member") { vueRouteName = "menu-MNT_21" };
 
 
 		//
@@ -101,14 +101,14 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Member/MNT_Menu_41
-		[ActionName("MNT_Menu_41")]
+		// GET: /Member/MNT_Menu_21
+		[ActionName("MNT_Menu_21")]
 		[HttpPost]
-		public ActionResult MNT_Menu_41([FromBody] RequestMenuModel requestModel)
+		public ActionResult MNT_Menu_21([FromBody] RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
-			MNT_Menu_41_ViewModel model = new(m_userContext);
+			MNT_Menu_21_ViewModel model = new(m_userContext);
 
 			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
 				requestModel.TableConfiguration,
@@ -120,7 +120,7 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "MNT_Menu_41");
+				Navigation.SetValue("HomePage", "MNT_Menu_21");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
 			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_member")))
@@ -139,18 +139,18 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_MNT_MENU_41.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_MNT_MENU_41.Action)
+				(Navigation.CurrentLevel == null || !ACTION_MNT_MENU_21.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_MNT_MENU_21.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MNT_MENU_41.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MNT_MENU_21.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
 
 
-// USE /[MANUAL MNT MENU_GET 41]/
+// USE /[MANUAL MNT MENU_GET 21]/
 
 			try
 			{

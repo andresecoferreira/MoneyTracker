@@ -1,5 +1,5 @@
 ﻿export default {
-	appName: 'MY_APPLICATION56216',
+	appName: 'MONEY_TRACKER22754',
 	authentication: 'AUTENTICACAO37999',
 	version: 'VERSAO61228',
 	isDirtyMessage: 'AS_SUAS_ALTERACOES_S04591',

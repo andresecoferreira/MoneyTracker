@@ -5,8 +5,8 @@ namespace CSGenio.framework
 {
     public class ClientApplication
     {
-        public static readonly ClientApplication MNT = 
-            new ClientApplication("MNT", "Money Tracker") 
+        public static readonly ClientApplication MYAPP = 
+            new ClientApplication("MYAPP", "Money Tracker") 
             {
                 Modules = new Dictionary<string, string>
 				{
@@ -42,7 +42,7 @@ namespace CSGenio.framework
 
         private static readonly List<ClientApplication> applications = new List<ClientApplication>()
         {
-            MNT,      
+            MYAPP,      
             WEBADMIN
         };
     }

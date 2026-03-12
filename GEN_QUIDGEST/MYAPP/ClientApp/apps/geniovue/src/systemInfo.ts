@@ -5,7 +5,7 @@ import { useSystemDataStore } from '@quidgest/clientapp/stores'
 import layoutConfigJson from './assets/config/Layoutconfig.json'
 
 export const systemInfo = {
-	applicationName: 'My application',
+	applicationName: 'Money Tracker',
 
 	get genio() {
 		// Access the store inside the getter to ensure Pinia is initialized

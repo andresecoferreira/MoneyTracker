@@ -123,6 +123,9 @@
   <msg id="Subject" code="SUBJECT33942">
     <ENUS>Subject</ENUS>
   </msg>
+  <msg id="Money Tracker" code="MONEY_TRACKER22754">
+    <ENUS>Money Tracker</ENUS>
+  </msg>
   <msg id="Phone" code="PHONE56703">
     <ENUS>Phone</ENUS>
   </msg>

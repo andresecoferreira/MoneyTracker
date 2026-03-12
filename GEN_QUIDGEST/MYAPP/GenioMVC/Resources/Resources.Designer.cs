@@ -432,6 +432,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Money Tracker"
+		/// </summary>
+		public static string MONEY_TRACKER22754 {
+			get {
+				return ResourceManager.GetString("MONEY_TRACKER22754", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Phone"
 		/// </summary>
 		public static string PHONE56703 {
