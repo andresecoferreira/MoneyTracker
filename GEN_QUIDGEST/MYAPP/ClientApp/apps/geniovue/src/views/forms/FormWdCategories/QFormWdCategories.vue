@@ -434,7 +434,7 @@
 								}),
 								styleVariables: {
 									chartType: {
-										rawValue: 'pie',
+										rawValue: 'column',
 										isMapped: false
 									},
 									firstColor: {
@@ -442,7 +442,7 @@
 										isMapped: false
 									},
 									chartColorArray: {
-										rawValue: 'Monochrome Green',
+										rawValue: 'Highcharts Default',
 										isMapped: false
 									},
 									invertColorArray: {
@@ -526,7 +526,7 @@
 										isMapped: false
 									},
 									legendLayout: {
-										rawValue: 'vertical',
+										rawValue: 'horizontal',
 										isMapped: false
 									},
 									legendXPosition: {
