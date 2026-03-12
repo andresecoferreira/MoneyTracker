@@ -189,6 +189,9 @@
   <data name="INFO27076" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="DEZEMBRO01950" xml:space="preserve">
+    <value>Dezembro</value>
+  </data>
   <data name="MONTH_NUMBER33019" xml:space="preserve">
     <value>Month Number</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="TO55217" xml:space="preserve">
     <value>To</value>
+  </data>
+  <data name="SETEMBRO19956" xml:space="preserve">
+    <value>Setembro</value>
   </data>
   <data name="PSW13972" xml:space="preserve">
     <value>PSW</value>
@@ -372,6 +378,9 @@
   <data name="GROUP_PSW08201" xml:space="preserve">
     <value>Group_PSW</value>
   </data>
+  <data name="MARCO22234" xml:space="preserve">
+    <value>Março</value>
+  </data>
   <data name="BANKINTER32282" xml:space="preserve">
     <value>Bankinter</value>
   </data>
@@ -392,6 +401,9 @@
   </data>
   <data name="SANTANDER_TOTTA33421" xml:space="preserve">
     <value>Santander Totta</value>
+  </data>
+  <data name="ABRIL58220" xml:space="preserve">
+    <value>Abril</value>
   </data>
   <data name="ERRO38355" xml:space="preserve">
     <value>Erro</value>
@@ -432,8 +444,14 @@
   <data name="GROUP_INFO64066" xml:space="preserve">
     <value>Group Info</value>
   </data>
+  <data name="AGOSTO05568" xml:space="preserve">
+    <value>Agosto</value>
+  </data>
   <data name="DESCRIPTION07383" xml:space="preserve">
     <value>Description</value>
+  </data>
+  <data name="TIME_MANAGMENT17210" xml:space="preserve">
+    <value>Time Managment</value>
   </data>
   <data name="MEMBERS31628" xml:space="preserve">
     <value>Members</value>
@@ -453,6 +471,9 @@
   <data name="SAVES_ON_DB_61384" xml:space="preserve">
     <value>Saves on DB?</value>
   </data>
+  <data name="EXPENSES_BY_MEMBER36056" xml:space="preserve">
+    <value>Expenses by Member</value>
+  </data>
   <data name="INFO02225" xml:space="preserve">
     <value>info</value>
   </data>
@@ -464,6 +485,9 @@
   </data>
   <data name="MODO_DE_PROCESSAMENT14469" xml:space="preserve">
     <value>Modo de processamento</value>
+  </data>
+  <data name="FEVEREIRO25443" xml:space="preserve">
+    <value>Fevereiro</value>
   </data>
   <data name="TITLE21885" xml:space="preserve">
     <value>Title</value>
@@ -546,11 +570,17 @@
   <data name="USER_ID13914" xml:space="preserve">
     <value>User ID</value>
   </data>
+  <data name="NOVEMBRO18614" xml:space="preserve">
+    <value>Novembro</value>
+  </data>
   <data name="AGE28663" xml:space="preserve">
     <value>Age</value>
   </data>
   <data name="SOURCES41454" xml:space="preserve">
     <value>SOURCES</value>
+  </data>
+  <data name="JULHO20764" xml:space="preserve">
+    <value>Julho</value>
   </data>
   <data name="CREATED_BY58035" xml:space="preserve">
     <value>Created By</value>
@@ -599,6 +629,9 @@
   </data>
   <data name="NOTIFICATION_EMAIL_S62518" xml:space="preserve">
     <value>Notification Email Signature</value>
+  </data>
+  <data name="OUTUBRO17690" xml:space="preserve">
+    <value>Outubro</value>
   </data>
   <data name="RETIREMENT_PLAN57267" xml:space="preserve">
     <value>Retirement Plan</value>
@@ -693,6 +726,9 @@
   <data name="SENDER07671" xml:space="preserve">
     <value>Sender</value>
   </data>
+  <data name="JANEIRO25316" xml:space="preserve">
+    <value>Janeiro</value>
+  </data>
   <data name="CONTROL15481" xml:space="preserve">
     <value>Control</value>
   </data>
@@ -705,8 +741,14 @@
   <data name="CANCELAR49513" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="MAIO10443" xml:space="preserve">
+    <value>Maio</value>
+  </data>
   <data name="INVESTMENTS32097" xml:space="preserve">
     <value>Investments</value>
+  </data>
+  <data name="JUNHO15214" xml:space="preserve">
+    <value>Junho</value>
   </data>
   <data name="EXPIRATION_DATE34293" xml:space="preserve">
     <value>Expiration date</value>

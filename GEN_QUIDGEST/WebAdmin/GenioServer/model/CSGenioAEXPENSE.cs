@@ -213,6 +213,23 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "month", FieldType.ARRAY_NUMERIC);
+			Qfield.FieldDescription = "Month";
+			Qfield.FieldSize =  2;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "MONTH46035";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"date"}, new int[] {0}, "expense", "codexpense"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return GenFunctions.Month(((DateTime)args[0]));
+			});
+			Qfield.ArrayName = "dbo.GetValArrayNmonth";
+            Qfield.ArrayClassName = "Month";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -262,8 +279,13 @@ namespace CSGenio.business
 			//Actualiza as seguintes somas relacionadas:
 			info.RelatedSumArgs = new List<RelatedSumArgument>();
 			info.RelatedSumArgs.Add( new RelatedSumArgument("expense", "category_type", "total_sum", "value", '+', true));
+			info.RelatedSumArgs.Add( new RelatedSumArgument("expense", "member", "expenses", "value", '+', true));
 
 
+
+			info.InternalOperationFields = new string[] {
+			 "month"
+			};
 
 			info.SequentialDefaultValues = new string[] {
 			 "expense_id"
@@ -565,6 +587,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldGroup_id, value); }
 		}
 
+		/// <summary>Field : "Month" Tipo: "AN" Formula: + "Month([EXPENSE->DATE])"</summary>
+		public static FieldRef FldMonth { get { return m_fldMonth; } }
+		private static FieldRef m_fldMonth = new FieldRef("expense", "month");
+
+		/// <summary>Field : "Month" Tipo: "AN" Formula: + "Month([EXPENSE->DATE])"</summary>
+		public decimal ValMonth
+		{
+			get { return (decimal)returnValueField(FldMonth); }
+			set { insertNameValueField(FldMonth, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("expense", "zzstate");
@@ -662,7 +695,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX EXPENSE]/
 
  
-                
+                 
 
 	}
 }

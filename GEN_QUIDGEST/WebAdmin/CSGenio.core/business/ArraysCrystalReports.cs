@@ -50,6 +50,22 @@ namespace CSGenio.business
 			            Qresult.AppendLine("if {{{0}}} = \"OTH\" then \"Other\" else");
             Qresult.Append("\"                                              \"");
             todasArrays.Add("banks", Qresult.ToString());
+			// month
+            Qresult = new StringBuilder();
+			Qresult.AppendLine("if {{{0}}} = 1 then \"Janeiro\" else");
+			Qresult.AppendLine("if {{{0}}} = 2 then \"Fevereiro\" else");
+			Qresult.AppendLine("if {{{0}}} = 3 then \"Março\" else");
+			Qresult.AppendLine("if {{{0}}} = 4 then \"Abril\" else");
+			Qresult.AppendLine("if {{{0}}} = 5 then \"Maio\" else");
+			Qresult.AppendLine("if {{{0}}} = 6 then \"Junho\" else");
+			Qresult.AppendLine("if {{{0}}} = 7 then \"Julho\" else");
+			Qresult.AppendLine("if {{{0}}} = 8 then \"Agosto\" else");
+			Qresult.AppendLine("if {{{0}}} = 9 then \"Setembro\" else");
+			Qresult.AppendLine("if {{{0}}} = 10 then \"Outubro\" else");
+			Qresult.AppendLine("if {{{0}}} = 11 then \"Novembro\" else");
+			Qresult.AppendLine("if {{{0}}} = 12 then \"Dezembro\" else");
+            Qresult.Append("\"                                              \"");
+            todasArrays.Add("month", Qresult.ToString());
 			// s_modpro
             Qresult = new StringBuilder();
 			            Qresult.AppendLine("if {{{0}}} = \"INDIV\" then \"Individual\" else");

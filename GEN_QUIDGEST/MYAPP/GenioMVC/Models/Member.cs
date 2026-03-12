@@ -83,6 +83,12 @@ namespace GenioMVC.Models
 		[NumericAttribute(0)]
 		public decimal? ValAge { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValAge, 0)); } set { klass.ValAge = Convert.ToDecimal(value); } }
 
+		[DisplayName("Expenses")]
+		/// <summary>Field : "Expenses" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
+		[ShouldSerialize("Member.ValExpenses")]
+		[CurrencyAttribute("EUR", 2)]
+		public decimal? ValExpenses { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValExpenses, 2)); } set { klass.ValExpenses = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Member.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

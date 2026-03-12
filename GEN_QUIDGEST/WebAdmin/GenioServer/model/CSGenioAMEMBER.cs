@@ -135,6 +135,18 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "expenses", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Expenses";
+			Qfield.FieldSize =  12;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 9;
+			Qfield.Decimals = 2;
+			Qfield.CavDesignation = "EXPENSES11381";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -186,6 +198,10 @@ namespace CSGenio.business
 			 "age"
 			};
 
+
+			info.RelatedSumFields = new string[] {
+			 "expenses"
+			};
 
 
 
@@ -385,6 +401,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldAge, value); }
 		}
 
+		/// <summary>Field : "Expenses" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
+		public static FieldRef FldExpenses { get { return m_fldExpenses; } }
+		private static FieldRef m_fldExpenses = new FieldRef("member", "expenses");
+
+		/// <summary>Field : "Expenses" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
+		public decimal ValExpenses
+		{
+			get { return (decimal)returnValueField(FldExpenses); }
+			set { insertNameValueField(FldExpenses, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("member", "zzstate");
@@ -482,7 +509,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX MEMBER]/
 
  
-         
+          
 
 	}
 }

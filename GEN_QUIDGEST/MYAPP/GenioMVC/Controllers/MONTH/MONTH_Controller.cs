@@ -20,6 +20,7 @@ using GenioMVC.Models.Exception;
 using GenioMVC.Models.Navigation;
 using GenioMVC.Resources;
 using GenioMVC.ViewModels;
+using GenioMVC.ViewModels.Month;
 using GenioServer.business;
 using CSGenio.core.ai;
 
@@ -49,7 +50,121 @@ namespace GenioMVC.Controllers
 
 // USE /[MANUAL MNT MANUAL_CONTROLLER MONTH]/
 
+		[HttpPost]
+		public JsonResult ReloadDBEdit([FromBody]RequestReloadDBEditModel requestModel)
+		{
+			var Identifier = requestModel.Identifier ?? "";
+			var qs = new NameValueCollection();
+			qs.AddRange(Request.Query);
+			// The value of the lookup search field comes in 'Values'
+			if (requestModel.Values != null)
+				qs.AddRange(requestModel.Values);
+			this.IsStateReadonly = true;
 
+			dynamic result = null;
+			/*
+				Instead of loading the entire record from the database, a record will be created in memory with the keys filled in,
+					and additional fields from "Field" type limits will be mapped later.
+				This allows us to reduce database queries, as we already have all the necessary information to apply the limits.
+			*/
+			Models.Month row = new Models.Month(UserContext.Current, isEmpty: true);
+			row.klass.QPrimaryKey = Navigation.GetStrValue("month");
+			row.LoadKeysFromHistory(Navigation, Navigation.CurrentLevel.Level, false, true, true, true);
+
+			// Only the last reload request is accepted.
+			var requestNumber = Request.Headers["ReloadDBEditRequestNumber"];
+			if (requestNumber != StringValues.Empty)
+				Response.Headers["ReloadDBEditRequestNumber"] = requestNumber.First();
+
+			try
+			{
+				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
+				{
+					case "MONTH__YEAR__YEAR_NUMBER":	// Field (DB)
+						{
+							var model = new Month_ViewModel(UserContext.Current) { editable = false };
+							model.MapFromModel(row);
+							model.Load_Month__year__year_number(qs);
+							result = model.TableYearYear_number;
+						}
+						break;
+					default:
+						break;
+				}
+			}
+			catch (Exception)
+			{
+				return JsonERROR("On Reload form field: " + Identifier);
+			}
+
+			if (result != null)
+				return JsonOK(new { List = result.List, TotalRows = result.Pagination.TotalRows, Selected = result.Selected, Value = result.Value });
+			return JsonERROR("Not found any valid result");
+		}
+
+		[HttpPost]
+		public JsonResult GetDependants([FromBody]RequestDependantsModel requestModel)
+		{
+			var Identifier = requestModel.Identifier;
+			var Selected = requestModel.Selected;
+
+			ConcurrentDictionary<string, object> values = null;
+			this.IsStateReadonly = true;
+
+			try
+			{
+				// Only the last reload request is accepted.
+				var requestNumber = Request.Headers["GetDependantsRequestNumber"];
+				if (requestNumber != StringValues.Empty)
+					Response.Headers["GetDependantsRequestNumber"] = requestNumber.First();
+
+				UserContext.Current.PersistentSupport.openConnection();
+				switch (string.IsNullOrEmpty(Identifier) ? "" : Identifier)
+				{
+					case "MONTH__YEAR__YEAR_NUMBER":	// Field (DB)
+						values = new Month_ViewModel(UserContext.Current).GetDependant_MonthTableYearYear_number(Selected);
+						break;
+					default: break;
+				}
+
+				if (values == null || !values.Any())
+					return JsonERROR("List is empty");
+
+				// Remove DateTime.MinValue
+				foreach (KeyValuePair<string, object> field in values)
+					if (field.Value is DateTime && (DateTime)field.Value == DateTime.MinValue)
+						values.TryUpdate(field.Key, "", DateTime.MinValue);
+
+				// TODO: Sanitize HTML content
+				return JsonOK(values);
+			}
+			catch (Exception)
+			{
+				return JsonERROR("On Get Dependants - " + Identifier);
+			}
+			finally
+			{
+				UserContext.Current.PersistentSupport.closeConnection();
+			}
+		}
+
+
+
+
+
+		/// <summary>
+		/// Recalculate formulas of the "Month" form. (++, CT, SR, CL and U1)
+		/// </summary>
+		/// <param name="formData">Current form data</param>
+		/// <returns></returns>
+		[HttpPost]
+		public JsonResult RecalculateFormulas_Month([FromBody]Month_ViewModel formData)
+		{
+			return GenericRecalculateFormulas(formData, "month",
+				(primaryKey) => Models.Month.Find(primaryKey, UserContext.Current, "FMONTH"),
+				(model) => formData.MapToModel(model as Models.Month)
+			);
+		}
 
 		/// <summary>
 		/// Get "See more..." tree structure

@@ -202,6 +202,22 @@ namespace GenioMVC.Controllers
 
 
 		/// <summary>
+		/// Recalculate formulas of the "Wd_expenses" form. (++, CT, SR, CL and U1)
+		/// </summary>
+		/// <param name="formData">Current form data</param>
+		/// <returns></returns>
+		[HttpPost]
+		public JsonResult RecalculateFormulas_Wd_expenses([FromBody]Wd_expenses_ViewModel formData)
+		{
+			return GenericRecalculateFormulas(formData, "expense",
+				(primaryKey) => Models.Expense.Find(primaryKey, UserContext.Current, "FWD_EXPENSES"),
+				(model) => formData.MapToModel(model as Models.Expense)
+			);
+		}
+
+
+
+		/// <summary>
 		/// Recalculate formulas of the "Wd_last_expenses" form. (++, CT, SR, CL and U1)
 		/// </summary>
 		/// <param name="formData">Current form data</param>

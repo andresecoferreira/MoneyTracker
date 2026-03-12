@@ -182,6 +182,14 @@ namespace GenioMVC.Models
 			set { _group = value; }
 		}
 
+		[DisplayName("Month")]
+		/// <summary>Field : "Month" Tipo: "AN" Formula: + "Month([EXPENSE->DATE])"</summary>
+		[ShouldSerialize("Expense.ValMonth")]
+		[DataArray("Month", GenioMVC.Helpers.ArrayType.Numeric)]
+		public decimal ValMonth { get { return klass.ValMonth; } set { klass.ValMonth = value; } }
+		[JsonIgnore]
+		public SelectList ArrayValmonth { get { return new SelectList(CSGenio.business.ArrayMonth.GetDictionary(), "Key", "Value", ValMonth); } set { ValMonth = Convert.ToDecimal(value.SelectedValue); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Expense.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

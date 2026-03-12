@@ -208,6 +208,31 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValDate))
 		this.stopWatchers.push(watch(() => this.ValDate.value, (newValue, oldValue) => this.onUpdate('expense.date', this.ValDate, newValue, oldValue)))
 
+		this.ValMonth = reactive(new modelFieldType.Number({
+			id: 'ValMonth',
+			originId: 'ValMonth',
+			area: 'EXPENSE',
+			field: 'MONTH',
+			maxDigits: 2,
+			decimalDigits: 0,
+			isFixed: true,
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: Month([EXPENSE->DATE])
+					return qApi.Month(this.ValDate.value)
+				},
+				dependencyEvents: ['fieldChange:expense.date'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
+			arrayOptions: computed(() => new qProjArrays.QArrayMonth(vm.$getResource).elements),
+			description: computed(() => this.Resources.MONTH46035),
+		}).cloneFrom(values?.ValMonth))
+		this.stopWatchers.push(watch(() => this.ValMonth.value, (newValue, oldValue) => this.onUpdate('expense.month', this.ValMonth, newValue, oldValue)))
+
 		this.ValDescription = reactive(new modelFieldType.String({
 			id: 'ValDescription',
 			originId: 'ValDescription',

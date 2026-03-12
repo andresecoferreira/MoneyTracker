@@ -276,6 +276,96 @@ export class QArrayBanks
 }
 
 /**
+ * The Month array.
+ */
+export class QArrayMonth
+{
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	constructor(fnResources)
+	{
+		this.type = 'N'
+		this.pluralName = 'MONTHS54799'
+		this.singularName = 'MONTH46035'
+
+		this.elements = [
+			new Option({
+				num: 1,
+				key: 1,
+				resourceId: 'JANEIRO25316',
+				fnResources,
+			}),
+			new Option({
+				num: 2,
+				key: 2,
+				resourceId: 'FEVEREIRO25443',
+				fnResources,
+			}),
+			new Option({
+				num: 3,
+				key: 3,
+				resourceId: 'MARCO22234',
+				fnResources,
+			}),
+			new Option({
+				num: 4,
+				key: 4,
+				resourceId: 'ABRIL58220',
+				fnResources,
+			}),
+			new Option({
+				num: 5,
+				key: 5,
+				resourceId: 'MAIO10443',
+				fnResources,
+			}),
+			new Option({
+				num: 6,
+				key: 6,
+				resourceId: 'JUNHO15214',
+				fnResources,
+			}),
+			new Option({
+				num: 7,
+				key: 7,
+				resourceId: 'JULHO20764',
+				fnResources,
+			}),
+			new Option({
+				num: 8,
+				key: 8,
+				resourceId: 'AGOSTO05568',
+				fnResources,
+			}),
+			new Option({
+				num: 9,
+				key: 9,
+				resourceId: 'SETEMBRO19956',
+				fnResources,
+			}),
+			new Option({
+				num: 10,
+				key: 10,
+				resourceId: 'OUTUBRO17690',
+				fnResources,
+			}),
+			new Option({
+				num: 11,
+				key: 11,
+				resourceId: 'NOVEMBRO18614',
+				fnResources,
+			}),
+			new Option({
+				num: 12,
+				key: 12,
+				resourceId: 'DEZEMBRO01950',
+				fnResources,
+			}),
+		]
+
+	}
+}
+
+/**
  * The s_modpro array.
  */
 export class QArrayS_modpro
@@ -546,6 +636,7 @@ export class QArrayS_tpproc
 export default {
 	QArrayAccout_type,
 	QArrayBanks,
+	QArrayMonth,
 	QArrayS_modpro,
 	QArrayS_module,
 	QArrayS_prstat,

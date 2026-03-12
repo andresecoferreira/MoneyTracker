@@ -45,6 +45,25 @@ namespace GenioMVC.ViewModels.Dashboard
 					UsesCache = false,
 					InstantionMethod = WidgetInstantionMethod.Aggregate
 				},
+				new CustomWidgetProvider<CSGenio.business.CSGenioAexpense>
+{
+					Id = "EXP_MEM",
+					Order = 10,
+					Width = 2,
+					Height = 2,
+					BorderStyle = "",
+					Required = true,
+					Visible = true,
+					Role = CSGenio.framework.Role.AUTHORIZED,
+					Module = "MNT",
+					Group = "_MEMBER",
+					Form = "WD_EXPENSES",
+					Component = "QFormWdExpenses",
+					RowsSelector = GenioMVC.Models.ModelBase.All<CSGenio.business.CSGenioAexpense>,
+					RefreshMode = WidgetRefreshMode.None,
+					UsesCache = false,
+					InstantionMethod = WidgetInstantionMethod.Aggregate
+				},
 				new CustomWidgetProvider<CSGenio.business.DbArea>
 {
 					Id = "EXP_CAT",

@@ -102,6 +102,11 @@ namespace GenioMVC.ViewModels.Expense
 		/// </summary>
 		public DateTime? ValDate { get; set; }
 		/// <summary>
+		/// Title: "Month" | Type: "AN"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal ValMonth { get; set; }
+		/// <summary>
 		/// Title: "Description" | Type: "C"
 		/// </summary>
 		public string ValDescription { get; set; }
@@ -278,6 +283,7 @@ namespace GenioMVC.ViewModels.Expense
 				funcGroupValName = () => ViewModelConversion.ToString(m.Group.ValName);
 				ValValue = ViewModelConversion.ToNumeric(m.ValValue);
 				ValDate = ViewModelConversion.ToDateTime(m.ValDate);
+				ValMonth = ViewModelConversion.ToNumeric(m.ValMonth);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
 				ValInvoice = ViewModelConversion.ToString(m.ValInvoice);
 				ValInvoicefk = ViewModelConversion.ToString(m.ValInvoicefk);
@@ -335,6 +341,7 @@ namespace GenioMVC.ViewModels.Expense
 				if (!HasDisabledUserValuesSecurity)
 					return;
 
+				m.ValMonth = ViewModelConversion.ToNumeric(ValMonth);
 				m.ValCreated_by = ViewModelConversion.ToString(ValCreated_by);
 				m.ValCreated_at = ViewModelConversion.ToDateTime(ValCreated_at);
 				m.ValUpdated_by = ViewModelConversion.ToString(ValUpdated_by);
@@ -1394,6 +1401,7 @@ namespace GenioMVC.ViewModels.Expense
 				"group.name" => ViewModelConversion.ToString(modelValue),
 				"expense.value" => ViewModelConversion.ToNumeric(modelValue),
 				"expense.date" => ViewModelConversion.ToDateTime(modelValue),
+				"expense.month" => ViewModelConversion.ToNumeric(modelValue),
 				"expense.description" => ViewModelConversion.ToString(modelValue),
 				"expense.invoice" => ViewModelConversion.ToString(modelValue),
 				"expense.created_by" => ViewModelConversion.ToString(modelValue),

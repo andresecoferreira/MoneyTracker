@@ -199,9 +199,9 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible">
+							<q-row v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__MONTH.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible"
+									v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__MONTH.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__SOURCE__TITLE.isVisible"
@@ -247,6 +247,18 @@
 											:model-value="model.ValDate.value"
 											@reset-icon-click="model.ValDate.fnUpdateValue(model.ValDate.originalValue ?? new Date())"
 											@update:model-value="model.ValDate.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+									<base-input-structure
+										v-if="controls.EXPENSE__EXPENSE__MONTH.isVisible"
+										class="i-text"
+										v-bind="controls.EXPENSE__EXPENSE__MONTH"
+										v-on="controls.EXPENSE__EXPENSE__MONTH.handlers"
+										:loading="controls.EXPENSE__EXPENSE__MONTH.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-select
+											v-if="controls.EXPENSE__EXPENSE__MONTH.isVisible"
+											v-bind="controls.EXPENSE__EXPENSE__MONTH.props" />
 									</base-input-structure>
 								</q-col>
 							</q-row>
@@ -741,7 +753,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['EXPENSE__CATEGORY_TYPE__NAME', 'EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE_GROUPNAME____', 'EXPENSE__SOURCE__TITLE', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__DESCRIPTION', 'EXPENSE__EXPENSE__INVOICE'],
+						directChildren: ['EXPENSE__CATEGORY_TYPE__NAME', 'EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE_GROUPNAME____', 'EXPENSE__SOURCE__TITLE', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__MONTH', 'EXPENSE__EXPENSE__DESCRIPTION', 'EXPENSE__EXPENSE__INVOICE'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -931,6 +943,25 @@
 						controlLimits: [
 						],
 					}, this),
+					EXPENSE__EXPENSE__MONTH: new fieldControlClass.ArrayNumberControl({
+						modelField: 'ValMonth',
+						valueChangeEvent: 'fieldChange:expense.month',
+						id: 'EXPENSE__EXPENSE__MONTH',
+						name: 'MONTH',
+						size: 'small',
+						label: computed(() => this.Resources.MONTH46035),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'EXPENSE_PSEUDNEWGRP02',
+						isFormulaBlocked: true,
+						maxIntegers: 2,
+						maxDecimals: 0,
+						arrayName: 'Month',
+						helpShortItem: 'None',
+						helpDetailedItem: 'None',
+						controlLimits: [
+						],
+					}, this),
 					EXPENSE__EXPENSE__DESCRIPTION: new fieldControlClass.StringControl({
 						modelField: 'ValDescription',
 						valueChangeEvent: 'fieldChange:expense.description',
@@ -1081,6 +1112,8 @@
 						set ValInvoice(value) { vm.model.ValInvoice.updateValue(value) },
 						get ValMember_id() { return vm.model.ValMember_id.value },
 						set ValMember_id(value) { vm.model.ValMember_id.updateValue(value) },
+						get ValMonth() { return vm.model.ValMonth.value },
+						set ValMonth(value) { vm.model.ValMonth.updateValue(value) },
 						get ValSource_id() { return vm.model.ValSource_id.value },
 						set ValSource_id(value) { vm.model.ValSource_id.updateValue(value) },
 						get ValType_id() { return vm.model.ValType_id.value },

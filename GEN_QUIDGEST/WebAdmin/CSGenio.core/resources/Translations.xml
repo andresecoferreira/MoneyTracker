@@ -72,6 +72,9 @@
   <msg id="Info" code="INFO27076">
     <ENUS>Info</ENUS>
   </msg>
+  <msg id="Dezembro" code="DEZEMBRO01950">
+    <ENUS>Dezembro</ENUS>
+  </msg>
   <msg id="Month Number" code="MONTH_NUMBER33019">
     <ENUS>Month Number</ENUS>
   </msg>
@@ -110,6 +113,9 @@
   </msg>
   <msg id="To" code="TO55217">
     <ENUS>To</ENUS>
+  </msg>
+  <msg id="Setembro" code="SETEMBRO19956">
+    <ENUS>Setembro</ENUS>
   </msg>
   <msg id="PSW" code="PSW13972">
     <ENUS>PSW</ENUS>
@@ -255,6 +261,9 @@
   <msg id="Group_PSW" code="GROUP_PSW08201">
     <ENUS>Group_PSW</ENUS>
   </msg>
+  <msg id="Março" code="MARCO22234">
+    <ENUS>Março</ENUS>
+  </msg>
   <msg id="Bankinter" code="BANKINTER32282">
     <ENUS>Bankinter</ENUS>
   </msg>
@@ -275,6 +284,9 @@
   </msg>
   <msg id="Santander Totta" code="SANTANDER_TOTTA33421">
     <ENUS>Santander Totta</ENUS>
+  </msg>
+  <msg id="Abril" code="ABRIL58220">
+    <ENUS>Abril</ENUS>
   </msg>
   <msg id="Erro" code="ERRO38355">
     <ENUS>Erro</ENUS>
@@ -315,8 +327,14 @@
   <msg id="Group Info" code="GROUP_INFO64066">
     <ENUS>Group Info</ENUS>
   </msg>
+  <msg id="Agosto" code="AGOSTO05568">
+    <ENUS>Agosto</ENUS>
+  </msg>
   <msg id="Description" code="DESCRIPTION07383">
     <ENUS>Description</ENUS>
+  </msg>
+  <msg id="Time Managment" code="TIME_MANAGMENT17210">
+    <ENUS>Time Managment</ENUS>
   </msg>
   <msg id="Members" code="MEMBERS31628">
     <ENUS>Members</ENUS>
@@ -336,6 +354,9 @@
   <msg id="Saves on DB?" code="SAVES_ON_DB_61384">
     <ENUS>Saves on DB?</ENUS>
   </msg>
+  <msg id="Expenses by Member" code="EXPENSES_BY_MEMBER36056">
+    <ENUS>Expenses by Member</ENUS>
+  </msg>
   <msg id="info" code="INFO02225">
     <ENUS>info</ENUS>
   </msg>
@@ -347,6 +368,9 @@
   </msg>
   <msg id="Modo de processamento" code="MODO_DE_PROCESSAMENT14469">
     <ENUS>Modo de processamento</ENUS>
+  </msg>
+  <msg id="Fevereiro" code="FEVEREIRO25443">
+    <ENUS>Fevereiro</ENUS>
   </msg>
   <msg id="Title" code="TITLE21885">
     <ENUS>Title</ENUS>
@@ -429,11 +453,17 @@
   <msg id="User ID" code="USER_ID13914">
     <ENUS>User ID</ENUS>
   </msg>
+  <msg id="Novembro" code="NOVEMBRO18614">
+    <ENUS>Novembro</ENUS>
+  </msg>
   <msg id="Age" code="AGE28663">
     <ENUS>Age</ENUS>
   </msg>
   <msg id="SOURCES" code="SOURCES41454">
     <ENUS>SOURCES</ENUS>
+  </msg>
+  <msg id="Julho" code="JULHO20764">
+    <ENUS>Julho</ENUS>
   </msg>
   <msg id="Created By" code="CREATED_BY58035">
     <ENUS>Created By</ENUS>
@@ -482,6 +512,9 @@
   </msg>
   <msg id="Notification Email Signature" code="NOTIFICATION_EMAIL_S62518">
     <ENUS>Notification Email Signature</ENUS>
+  </msg>
+  <msg id="Outubro" code="OUTUBRO17690">
+    <ENUS>Outubro</ENUS>
   </msg>
   <msg id="Retirement Plan" code="RETIREMENT_PLAN57267">
     <ENUS>Retirement Plan</ENUS>
@@ -576,6 +609,9 @@
   <msg id="Sender" code="SENDER07671">
     <ENUS>Sender</ENUS>
   </msg>
+  <msg id="Janeiro" code="JANEIRO25316">
+    <ENUS>Janeiro</ENUS>
+  </msg>
   <msg id="Control" code="CONTROL15481">
     <ENUS>Control</ENUS>
   </msg>
@@ -588,8 +624,14 @@
   <msg id="Cancelar" code="CANCELAR49513">
     <ENUS>Cancelar</ENUS>
   </msg>
+  <msg id="Maio" code="MAIO10443">
+    <ENUS>Maio</ENUS>
+  </msg>
   <msg id="Investments" code="INVESTMENTS32097">
     <ENUS>Investments</ENUS>
+  </msg>
+  <msg id="Junho" code="JUNHO15214">
+    <ENUS>Junho</ENUS>
   </msg>
   <msg id="Expiration date" code="EXPIRATION_DATE34293">
     <ENUS>Expiration date</ENUS>

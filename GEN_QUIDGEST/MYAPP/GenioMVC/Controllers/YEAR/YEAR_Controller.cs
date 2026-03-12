@@ -20,6 +20,7 @@ using GenioMVC.Models.Exception;
 using GenioMVC.Models.Navigation;
 using GenioMVC.Resources;
 using GenioMVC.ViewModels;
+using GenioMVC.ViewModels.Year;
 using GenioServer.business;
 using CSGenio.core.ai;
 
@@ -50,6 +51,22 @@ namespace GenioMVC.Controllers
 // USE /[MANUAL MNT MANUAL_CONTROLLER YEAR]/
 
 
+
+
+
+		/// <summary>
+		/// Recalculate formulas of the "Year" form. (++, CT, SR, CL and U1)
+		/// </summary>
+		/// <param name="formData">Current form data</param>
+		/// <returns></returns>
+		[HttpPost]
+		public JsonResult RecalculateFormulas_Year([FromBody]Year_ViewModel formData)
+		{
+			return GenericRecalculateFormulas(formData, "year",
+				(primaryKey) => Models.Year.Find(primaryKey, UserContext.Current, "FYEAR"),
+				(model) => formData.MapToModel(model as Models.Year)
+			);
+		}
 
 		/// <summary>
 		/// Get "See more..." tree structure
