@@ -843,12 +843,6 @@
 							set 'source.title'(value) { vm.model.TableSourceTitle.updateValue(value) },
 						}),
 						controlLimits: [
-							{
-								identifier: ['member', 'income.member_id'],
-								dependencyEvents: ['fieldChange:income.member_id'],
-								dependencyField: 'INCOME.MEMBER_ID',
-								fnValueSelector: (model) => model.ValMember_id.value
-							},
 						],
 					}, this),
 					INCOME__INCOME__VALUE: new fieldControlClass.NumberControl({

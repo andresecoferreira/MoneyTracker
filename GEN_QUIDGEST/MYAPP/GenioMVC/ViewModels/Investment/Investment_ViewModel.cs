@@ -1144,10 +1144,6 @@ namespace GenioMVC.ViewModels.Investment
 					this.ValSource_id = DBConversion.ToString(hValue);
 				}
 			}
-			// Limits Generation
-
-			// Area limit
-			investment__source__titleDoLoad &= AddCriteriaAreaLimit(investment__source__titleConds, CSGenio.business.CSGenioAmember.FldCodmember, "member", this.ValMember_id, true);
 
 			TableSourceTitle = new TableDBEdit<Models.Source>
 			{
@@ -1164,9 +1160,6 @@ namespace GenioMVC.ViewModels.Investment
 				FillDependant_InvestmentTableSourceTitle(lazyLoad);
 				return;
 			}
-
-			if (string.IsNullOrEmpty(this.ValMember_id))
-				investment__source__titleDoLoad = false;
 
 			if (investment__source__titleDoLoad)
 			{
@@ -1257,15 +1250,6 @@ namespace GenioMVC.ViewModels.Investment
 				returnEmptyDependants = true;
 
 			// Check if the limit(s) is filled if exists
-			{
-				object hValue = Navigation.GetValue("member");
-				if (!(hValue is Array))
-				{
-					if (GenFunctions.emptyG(hValue) == 1)
-						returnEmptyDependants = true;
-					wherecodition.Equal(CSGenioAsource.FldMember_id, hValue);
-				}
-			}
 			// - - - - - - - - - - - - - - - - - - - - -
 
 			if (returnEmptyDependants)
