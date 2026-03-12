@@ -125,7 +125,7 @@
 							<!-- Start INCOME__PSEUDNEWGRP01 -->
 							<q-row v-if="controls.INCOME__CATEGORY_TYPE__NAME.isVisible || controls.INCOME__CATEGORY__NAME.isVisible">
 								<q-col
-									v-if="controls.INCOME__CATEGORY_TYPE__NAME.isVisible"
+									v-if="controls.INCOME__CATEGORY_TYPE__NAME.isVisible || controls.INCOME__CATEGORY__NAME.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__CATEGORY_TYPE__NAME.isVisible"
@@ -144,10 +144,6 @@
 											v-bind="controls.INCOME__CATEGORY_TYPE__NAME.seeMoreParams"
 											v-on="controls.INCOME__CATEGORY_TYPE__NAME.handlers" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INCOME__CATEGORY__NAME.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__CATEGORY__NAME.isVisible"
 										class="i-text"
@@ -169,7 +165,7 @@
 							</q-row>
 							<q-row v-if="controls.INCOME__MEMBER__NAME.isVisible || controls.INCOME__SOURCE__TITLE.isVisible">
 								<q-col
-									v-if="controls.INCOME__MEMBER__NAME.isVisible"
+									v-if="controls.INCOME__MEMBER__NAME.isVisible || controls.INCOME__SOURCE__TITLE.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__MEMBER__NAME.isVisible"
@@ -188,10 +184,6 @@
 											v-bind="controls.INCOME__MEMBER__NAME.seeMoreParams"
 											v-on="controls.INCOME__MEMBER__NAME.handlers" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INCOME__SOURCE__TITLE.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__SOURCE__TITLE.isVisible"
 										class="i-text"
@@ -213,7 +205,7 @@
 							</q-row>
 							<q-row v-if="controls.INCOME__INCOME__VALUE.isVisible || controls.INCOME__INCOME__DATE.isVisible">
 								<q-col
-									v-if="controls.INCOME__INCOME__VALUE.isVisible"
+									v-if="controls.INCOME__INCOME__VALUE.isVisible || controls.INCOME__INCOME__DATE.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__INCOME__VALUE.isVisible"
@@ -228,10 +220,6 @@
 											v-bind="controls.INCOME__INCOME__VALUE.props"
 											@update:model-value="model.ValValue.fnUpdateValue" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INCOME__INCOME__DATE.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__INCOME__DATE.isVisible"
 										class="i-text"
@@ -282,7 +270,7 @@
 							<!-- Start INCOME__PSEUDNEWGRP02 -->
 							<q-row v-if="controls.INCOME__INCOME__CREATED_BY.isVisible || controls.INCOME__INCOME__CREATED_AT.isVisible">
 								<q-col
-									v-if="controls.INCOME__INCOME__CREATED_BY.isVisible"
+									v-if="controls.INCOME__INCOME__CREATED_BY.isVisible || controls.INCOME__INCOME__CREATED_AT.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__INCOME__CREATED_BY.isVisible"
@@ -297,10 +285,6 @@
 											@blur="onBlur(controls.INCOME__INCOME__CREATED_BY, model.ValCreated_by.value)"
 											@change="model.ValCreated_by.fnUpdateValueOnChange" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INCOME__INCOME__CREATED_AT.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__INCOME__CREATED_AT.isVisible"
 										class="i-text"

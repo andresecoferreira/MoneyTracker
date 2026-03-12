@@ -125,7 +125,7 @@
 							<!-- Start INVESTMENT__PSEUD__NEWGRP01 -->
 							<q-row v-if="controls.INVESTMENT__CATEGORY_TYPE__NAME.isVisible || controls.INVESTMENT__CATEGORY__NAME.isVisible">
 								<q-col
-									v-if="controls.INVESTMENT__CATEGORY_TYPE__NAME.isVisible"
+									v-if="controls.INVESTMENT__CATEGORY_TYPE__NAME.isVisible || controls.INVESTMENT__CATEGORY__NAME.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__CATEGORY_TYPE__NAME.isVisible"
@@ -144,10 +144,6 @@
 											v-bind="controls.INVESTMENT__CATEGORY_TYPE__NAME.seeMoreParams"
 											v-on="controls.INVESTMENT__CATEGORY_TYPE__NAME.handlers" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INVESTMENT__CATEGORY__NAME.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__CATEGORY__NAME.isVisible"
 										class="i-text"
@@ -169,7 +165,7 @@
 							</q-row>
 							<q-row v-if="controls.INVESTMENT__MEMBER__NAME.isVisible || controls.INVESTMENT__SOURCE__TITLE.isVisible">
 								<q-col
-									v-if="controls.INVESTMENT__MEMBER__NAME.isVisible"
+									v-if="controls.INVESTMENT__MEMBER__NAME.isVisible || controls.INVESTMENT__SOURCE__TITLE.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__MEMBER__NAME.isVisible"
@@ -188,10 +184,6 @@
 											v-bind="controls.INVESTMENT__MEMBER__NAME.seeMoreParams"
 											v-on="controls.INVESTMENT__MEMBER__NAME.handlers" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INVESTMENT__SOURCE__TITLE.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__SOURCE__TITLE.isVisible"
 										class="i-text"
@@ -213,7 +205,7 @@
 							</q-row>
 							<q-row v-if="controls.INVESTMENT__INVESTMENT__VALUE.isVisible || controls.INVESTMENT__INVESTMENT__DATE.isVisible">
 								<q-col
-									v-if="controls.INVESTMENT__INVESTMENT__VALUE.isVisible"
+									v-if="controls.INVESTMENT__INVESTMENT__VALUE.isVisible || controls.INVESTMENT__INVESTMENT__DATE.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__INVESTMENT__VALUE.isVisible"
@@ -228,10 +220,6 @@
 											v-bind="controls.INVESTMENT__INVESTMENT__VALUE.props"
 											@update:model-value="model.ValValue.fnUpdateValue" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INVESTMENT__INVESTMENT__DATE.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__INVESTMENT__DATE.isVisible"
 										class="i-text"
@@ -282,7 +270,7 @@
 							<!-- Start INVESTMENT__PSEUD__NEWGRP02 -->
 							<q-row v-if="controls.INVESTMENT__INVESTMENT__CREATED_BY.isVisible || controls.INVESTMENT__INVESTMENT__CREATED_AT.isVisible">
 								<q-col
-									v-if="controls.INVESTMENT__INVESTMENT__CREATED_BY.isVisible"
+									v-if="controls.INVESTMENT__INVESTMENT__CREATED_BY.isVisible || controls.INVESTMENT__INVESTMENT__CREATED_AT.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__INVESTMENT__CREATED_BY.isVisible"
@@ -297,10 +285,6 @@
 											@blur="onBlur(controls.INVESTMENT__INVESTMENT__CREATED_BY, model.ValCreated_by.value)"
 											@change="model.ValCreated_by.fnUpdateValueOnChange" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INVESTMENT__INVESTMENT__CREATED_AT.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__INVESTMENT__CREATED_AT.isVisible"
 										class="i-text"
@@ -320,7 +304,7 @@
 							</q-row>
 							<q-row v-if="controls.INVESTMENT__INVESTMENT__UPDATED_BY.isVisible || controls.INVESTMENT__INVESTMENT__UPDATED_AT.isVisible">
 								<q-col
-									v-if="controls.INVESTMENT__INVESTMENT__UPDATED_BY.isVisible"
+									v-if="controls.INVESTMENT__INVESTMENT__UPDATED_BY.isVisible || controls.INVESTMENT__INVESTMENT__UPDATED_AT.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__INVESTMENT__UPDATED_BY.isVisible"
@@ -335,10 +319,6 @@
 											@blur="onBlur(controls.INVESTMENT__INVESTMENT__UPDATED_BY, model.ValUpdated_by.value)"
 											@change="model.ValUpdated_by.fnUpdateValueOnChange" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.INVESTMENT__INVESTMENT__UPDATED_AT.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__INVESTMENT__UPDATED_AT.isVisible"
 										class="i-text"

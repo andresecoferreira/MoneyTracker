@@ -178,16 +178,6 @@
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.DateColumn({
-								order: 4,
-								name: 'ValBirthday',
-								area: 'MEMBER',
-								field: 'BIRTHDAY',
-								label: computed(() => this.Resources.BIRTHDAY30236),
-								scrollData: 8,
-								dateTimeType: 'date',
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'MNT_Menu_21',
@@ -301,17 +291,18 @@
 							],
 							rowClickAction: {
 								id: 'RCA_MNT_211',
-								name: 'menu-MNT_211',
+								name: 'form-MEMBER',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
-											identifier: 'member',
+											identifier: 'id',
 											fnValueSelector: (row) => row.ValCodmember
 										},
 									],
-									action: vm.openMenuAction, type: 'menu', menuName: 'MNT_211'
+									isControlled: true,
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'MEMBER'
 								}
 							},
 							formsDefinition: {
@@ -328,7 +319,7 @@
 							}
 						},
 						globalEvents: ['changed-MEMBER', 'changed-GROUP'],
-						uuid: 'bd159e00-45da-45ad-b882-ee33a2da3dc1',
+						uuid: '024dd0f4-1888-4a7a-af31-66fbe331e154',
 						allSelectedRows: 'false',
 						viewModes: [
 							{

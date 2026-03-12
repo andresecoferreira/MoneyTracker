@@ -31,7 +31,7 @@ namespace GenioMVC.ViewModels.Member
 
 		/// <inheritdoc/>
 		[JsonPropertyName("uuid")]
-		public override string Uuid => "bd159e00-45da-45ad-b882-ee33a2da3dc1";
+		public override string Uuid => "024dd0f4-1888-4a7a-af31-66fbe331e154";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Member
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldPhoto, CSGenioAmember.FldName, CSGenioAmember.FldEmail, CSGenioAmember.FldBirthday };
+			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldPhoto, CSGenioAmember.FldName, CSGenioAmember.FldEmail };
 
 			ListingMVC<CSGenioAmember> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -147,7 +147,6 @@ namespace GenioMVC.ViewModels.Member
 			[
 				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldEmail, FieldType.TEXT, Resources.Resources.E_MAIL26803, 30, 0, true),
-				new Exports.QColumn(CSGenioAmember.FldBirthday, FieldType.DATE, Resources.Resources.BIRTHDAY30236, 8, 0, true),
 			];
 		}
 
@@ -323,7 +322,7 @@ namespace GenioMVC.ViewModels.Member
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "member", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldPhoto, CSGenioAmember.FldName, CSGenioAmember.FldEmail, CSGenioAmember.FldBirthday };
+			FieldRef[] fields = new FieldRef[] { CSGenioAmember.FldCodmember, CSGenioAmember.FldZzstate, CSGenioAmember.FldPhoto, CSGenioAmember.FldName, CSGenioAmember.FldEmail };
 
 
 			// Totalizers
@@ -521,14 +520,13 @@ namespace GenioMVC.ViewModels.Member
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Member", "Member.ValCodmember", "Member.ValZzstate", "Member.ValPhoto", "Member.ValName", "Member.ValEmail", "Member.ValBirthday", "Member.ValGroup_id"
+			"Member", "Member.ValCodmember", "Member.ValZzstate", "Member.ValPhoto", "Member.ValName", "Member.ValEmail", "Member.ValGroup_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
 			new TableSearchColumn("ValName", CSGenioAmember.FldName, typeof(string), defaultSearch : true),
 			new TableSearchColumn("ValEmail", CSGenioAmember.FldEmail, typeof(string)),
-			new TableSearchColumn("ValBirthday", CSGenioAmember.FldBirthday, typeof(DateTime?)),
 		];
 		protected void SetTicketToImageFields(Models.Member row)
 		{

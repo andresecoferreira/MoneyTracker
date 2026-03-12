@@ -125,7 +125,7 @@
 							<!-- Start EXPENSE_PSEUDNEWGRP02 -->
 							<q-row v-if="controls.EXPENSE__CATEGORY_TYPE__NAME.isVisible || controls.EXPENSE__CATEGORY__NAME.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__CATEGORY_TYPE__NAME.isVisible"
+									v-if="controls.EXPENSE__CATEGORY_TYPE__NAME.isVisible || controls.EXPENSE__CATEGORY__NAME.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__CATEGORY_TYPE__NAME.isVisible"
@@ -144,10 +144,6 @@
 											v-bind="controls.EXPENSE__CATEGORY_TYPE__NAME.seeMoreParams"
 											v-on="controls.EXPENSE__CATEGORY_TYPE__NAME.handlers" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.EXPENSE__CATEGORY__NAME.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__CATEGORY__NAME.isVisible"
 										class="i-text"
@@ -209,7 +205,7 @@
 							</q-row>
 							<q-row v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible"
+									v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible"
@@ -224,10 +220,6 @@
 											v-bind="controls.EXPENSE__EXPENSE__VALUE.props"
 											@update:model-value="model.ValValue.fnUpdateValue" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__EXPENSE__DATE.isVisible"
 										class="i-text"
@@ -291,7 +283,7 @@
 							<!-- Start EXPENSE_PSEUDNEWGRP01 -->
 							<q-row v-if="controls.EXPENSE__EXPENSE__CREATED_BY.isVisible || controls.EXPENSE__EXPENSE__CREATED_AT.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__EXPENSE__CREATED_BY.isVisible"
+									v-if="controls.EXPENSE__EXPENSE__CREATED_BY.isVisible || controls.EXPENSE__EXPENSE__CREATED_AT.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__EXPENSE__CREATED_BY.isVisible"
@@ -306,10 +298,6 @@
 											@blur="onBlur(controls.EXPENSE__EXPENSE__CREATED_BY, model.ValCreated_by.value)"
 											@change="model.ValCreated_by.fnUpdateValueOnChange" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.EXPENSE__EXPENSE__CREATED_AT.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__EXPENSE__CREATED_AT.isVisible"
 										class="i-text"
@@ -329,7 +317,7 @@
 							</q-row>
 							<q-row v-if="controls.EXPENSE__EXPENSE__UPDATED_BY.isVisible || controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__EXPENSE__UPDATED_BY.isVisible"
+									v-if="controls.EXPENSE__EXPENSE__UPDATED_BY.isVisible || controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__EXPENSE__UPDATED_BY.isVisible"
@@ -344,10 +332,6 @@
 											@blur="onBlur(controls.EXPENSE__EXPENSE__UPDATED_BY, model.ValUpdated_by.value)"
 											@change="model.ValUpdated_by.fnUpdateValueOnChange" />
 									</base-input-structure>
-								</q-col>
-								<q-col
-									v-if="controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible"
 										class="i-text"

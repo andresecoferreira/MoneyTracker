@@ -51,12 +51,6 @@ public class MNT_Menu_21_RowViewModel : Models.Member
 				Area = "MEMBER",
 				Field = "EMAIL",
 			},
-			new ListColumn()
-			{
-				Order = 4,
-				Area = "MEMBER",
-				Field = "BIRTHDAY",
-			},
 		];
 	}
 
