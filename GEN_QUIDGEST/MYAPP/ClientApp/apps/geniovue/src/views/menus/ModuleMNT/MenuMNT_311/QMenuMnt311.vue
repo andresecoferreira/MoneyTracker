@@ -329,6 +329,24 @@
 								label: computed(() => this.Resources.CARTOES27587),
 								order: 1,
 								mappingVariables: readonly({
+									title: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.NAME',
+										]
+									},
+									text: {
+										allowsMultiple: true,
+										sources: [
+											'MEMBER.EMAIL',
+										]
+									},
+									image: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.PHOTO',
+										]
+									},
 								}),
 								styleVariables: {
 									actionsAlignment: {
