@@ -478,7 +478,7 @@
 							defaultSearchColumnNameOriginal: 'Member.ValName',
 							defaultColumnSorting: {
 								columnName: 'ValExpense_id',
-								sortOrder: 'asc'
+								sortOrder: 'desc'
 							}
 						},
 						globalEvents: ['changed-MEMBER', 'changed-CATEGORY_TYPE', 'changed-EXPENSE', 'changed-GROUP', 'changed-CATEGORY', 'changed-SOURCE'],

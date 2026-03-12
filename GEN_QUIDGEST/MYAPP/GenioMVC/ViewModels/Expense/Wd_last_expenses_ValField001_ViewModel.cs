@@ -298,7 +298,7 @@ namespace GenioMVC.ViewModels.Expense
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
 			allSortOrders.Add("EXPENSE.EXPENSE_ID", new OrderedDictionary());
-			allSortOrders["EXPENSE.EXPENSE_ID"].Add("EXPENSE.EXPENSE_ID", "A");
+			allSortOrders["EXPENSE.EXPENSE_ID"].Add("EXPENSE.EXPENSE_ID", "D");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -313,7 +313,7 @@ namespace GenioMVC.ViewModels.Expense
 			if (sorts == null || sorts.Count == 0)
 			{
 				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAexpense.FldExpense_id), SortOrder.Ascending));
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAexpense.FldExpense_id), SortOrder.Descending));
 
 			}
 
