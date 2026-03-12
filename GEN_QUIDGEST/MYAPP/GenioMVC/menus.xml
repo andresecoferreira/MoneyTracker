@@ -53,5 +53,13 @@
         </MENU>
       </MENU>
     </MENU>
+    <MENU TYPE="ITEM" DESC="GROUPS45298" SIGLA="" ID="4" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="4" DEFAULTACTION="">
+      <ACCESS />
+      <MENU TYPE="ITEM" DESC="GROUPS45298" ID="41" PRTID="4" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_41" ACTVUE="menu-MNT_41" CONT="GROUP" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="41">
+        <MENU TYPE="ITEM" DESC="MEMBERS31628" ID="411" PRTID="41" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_411" ACTVUE="menu-MNT_411" CONT="MEMBER" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="411">
+          <MENU TYPE="ITEM" ID="4111" PRTID="411" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="4111" />
+        </MENU>
+      </MENU>
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>

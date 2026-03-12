@@ -47,6 +47,20 @@ export default function getMenusRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/MNT/menu/MNT_41',
+			name: 'menu-MNT_41',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_41/QMenuMnt41.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MNT',
+				order: '41',
+				baseArea: 'GROUP',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValName'],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/MNT/menu/MNT_1111',
 			name: 'menu-MNT_1111',
 			component: () => import('@/views/menus/ModuleMNT/MenuMNT_1111/QMenuMnt1111.vue'),
@@ -73,6 +87,22 @@ export default function getMenusRoutes()
 				baseArea: 'MEMBER',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
+				isPopup: false
+			}
+		},
+		{
+			path: '/:culture/:system/MNT/menu/MNT_411',
+			name: 'menu-MNT_411',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_411/QMenuMnt411.vue'),
+			beforeEnter: [updateQueryParams],
+			meta: {
+				routeType: 'menu',
+				module: 'MNT',
+				order: '411',
+				baseArea: 'MEMBER',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValName'],
+				limitations: ['group' /* DB */],
 				isPopup: false
 			}
 		},
