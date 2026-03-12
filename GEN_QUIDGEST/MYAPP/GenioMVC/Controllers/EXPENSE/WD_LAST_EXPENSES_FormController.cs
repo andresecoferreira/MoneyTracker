@@ -427,8 +427,6 @@ namespace GenioMVC.Controllers
 			requestModel.Model?.MapToModel(parentCtx);
 			Wd_last_expenses_ValField001_ViewModel model = new(m_userContext, parentCtx);
 
-			CSGenio.core.framework.table.legacy.v1.TableConfigurationUpdate.SetFilterShiftValue(model.Uuid, "filter_ValField001_MONTH", 0);
-
 			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
 				requestModel.TableConfiguration,
 				requestModel.UserTableConfigName,

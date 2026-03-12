@@ -230,6 +230,23 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "year", FieldType.ARRAY_NUMERIC);
+			Qfield.FieldDescription = "Year";
+			Qfield.FieldSize =  4;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "YEAR61794";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"date"}, new int[] {0}, "expense", "codexpense"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return GenFunctions.Year(((DateTime)args[0]));
+			});
+			Qfield.ArrayName = "dbo.GetValArrayNyear";
+            Qfield.ArrayClassName = "Year";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -284,7 +301,7 @@ namespace CSGenio.business
 
 
 			info.InternalOperationFields = new string[] {
-			 "month"
+			 "month","year"
 			};
 
 			info.SequentialDefaultValues = new string[] {
@@ -598,6 +615,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldMonth, value); }
 		}
 
+		/// <summary>Field : "Year" Tipo: "AN" Formula: + "Year([EXPENSE->DATE])"</summary>
+		public static FieldRef FldYear { get { return m_fldYear; } }
+		private static FieldRef m_fldYear = new FieldRef("expense", "year");
+
+		/// <summary>Field : "Year" Tipo: "AN" Formula: + "Year([EXPENSE->DATE])"</summary>
+		public decimal ValYear
+		{
+			get { return (decimal)returnValueField(FldYear); }
+			set { insertNameValueField(FldYear, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("expense", "zzstate");
@@ -695,7 +723,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX EXPENSE]/
 
  
-                 
+                  
 
 	}
 }

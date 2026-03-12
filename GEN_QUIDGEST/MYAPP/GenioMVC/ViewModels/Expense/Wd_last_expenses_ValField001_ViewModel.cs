@@ -178,7 +178,7 @@ namespace GenioMVC.ViewModels.Expense
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
-			Menu.SetFilters(false, true);
+			Menu.SetFilters(false, false);
 
 			crs.SubSets.Add(ProcessSearchFilters(Menu, GetSearchColumns(tableConfig.ColumnConfigurations), tableConfig));
 
@@ -186,124 +186,6 @@ namespace GenioMVC.ViewModels.Expense
 			//Subfilters
 			CriteriaSet subfilters = CriteriaSet.And();
 
-			if (!tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-			{
-				string defaultValue = "";
-				tableConfig.Filters.Add(new GroupFilter { Key = "filter_ValField001_MONTH", Value = defaultValue });
-			}
-
-			{
-				var groupFilters = CriteriaSet.Or();
-				bool filter_ValField001_MONTH_1 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_1 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("1");
-				if (filter_ValField001_MONTH_1)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 1);
-
-				}
-
-				bool filter_ValField001_MONTH_2 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_2 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("2");
-				if (filter_ValField001_MONTH_2)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 2);
-
-				}
-
-				bool filter_ValField001_MONTH_3 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_3 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("3");
-				if (filter_ValField001_MONTH_3)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 3);
-
-				}
-
-				bool filter_ValField001_MONTH_4 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_4 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("4");
-				if (filter_ValField001_MONTH_4)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 4);
-
-				}
-
-				bool filter_ValField001_MONTH_5 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_5 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("5");
-				if (filter_ValField001_MONTH_5)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 5);
-
-				}
-
-				bool filter_ValField001_MONTH_6 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_6 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("6");
-				if (filter_ValField001_MONTH_6)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 6);
-
-				}
-
-				bool filter_ValField001_MONTH_7 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_7 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("7");
-				if (filter_ValField001_MONTH_7)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 7);
-
-				}
-
-				bool filter_ValField001_MONTH_8 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_8 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("8");
-				if (filter_ValField001_MONTH_8)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 8);
-
-				}
-
-				bool filter_ValField001_MONTH_9 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_9 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("9");
-				if (filter_ValField001_MONTH_9)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 9);
-
-				}
-
-				bool filter_ValField001_MONTH_10 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_10 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("10");
-				if (filter_ValField001_MONTH_10)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 10);
-
-				}
-
-				bool filter_ValField001_MONTH_11 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_11 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("11");
-				if (filter_ValField001_MONTH_11)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 11);
-
-				}
-
-				bool filter_ValField001_MONTH_12 = false;
-				if (tableConfig.GroupFilters.ContainsKey("filter_ValField001_MONTH"))
-					filter_ValField001_MONTH_12 = tableConfig.GroupFilters["filter_ValField001_MONTH"].Contains("12");
-				if (filter_ValField001_MONTH_12)
-				{
-					groupFilters.Equal(CSGenioAexpense.FldMonth, 12);
-
-				}
-
-				subfilters.SubSets.Add(groupFilters);
-			}
 
 			crs.SubSets.Add(subfilters);
 

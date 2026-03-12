@@ -199,9 +199,9 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__MONTH.isVisible">
+							<q-row v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__MONTH.isVisible || controls.EXPENSE__EXPENSE__YEAR.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__MONTH.isVisible"
+									v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__MONTH.isVisible || controls.EXPENSE__EXPENSE__YEAR.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__SOURCE__TITLE.isVisible"
@@ -259,6 +259,18 @@
 										<q-select
 											v-if="controls.EXPENSE__EXPENSE__MONTH.isVisible"
 											v-bind="controls.EXPENSE__EXPENSE__MONTH.props" />
+									</base-input-structure>
+									<base-input-structure
+										v-if="controls.EXPENSE__EXPENSE__YEAR.isVisible"
+										class="i-text"
+										v-bind="controls.EXPENSE__EXPENSE__YEAR"
+										v-on="controls.EXPENSE__EXPENSE__YEAR.handlers"
+										:loading="controls.EXPENSE__EXPENSE__YEAR.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-select
+											v-if="controls.EXPENSE__EXPENSE__YEAR.isVisible"
+											v-bind="controls.EXPENSE__EXPENSE__YEAR.props" />
 									</base-input-structure>
 								</q-col>
 							</q-row>
@@ -753,7 +765,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['EXPENSE__CATEGORY_TYPE__NAME', 'EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE_GROUPNAME____', 'EXPENSE__SOURCE__TITLE', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__MONTH', 'EXPENSE__EXPENSE__DESCRIPTION', 'EXPENSE__EXPENSE__INVOICE'],
+						directChildren: ['EXPENSE__CATEGORY_TYPE__NAME', 'EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE_GROUPNAME____', 'EXPENSE__SOURCE__TITLE', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__MONTH', 'EXPENSE__EXPENSE__YEAR', 'EXPENSE__EXPENSE__DESCRIPTION', 'EXPENSE__EXPENSE__INVOICE'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -962,6 +974,25 @@
 						controlLimits: [
 						],
 					}, this),
+					EXPENSE__EXPENSE__YEAR: new fieldControlClass.ArrayNumberControl({
+						modelField: 'ValYear',
+						valueChangeEvent: 'fieldChange:expense.year',
+						id: 'EXPENSE__EXPENSE__YEAR',
+						name: 'YEAR',
+						size: 'small',
+						label: computed(() => this.Resources.YEAR61794),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'EXPENSE_PSEUDNEWGRP02',
+						isFormulaBlocked: true,
+						maxIntegers: 4,
+						maxDecimals: 0,
+						arrayName: 'Year',
+						helpShortItem: 'None',
+						helpDetailedItem: 'None',
+						controlLimits: [
+						],
+					}, this),
 					EXPENSE__EXPENSE__DESCRIPTION: new fieldControlClass.StringControl({
 						modelField: 'ValDescription',
 						valueChangeEvent: 'fieldChange:expense.description',
@@ -1124,6 +1155,8 @@
 						set ValUpdated_by(value) { vm.model.ValUpdated_by.updateValue(value) },
 						get ValValue() { return vm.model.ValValue.value },
 						set ValValue(value) { vm.model.ValValue.updateValue(value) },
+						get ValYear() { return vm.model.ValYear.value },
+						set ValYear(value) { vm.model.ValYear.updateValue(value) },
 					},
 					Group: {
 						get ValName() { return vm.model.GroupValName.value },

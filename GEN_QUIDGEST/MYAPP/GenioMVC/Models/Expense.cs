@@ -190,6 +190,14 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public SelectList ArrayValmonth { get { return new SelectList(CSGenio.business.ArrayMonth.GetDictionary(), "Key", "Value", ValMonth); } set { ValMonth = Convert.ToDecimal(value.SelectedValue); } }
 
+		[DisplayName("Year")]
+		/// <summary>Field : "Year" Tipo: "AN" Formula: + "Year([EXPENSE->DATE])"</summary>
+		[ShouldSerialize("Expense.ValYear")]
+		[DataArray("Year", GenioMVC.Helpers.ArrayType.Numeric)]
+		public decimal ValYear { get { return klass.ValYear; } set { klass.ValYear = value; } }
+		[JsonIgnore]
+		public SelectList ArrayValyear { get { return new SelectList(CSGenio.business.ArrayYear.GetDictionary(), "Key", "Value", ValYear); } set { ValYear = Convert.ToDecimal(value.SelectedValue); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Expense.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

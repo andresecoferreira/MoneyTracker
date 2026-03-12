@@ -106,6 +106,21 @@ namespace CSGenio.business
             Qresult = new StringBuilder();
             Qresult.Append("\"                                              \"");
             todasArrays.Add("s_tpproc", Qresult.ToString());
+			// year
+            Qresult = new StringBuilder();
+			Qresult.AppendLine("if {{{0}}} = 2024 then \"2024\" else");
+			Qresult.AppendLine("if {{{0}}} = 2025 then \"2025\" else");
+			Qresult.AppendLine("if {{{0}}} = 2026 then \"2026\" else");
+			Qresult.AppendLine("if {{{0}}} = 2027 then \"2027\" else");
+			Qresult.AppendLine("if {{{0}}} = 2028 then \"2028\" else");
+			Qresult.AppendLine("if {{{0}}} = 2029 then \"2029\" else");
+			Qresult.AppendLine("if {{{0}}} = 2030 then \"2030\" else");
+			Qresult.AppendLine("if {{{0}}} = 2031 then \"2031\" else");
+			Qresult.AppendLine("if {{{0}}} = 2032 then \"2032\" else");
+			Qresult.AppendLine("if {{{0}}} = 2033 then \"2033\" else");
+			Qresult.AppendLine("if {{{0}}} = 2034 then \"2034\" else");
+            Qresult.Append("\"                                              \"");
+            todasArrays.Add("year", Qresult.ToString());
         }
 
         /// <summary>

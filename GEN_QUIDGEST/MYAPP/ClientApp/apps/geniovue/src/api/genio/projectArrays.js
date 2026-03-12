@@ -632,6 +632,90 @@ export class QArrayS_tpproc
 	}
 }
 
+/**
+ * The Year array.
+ */
+export class QArrayYear
+{
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	constructor(fnResources)
+	{
+		this.type = 'N'
+		this.pluralName = 'YEARS39740'
+		this.singularName = 'YEAR61794'
+
+		this.elements = [
+			new Option({
+				num: 1,
+				key: 2024,
+				resourceId: '_202400656',
+				fnResources,
+			}),
+			new Option({
+				num: 2,
+				key: 2025,
+				resourceId: '_202532271',
+				fnResources,
+			}),
+			new Option({
+				num: 3,
+				key: 2026,
+				resourceId: '_202632186',
+				fnResources,
+			}),
+			new Option({
+				num: 4,
+				key: 2027,
+				resourceId: '_202700809',
+				fnResources,
+			}),
+			new Option({
+				num: 5,
+				key: 2028,
+				resourceId: '_202807604',
+				fnResources,
+			}),
+			new Option({
+				num: 6,
+				key: 2029,
+				resourceId: '_202907971',
+				fnResources,
+			}),
+			new Option({
+				num: 7,
+				key: 2030,
+				resourceId: '_203048858',
+				fnResources,
+			}),
+			new Option({
+				num: 8,
+				key: 2031,
+				resourceId: '_203116808',
+				fnResources,
+			}),
+			new Option({
+				num: 9,
+				key: 2032,
+				resourceId: '_203216389',
+				fnResources,
+			}),
+			new Option({
+				num: 10,
+				key: 2033,
+				resourceId: '_203316530',
+				fnResources,
+			}),
+			new Option({
+				num: 11,
+				key: 2034,
+				resourceId: '_203450326',
+				fnResources,
+			}),
+		]
+
+	}
+}
+
 
 export default {
 	QArrayAccout_type,
@@ -643,4 +727,5 @@ export default {
 	QArrayS_resul,
 	QArrayS_roles,
 	QArrayS_tpproc,
+	QArrayYear,
 }

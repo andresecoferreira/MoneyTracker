@@ -62,6 +62,11 @@ public class ExpenseForm : PopupForm
 	public BaseInputControl ExpenseMonth => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__MONTH", "#EXPENSE__EXPENSE__MONTH");
 
 	/// <summary>
+	/// Year
+	/// </summary>
+	public BaseInputControl ExpenseYear => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__YEAR", "#EXPENSE__EXPENSE__YEAR");
+
+	/// <summary>
 	/// Description
 	/// </summary>
 	public BaseInputControl ExpenseDescription => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__DESCRIPTION", "#EXPENSE__EXPENSE__DESCRIPTION");
