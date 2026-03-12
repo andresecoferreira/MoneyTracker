@@ -128,7 +128,7 @@ namespace GenioMVC.ViewModels.Investment
 		/// <param name="userContext">The current user request context</param>
 		public MNT_Menu_331_ViewModel(UserContext userContext) : base(userContext)
 		{
-			this.RoleToShow = CSGenio.framework.Role.AUTHORIZED;
+			this.RoleToShow = CSGenio.framework.Role.ROLE_50;
 		}
 
 		/// <summary>

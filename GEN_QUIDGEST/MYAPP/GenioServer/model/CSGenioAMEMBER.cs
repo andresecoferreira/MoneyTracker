@@ -248,7 +248,7 @@ namespace CSGenio.business
 			info.Ephs=new Hashtable();
 			EPHField[] camposEPH;
 						camposEPH = new EPHField[1];
-			camposEPH[0] = new EPHField("MEMBERPSW", "member", "codmember", "=", false);
+			camposEPH[0] = new EPHField("GROUP_PSW", "group", "codgroup", "=", false);
 			info.Ephs.Add(new Par("MNT", "50"), camposEPH);
 
 			// Table minimum roles and access levels

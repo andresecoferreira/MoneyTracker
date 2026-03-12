@@ -306,10 +306,6 @@ namespace CSGenio.business
 			// Ephs
 			//------------------------------
 			info.Ephs=new Hashtable();
-			EPHField[] camposEPH;
-						camposEPH = new EPHField[1];
-			camposEPH[0] = new EPHField("MEMBERPSW", "member", "codmember", "=", false);
-			info.Ephs.Add(new Par("MNT", "50"), camposEPH);
 
 			// Table minimum roles and access levels
 			//------------------------------
