@@ -537,6 +537,9 @@
   <data name="BANCO_INVEST63938" xml:space="preserve">
     <value>Banco Invest</value>
   </data>
+  <data name="NEW_INCOME43900" xml:space="preserve">
+    <value>New Income</value>
+  </data>
   <data name="ACTIVOBANK40861" xml:space="preserve">
     <value>ActivoBank</value>
   </data>
@@ -545,6 +548,9 @@
   </data>
   <data name="PASSWORD09467" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="NEW_INVESTMENT45430" xml:space="preserve">
+    <value>New Investment</value>
   </data>
   <data name="DASHBOARD51597" xml:space="preserve">
     <value>Dashboard</value>

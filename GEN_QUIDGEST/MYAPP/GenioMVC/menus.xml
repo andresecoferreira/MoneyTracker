@@ -63,5 +63,13 @@
       <ACCESS />
       <MENU TYPE="ITEM" ID="NEW_EXPENSE" PRTID="5" IMG="" ACT="GenGenio.MenuFormConsulta" ACTMVC="Expense_New" ACTVUE="form-EXPENSE" CONT="Expense" FILTERS="id = item.ValCodexpense" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="true" FORMMODE="NEW" ORDER="51" />
     </MENU>
+    <MENU TYPE="ITEM" DESC="NEW_INCOME43900" SIGLA="" ID="6" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="true" ISFORM="false" ORDER="6" DEFAULTACTION="">
+      <ACCESS />
+      <MENU TYPE="ITEM" ID="INCOME" PRTID="6" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="61" />
+    </MENU>
+    <MENU TYPE="ITEM" DESC="NEW_INVESTMENT45430" SIGLA="" ID="7" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="true" ISFORM="false" ORDER="7" DEFAULTACTION="">
+      <ACCESS />
+      <MENU TYPE="ITEM" ID="INVESTMENT" PRTID="7" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="71" />
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>

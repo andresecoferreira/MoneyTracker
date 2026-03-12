@@ -420,6 +420,9 @@
   <msg id="Banco Invest" code="BANCO_INVEST63938">
     <ENUS>Banco Invest</ENUS>
   </msg>
+  <msg id="New Income" code="NEW_INCOME43900">
+    <ENUS>New Income</ENUS>
+  </msg>
   <msg id="ActivoBank" code="ACTIVOBANK40861">
     <ENUS>ActivoBank</ENUS>
   </msg>
@@ -428,6 +431,9 @@
   </msg>
   <msg id="Password" code="PASSWORD09467">
     <ENUS>Password</ENUS>
+  </msg>
+  <msg id="New Investment" code="NEW_INVESTMENT45430">
+    <ENUS>New Investment</ENUS>
   </msg>
   <msg id="Dashboard" code="DASHBOARD51597">
     <ENUS>Dashboard</ENUS>

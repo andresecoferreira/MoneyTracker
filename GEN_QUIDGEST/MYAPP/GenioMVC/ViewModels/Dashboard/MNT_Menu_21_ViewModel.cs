@@ -28,7 +28,7 @@ namespace GenioMVC.ViewModels.Dashboard
 				new CustomWidgetProvider<CSGenio.business.DbArea>
 {
 					Id = "EXP_CAT",
-					Order = 3,
+					Order = 5,
 					Width = 6,
 					Height = 6,
 					BorderStyle = "secondary",
@@ -53,8 +53,8 @@ namespace GenioMVC.ViewModels.Dashboard
 				{
 					Id = "Menu_NEW_EXPENSE",
 					Order = 2,
-					Width = 1,
-					Height = 1,
+					Width = 2,
+					Height = 2,
 					Style = "primary",
 					BorderStyle = "secondary",
 					RenderSubmenus = false,
@@ -66,6 +66,42 @@ namespace GenioMVC.ViewModels.Dashboard
 					Module = "MNT",
 					Path = "MNT" + " > " + string.Join(" > ", GenioMVC.Helpers.Menus.Menus.MenuTextPath("MNT", "NEW_EXPENSE")),
 					MenuEntry = GenioMVC.Helpers.Menus.Menus.FindMenu("MNT", "NEW_EXPENSE")
+				},
+				new MenuWidget
+				{
+					Id = "Menu_6",
+					Order = 3,
+					Width = 2,
+					Height = 2,
+					Style = "primary",
+					BorderStyle = "secondary",
+					RenderSubmenus = false,
+					Required = true,
+					Visible = true,
+					ButtonText = Resources.Resources.IR_PARA07866,
+					Title = Resources.Resources.NEW_INCOME43900,
+					Group = "_ACTIONS",
+					Module = "MNT",
+					Path = "MNT" + " > " + string.Join(" > ", GenioMVC.Helpers.Menus.Menus.MenuTextPath("MNT", "6")),
+					MenuEntry = GenioMVC.Helpers.Menus.Menus.FindMenu("MNT", "6")
+				},
+				new MenuWidget
+				{
+					Id = "Menu_7",
+					Order = 4,
+					Width = 2,
+					Height = 2,
+					Style = "primary",
+					BorderStyle = "secondary",
+					RenderSubmenus = false,
+					Required = true,
+					Visible = true,
+					ButtonText = Resources.Resources.IR_PARA07866,
+					Title = Resources.Resources.NEW_INVESTMENT45430,
+					Group = "_ACTIONS",
+					Module = "MNT",
+					Path = "MNT" + " > " + string.Join(" > ", GenioMVC.Helpers.Menus.Menus.MenuTextPath("MNT", "7")),
+					MenuEntry = GenioMVC.Helpers.Menus.Menus.FindMenu("MNT", "7")
 				},
 			];
 		}

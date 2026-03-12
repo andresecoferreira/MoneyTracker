@@ -45,6 +45,14 @@ namespace GenioMVC.Helpers.Menus
 				{
 					return 1==0;
 				}
+				case "MNT6":
+				{
+					return 1==0;
+				}
+				case "MNT7":
+				{
+					return 1==0;
+				}
 				default:
 					break;
 			}

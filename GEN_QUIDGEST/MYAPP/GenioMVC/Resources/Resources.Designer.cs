@@ -1323,6 +1323,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "New Income"
+		/// </summary>
+		public static string NEW_INCOME43900 {
+			get {
+				return ResourceManager.GetString("NEW_INCOME43900", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "ActivoBank"
 		/// </summary>
 		public static string ACTIVOBANK40861 {
@@ -1346,6 +1355,15 @@ namespace GenioMVC.Resources
 		public static string PASSWORD09467 {
 			get {
 				return ResourceManager.GetString("PASSWORD09467", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "New Investment"
+		/// </summary>
+		public static string NEW_INVESTMENT45430 {
+			get {
+				return ResourceManager.GetString("NEW_INVESTMENT45430", resourceCulture);
 			}
 		}
 
