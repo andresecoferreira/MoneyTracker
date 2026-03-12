@@ -550,7 +550,7 @@
 										isMapped: false
 									},
 									legendVerticalAlign: {
-										rawValue: 'bottom',
+										rawValue: 'middle',
 										isMapped: false
 									},
 									stackingType: {
