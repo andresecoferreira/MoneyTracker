@@ -120,7 +120,7 @@ export default function getFormsRoutes()
 				routeType: 'form',
 				baseArea: 'SOURCE',
 				humanKeyFields: ['ValTitle'],
-				isPopup: false
+				isPopup: true
 			}
 		},
 	]

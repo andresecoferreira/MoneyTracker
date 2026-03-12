@@ -456,7 +456,7 @@
 				},
 
 				formInfo: {
-					type: 'normal',
+					type: 'popup',
 					name: 'SOURCE',
 					route: 'form-SOURCE',
 					area: 'SOURCE',

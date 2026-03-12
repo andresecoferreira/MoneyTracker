@@ -172,6 +172,19 @@ namespace GenioMVC.ViewModels.Category_type
 			tableConfig.RowsPerPage = rowsPerPage;
 		}
 
+		/// <summary>
+		/// Loads the viewmodel to export a template.
+		/// </summary>
+		/// <param name="columns">The columns.</param>
+		public void LoadToExportTemplate(out List<Exports.QColumn> columns)
+		{
+			columns = new List<Exports.QColumn>()
+			{
+				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 20, 0, true),
+				new Exports.QColumn(CSGenioAcategory_type.FldLogo, FieldType.IMAGE, Resources.Resources.LOGO62483, 3, 0, true),
+			};
+		}
+
 		/// <inheritdoc/>
 		public override CriteriaSet BuildCriteriaSet(NameValueCollection requestValues, out bool tableReload, CriteriaSet crs = null, bool isToExport = false)
 		{

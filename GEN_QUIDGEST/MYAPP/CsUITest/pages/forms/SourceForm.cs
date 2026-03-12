@@ -5,7 +5,7 @@
 namespace quidgest.uitests.pages.forms;
 
 [System.CodeDom.Compiler.GeneratedCode("Genio", "")]
-public class SourceForm : Form
+public class SourceForm : PopupForm
 {
 	/// <summary>
 	/// New Group
@@ -84,5 +84,5 @@ public class SourceForm : Form
 	public BaseInputControl SourceUpdated_by => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__UPDATED_BY", "#SOURCE__SOURCE__UPDATED_BY");
 
 	public SourceForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
-		: base(driver, mode, "SOURCE", containerLocator: containerLocator) { }
+		: base(driver, mode, "SOURCE") { }
 }

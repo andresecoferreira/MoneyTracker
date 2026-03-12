@@ -300,6 +300,7 @@
 									isPopup: false
 								},
 							},
+							allowFileImport: true,
 							defaultSearchColumnName: 'ValName',
 							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {

@@ -323,97 +323,11 @@
 						allSelectedRows: 'false',
 						viewModes: [
 							{
-								id: 'CARDS',
-								type: 'cards',
-								subtype: 'card-img-top',
-								label: computed(() => this.Resources.CARTOES27587),
-								order: 1,
-								mappingVariables: readonly({
-									title: {
-										allowsMultiple: false,
-										sources: [
-											'MEMBER.NAME',
-											'MEMBER.EMAIL',
-										]
-									},
-									image: {
-										allowsMultiple: false,
-										sources: [
-											'MEMBER.PHOTO',
-										]
-									},
-								}),
-								styleVariables: {
-									actionsAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									actionsStyle: {
-										rawValue: 'dropdown',
-										isMapped: false
-									},
-									backgroundColor: {
-										rawValue: 'auto',
-										isMapped: false
-									},
-									contentAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									customFollowupDefaultTarget: {
-										rawValue: 'blank',
-										isMapped: false
-									},
-									customInsertCard: {
-										rawValue: false,
-										isMapped: false
-									},
-									customInsertCardStyle: {
-										rawValue: 'secondary',
-										isMapped: false
-									},
-									displayMode: {
-										rawValue: 'grid',
-										isMapped: false
-									},
-									gridMode: {
-										rawValue: 'fixed',
-										isMapped: false
-									},
-									containerAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									hoverScaleAmount: {
-										rawValue: '1.00',
-										isMapped: false
-									},
-									imageShape: {
-										rawValue: 'rectangular',
-										isMapped: false
-									},
-									showColumnTitles: {
-										rawValue: false,
-										isMapped: false
-									},
-									showEmptyColumnTitles: {
-										rawValue: true,
-										isMapped: false
-									},
-									size: {
-										rawValue: 'regular',
-										isMapped: false
-									},
-								},
-								groups: {
-								}
-							},
-							{
 								id: 'LIST',
 								type: 'list',
 								subtype: '',
 								label: computed(() => this.Resources.LISTA13474),
-								order: 2,
+								order: 1,
 								mappingVariables: readonly({
 								}),
 								styleVariables: {
@@ -426,7 +340,7 @@
 								type: 'cards',
 								subtype: 'card-img-background',
 								label: computed(() => this.Resources.CARTOES27587),
-								order: 3,
+								order: 2,
 								mappingVariables: readonly({
 									title: {
 										allowsMultiple: false,

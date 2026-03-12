@@ -384,7 +384,7 @@
 							formsDefinition: {
 								'SOURCE': {
 									fnKeySelector: (row) => row.Fields.ValCodsource,
-									isPopup: false
+									isPopup: true
 								},
 							},
 							defaultSearchColumnName: 'ValTitle',
