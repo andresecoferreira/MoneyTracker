@@ -1168,6 +1168,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Recent Expenses"
+        /// </summary>
+        public static string RECENT_EXPENSES19624 {
+            get {
+                return ResourceManager.GetString("RECENT_EXPENSES19624", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Modos de processamento"
         /// </summary>
         public static string MODOS_DE_PROCESSAMEN07602 {
@@ -1569,6 +1578,15 @@ namespace Administration.Resources {
         public static string INVOICE63068 {
             get {
                 return ResourceManager.GetString("INVOICE63068", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Latest Transactions"
+        /// </summary>
+        public static string LATEST_TRANSACTIONS30213 {
+            get {
+                return ResourceManager.GetString("LATEST_TRANSACTIONS30213", resourceCulture);
             }
         }
 

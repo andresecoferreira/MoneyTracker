@@ -369,6 +369,9 @@
   <msg id="Role" code="ROLE60946">
     <ENUS>Role</ENUS>
   </msg>
+  <msg id="Recent Expenses" code="RECENT_EXPENSES19624">
+    <ENUS>Recent Expenses</ENUS>
+  </msg>
   <msg id="Modos de processamento" code="MODOS_DE_PROCESSAMEN07602">
     <ENUS>Modos de processamento</ENUS>
   </msg>
@@ -503,6 +506,9 @@
   </msg>
   <msg id="Invoice" code="INVOICE63068">
     <ENUS>Invoice</ENUS>
+  </msg>
+  <msg id="Latest Transactions" code="LATEST_TRANSACTIONS30213">
+    <ENUS>Latest Transactions</ENUS>
   </msg>
   <msg id="Birthday" code="BIRTHDAY30236">
     <ENUS>Birthday</ENUS>

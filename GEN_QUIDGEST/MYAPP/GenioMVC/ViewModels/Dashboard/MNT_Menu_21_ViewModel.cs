@@ -25,6 +25,26 @@ namespace GenioMVC.ViewModels.Dashboard
 
 			WidgetProviders =
 			[
+				new CustomWidgetProvider<CSGenio.business.CSGenioAexpense>
+{
+					Id = "LATEST",
+					Order = 8,
+					Width = 3,
+					Height = 3,
+					BorderStyle = "secondary",
+					Required = false,
+					Visible = false,
+					Role = CSGenio.framework.Role.AUTHORIZED,
+					Module = "MNT",
+					Title = Resources.Resources.LATEST_TRANSACTIONS30213,
+					Group = "_LAST_EXP",
+					Form = "WD_LAST_EXPENSES",
+					Component = "QFormWdLastExpenses",
+					RowsSelector = GenioMVC.Models.ModelBase.All<CSGenio.business.CSGenioAexpense>,
+					RefreshMode = WidgetRefreshMode.None,
+					UsesCache = false,
+					InstantionMethod = WidgetInstantionMethod.Aggregate
+				},
 				new CustomWidgetProvider<CSGenio.business.DbArea>
 {
 					Id = "EXP_CAT",

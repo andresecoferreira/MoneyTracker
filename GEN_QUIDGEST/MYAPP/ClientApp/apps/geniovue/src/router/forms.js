@@ -123,5 +123,17 @@ export default function getFormsRoutes()
 				isPopup: false
 			}
 		},
+		{
+			path: '/:culture/:system/:module/form/WD_LAST_EXPENSES/:mode/:id?',
+			name: 'form-WD_LAST_EXPENSES',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormWdLastExpenses/QFormWdLastExpenses.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'EXPENSE',
+				humanKeyFields: ['ValExpense_id'],
+				isPopup: false
+			}
+		},
 	]
 }

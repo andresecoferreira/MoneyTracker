@@ -486,6 +486,9 @@
   <data name="ROLE60946" xml:space="preserve">
     <value>Role</value>
   </data>
+  <data name="RECENT_EXPENSES19624" xml:space="preserve">
+    <value>Recent Expenses</value>
+  </data>
   <data name="MODOS_DE_PROCESSAMEN07602" xml:space="preserve">
     <value>Modos de processamento</value>
   </data>
@@ -620,6 +623,9 @@
   </data>
   <data name="INVOICE63068" xml:space="preserve">
     <value>Invoice</value>
+  </data>
+  <data name="LATEST_TRANSACTIONS30213" xml:space="preserve">
+    <value>Latest Transactions</value>
   </data>
   <data name="BIRTHDAY30236" xml:space="preserve">
     <value>Birthday</value>
