@@ -42,8 +42,12 @@ namespace CSGenio.business
         private static AreaRef m_AreaPSW = new AreaRef("MNT", "userlogin", "psw");
         public static AreaRef AreaMEMBER { get { return m_AreaMEMBER; } }
         private static AreaRef m_AreaMEMBER = new AreaRef("MNT", "mntmember", "member");
+        public static AreaRef AreaYEAR { get { return m_AreaYEAR; } }
+        private static AreaRef m_AreaYEAR = new AreaRef("MNT", "mntyear", "year");
         public static AreaRef AreaS_NES { get { return m_AreaS_NES; } }
         private static AreaRef m_AreaS_NES = new AreaRef("MNT", "notificationemailsignature", "s_nes");
+        public static AreaRef AreaMONTH { get { return m_AreaMONTH; } }
+        private static AreaRef m_AreaMONTH = new AreaRef("MNT", "mntmonth", "month");
         public static AreaRef AreaEXPENSE { get { return m_AreaEXPENSE; } }
         private static AreaRef m_AreaEXPENSE = new AreaRef("MNT", "mntexpense", "expense");
         public static AreaRef AreaCATEGORY { get { return m_AreaCATEGORY; } }
@@ -98,7 +102,9 @@ namespace CSGenio.business
             "source",
             "psw",
             "member",
+            "year",
             "s_nes",
+            "month",
             "expense",
             "category",
             "income",

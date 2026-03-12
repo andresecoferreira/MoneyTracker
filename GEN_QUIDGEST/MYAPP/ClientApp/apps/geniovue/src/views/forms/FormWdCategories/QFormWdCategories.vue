@@ -435,7 +435,7 @@
 								}),
 								styleVariables: {
 									chartType: {
-										rawValue: 'column',
+										rawValue: 'pie',
 										isMapped: false
 									},
 									firstColor: {

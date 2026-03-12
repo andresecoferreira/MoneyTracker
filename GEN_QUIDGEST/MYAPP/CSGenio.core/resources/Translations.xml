@@ -72,6 +72,9 @@
   <msg id="Info" code="INFO27076">
     <ENUS>Info</ENUS>
   </msg>
+  <msg id="Month Number" code="MONTH_NUMBER33019">
+    <ENUS>Month Number</ENUS>
+  </msg>
   <msg id="Date" code="DATE18475">
     <ENUS>Date</ENUS>
   </msg>
@@ -102,6 +105,9 @@
   <msg id="Sends email?" code="SENDS_EMAIL_12942">
     <ENUS>Sends email?</ENUS>
   </msg>
+  <msg id="Months" code="MONTHS54799">
+    <ENUS>Months</ENUS>
+  </msg>
   <msg id="To" code="TO55217">
     <ENUS>To</ENUS>
   </msg>
@@ -119,6 +125,9 @@
   </msg>
   <msg id="Member" code="MEMBER00534">
     <ENUS>Member</ENUS>
+  </msg>
+  <msg id="Years" code="YEARS39740">
+    <ENUS>Years</ENUS>
   </msg>
   <msg id="Subject" code="SUBJECT33942">
     <ENUS>Subject</ENUS>
@@ -176,6 +185,9 @@
   </msg>
   <msg id="Top Categories" code="TOP_CATEGORIES11384">
     <ENUS>Top Categories</ENUS>
+  </msg>
+  <msg id="Month" code="MONTH46035">
+    <ENUS>Month</ENUS>
   </msg>
   <msg id="Estados do processo" code="ESTADOS_DO_PROCESSO59118">
     <ENUS>Estados do processo</ENUS>
@@ -341,6 +353,9 @@
   </msg>
   <msg id="Resultados" code="RESULTADOS20000">
     <ENUS>Resultados</ENUS>
+  </msg>
+  <msg id="Month Text" code="MONTH_TEXT33954">
+    <ENUS>Month Text</ENUS>
   </msg>
   <msg id="Loan" code="LOAN50644">
     <ENUS>Loan</ENUS>
@@ -536,6 +551,9 @@
   </msg>
   <msg id="Bcc" code="BCC22049">
     <ENUS>Bcc</ENUS>
+  </msg>
+  <msg id="Year" code="YEAR61794">
+    <ENUS>Year</ENUS>
   </msg>
   <msg id="Id" code="ID36840">
     <ENUS>Id</ENUS>

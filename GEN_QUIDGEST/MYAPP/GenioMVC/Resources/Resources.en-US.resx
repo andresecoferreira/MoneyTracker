@@ -189,6 +189,9 @@
 	<data name="INFO27076" xml:space="preserve">
 		<value>Info</value>
 	</data>
+	<data name="MONTH_NUMBER33019" xml:space="preserve">
+		<value>Month Number</value>
+	</data>
 	<data name="DATE18475" xml:space="preserve">
 		<value>Date</value>
 	</data>
@@ -219,6 +222,9 @@
 	<data name="SENDS_EMAIL_12942" xml:space="preserve">
 		<value>Sends email?</value>
 	</data>
+	<data name="MONTHS54799" xml:space="preserve">
+		<value>Months</value>
+	</data>
 	<data name="TO55217" xml:space="preserve">
 		<value>To</value>
 	</data>
@@ -236,6 +242,9 @@
 	</data>
 	<data name="MEMBER00534" xml:space="preserve">
 		<value>Member</value>
+	</data>
+	<data name="YEARS39740" xml:space="preserve">
+		<value>Years</value>
 	</data>
 	<data name="SUBJECT33942" xml:space="preserve">
 		<value>Subject</value>
@@ -293,6 +302,9 @@
 	</data>
 	<data name="TOP_CATEGORIES11384" xml:space="preserve">
 		<value>Top Categories</value>
+	</data>
+	<data name="MONTH46035" xml:space="preserve">
+		<value>Month</value>
 	</data>
 	<data name="ESTADOS_DO_PROCESSO59118" xml:space="preserve">
 		<value>Estados do processo</value>
@@ -458,6 +470,9 @@
 	</data>
 	<data name="RESULTADOS20000" xml:space="preserve">
 		<value>Resultados</value>
+	</data>
+	<data name="MONTH_TEXT33954" xml:space="preserve">
+		<value>Month Text</value>
 	</data>
 	<data name="LOAN50644" xml:space="preserve">
 		<value>Loan</value>
@@ -653,6 +668,9 @@
 	</data>
 	<data name="BCC22049" xml:space="preserve">
 		<value>Bcc</value>
+	</data>
+	<data name="YEAR61794" xml:space="preserve">
+		<value>Year</value>
 	</data>
 	<data name="ID36840" xml:space="preserve">
 		<value>Id</value>

@@ -211,6 +211,32 @@ namespace CSGenio.business
             }
                 
 
+            /* --- MNTYEAR --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAyear.FldCodyear)
+                .From(CSGenioAyear.AreaYEAR)
+                .Where(CriteriaSet.And().In(CSGenioAyear.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAyear model = new CSGenioAyear(user);
+                model.ValCodyear = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
             /* --- MNTCATEGORY --- */
             dm = sp.Execute(
                 new SelectQuery()
@@ -275,6 +301,32 @@ namespace CSGenio.business
             {
                 CSGenioAmember model = new CSGenioAmember(user);
                 model.ValCodmember = dm.GetKey(i, 0);
+
+                try
+                {
+                    model.delete(sp);
+                }
+                //Not every exception should be allowed to continue record deletion, only business exceptions need to be caught and allow to deletion continue.
+                //If there are other types of exceptions, such as database connection problems, for example, execution should be stopped immediately
+                catch(BusinessException ex)
+                {
+                    Log.Error((ex.UserMessage != null) ? ex.UserMessage : ex.Message);
+                }
+            }
+                
+
+            /* --- MNTMONTH --- */
+            dm = sp.Execute(
+                new SelectQuery()
+                .Select(CSGenioAmonth.FldCodmonth)
+                .From(CSGenioAmonth.AreaMONTH)
+                .Where(CriteriaSet.And().In(CSGenioAmonth.FldZzstate, zzstateToRemove))
+                );
+
+            for (int i = 0; i < dm.NumRows; i++)
+            {
+                CSGenioAmonth model = new CSGenioAmonth(user);
+                model.ValCodmonth = dm.GetKey(i, 0);
 
                 try
                 {

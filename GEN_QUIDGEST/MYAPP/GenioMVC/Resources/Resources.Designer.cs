@@ -279,6 +279,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Month Number"
+		/// </summary>
+		public static string MONTH_NUMBER33019 {
+			get {
+				return ResourceManager.GetString("MONTH_NUMBER33019", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Date"
 		/// </summary>
 		public static string DATE18475 {
@@ -369,6 +378,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Months"
+		/// </summary>
+		public static string MONTHS54799 {
+			get {
+				return ResourceManager.GetString("MONTHS54799", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "To"
 		/// </summary>
 		public static string TO55217 {
@@ -419,6 +437,15 @@ namespace GenioMVC.Resources
 		public static string MEMBER00534 {
 			get {
 				return ResourceManager.GetString("MEMBER00534", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Years"
+		/// </summary>
+		public static string YEARS39740 {
+			get {
+				return ResourceManager.GetString("YEARS39740", resourceCulture);
 			}
 		}
 
@@ -590,6 +617,15 @@ namespace GenioMVC.Resources
 		public static string TOP_CATEGORIES11384 {
 			get {
 				return ResourceManager.GetString("TOP_CATEGORIES11384", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Month"
+		/// </summary>
+		public static string MONTH46035 {
+			get {
+				return ResourceManager.GetString("MONTH46035", resourceCulture);
 			}
 		}
 
@@ -1085,6 +1121,15 @@ namespace GenioMVC.Resources
 		public static string RESULTADOS20000 {
 			get {
 				return ResourceManager.GetString("RESULTADOS20000", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Month Text"
+		/// </summary>
+		public static string MONTH_TEXT33954 {
+			get {
+				return ResourceManager.GetString("MONTH_TEXT33954", resourceCulture);
 			}
 		}
 
@@ -1670,6 +1715,15 @@ namespace GenioMVC.Resources
 		public static string BCC22049 {
 			get {
 				return ResourceManager.GetString("BCC22049", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Year"
+		/// </summary>
+		public static string YEAR61794 {
+			get {
+				return ResourceManager.GetString("YEAR61794", resourceCulture);
 			}
 		}
 
