@@ -442,7 +442,7 @@
 										isMapped: false
 									},
 									chartColorArray: {
-										rawValue: 'Highcharts Default',
+										rawValue: 'Monochrome Green',
 										isMapped: false
 									},
 									invertColorArray: {
@@ -526,7 +526,7 @@
 										isMapped: false
 									},
 									legendLayout: {
-										rawValue: 'horizontal',
+										rawValue: 'vertical',
 										isMapped: false
 									},
 									legendXPosition: {
