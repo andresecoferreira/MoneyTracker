@@ -269,19 +269,6 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.UPDATED_AT48366),
 		}).cloneFrom(values?.ValUpdated_at))
 		this.stopWatchers.push(watch(() => this.ValUpdated_at.value, (newValue, oldValue) => this.onUpdate('expense.updated_at', this.ValUpdated_at, newValue, oldValue)))
-
-		/** The form fields used only in formulas. */
-		this.MemberValAge = reactive(new modelFieldType.Number({
-			id: 'MemberValAge',
-			originId: 'ValAge',
-			area: 'MEMBER',
-			field: 'AGE',
-			maxDigits: 4,
-			decimalDigits: 0,
-			isFixed: true,
-			description: computed(() => this.Resources.AGE28663),
-		}).cloneFrom(values?.MemberValAge))
-		this.stopWatchers.push(watch(() => this.MemberValAge.value, (newValue, oldValue) => this.onUpdate('member.age', this.MemberValAge, newValue, oldValue)))
 	}
 
 	/**

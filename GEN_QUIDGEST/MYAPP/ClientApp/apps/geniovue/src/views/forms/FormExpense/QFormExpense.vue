@@ -824,7 +824,6 @@
 						dependentFields: () => ({
 							set 'member.codmember'(value) { vm.model.ValMember_id.updateValue(value) },
 							set 'member.name'(value) { vm.model.TableMemberName.updateValue(value) },
-							set 'member.age'(value) { vm.model.MemberValAge.updateValue(value) },
 						}),
 						mustBeFilled: true,
 						controlLimits: [
@@ -858,16 +857,6 @@
 						}),
 						controlLimits: [
 						],
-						showWhen: {
-							// eslint-disable-next-line @typescript-eslint/no-unused-vars
-							fnFormula(params)
-							{
-								// Formula: [MEMBER-> AGE] >17
-								return this.MemberValAge.value>17
-							},
-							dependencyEvents: ['fieldChange:member.age'],
-							isServerRecalc: false,
-						},
 					}, this),
 					EXPENSE__EXPENSE__VALUE: new fieldControlClass.NumberControl({
 						modelField: 'ValValue',
@@ -1060,8 +1049,6 @@
 						set ValValue(value) { vm.model.ValValue.updateValue(value) },
 					},
 					Member: {
-						get ValAge() { return vm.model.MemberValAge.value },
-						set ValAge(value) { vm.model.MemberValAge.updateValue(value) },
 						get ValName() { return vm.model.TableMemberName.value },
 						set ValName(value) { vm.model.TableMemberName.updateValue(value) },
 					},
