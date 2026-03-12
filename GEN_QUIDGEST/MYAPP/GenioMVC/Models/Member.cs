@@ -78,7 +78,7 @@ namespace GenioMVC.Models
 		}
 
 		[DisplayName("Age")]
-		/// <summary>Field : "Age" Tipo: "N" Formula: + "floor(Diferenca_entre_Datas([Today],[MEMBER->BIRTHDAY],"D")/365)"</summary>
+		/// <summary>Field : "Age" Tipo: "N" Formula: + "floor(Diferenca_entre_Datas([MEMBER->BIRTHDAY],[Today],"D")/365)"</summary>
 		[ShouldSerialize("Member.ValAge")]
 		[NumericAttribute(0)]
 		public decimal? ValAge { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValAge, 0)); } set { klass.ValAge = Convert.ToDecimal(value); } }

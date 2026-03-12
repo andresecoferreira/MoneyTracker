@@ -106,8 +106,8 @@ export default class ViewModel extends FormViewModelBase
 				// eslint-disable-next-line @typescript-eslint/no-unused-vars
 				fnFormula(params)
 				{
-					// Formula: floor(Diferenca_entre_Datas([Today],[MEMBER->BIRTHDAY],"D")/365)
-					return qApi.Floor(qApi.Diferenca_entre_Datas(qApi.Today(),this.ValBirthday.value,"D")/365)
+					// Formula: floor(Diferenca_entre_Datas([MEMBER->BIRTHDAY],[Today],"D")/365)
+					return qApi.Floor(qApi.Diferenca_entre_Datas(this.ValBirthday.value,qApi.Today(),"D")/365)
 				},
 				dependencyEvents: ['fieldChange:member.birthday'],
 				isServerRecalc: false,

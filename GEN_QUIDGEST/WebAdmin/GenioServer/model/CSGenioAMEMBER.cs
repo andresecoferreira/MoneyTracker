@@ -130,7 +130,7 @@ namespace CSGenio.business
 			argumentsListByArea = new List<ByAreaArguments>();
 			argumentsListByArea.Add(new ByAreaArguments(new string[] {"birthday"}, new int[] {0}, "member", "codmember"));
 			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
-				return Math.Floor(GenFunctions.DateDiffPart(DateTime.Today,((DateTime)args[0]),"D")/365);
+				return Math.Floor(GenFunctions.DateDiffPart(((DateTime)args[0]),DateTime.Today,"D")/365);
 			});
 			info.RegisterFieldDB(Qfield);
 
@@ -374,11 +374,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldGroup_id, value); }
 		}
 
-		/// <summary>Field : "Age" Tipo: "N" Formula: + "floor(Diferenca_entre_Datas([Today],[MEMBER->BIRTHDAY],"D")/365)"</summary>
+		/// <summary>Field : "Age" Tipo: "N" Formula: + "floor(Diferenca_entre_Datas([MEMBER->BIRTHDAY],[Today],"D")/365)"</summary>
 		public static FieldRef FldAge { get { return m_fldAge; } }
 		private static FieldRef m_fldAge = new FieldRef("member", "age");
 
-		/// <summary>Field : "Age" Tipo: "N" Formula: + "floor(Diferenca_entre_Datas([Today],[MEMBER->BIRTHDAY],"D")/365)"</summary>
+		/// <summary>Field : "Age" Tipo: "N" Formula: + "floor(Diferenca_entre_Datas([MEMBER->BIRTHDAY],[Today],"D")/365)"</summary>
 		public decimal ValAge
 		{
 			get { return (decimal)returnValueField(FldAge); }
