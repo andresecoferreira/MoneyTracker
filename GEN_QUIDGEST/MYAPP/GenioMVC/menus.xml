@@ -7,9 +7,7 @@
         <ACCESS />
         <MENU TYPE="ITEM" DESC="GROUPS45298" ID="111" PRTID="11" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_111" ACTVUE="menu-MNT_111" CONT="GROUP" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="111">
           <MENU TYPE="ITEM" DESC="MEMBERS31628" ID="1111" PRTID="111" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_1111" ACTVUE="menu-MNT_1111" CONT="MEMBER" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="1111">
-            <MENU TYPE="ITEM" DESC="ACCOUNTS54906" ID="11111" PRTID="1111" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_11111" ACTVUE="menu-MNT_11111" CONT="SOURCE" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="11111">
-              <MENU TYPE="ITEM" ID="111111" PRTID="11111" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="111111" />
-            </MENU>
+            <MENU TYPE="ITEM" ID="11111" PRTID="1111" IMG="" ACT="GenGenio.MenuFormConsulta" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="11111" />
           </MENU>
         </MENU>
       </MENU>
