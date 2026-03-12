@@ -37,7 +37,7 @@ namespace GenioMVC.ViewModels.Dashboard
 					Role = CSGenio.framework.Role.AUTHORIZED,
 					Module = "MNT",
 					Title = Resources.Resources.TOP_CATEGORIES11384,
-					Group = "_ACTIONS",
+					Group = "_GRAPH",
 					Form = "WD_CATEGORIES",
 					Component = "QFormWdCategories",
 					RefreshMode = WidgetRefreshMode.Automatic,

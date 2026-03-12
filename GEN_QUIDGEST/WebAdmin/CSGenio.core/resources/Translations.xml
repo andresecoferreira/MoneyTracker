@@ -249,6 +249,9 @@
   <msg id="Estado do processo" code="ESTADO_DO_PROCESSO07540">
     <ENUS>Estado do processo</ENUS>
   </msg>
+  <msg id="Category Breakdown" code="CATEGORY_BREAKDOWN35920">
+    <ENUS>Category Breakdown</ENUS>
+  </msg>
   <msg id="Logbook" code="LOGBOOK00124">
     <ENUS>Logbook</ENUS>
   </msg>
@@ -341,6 +344,9 @@
   </msg>
   <msg id="Credit Card" code="CREDIT_CARD46407">
     <ENUS>Credit Card</ENUS>
+  </msg>
+  <msg id="Top Expenses" code="TOP_EXPENSES45935">
+    <ENUS>Top Expenses</ENUS>
   </msg>
   <msg id="User Authorization" code="USER_AUTHORIZATION53599">
     <ENUS>User Authorization</ENUS>

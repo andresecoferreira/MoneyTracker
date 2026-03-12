@@ -71,6 +71,12 @@
 								order: 1,
 								title: computed(() => vm.Resources.QUICK_ACTIONS51411),
 							},
+							{
+								id: '_GRAPH',
+								hideGroup: false,
+								order: 6,
+								title: computed(() => vm.Resources.TOP_EXPENSES45935),
+							},
 						],
 					}, this)
 				}

@@ -808,6 +808,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Category Breakdown"
+        /// </summary>
+        public static string CATEGORY_BREAKDOWN35920 {
+            get {
+                return ResourceManager.GetString("CATEGORY_BREAKDOWN35920", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Logbook"
         /// </summary>
         public static string LOGBOOK00124 {
@@ -1083,6 +1092,15 @@ namespace Administration.Resources {
         public static string CREDIT_CARD46407 {
             get {
                 return ResourceManager.GetString("CREDIT_CARD46407", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Top Expenses"
+        /// </summary>
+        public static string TOP_EXPENSES45935 {
+            get {
+                return ResourceManager.GetString("TOP_EXPENSES45935", resourceCulture);
             }
         }
 

@@ -342,7 +342,7 @@
 						id: 'WD_CATEGORIES__PSEUD__FIELD001',
 						name: 'FIELD001',
 						size: 'block',
-						label: computed(() => this.Resources.NEW_DATA_GRID00674),
+						label: computed(() => this.Resources.CATEGORY_BREAKDOWN35920),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						controller: 'Home',
@@ -380,7 +380,7 @@
 							tableNamePlural: computed(() => this.Resources.CATEGORY_TYPES63920),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.NEW_DATA_GRID00674),
+							tableTitle: computed(() => this.Resources.CATEGORY_BREAKDOWN35920),
 							perPage: 5,
 							showAlternatePagination: true,
 							permissions: {

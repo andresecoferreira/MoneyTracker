@@ -366,6 +366,9 @@
 	<data name="ESTADO_DO_PROCESSO07540" xml:space="preserve">
 		<value>Estado do processo</value>
 	</data>
+	<data name="CATEGORY_BREAKDOWN35920" xml:space="preserve">
+		<value>Category Breakdown</value>
+	</data>
 	<data name="LOGBOOK00124" xml:space="preserve">
 		<value>Logbook</value>
 	</data>
@@ -458,6 +461,9 @@
 	</data>
 	<data name="CREDIT_CARD46407" xml:space="preserve">
 		<value>Credit Card</value>
+	</data>
+	<data name="TOP_EXPENSES45935" xml:space="preserve">
+		<value>Top Expenses</value>
 	</data>
 	<data name="USER_AUTHORIZATION53599" xml:space="preserve">
 		<value>User Authorization</value>
