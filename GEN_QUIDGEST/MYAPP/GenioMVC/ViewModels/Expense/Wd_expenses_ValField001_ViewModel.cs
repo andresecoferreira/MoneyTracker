@@ -128,7 +128,7 @@ namespace GenioMVC.ViewModels.Expense
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
+				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 20, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldIncome, FieldType.CURRENCY, Resources.Resources.INCOME04695, 12, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldExpenses, FieldType.CURRENCY, Resources.Resources.EXPENSES11381, 12, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldInvestment, FieldType.CURRENCY, Resources.Resources.INVESTMENT14761, 12, 0, true),

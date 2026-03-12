@@ -406,7 +406,7 @@
 								field: 'NAME',
 								label: computed(() => this.Resources.NAME31974),
 								dataLength: 80,
-								scrollData: 30,
+								scrollData: 20,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.CurrencyColumn({
