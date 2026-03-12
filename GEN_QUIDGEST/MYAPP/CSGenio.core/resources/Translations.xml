@@ -270,11 +270,17 @@
   <msg id="Montepio" code="MONTEPIO14226">
     <ENUS>Montepio</ENUS>
   </msg>
+  <msg id="Transactions" code="TRANSACTIONS37522">
+    <ENUS>Transactions</ENUS>
+  </msg>
   <msg id="ID" code="ID48520">
     <ENUS>ID</ENUS>
   </msg>
   <msg id="Users Managment" code="USERS_MANAGMENT13226">
     <ENUS>Users Managment</ENUS>
+  </msg>
+  <msg id="Group Info" code="GROUP_INFO64066">
+    <ENUS>Group Info</ENUS>
   </msg>
   <msg id="Description" code="DESCRIPTION07383">
     <ENUS>Description</ENUS>

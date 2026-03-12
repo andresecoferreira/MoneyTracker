@@ -387,11 +387,17 @@
 	<data name="MONTEPIO14226" xml:space="preserve">
 		<value>Montepio</value>
 	</data>
+	<data name="TRANSACTIONS37522" xml:space="preserve">
+		<value>Transactions</value>
+	</data>
 	<data name="ID48520" xml:space="preserve">
 		<value>ID</value>
 	</data>
 	<data name="USERS_MANAGMENT13226" xml:space="preserve">
 		<value>Users Managment</value>
+	</data>
+	<data name="GROUP_INFO64066" xml:space="preserve">
+		<value>Group Info</value>
 	</data>
 	<data name="DESCRIPTION07383" xml:space="preserve">
 		<value>Description</value>

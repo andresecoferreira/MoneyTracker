@@ -871,6 +871,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Transactions"
+        /// </summary>
+        public static string TRANSACTIONS37522 {
+            get {
+                return ResourceManager.GetString("TRANSACTIONS37522", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "ID"
         /// </summary>
         public static string ID48520 {
@@ -885,6 +894,15 @@ namespace Administration.Resources {
         public static string USERS_MANAGMENT13226 {
             get {
                 return ResourceManager.GetString("USERS_MANAGMENT13226", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Group Info"
+        /// </summary>
+        public static string GROUP_INFO64066 {
+            get {
+                return ResourceManager.GetString("GROUP_INFO64066", resourceCulture);
             }
         }
 

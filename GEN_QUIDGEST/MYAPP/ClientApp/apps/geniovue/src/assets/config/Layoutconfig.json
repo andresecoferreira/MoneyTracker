@@ -108,7 +108,7 @@
 			true,
 			false
 		],
-		"chosen": true,
+		"chosen": false,
 		"default": true
 	},
 	"ShowPasswordToggle": {

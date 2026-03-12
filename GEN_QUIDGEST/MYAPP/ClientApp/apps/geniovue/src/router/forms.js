@@ -96,7 +96,7 @@ export default function getFormsRoutes()
 				routeType: 'form',
 				baseArea: 'MEMBER',
 				humanKeyFields: ['ValName'],
-				isPopup: true
+				isPopup: false
 			}
 		},
 		{

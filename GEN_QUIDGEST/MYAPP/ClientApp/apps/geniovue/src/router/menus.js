@@ -77,6 +77,20 @@ export default function getMenusRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/MNT/menu/MNT_41',
+			name: 'menu-MNT_41',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_41/QMenuMnt41.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MNT',
+				order: '41',
+				baseArea: 'MEMBER',
+				hasInitialPHE: false,
+				humanKeyFields: ['ValName'],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/MNT/menu/MNT_311',
 			name: 'menu-MNT_311',
 			component: () => import('@/views/menus/ModuleMNT/MenuMNT_311/QMenuMnt311.vue'),

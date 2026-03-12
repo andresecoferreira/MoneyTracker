@@ -375,7 +375,7 @@
 				},
 
 				formInfo: {
-					type: 'popup',
+					type: 'normal',
 					name: 'MEMBER',
 					route: 'form-MEMBER',
 					area: 'MEMBER',

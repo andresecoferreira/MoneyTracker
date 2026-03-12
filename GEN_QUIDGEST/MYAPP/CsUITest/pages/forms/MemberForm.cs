@@ -5,7 +5,7 @@
 namespace quidgest.uitests.pages.forms;
 
 [System.CodeDom.Compiler.GeneratedCode("Genio", "")]
-public class MemberForm : PopupForm
+public class MemberForm : Form
 {
 	/// <summary>
 	/// Info
@@ -54,5 +54,5 @@ public class MemberForm : PopupForm
 	public ListControl PseudSources => new ListControl(driver, ContainerLocator, "#MEMBER__PSEUDSOURCES_");
 
 	public MemberForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
-		: base(driver, mode, "MEMBER") { }
+		: base(driver, mode, "MEMBER", containerLocator: containerLocator) { }
 }

@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Source;
+namespace GenioMVC.ViewModels.Member;
 
-public class MNT_Menu_21_RowViewModel : Models.Source
+public class MNT_Menu_41_RowViewModel : Models.Member
 {
 	#region Constructors
 
-	public MNT_Menu_21_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MNT_Menu_41_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MNT_Menu_21_RowViewModel(UserContext userContext, CSGenioAsource val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MNT_Menu_41_RowViewModel(UserContext userContext, CSGenioAmember val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -37,19 +37,25 @@ public class MNT_Menu_21_RowViewModel : Models.Source
 			{
 				Order = 1,
 				Area = "MEMBER",
-				Field = "NAME",
+				Field = "PHOTO",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "SOURCE",
-				Field = "TYPE",
+				Area = "MEMBER",
+				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 3,
-				Area = "SOURCE",
-				Field = "TITLE",
+				Area = "MEMBER",
+				Field = "EMAIL",
+			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "MEMBER",
+				Field = "BIRTHDAY",
 			},
 		];
 	}

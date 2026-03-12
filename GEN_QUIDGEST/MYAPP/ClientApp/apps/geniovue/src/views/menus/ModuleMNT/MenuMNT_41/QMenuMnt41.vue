@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_1111]/ -->
+					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_41]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMNT_1111ViewModel.js'
+	import MenuViewModel from './QMenuMNT_41ViewModel.js'
 
-	const requiredTextResources = ['QMenuMNT_1111', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMNT_41', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_1111]/
+// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMnt1111',
+		name: 'QMenuMnt41',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_1111', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_41', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMNT_1111', // Used for resources
+					id: 'QMenuMNT_41', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '1111',
+					id: '41',
 					isMenuList: true,
 					designation: computed(() => this.Resources.MEMBERS31628),
-					acronym: 'MNT_1111',
+					acronym: 'MNT_41',
 					name: 'MEMBER',
-					route: 'menu-MNT_1111',
-					order: '1111',
+					route: 'menu-MNT_41',
+					order: '41',
 					controller: 'MEMBER',
-					action: 'MNT_Menu_1111',
+					action: 'MNT_Menu_41',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableSpecialRenderingControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MNT_Menu_1111',
+						id: 'MNT_Menu_41',
 						controller: 'MEMBER',
-						action: 'MNT_Menu_1111',
+						action: 'MNT_Menu_41',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -178,9 +178,19 @@
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 4,
+								name: 'ValBirthday',
+								area: 'MEMBER',
+								field: 'BIRTHDAY',
+								label: computed(() => this.Resources.BIRTHDAY30236),
+								scrollData: 8,
+								dateTimeType: 'date',
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MNT_Menu_1111',
+							name: 'MNT_Menu_41',
 							serverMode: true,
 							pkColumn: 'ValCodmember',
 							tableAlias: 'MEMBER',
@@ -290,7 +300,7 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MNT_11111',
+								id: 'RCA_MNT_411',
 								name: 'form-MEMBER',
 								isVisible: true,
 								params: {
@@ -319,7 +329,7 @@
 							}
 						},
 						globalEvents: ['changed-MEMBER', 'changed-GROUP'],
-						uuid: 'b9c091c3-6f8c-4161-8004-77462324107c',
+						uuid: 'bd159e00-45da-45ad-b882-ee33a2da3dc1',
 						allSelectedRows: 'false',
 						viewModes: [
 							{
@@ -345,6 +355,12 @@
 										allowsMultiple: false,
 										sources: [
 											'MEMBER.PHOTO',
+										]
+									},
+									customFollowup: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.BIRTHDAY',
 										]
 									},
 								}),
@@ -424,16 +440,6 @@
 							},
 						],
 						headerLevel: 1,
-						/** Menu limits */
-						controlLimits: [
-							/** DB */
-							{
-								identifier: 'group',
-								dependencyEvents: [],
-								dependencyField: '',
-								fnValueSelector: () => vm.$route.params['group'],
-							},
-						],
 						isActiveControl: computed(() => this.isActiveMenu)
 					}, this),
 				}
@@ -457,7 +463,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_1111]/
+// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -465,18 +471,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_1111]/
+// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FUNCTIONS_JS MNT_1111]/
+// USE /[MANUAL MNT FUNCTIONS_JS MNT_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_1111]/
+// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_41]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}
