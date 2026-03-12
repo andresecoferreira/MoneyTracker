@@ -88,6 +88,9 @@
 
 				switch (hPage.Identifier)
 				{
+					case 'DASHBOARD':
+						this.currentComponent = defineAsyncComponent(() => import('@/views/menus/ModuleMNT/MenuMNT_21/QMenuMnt21.vue'))
+						break
 					default:
 						this.currentComponent = null
 				}

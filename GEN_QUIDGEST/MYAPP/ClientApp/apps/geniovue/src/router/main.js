@@ -101,6 +101,7 @@ export default function getMainRoutes()
 				routeType: 'home',
 				module: 'MNT',
 				hasInitialPHE: false,
+				isDashboardPage: true,
 				isHomePage: true
 			},
 			component: () => import('@/views/shared/Home.vue'),
