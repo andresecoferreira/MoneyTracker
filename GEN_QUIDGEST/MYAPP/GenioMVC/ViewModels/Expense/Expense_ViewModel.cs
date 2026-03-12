@@ -39,6 +39,10 @@ namespace GenioMVC.ViewModels.Expense
 		/// </summary>
 		public string ValType_id { get; set; }
 		/// <summary>
+		/// Title: "" | Type: "CE"
+		/// </summary>
+		public string ValGroup_id { get; set; }
+		/// <summary>
 		/// Title: "Member" | Type: "CE"
 		/// </summary>
 		public string ValMember_id { get; set; }
@@ -72,6 +76,23 @@ namespace GenioMVC.ViewModels.Expense
 		/// </summary>
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Source> TableSourceTitle { get; set; }
+		/// <summary>
+		/// Title: "Group" | Type: "C"
+		/// </summary>
+		[ValidateSetAccess]
+		public string GroupValName
+		{
+			get
+			{
+				return funcGroupValName != null ? funcGroupValName() : _auxGroupValName;
+			}
+			set { funcGroupValName = () => value; }
+		}
+
+		[JsonIgnore]
+		public Func<string> funcGroupValName { get; set; }
+
+		private string _auxGroupValName { get; set; }
 		/// <summary>
 		/// Title: "Value" | Type: "N"
 		/// </summary>
@@ -250,9 +271,11 @@ namespace GenioMVC.ViewModels.Expense
 			{
 				ValCategory_id = ViewModelConversion.ToString(m.ValCategory_id);
 				ValType_id = ViewModelConversion.ToString(m.ValType_id);
+				ValGroup_id = ViewModelConversion.ToString(m.ValGroup_id);
 				ValMember_id = ViewModelConversion.ToString(m.ValMember_id);
 				ValSource_id = ViewModelConversion.ToString(m.ValSource_id);
 				ValExpense_id = ViewModelConversion.ToNumeric(m.ValExpense_id);
+				funcGroupValName = () => ViewModelConversion.ToString(m.Group.ValName);
 				ValValue = ViewModelConversion.ToNumeric(m.ValValue);
 				ValDate = ViewModelConversion.ToDateTime(m.ValDate);
 				ValInvoice = ViewModelConversion.ToString(m.ValInvoice);
@@ -290,6 +313,7 @@ namespace GenioMVC.ViewModels.Expense
 			{
 				m.ValCategory_id = ViewModelConversion.ToString(ValCategory_id);
 				m.ValType_id = ViewModelConversion.ToString(ValType_id);
+				m.ValGroup_id = ViewModelConversion.ToString(ValGroup_id);
 				m.ValMember_id = ViewModelConversion.ToString(ValMember_id);
 				m.ValSource_id = ViewModelConversion.ToString(ValSource_id);
 				// Block When condition(s)
@@ -344,6 +368,9 @@ namespace GenioMVC.ViewModels.Expense
 						break;
 					case "expense.type_id":
 						this.ValType_id = ViewModelConversion.ToString(_value);
+						break;
+					case "expense.group_id":
+						this.ValGroup_id = ViewModelConversion.ToString(_value);
 						break;
 					case "expense.member_id":
 						this.ValMember_id = ViewModelConversion.ToString(_value);
@@ -509,6 +536,7 @@ namespace GenioMVC.ViewModels.Expense
 			validator.Required("ValType_id", Resources.Resources.CATEGORY_TYPE34342, ViewModelConversion.ToString(ValType_id), FieldType.KEY_INT.GetFormatting());
 
 			validator.Required("ValMember_id", Resources.Resources.MEMBER00534, ViewModelConversion.ToString(ValMember_id), FieldType.KEY_INT.GetFormatting());
+			validator.StringLength("GroupValName", Resources.Resources.GROUP38232, GroupValName, 50);
 
 			validator.Required("ValValue", Resources.Resources.VALUE10285, ViewModelConversion.ToNumeric(ValValue), FieldType.NUMERIC.GetFormatting());
 
@@ -1072,7 +1100,7 @@ namespace GenioMVC.ViewModels.Expense
 		/// <param name="PKey">Primary Key of Member</param>
 		public ConcurrentDictionary<string, object> GetDependant_ExpenseTableMemberName(string PKey)
 		{
-			FieldRef[] refDependantFields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName];
+			FieldRef[] refDependantFields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldName];
 
 			var returnEmptyDependants = false;
 			CriteriaSet wherecodition = CriteriaSet.And();
@@ -1121,6 +1149,8 @@ namespace GenioMVC.ViewModels.Expense
 			var row = GetDependant_ExpenseTableMemberName(this.ValMember_id);
 			try
 			{
+				this.ValGroup_id = (string)row["group.codgroup"];
+				this.funcGroupValName = () => (string)row["group.name"];
 
 				// Fill List fields
 				this.ValMember_id = ViewModelConversion.ToString(row["member.codmember"]);
@@ -1357,9 +1387,11 @@ namespace GenioMVC.ViewModels.Expense
 			{
 				"expense.category_id" => ViewModelConversion.ToString(modelValue),
 				"expense.type_id" => ViewModelConversion.ToString(modelValue),
+				"expense.group_id" => ViewModelConversion.ToString(modelValue),
 				"expense.member_id" => ViewModelConversion.ToString(modelValue),
 				"expense.source_id" => ViewModelConversion.ToString(modelValue),
 				"expense.expense_id" => ViewModelConversion.ToNumeric(modelValue),
+				"group.name" => ViewModelConversion.ToString(modelValue),
 				"expense.value" => ViewModelConversion.ToNumeric(modelValue),
 				"expense.date" => ViewModelConversion.ToDateTime(modelValue),
 				"expense.invoice" => ViewModelConversion.ToString(modelValue),
@@ -1375,6 +1407,7 @@ namespace GenioMVC.ViewModels.Expense
 				"category.name" => ViewModelConversion.ToString(modelValue),
 				"member.codmember" => ViewModelConversion.ToString(modelValue),
 				"member.name" => ViewModelConversion.ToString(modelValue),
+				"group.codgroup" => ViewModelConversion.ToString(modelValue),
 				"source.codsource" => ViewModelConversion.ToString(modelValue),
 				"source.title" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue

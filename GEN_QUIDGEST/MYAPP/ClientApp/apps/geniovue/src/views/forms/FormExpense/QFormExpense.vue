@@ -163,9 +163,9 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible">
+							<q-row v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE_GROUPNAME____.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible"
+									v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE_GROUPNAME____.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__MEMBER__NAME.isVisible"
@@ -200,6 +200,19 @@
 											v-if="controls.EXPENSE__SOURCE__TITLE.seeMoreIsVisible"
 											v-bind="controls.EXPENSE__SOURCE__TITLE.seeMoreParams"
 											v-on="controls.EXPENSE__SOURCE__TITLE.handlers" />
+									</base-input-structure>
+									<base-input-structure
+										v-if="controls.EXPENSE_GROUPNAME____.isVisible"
+										class="i-text"
+										v-bind="controls.EXPENSE_GROUPNAME____"
+										v-on="controls.EXPENSE_GROUPNAME____.handlers"
+										:loading="controls.EXPENSE_GROUPNAME____.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.EXPENSE_GROUPNAME____.props"
+											@blur="onBlur(controls.EXPENSE_GROUPNAME____, model.GroupValName.value)"
+											@change="model.GroupValName.fnUpdateValueOnChange" />
 									</base-input-structure>
 								</q-col>
 							</q-row>
@@ -728,7 +741,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['EXPENSE__CATEGORY_TYPE__NAME', 'EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE__SOURCE__TITLE', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__INVOICE', 'EXPENSE__EXPENSE__DESCRIPTION'],
+						directChildren: ['EXPENSE__CATEGORY_TYPE__NAME', 'EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE__SOURCE__TITLE', 'EXPENSE_GROUPNAME____', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__INVOICE', 'EXPENSE__EXPENSE__DESCRIPTION'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -824,6 +837,9 @@
 						dependentFields: () => ({
 							set 'member.codmember'(value) { vm.model.ValMember_id.updateValue(value) },
 							set 'member.name'(value) { vm.model.TableMemberName.updateValue(value) },
+							set 'expense.group_id'(value) { vm.model.ValGroup_id.updateValue(value) },
+							set 'group.codgroup'(value) { vm.model.ValGroup_id.updateValue(value) },
+							set 'group.name'(value) { vm.model.GroupValName.updateValue(value) },
 						}),
 						mustBeFilled: true,
 						controlLimits: [
@@ -857,6 +873,32 @@
 						}),
 						controlLimits: [
 						],
+					}, this),
+					EXPENSE_GROUPNAME____: new fieldControlClass.StringControl({
+						modelField: 'GroupValName',
+						valueChangeEvent: 'fieldChange:group.name',
+						dependentModelField: 'ValGroup_id',
+						dependentChangeEvent: 'fieldChange:expense.group_id',
+						id: 'EXPENSE_GROUPNAME____',
+						name: 'NAME',
+						size: 'large',
+						label: computed(() => this.Resources.GROUP38232),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'EXPENSE_PSEUDNEWGRP02',
+						maxLength: 50,
+						controlLimits: [
+						],
+						showWhen: {
+							// eslint-disable-next-line @typescript-eslint/no-unused-vars
+							fnFormula(params)
+							{
+								// Formula: !isEmptyC([MEMBER->NAME])
+								return !(this.TableMemberName.value === '')
+							},
+							dependencyEvents: ['fieldChange:member.name'],
+							isServerRecalc: false,
+						},
 					}, this),
 					EXPENSE__EXPENSE__VALUE: new fieldControlClass.NumberControl({
 						modelField: 'ValValue',
@@ -1033,6 +1075,8 @@
 						set ValDescription(value) { vm.model.ValDescription.updateValue(value) },
 						get ValExpense_id() { return vm.model.ValExpense_id.value },
 						set ValExpense_id(value) { vm.model.ValExpense_id.updateValue(value) },
+						get ValGroup_id() { return vm.model.ValGroup_id.value },
+						set ValGroup_id(value) { vm.model.ValGroup_id.updateValue(value) },
 						get ValInvoice() { return vm.model.ValInvoice.value },
 						set ValInvoice(value) { vm.model.ValInvoice.updateValue(value) },
 						get ValMember_id() { return vm.model.ValMember_id.value },
@@ -1047,6 +1091,10 @@
 						set ValUpdated_by(value) { vm.model.ValUpdated_by.updateValue(value) },
 						get ValValue() { return vm.model.ValValue.value },
 						set ValValue(value) { vm.model.ValValue.updateValue(value) },
+					},
+					Group: {
+						get ValName() { return vm.model.GroupValName.value },
+						set ValName(value) { vm.model.GroupValName.updateValue(value) },
 					},
 					Member: {
 						get ValName() { return vm.model.TableMemberName.value },
@@ -1067,6 +1115,8 @@
 						get source() { return vm.model.ValSource_id },
 						/** The foreign key to the CATEGORY_TYPE table */
 						get category_type() { return vm.model.ValType_id },
+						/** The foreign key to the GROUP table */
+						get group() { return vm.model.ValGroup_id },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

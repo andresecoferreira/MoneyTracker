@@ -42,6 +42,11 @@ public class ExpenseForm : PopupForm
 	public SeeMorePage SourceTitleSeeMorePage => new SeeMorePage(driver, "EXPENSE", "EXPENSE__SOURCE__TITLE");
 
 	/// <summary>
+	/// Group
+	/// </summary>
+	public IWebElement GroupName => throw new NotImplementedException();
+
+	/// <summary>
 	/// Value
 	/// </summary>
 	public BaseInputControl ExpenseValue => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__VALUE", "#EXPENSE__EXPENSE__VALUE");
