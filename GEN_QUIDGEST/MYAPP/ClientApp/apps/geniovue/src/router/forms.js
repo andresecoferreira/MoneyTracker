@@ -112,6 +112,18 @@ export default function getFormsRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/:module/form/TEST/:mode/:id?',
+			name: 'form-TEST',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormTest/QFormTest.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: '',
+				humanKeyFields: [],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/:module/form/WD_CATEGORIES/:mode/:id?',
 			name: 'form-WD_CATEGORIES',
 			props: route => propsConverter(route),

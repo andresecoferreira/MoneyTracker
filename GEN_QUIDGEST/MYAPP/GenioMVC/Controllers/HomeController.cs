@@ -21,6 +21,8 @@ namespace GenioMVC.Controllers
 	public class HomeController(UserContextService userContext) : ControllerBase(userContext)
 	{
 		private static readonly NavigationLocation ACTION_LSTUSR_EDIT = new("LISTA_DE_UTILIZADORE37232", "ChangeListProperties", "Home");
+		private static readonly NavigationLocation ACTION_TEST_SHOW = new("CONSULTA40695", "Test_Show", "Home")  { vueRouteName = "form-TEST", mode = "SHOW" };
+		private static readonly NavigationLocation ACTION_TEST_EDIT = new("EDITAR11616", "Test_Edit", "Home")  { vueRouteName = "form-TEST", mode = "EDIT" };
 		private static readonly NavigationLocation ACTION_WD_CATEGORIES_SHOW = new("CONSULTA40695", "Wd_categories_Show", "Home")  { vueRouteName = "form-WD_CATEGORIES", mode = "SHOW" };
 		private static readonly NavigationLocation ACTION_WD_CATEGORIES_EDIT = new("EDITAR11616", "Wd_categories_Edit", "Home")  { vueRouteName = "form-WD_CATEGORIES", mode = "EDIT" };
 
@@ -185,6 +187,109 @@ namespace GenioMVC.Controllers
 				return Json(new { Success = false, Message = Resources.Resources.PEDIMOS_DESCULPA__OC63848 });
 			}
 		}
+
+		#region Form Methods -> Test ()
+
+		// GET: /Home/Test_Show
+		public ActionResult Test_Show()
+		{
+			Test_ViewModel model = new(UserContext.Current);
+			CSGenio.framework.StatusMessage permission = model.CheckPermissions(FormMode.Show);
+			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") && (bool)RouteData.Values["isHomePage"];
+			ViewBag.isHomePage = isHomePage;
+			if (isHomePage)
+				Navigation.SetValue("HomePage", "Test");
+			if (permission.Status.Equals(CSGenio.framework.Status.E))
+				return PermissionError(permission.Message);
+
+			// Audit
+			CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.FORM54242 + " " + ACTION_TEST_SHOW.ShortDescription());
+
+// USE /[MANUAL MNT BEFORE_LOAD_SHOW TEST]/
+
+			model.Load([], true);
+
+// USE /[MANUAL MNT AFTER_LOAD_SHOW TEST]/
+
+			return JsonOK(model);
+		}
+
+		[HttpPost]
+		public ActionResult Test_Show_GET()
+		{
+			return Test_Show();
+		}
+
+		// GET: /Home/Test_Edit
+		public ActionResult Test_Edit()
+		{
+			Test_ViewModel model = new(UserContext.Current);
+			CSGenio.framework.StatusMessage permission = model.CheckPermissions(FormMode.Edit);
+			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") && (bool)RouteData.Values["isHomePage"];
+			ViewBag.isHomePage = isHomePage;
+			if (isHomePage)
+				Navigation.SetValue("HomePage", "Test");
+			if (permission.Status.Equals(CSGenio.framework.Status.E))
+				return PermissionError(permission.Message);
+
+			// Audit
+			CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.FORM54242 + " " + ACTION_TEST_EDIT.ShortDescription());
+
+// USE /[MANUAL MNT BEFORE_LOAD_EDIT TEST]/
+
+			model.Load([], true);
+
+// USE /[MANUAL MNT AFTER_LOAD_EDIT TEST]/
+
+			return JsonOK(model);
+		}
+
+		[HttpPost]
+		public ActionResult Test_Edit_GET()
+		{
+			return Test_Edit();
+		}
+
+		//
+		// GET: /Home/Test_Cancel
+// USE /[MANUAL MNT CONTROLLER_CANCEL_GET TEST]/
+		public ActionResult Test_Cancel()
+		{
+			return JsonOK(new { Success = true });
+		}
+
+		//
+		// GET: /Home/Test_ValField001
+		// POST: /Home/Test_ValField001
+		[ActionName("Test_ValField001")]
+		public ActionResult Test_ValField001([FromBody] RequestLookupModel requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			NameValueCollection requestValues = [];
+			// Add to request values
+			foreach (var kv in queryParams ?? [])
+				requestValues.Add(kv.Key, kv.Value);
+
+			Test_ValField001_ViewModel model = new(m_userContext);
+
+			CSGenio.core.framework.table.legacy.v1.TableConfigurationUpdate.SetFilterShiftValue(model.Uuid, "filter_ValField001_YEAR", 0);
+			CSGenio.core.framework.table.legacy.v1.TableConfigurationUpdate.SetFilterShiftValue(model.Uuid, "filter_ValField001_MONTH", -1);
+
+			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
+				requestModel.TableConfiguration,
+				requestModel.UserTableConfigName,
+				requestModel.LoadDefaultView);
+
+			// Determine rows per page
+			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(CSGenio.framework.Configuration.NrRegDBedit, "");
+
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
+
+		#endregion
 
 		#region Form Methods -> Wd_categories ()
 

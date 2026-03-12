@@ -12,6 +12,7 @@ export default {
 		app.component('QFormInvestment', defineAsyncComponent(() => import('@/views/forms/FormInvestment/QFormInvestment.vue')))
 		app.component('QFormMember', defineAsyncComponent(() => import('@/views/forms/FormMember/QFormMember.vue')))
 		app.component('QFormSource', defineAsyncComponent(() => import('@/views/forms/FormSource/QFormSource.vue')))
+		app.component('QFormTest', defineAsyncComponent(() => import('@/views/forms/FormTest/QFormTest.vue')))
 		app.component('QFormWdCategories', defineAsyncComponent(() => import('@/views/forms/FormWdCategories/QFormWdCategories.vue')))
 		app.component('QFormWdExpenses', defineAsyncComponent(() => import('@/views/forms/FormWdExpenses/QFormWdExpenses.vue')))
 		app.component('QFormWdLastExpenses', defineAsyncComponent(() => import('@/views/forms/FormWdLastExpenses/QFormWdLastExpenses.vue')))
