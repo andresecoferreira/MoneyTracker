@@ -122,7 +122,7 @@ namespace GenioMVC.ViewModels
 			return
 			[
 				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 20, 0, true),
-				new Exports.QColumn(CSGenioAcategory_type.FldTotal_sum, FieldType.NUMERIC, Resources.Resources.SUM60816, 12, 2, true),
+				new Exports.QColumn(CSGenioAcategory_type.FldTotal_sum, FieldType.CURRENCY, Resources.Resources.TOTAL49307, 12, 0, true),
 			];
 		}
 

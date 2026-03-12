@@ -41,9 +41,9 @@ namespace GenioMVC.Models
 		public string ValLogoQTicket = null;
 
 		[DisplayName("Total")]
-		/// <summary>Field : "Total" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
+		/// <summary>Field : "Total" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
 		[ShouldSerialize("Category_type.ValTotal_sum")]
-		[NumericAttribute(2)]
+		[CurrencyAttribute("EUR", 2)]
 		public decimal? ValTotal_sum { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValTotal_sum, 2)); } set { klass.ValTotal_sum = Convert.ToDecimal(value); } }
 
 		[DisplayName("ZZSTATE")]

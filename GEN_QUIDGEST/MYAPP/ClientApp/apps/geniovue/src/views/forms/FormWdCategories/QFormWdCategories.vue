@@ -360,12 +360,12 @@
 								scrollData: 20,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.NumericColumn({
+							new listColumnTypes.CurrencyColumn({
 								order: 2,
 								name: 'ValTotal_sum',
 								area: 'CATEGORY_TYPE',
 								field: 'TOTAL_SUM',
-								label: computed(() => this.Resources.SUM60816),
+								label: computed(() => this.Resources.TOTAL49307),
 								scrollData: 12,
 								maxDigits: 9,
 								decimalPlaces: 2,

@@ -76,7 +76,7 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "total_sum", FieldType.NUMERIC);
+			Qfield = new Field(info.Alias, "total_sum", FieldType.CURRENCY);
 			Qfield.FieldDescription = "Total";
 			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
@@ -276,11 +276,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldLogo, value); }
 		}
 
-		/// <summary>Field : "Total" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
+		/// <summary>Field : "Total" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
 		public static FieldRef FldTotal_sum { get { return m_fldTotal_sum; } }
 		private static FieldRef m_fldTotal_sum = new FieldRef("category_type", "total_sum");
 
-		/// <summary>Field : "Total" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
+		/// <summary>Field : "Total" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
 		public decimal ValTotal_sum
 		{
 			get { return (decimal)returnValueField(FldTotal_sum); }

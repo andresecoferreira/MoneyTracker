@@ -128,7 +128,7 @@ namespace GenioMVC.ViewModels.Expense
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAexpense.FldExpense_id, FieldType.NUMERIC, Resources.Resources.ID48520, 6, 0, true),
+				new Exports.QColumn(CSGenioAexpense.FldExpense_id, FieldType.NUMERIC, Resources.Resources.ID48520, 6, 0, false),
 				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.TYPE00312, 20, 0, true),
 				new Exports.QColumn(CSGenioAcategory.FldName, FieldType.TEXT, Resources.Resources.CATEGORY18978, 20, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.MEMBER00534, 30, 0, true),
@@ -330,7 +330,7 @@ namespace GenioMVC.ViewModels.Expense
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("expense", "expense_id");
+				firstVisibleColumn ??= new FieldRef("category_type", "name");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -525,7 +525,7 @@ namespace GenioMVC.ViewModels.Expense
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValExpense_id", CSGenioAexpense.FldExpense_id, typeof(decimal?), defaultSearch : true),
+			new TableSearchColumn("ValExpense_id", CSGenioAexpense.FldExpense_id, typeof(decimal?), visible : false, defaultSearch : true),
 			new TableSearchColumn("Category_type_ValName", CSGenioAcategory_type.FldName, typeof(string), defaultSearch : true),
 			new TableSearchColumn("Category_ValName", CSGenioAcategory.FldName, typeof(string), defaultSearch : true),
 			new TableSearchColumn("Member_ValName", CSGenioAmember.FldName, typeof(string), defaultSearch : true),
