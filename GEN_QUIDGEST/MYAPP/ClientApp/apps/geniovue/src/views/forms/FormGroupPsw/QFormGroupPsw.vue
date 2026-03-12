@@ -93,52 +93,52 @@
 
 		<q-container
 			fluid
-			data-key="MEMBER_PSW"
+			data-key="GROUP_PSW"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.MEMBER_PSW__MEMBER__NAME.isVisible">
+				<q-row v-if="controls.GROUP_PSW__GROUP__NAME.isVisible">
 					<q-col
-						v-if="controls.MEMBER_PSW__MEMBER__NAME.isVisible"
+						v-if="controls.GROUP_PSW__GROUP__NAME.isVisible"
 						cols="auto">
 						<base-input-structure
-							v-if="controls.MEMBER_PSW__MEMBER__NAME.isVisible"
+							v-if="controls.GROUP_PSW__GROUP__NAME.isVisible"
 							class="i-text"
-							v-bind="controls.MEMBER_PSW__MEMBER__NAME"
-							v-on="controls.MEMBER_PSW__MEMBER__NAME.handlers"
-							:loading="controls.MEMBER_PSW__MEMBER__NAME.props.loading"
+							v-bind="controls.GROUP_PSW__GROUP__NAME"
+							v-on="controls.GROUP_PSW__GROUP__NAME.handlers"
+							:loading="controls.GROUP_PSW__GROUP__NAME.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
 							<q-lookup
-								v-if="controls.MEMBER_PSW__MEMBER__NAME.isVisible"
-								v-bind="controls.MEMBER_PSW__MEMBER__NAME.props"
-								v-on="controls.MEMBER_PSW__MEMBER__NAME.handlers" />
-							<q-see-more-member-psw-member-name
-								v-if="controls.MEMBER_PSW__MEMBER__NAME.seeMoreIsVisible"
-								v-bind="controls.MEMBER_PSW__MEMBER__NAME.seeMoreParams"
-								v-on="controls.MEMBER_PSW__MEMBER__NAME.handlers" />
+								v-if="controls.GROUP_PSW__GROUP__NAME.isVisible"
+								v-bind="controls.GROUP_PSW__GROUP__NAME.props"
+								v-on="controls.GROUP_PSW__GROUP__NAME.handlers" />
+							<q-see-more-group-psw-group-name
+								v-if="controls.GROUP_PSW__GROUP__NAME.seeMoreIsVisible"
+								v-bind="controls.GROUP_PSW__GROUP__NAME.seeMoreParams"
+								v-on="controls.GROUP_PSW__GROUP__NAME.handlers" />
 						</base-input-structure>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.MEMBER_PSW__PSW__NOME.isVisible">
+				<q-row v-if="controls.GROUP_PSW__PSW__NOME.isVisible">
 					<q-col
-						v-if="controls.MEMBER_PSW__PSW__NOME.isVisible"
+						v-if="controls.GROUP_PSW__PSW__NOME.isVisible"
 						cols="auto">
 						<base-input-structure
-							v-if="controls.MEMBER_PSW__PSW__NOME.isVisible"
+							v-if="controls.GROUP_PSW__PSW__NOME.isVisible"
 							class="i-text"
-							v-bind="controls.MEMBER_PSW__PSW__NOME"
-							v-on="controls.MEMBER_PSW__PSW__NOME.handlers"
-							:loading="controls.MEMBER_PSW__PSW__NOME.props.loading"
+							v-bind="controls.GROUP_PSW__PSW__NOME"
+							v-on="controls.GROUP_PSW__PSW__NOME.handlers"
+							:loading="controls.GROUP_PSW__PSW__NOME.props.loading"
 							:reporting-mode-on="reportingModeCAV"
 							:suggestion-mode-on="suggestionModeOn">
 							<q-lookup
-								v-if="controls.MEMBER_PSW__PSW__NOME.isVisible"
-								v-bind="controls.MEMBER_PSW__PSW__NOME.props"
-								v-on="controls.MEMBER_PSW__PSW__NOME.handlers" />
-							<q-see-more-member-psw-psw-nome
-								v-if="controls.MEMBER_PSW__PSW__NOME.seeMoreIsVisible"
-								v-bind="controls.MEMBER_PSW__PSW__NOME.seeMoreParams"
-								v-on="controls.MEMBER_PSW__PSW__NOME.handlers" />
+								v-if="controls.GROUP_PSW__PSW__NOME.isVisible"
+								v-bind="controls.GROUP_PSW__PSW__NOME.props"
+								v-on="controls.GROUP_PSW__PSW__NOME.handlers" />
+							<q-see-more-group-psw-psw-nome
+								v-if="controls.GROUP_PSW__PSW__NOME.seeMoreIsVisible"
+								v-bind="controls.GROUP_PSW__PSW__NOME.seeMoreParams"
+								v-on="controls.GROUP_PSW__PSW__NOME.handlers" />
 						</base-input-structure>
 					</q-col>
 				</q-row>
@@ -200,21 +200,21 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import FormViewModel from './QFormMemberPswViewModel.js'
+	import FormViewModel from './QFormGroupPswViewModel.js'
 
-	const requiredTextResources = ['QFormMemberPsw', 'hardcoded', 'messages']
+	const requiredTextResources = ['QFormGroupPsw', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_INCLUDEJS MEMBER_PSW]/
+// USE /[MANUAL MNT FORM_INCLUDEJS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QFormMemberPsw',
+		name: 'QFormGroupPsw',
 
 		components: {
-			QSeeMoreMemberPswMemberName: defineAsyncComponent(() => import('@/views/forms/FormMemberPsw/dbedits/MemberPswMemberNameSeeMore.vue')),
-			QSeeMoreMemberPswPswNome: defineAsyncComponent(() => import('@/views/forms/FormMemberPsw/dbedits/MemberPswPswNomeSeeMore.vue')),
+			QSeeMoreGroupPswGroupName: defineAsyncComponent(() => import('@/views/forms/FormGroupPsw/dbedits/GroupPswGroupNameSeeMore.vue')),
+			QSeeMoreGroupPswPswNome: defineAsyncComponent(() => import('@/views/forms/FormGroupPsw/dbedits/GroupPswPswNomeSeeMore.vue')),
 		},
 
 		mixins: [
@@ -228,8 +228,8 @@
 			nestedRouteParams: {
 				type: Object,
 				default: () => ({
-					name: 'MEMBER_PSW',
-					location: 'form-MEMBER_PSW',
+					name: 'GROUP_PSW',
+					location: 'form-GROUP_PSW',
 					params: {
 						isNested: true
 					}
@@ -262,20 +262,20 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QFormMemberPsw', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QFormGroupPsw', false),
 
 				interfaceMetadata: {
-					id: 'QFormMemberPsw', // Used for resources
+					id: 'QFormGroupPsw', // Used for resources
 					requiredTextResources
 				},
 
 				formInfo: {
 					type: 'normal',
-					name: 'MEMBER_PSW',
-					route: 'form-MEMBER_PSW',
-					area: 'MEMBER_PSW',
-					primaryKey: 'ValCodmember_psw',
-					designation: computed(() => this.Resources.MEMBER_PSW31555),
+					name: 'GROUP_PSW',
+					route: 'form-GROUP_PSW',
+					area: 'GROUP_PSW',
+					primaryKey: 'ValCodgroup_psw',
+					designation: computed(() => this.Resources.GROUP_PSW08201),
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
 					availableAgents: [],
@@ -490,13 +490,13 @@
 				},
 
 				controls: {
-					MEMBER_PSW__MEMBER__NAME: new fieldControlClass.LookupControl({
-						modelField: 'TableMemberName',
-						valueChangeEvent: 'fieldChange:member.name',
-						id: 'MEMBER_PSW__MEMBER__NAME',
+					GROUP_PSW__GROUP__NAME: new fieldControlClass.LookupControl({
+						modelField: 'TableGroupName',
+						valueChangeEvent: 'fieldChange:group.name',
+						id: 'GROUP_PSW__GROUP__NAME',
 						name: 'NAME',
 						size: 'xxlarge',
-						label: computed(() => this.Resources.MEMBER00534),
+						label: computed(() => this.Resources.GROUP38232),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						externalCallbacks: {
@@ -508,21 +508,20 @@
 							modelKeys: computed(() => vm.modelKeys)
 						},
 						lookupKeyModelField: {
-							name: 'ValMember_id',
-							dependencyEvent: 'fieldChange:member_psw.member_id'
+							name: 'ValGroup_id',
+							dependencyEvent: 'fieldChange:group_psw.group_id'
 						},
 						dependentFields: () => ({
-							set 'member.codmember'(value) { vm.model.ValMember_id.updateValue(value) },
-							set 'member.name'(value) { vm.model.TableMemberName.updateValue(value) },
+							set 'group.codgroup'(value) { vm.model.ValGroup_id.updateValue(value) },
+							set 'group.name'(value) { vm.model.TableGroupName.updateValue(value) },
 						}),
-						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
-					MEMBER_PSW__PSW__NOME: new fieldControlClass.LookupControl({
+					GROUP_PSW__PSW__NOME: new fieldControlClass.LookupControl({
 						modelField: 'TablePswNome',
 						valueChangeEvent: 'fieldChange:psw.nome',
-						id: 'MEMBER_PSW__PSW__NOME',
+						id: 'GROUP_PSW__PSW__NOME',
 						name: 'NOME',
 						size: 'xxlarge',
 						label: computed(() => this.Resources.USER57012),
@@ -537,14 +536,13 @@
 							modelKeys: computed(() => vm.modelKeys)
 						},
 						lookupKeyModelField: {
-							name: 'ValPsw_id',
-							dependencyEvent: 'fieldChange:member_psw.psw_id'
+							name: 'ValCodpsw',
+							dependencyEvent: 'fieldChange:group_psw.codpsw'
 						},
 						dependentFields: () => ({
-							set 'psw.codpsw'(value) { vm.model.ValPsw_id.updateValue(value) },
+							set 'psw.codpsw'(value) { vm.model.ValCodpsw.updateValue(value) },
 							set 'psw.nome'(value) { vm.model.TablePswNome.updateValue(value) },
 						}),
-						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -570,27 +568,27 @@
 				 * The Data API for easy access to model variables.
 				 */
 				dataApi: {
-					Member: {
-						get ValName() { return vm.model.TableMemberName.value },
-						set ValName(value) { vm.model.TableMemberName.updateValue(value) },
+					Group: {
+						get ValName() { return vm.model.TableGroupName.value },
+						set ValName(value) { vm.model.TableGroupName.updateValue(value) },
 					},
-					Member_psw: {
-						get ValMember_id() { return vm.model.ValMember_id.value },
-						set ValMember_id(value) { vm.model.ValMember_id.updateValue(value) },
-						get ValPsw_id() { return vm.model.ValPsw_id.value },
-						set ValPsw_id(value) { vm.model.ValPsw_id.updateValue(value) },
+					Group_psw: {
+						get ValCodpsw() { return vm.model.ValCodpsw.value },
+						set ValCodpsw(value) { vm.model.ValCodpsw.updateValue(value) },
+						get ValGroup_id() { return vm.model.ValGroup_id.value },
+						set ValGroup_id(value) { vm.model.ValGroup_id.updateValue(value) },
 					},
 					Psw: {
 						get ValNome() { return vm.model.TablePswNome.value },
 						set ValNome(value) { vm.model.TablePswNome.updateValue(value) },
 					},
 					keys: {
-						/** The primary key of the MEMBER_PSW table */
-						get member_psw() { return vm.model.ValCodmember_psw },
-						/** The foreign key to the MEMBER table */
-						get member() { return vm.model.ValMember_id },
+						/** The primary key of the GROUP_PSW table */
+						get group_psw() { return vm.model.ValCodgroup_psw },
+						/** The foreign key to the GROUP table */
+						get group() { return vm.model.ValGroup_id },
 						/** The foreign key to the PSW table */
-						get psw() { return vm.model.ValPsw_id },
+						get psw() { return vm.model.ValCodpsw },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},
@@ -630,7 +628,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_CODEJS MEMBER_PSW]/
+// USE /[MANUAL MNT FORM_CODEJS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -638,7 +636,7 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MEMBER_PSW]/
+// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -657,7 +655,7 @@
 				this.emitEvent('before-load-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_LOAD_JS MEMBER_PSW]/
+// USE /[MANUAL MNT BEFORE_LOAD_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -677,7 +675,7 @@
 				this.emitEvent('after-load-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_LOADED_JS MEMBER_PSW]/
+// USE /[MANUAL MNT FORM_LOADED_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 			},
@@ -724,7 +722,7 @@
 				this.emitEvent('before-apply-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_APPLY_JS MEMBER_PSW]/
+// USE /[MANUAL MNT BEFORE_APPLY_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -744,7 +742,7 @@
 				this.emitEvent('after-apply-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT AFTER_APPLY_JS MEMBER_PSW]/
+// USE /[MANUAL MNT AFTER_APPLY_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 			},
@@ -791,7 +789,7 @@
 				this.emitEvent('before-save-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_SAVE_JS MEMBER_PSW]/
+// USE /[MANUAL MNT BEFORE_SAVE_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -811,7 +809,7 @@
 				this.emitEvent('after-save-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT AFTER_SAVE_JS MEMBER_PSW]/
+// USE /[MANUAL MNT AFTER_SAVE_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -826,7 +824,7 @@
 				this.emitEvent('before-delete-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_DEL_JS MEMBER_PSW]/
+// USE /[MANUAL MNT BEFORE_DEL_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -841,7 +839,7 @@
 				this.emitEvent('after-delete-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT AFTER_DEL_JS MEMBER_PSW]/
+// USE /[MANUAL MNT AFTER_DEL_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -861,7 +859,7 @@
 				this.emitEvent('before-exit-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT BEFORE_EXIT_JS MEMBER_PSW]/
+// USE /[MANUAL MNT BEFORE_EXIT_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -881,7 +879,7 @@
 				this.emitEvent('after-exit-form')
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT AFTER_EXIT_JS MEMBER_PSW]/
+// USE /[MANUAL MNT AFTER_EXIT_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 			},
@@ -897,7 +895,7 @@
 			onUpdate(fieldName, fieldObject, fieldValue, oldFieldValue)
 			{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT DLGUPDT MEMBER_PSW]/
+// USE /[MANUAL MNT DLGUPDT GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -913,7 +911,7 @@
 			onBlur(fieldObject, fieldValue)
 			{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT CTRLBLR MEMBER_PSW]/
+// USE /[MANUAL MNT CTRLBLR GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
@@ -930,14 +928,14 @@
 			onControlUpdate(controlField, control, fieldValue)
 			{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT CTRLUPD MEMBER_PSW]/
+// USE /[MANUAL MNT CTRLUPD GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 				this.afterControlUpdate(controlField, fieldValue)
 			},
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FUNCTIONS_JS MEMBER_PSW]/
+// USE /[MANUAL MNT FUNCTIONS_JS GROUP_PSW]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},

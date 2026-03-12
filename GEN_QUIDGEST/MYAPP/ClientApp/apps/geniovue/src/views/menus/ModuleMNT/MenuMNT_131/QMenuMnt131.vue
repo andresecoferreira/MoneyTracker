@@ -121,12 +121,12 @@
 				menuInfo: {
 					id: '131',
 					isMenuList: true,
-					designation: computed(() => this.Resources.MEMBER_PSWS64786),
+					designation: computed(() => this.Resources.GROUPS_PSW33564),
 					acronym: 'MNT_131',
-					name: 'MEMBER_PSW',
+					name: 'GROUP_PSW',
 					route: 'menu-MNT_131',
 					order: '131',
-					controller: 'MEMBER_PSW',
+					controller: 'GROUP_PSW',
 					action: 'MNT_Menu_131',
 					isPopup: false
 				},
@@ -137,7 +137,7 @@
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MNT_Menu_131',
-						controller: 'MEMBER_PSW',
+						controller: 'GROUP_PSW',
 						action: 'MNT_Menu_131',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -148,25 +148,36 @@
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'Member.ValName',
-								area: 'MEMBER',
+								name: 'Group.ValName',
+								area: 'GROUP',
 								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 80,
+								label: computed(() => this.Resources.GROUP38232),
+								dataLength: 50,
 								scrollData: 30,
 								export: 1,
-								pkColumn: 'ValCodmember',
+								pkColumn: 'ValCodgroup',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 2,
+								name: 'Psw.ValNome',
+								area: 'PSW',
+								field: 'NOME',
+								label: computed(() => this.Resources.USER57012),
+								dataLength: 100,
+								scrollData: 30,
+								export: 1,
+								pkColumn: 'ValCodpsw',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'MNT_Menu_131',
 							serverMode: true,
-							pkColumn: 'ValCodmember_psw',
-							tableAlias: 'MEMBER_PSW',
-							tableNamePlural: computed(() => this.Resources.MEMBER_PSWS64786),
+							pkColumn: 'ValCodgroup_psw',
+							tableAlias: 'GROUP_PSW',
+							tableNamePlural: computed(() => this.Resources.GROUPS_PSW33564),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.MEMBER_PSWS64786),
+							tableTitle: computed(() => this.Resources.GROUPS_PSW33564),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -187,7 +198,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER_PSW',
+										formName: 'GROUP_PSW',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -203,7 +214,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER_PSW',
+										formName: 'GROUP_PSW',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -219,7 +230,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER_PSW',
+										formName: 'GROUP_PSW',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -235,7 +246,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER_PSW',
+										formName: 'GROUP_PSW',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -253,7 +264,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER_PSW',
+										formName: 'GROUP_PSW',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -270,23 +281,23 @@
 							],
 							rowClickAction: {
 								id: 'RCA_MNT_1311',
-								name: 'form-MEMBER_PSW',
+								name: 'form-GROUP_PSW',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodmember_psw
+											fnValueSelector: (row) => row.ValCodgroup_psw
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'MEMBER_PSW'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'GROUP_PSW'
 								}
 							},
 							formsDefinition: {
-								'MEMBER_PSW': {
-									fnKeySelector: (row) => row.Fields.ValCodmember_psw,
+								'GROUP_PSW': {
+									fnKeySelector: (row) => row.Fields.ValCodgroup_psw,
 									isPopup: false
 								},
 							},
@@ -297,8 +308,8 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MEMBER', 'changed-PSW', 'changed-MEMBER_PSW'],
-						uuid: '1f71f204-ede3-43b7-9721-4e3711ab7000',
+						globalEvents: ['changed-GROUP', 'changed-GROUP_PSW', 'changed-PSW'],
+						uuid: 'dc429f6f-5e60-4bf0-9c56-67a49fe2e3b2',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)

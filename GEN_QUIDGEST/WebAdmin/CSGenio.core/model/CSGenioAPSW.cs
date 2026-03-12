@@ -285,9 +285,10 @@ namespace CSGenio.business
 		{
 			// Daughters Relations
 			//------------------------------
-			info.ChildTable = new ChildRelation[2];
+			info.ChildTable = new ChildRelation[3];
 			info.ChildTable[0]= new ChildRelation("s_ua", new String[] {"codpsw"}, DeleteProc.NA);
-			info.ChildTable[1]= new ChildRelation("member_psw", new String[] {"psw_id"}, DeleteProc.NA);
+			info.ChildTable[1]= new ChildRelation("group_psw", new String[] {"codpsw"}, DeleteProc.NA);
+			info.ChildTable[2]= new ChildRelation("member_psw", new String[] {"codpsw"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------

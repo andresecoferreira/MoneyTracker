@@ -16,9 +16,9 @@ using System.Data;
 using System.Globalization;
 using System.Text.Json.Serialization;
 
-namespace GenioMVC.ViewModels.Member_psw
+namespace GenioMVC.ViewModels.Group_psw
 {
-	public class Member_psw_ViewModel : FormViewModel<Models.Member_psw>, IPreparableForSerialization
+	public class Group_psw_ViewModel : FormViewModel<Models.Group_psw>, IPreparableForSerialization
 	{
 		[JsonIgnore]
 		public override bool HasWriteConditions { get => false; }
@@ -31,20 +31,20 @@ namespace GenioMVC.ViewModels.Member_psw
 
 		#region Foreign keys
 		/// <summary>
-		/// Title: "Member" | Type: "CE"
+		/// Title: "Group" | Type: "CE"
 		/// </summary>
-		public string ValMember_id { get; set; }
+		public string ValGroup_id { get; set; }
 		/// <summary>
 		/// Title: "User" | Type: "CE"
 		/// </summary>
-		public string ValPsw_id { get; set; }
+		public string ValCodpsw { get; set; }
 
 		#endregion
 		/// <summary>
-		/// Title: "Member" | Type: "C"
+		/// Title: "Group" | Type: "C"
 		/// </summary>
 		[ValidateSetAccess]
-		public TableDBEdit<GenioMVC.Models.Member> TableMemberName { get; set; }
+		public TableDBEdit<GenioMVC.Models.Group> TableGroupName { get; set; }
 		/// <summary>
 		/// Title: "User" | Type: "C"
 		/// </summary>
@@ -71,7 +71,7 @@ namespace GenioMVC.ViewModels.Member_psw
 
 		#endregion
 
-		public string ValCodmember_psw { get; set; }
+		public string ValCodgroup_psw { get; set; }
 
 
 		/// <summary>
@@ -79,16 +79,16 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// A call to Init() needs to be manually invoked after this constructor
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public Member_psw_ViewModel() : base(null!) { }
+		public Group_psw_ViewModel() : base(null!) { }
 
-		public Member_psw_ViewModel(UserContext userContext, bool nestedForm = false) : base(userContext, "FMEMBER_PSW", nestedForm) { }
+		public Group_psw_ViewModel(UserContext userContext, bool nestedForm = false) : base(userContext, "FGROUP_PSW", nestedForm) { }
 
-		public Member_psw_ViewModel(UserContext userContext, Models.Member_psw row, bool nestedForm = false) : base(userContext, "FMEMBER_PSW", row, nestedForm) { }
+		public Group_psw_ViewModel(UserContext userContext, Models.Group_psw row, bool nestedForm = false) : base(userContext, "FGROUP_PSW", row, nestedForm) { }
 
-		public Member_psw_ViewModel(UserContext userContext, string id, bool nestedForm = false, string[]? fieldsToLoad = null) : this(userContext, nestedForm)
+		public Group_psw_ViewModel(UserContext userContext, string id, bool nestedForm = false, string[]? fieldsToLoad = null) : this(userContext, nestedForm)
 		{
-			this.Navigation.SetValue("member_psw", id);
-			Model = Models.Member_psw.Find(id, userContext, "FMEMBER_PSW", fieldsToQuery: fieldsToLoad);
+			this.Navigation.SetValue("group_psw", id);
+			Model = Models.Group_psw.Find(id, userContext, "FGROUP_PSW", fieldsToQuery: fieldsToLoad);
 			if (Model == null)
 				throw new ModelNotFoundException("Model not found");
 			InitModel();
@@ -111,13 +111,13 @@ namespace GenioMVC.ViewModels.Member_psw
 		{
 			var m_userContext = userContext;
 			StatusMessage result = new StatusMessage(Status.OK, "");
-			Models.Member_psw model = new Models.Member_psw(userContext) { Identifier = "FMEMBER_PSW" };
+			Models.Group_psw model = new Models.Group_psw(userContext) { Identifier = "FGROUP_PSW" };
 
 			var navigation = m_userContext.CurrentNavigation;
 			// The "LoadKeysFromHistory" must be after the "LoadEPH" because the PHE's in the tree mark Foreign Keys to null
 			// (since they cannot assign multiple values to a single field) and thus the value that comes from Navigation is lost.
 			// And this makes it more like the order of loading the model when opening the form.
-			model.LoadEPH("FMEMBER_PSW");
+			model.LoadEPH("FGROUP_PSW");
 			if (navigation != null)
 				model.LoadKeysFromHistory(navigation, navigation.CurrentLevel.Level);
 
@@ -171,23 +171,23 @@ namespace GenioMVC.ViewModels.Member_psw
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.Member_psw m)
+		public override void MapFromModel(Models.Group_psw m)
 		{
 			if (m == null)
 			{
-				CSGenio.framework.Log.Error("Map Model (Member_psw) to ViewModel (Member_psw) - Model is a null reference");
+				CSGenio.framework.Log.Error("Map Model (Group_psw) to ViewModel (Group_psw) - Model is a null reference");
 				throw new ModelNotFoundException("Model not found");
 			}
 
 			try
 			{
-				ValMember_id = ViewModelConversion.ToString(m.ValMember_id);
-				ValPsw_id = ViewModelConversion.ToString(m.ValPsw_id);
-				ValCodmember_psw = ViewModelConversion.ToString(m.ValCodmember_psw);
+				ValGroup_id = ViewModelConversion.ToString(m.ValGroup_id);
+				ValCodpsw = ViewModelConversion.ToString(m.ValCodpsw);
+				ValCodgroup_psw = ViewModelConversion.ToString(m.ValCodgroup_psw);
 			}
 			catch (Exception)
 			{
-				CSGenio.framework.Log.Error("Map Model (Member_psw) to ViewModel (Member_psw) - Error during mapping");
+				CSGenio.framework.Log.Error("Map Model (Group_psw) to ViewModel (Group_psw) - Error during mapping");
 				throw;
 			}
 		}
@@ -199,23 +199,23 @@ namespace GenioMVC.ViewModels.Member_psw
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.Member_psw m)
+		public override void MapToModel(Models.Group_psw m)
 		{
 			if (m == null)
 			{
-				CSGenio.framework.Log.Error("Map ViewModel (Member_psw) to Model (Member_psw) - Model is a null reference");
+				CSGenio.framework.Log.Error("Map ViewModel (Group_psw) to Model (Group_psw) - Model is a null reference");
 				throw new ModelNotFoundException("Model not found");
 			}
 
 			try
 			{
-				m.ValMember_id = ViewModelConversion.ToString(ValMember_id);
-				m.ValPsw_id = ViewModelConversion.ToString(ValPsw_id);
-				m.ValCodmember_psw = ViewModelConversion.ToString(ValCodmember_psw);
+				m.ValGroup_id = ViewModelConversion.ToString(ValGroup_id);
+				m.ValCodpsw = ViewModelConversion.ToString(ValCodpsw);
+				m.ValCodgroup_psw = ViewModelConversion.ToString(ValCodgroup_psw);
 			}
 			catch (Exception)
 			{
-				CSGenio.framework.Log.Error($"Map ViewModel (Member_psw) to Model (Member_psw) - Error during mapping. All user values: {HasDisabledUserValuesSecurity}");
+				CSGenio.framework.Log.Error($"Map ViewModel (Group_psw) to Model (Group_psw) - Error during mapping. All user values: {HasDisabledUserValuesSecurity}");
 				throw;
 			}
 		}
@@ -236,23 +236,23 @@ namespace GenioMVC.ViewModels.Member_psw
 
 				switch (fullFieldName)
 				{
-					case "member_psw.member_id":
-						this.ValMember_id = ViewModelConversion.ToString(_value);
+					case "group_psw.group_id":
+						this.ValGroup_id = ViewModelConversion.ToString(_value);
 						break;
-					case "member_psw.psw_id":
-						this.ValPsw_id = ViewModelConversion.ToString(_value);
+					case "group_psw.codpsw":
+						this.ValCodpsw = ViewModelConversion.ToString(_value);
 						break;
-					case "member_psw.codmember_psw":
-						this.ValCodmember_psw = ViewModelConversion.ToString(_value);
+					case "group_psw.codgroup_psw":
+						this.ValCodgroup_psw = ViewModelConversion.ToString(_value);
 						break;
 					default:
-						Log.Error($"SetViewModelValue (Member_psw) - Unexpected field identifier {fullFieldName}");
+						Log.Error($"SetViewModelValue (Group_psw) - Unexpected field identifier {fullFieldName}");
 						break;
 				}
 			}
 			catch (Exception ex)
 			{
-				throw new FrameworkException(Resources.Resources.PEDIMOS_DESCULPA__OC63848, "SetViewModelValue (Member_psw)", "Unexpected error", ex);
+				throw new FrameworkException(Resources.Resources.PEDIMOS_DESCULPA__OC63848, "SetViewModelValue (Group_psw)", "Unexpected error", ex);
 			}
 		}
 
@@ -264,8 +264,8 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// <param name="id">The primary key of the record that needs to be read from the database. Leave NULL to use the value from the History.</param>
 		public override void LoadModel(string id = null)
 		{
-			try { Model = Models.Member_psw.Find(id ?? Navigation.GetStrValue("member_psw"), m_userContext, "FMEMBER_PSW"); }
-			finally { Model ??= new Models.Member_psw(m_userContext) { Identifier = "FMEMBER_PSW" }; }
+			try { Model = Models.Group_psw.Find(id ?? Navigation.GetStrValue("group_psw"), m_userContext, "FGROUP_PSW"); }
+			finally { Model ??= new Models.Group_psw(m_userContext) { Identifier = "FGROUP_PSW" }; }
 
 			base.LoadModel();
 		}
@@ -278,7 +278,7 @@ namespace GenioMVC.ViewModels.Member_psw
 			// TODO: Deve ser substituido por search do CSGenioA
 			try
 			{
-				Model = Models.Member_psw.Find(Navigation.GetStrValue("member_psw"), m_userContext, "FMEMBER_PSW");
+				Model = Models.Group_psw.Find(Navigation.GetStrValue("group_psw"), m_userContext, "FGROUP_PSW");
 			}
 			finally
 			{
@@ -291,7 +291,7 @@ namespace GenioMVC.ViewModels.Member_psw
 					oldvalues = Model.klass;
 			}
 
-			Model.Identifier = "FMEMBER_PSW";
+			Model.Identifier = "FGROUP_PSW";
 			InitModel(qs, lazyLoad);
 
 			if (Navigation.CurrentLevel.FormMode == FormMode.New || Navigation.CurrentLevel.FormMode == FormMode.Edit || Navigation.CurrentLevel.FormMode == FormMode.Duplicate)
@@ -325,7 +325,7 @@ namespace GenioMVC.ViewModels.Member_psw
 		{
 		}
 		
-		protected override void LoadDocumentsProperties(Models.Member_psw row)
+		protected override void LoadDocumentsProperties(Models.Group_psw row)
 		{
 		}
 
@@ -340,11 +340,11 @@ namespace GenioMVC.ViewModels.Member_psw
 			{
 				// Precisamos fazer o Find to obter as chaves dos documentos que já foram anexados
 				// TODO: Conseguir passar estas chaves no POST to poder retirar o Find.
-				Model = Models.Member_psw.Find(Navigation.GetStrValue("member_psw"), m_userContext, "FMEMBER_PSW");
+				Model = Models.Group_psw.Find(Navigation.GetStrValue("group_psw"), m_userContext, "FGROUP_PSW");
 				if (Model == null)
 				{
-					Model = new Models.Member_psw(m_userContext) { Identifier = "FMEMBER_PSW" };
-					Model.klass.QPrimaryKey = Navigation.GetStrValue("member_psw");
+					Model = new Models.Group_psw(m_userContext) { Identifier = "FGROUP_PSW" };
+					Model.klass.QPrimaryKey = Navigation.GetStrValue("group_psw");
 				}
 				MapToModel(Model);
 				LoadDocumentsProperties(Model);
@@ -352,13 +352,13 @@ namespace GenioMVC.ViewModels.Member_psw
 			// Add characteristics
 			Characs = new List<string>();
 
-			Load_Member_psw__member__name(qs, lazyLoad);
-			Load_Member_psw__psw__nome(qs, lazyLoad);
+			Load_Group_psw__group__name(qs, lazyLoad);
+			Load_Group_psw__psw__nome(qs, lazyLoad);
 
-// USE /[MANUAL MNT VIEWMODEL_LOADPARTIAL MEMBER_PSW]/
+// USE /[MANUAL MNT VIEWMODEL_LOADPARTIAL GROUP_PSW]/
 		}
 
-// USE /[MANUAL MNT VIEWMODEL_NEW MEMBER_PSW]/
+// USE /[MANUAL MNT VIEWMODEL_NEW GROUP_PSW]/
 
 		// Preencher Qvalues default dos fields do form
 		protected override void LoadDefaultValues()
@@ -370,10 +370,6 @@ namespace GenioMVC.ViewModels.Member_psw
 			CrudViewModelFieldValidator validator = new(m_userContext.User.Language);
 
 
-			validator.Required("ValMember_id", Resources.Resources.MEMBER00534, ViewModelConversion.ToString(ValMember_id), FieldType.KEY_INT.GetFormatting());
-
-			validator.Required("ValPsw_id", Resources.Resources.USER57012, ViewModelConversion.ToString(ValPsw_id), FieldType.KEY_INT.GetFormatting());
-
 
 			return validator.GetResult();
 		}
@@ -382,7 +378,7 @@ namespace GenioMVC.ViewModels.Member_psw
 		{
 			base.Init(userContext);
 		}
-// USE /[MANUAL MNT VIEWMODEL_SAVE MEMBER_PSW]/
+// USE /[MANUAL MNT VIEWMODEL_SAVE GROUP_PSW]/
 		public override void Save()
 		{
 
@@ -390,14 +386,14 @@ namespace GenioMVC.ViewModels.Member_psw
 			base.Save();
 		}
 
-// USE /[MANUAL MNT VIEWMODEL_APPLY MEMBER_PSW]/
+// USE /[MANUAL MNT VIEWMODEL_APPLY GROUP_PSW]/
 
-// USE /[MANUAL MNT VIEWMODEL_DUPLICATE MEMBER_PSW]/
+// USE /[MANUAL MNT VIEWMODEL_DUPLICATE GROUP_PSW]/
 
-// USE /[MANUAL MNT VIEWMODEL_DESTROY MEMBER_PSW]/
+// USE /[MANUAL MNT VIEWMODEL_DESTROY GROUP_PSW]/
 		public override void Destroy(string id)
 		{
-			Model = Models.Member_psw.Find(id, m_userContext, "FMEMBER_PSW");
+			Model = Models.Group_psw.Find(id, m_userContext, "FGROUP_PSW");
 			if (Model == null)
 				throw new ModelNotFoundException("Model not found");
 			this.flashMessage = Model.Destroy();
@@ -411,54 +407,54 @@ namespace GenioMVC.ViewModels.Member_psw
 		}
 
 		/// <summary>
-		/// TableMemberName -> (DB)
+		/// TableGroupName -> (DB)
 		/// </summary>
 		/// <param name="qs"></param>
 		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
-		public void Load_Member_psw__member__name(NameValueCollection qs, bool lazyLoad = false)
+		public void Load_Group_psw__group__name(NameValueCollection qs, bool lazyLoad = false)
 		{
-			bool member_psw__member__nameDoLoad = true;
-			CriteriaSet member_psw__member__nameConds = CriteriaSet.And();
+			bool group_psw__group__nameDoLoad = true;
+			CriteriaSet group_psw__group__nameConds = CriteriaSet.And();
 			{
-				object hValue = Navigation.GetValue("member", true);
+				object hValue = Navigation.GetValue("group", true);
 				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
 				{
-					member_psw__member__nameConds.Equal(CSGenioAmember.FldCodmember, hValue);
-					this.ValMember_id = DBConversion.ToString(hValue);
+					group_psw__group__nameConds.Equal(CSGenioAgroup.FldCodgroup, hValue);
+					this.ValGroup_id = DBConversion.ToString(hValue);
 				}
 			}
 
-			TableMemberName = new TableDBEdit<Models.Member>
+			TableGroupName = new TableDBEdit<Models.Group>
 			{
 				IsLazyLoad = lazyLoad
 			};
 
 			if (lazyLoad)
 			{
-				if (Navigation.CurrentLevel.GetEntry("RETURN_member") != null)
+				if (Navigation.CurrentLevel.GetEntry("RETURN_group") != null)
 				{
-					this.ValMember_id = Navigation.GetStrValue("RETURN_member");
-					Navigation.CurrentLevel.SetEntry("RETURN_member", null);
+					this.ValGroup_id = Navigation.GetStrValue("RETURN_group");
+					Navigation.CurrentLevel.SetEntry("RETURN_group", null);
 				}
-				FillDependant_Member_pswTableMemberName(lazyLoad);
+				FillDependant_Group_pswTableGroupName(lazyLoad);
 				return;
 			}
 
-			if (member_psw__member__nameDoLoad)
+			if (group_psw__group__nameDoLoad)
 			{
 				List<ColumnSort> sorts = [];
-				ColumnSort requestedSort = GetRequestSort(TableMemberName, "sTableMemberName", "dTableMemberName", qs, "member");
+				ColumnSort requestedSort = GetRequestSort(TableGroupName, "sTableGroupName", "dTableGroupName", qs, "group");
 				if (requestedSort != null)
 					sorts.Add(requestedSort);
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAmember.FldName), SortOrder.Ascending));
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAgroup.FldName), SortOrder.Ascending));
 
 				string query = "";
-				if (!string.IsNullOrEmpty(qs["TableMemberName_tableFilters"]))
-					TableMemberName.TableFilters = bool.Parse(qs["TableMemberName_tableFilters"]);
+				if (!string.IsNullOrEmpty(qs["TableGroupName_tableFilters"]))
+					TableGroupName.TableFilters = bool.Parse(qs["TableGroupName_tableFilters"]);
 				else
-					TableMemberName.TableFilters = false;
+					TableGroupName.TableFilters = false;
 
-				query = qs["qTableMemberName"];
+				query = qs["qTableGroupName"];
 
 				//RS 26.07.2016 O preenchimento da lista de ajuda dos Dbedits passa a basear-se apenas no campo do próprio DbEdit
 				// O interface de pesquisa rápida não fica coerente quando se visualiza apenas uma coluna mas a pesquisa faz matching com 5 ou 6 colunas diferentes
@@ -466,64 +462,58 @@ namespace GenioMVC.ViewModels.Member_psw
 				CriteriaSet search_filters = CriteriaSet.And();
 				if (!string.IsNullOrEmpty(query))
 				{
-					search_filters.Like(CSGenioAmember.FldName, query + "%");
+					search_filters.Like(CSGenioAgroup.FldName, query + "%");
 				}
-				member_psw__member__nameConds.SubSet(search_filters);
+				group_psw__group__nameConds.SubSet(search_filters);
 
-				string tryParsePage = qs["pTableMemberName"] != null ? qs["pTableMemberName"].ToString() : "1";
+				string tryParsePage = qs["pTableGroupName"] != null ? qs["pTableGroupName"].ToString() : "1";
 				int page = !string.IsNullOrEmpty(tryParsePage) ? int.Parse(tryParsePage) : 1;
 				int numberItems = CSGenio.framework.Configuration.NrRegDBedit;
 				int offset = (page - 1) * numberItems;
 
-				FieldRef[] fields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAmember.FldZzstate];
+				FieldRef[] fields = [CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldName, CSGenioAgroup.FldZzstate];
 
-// USE /[MANUAL MNT OVERRQ MEMBER_PSW_MEMBERNAME]/
+// USE /[MANUAL MNT OVERRQ GROUP_PSW_GROUPNAME]/
 
 				// Limitation by Zzstate
 				/*
 					Records that are currently being inserted or duplicated will also be included.
 					Client-side persistence will try to fill the "text" value of that option.
 				*/
-				if (Navigation.checkFormMode("member", FormMode.New) || Navigation.checkFormMode("member", FormMode.Duplicate))
-					member_psw__member__nameConds.SubSet(CriteriaSet.Or()
-						.Equal(CSGenioAmember.FldZzstate, 0)
-						.Equal(CSGenioAmember.FldCodmember, Navigation.GetStrValue("member")));
+				if (Navigation.checkFormMode("group", FormMode.New) || Navigation.checkFormMode("group", FormMode.Duplicate))
+					group_psw__group__nameConds.SubSet(CriteriaSet.Or()
+						.Equal(CSGenioAgroup.FldZzstate, 0)
+						.Equal(CSGenioAgroup.FldCodgroup, Navigation.GetStrValue("group")));
 				else
-					member_psw__member__nameConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAmember.FldZzstate), CriteriaOperator.Equal, 0));
+					group_psw__group__nameConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioAgroup.FldZzstate), CriteriaOperator.Equal, 0));
 
-				FieldRef firstVisibleColumn = new FieldRef("member", "name");
-				ListingMVC<CSGenioAmember> listing = Models.ModelBase.Where<CSGenioAmember>(m_userContext, false, member_psw__member__nameConds, fields, offset, numberItems, sorts, "LED_MEMBER_PSW__MEMBER__NAME", true, false, firstVisibleColumn: firstVisibleColumn);
+				FieldRef firstVisibleColumn = new FieldRef("group", "name");
+				ListingMVC<CSGenioAgroup> listing = Models.ModelBase.Where<CSGenioAgroup>(m_userContext, false, group_psw__group__nameConds, fields, offset, numberItems, sorts, "LED_GROUP_PSW__GROUP__NAME", true, false, firstVisibleColumn: firstVisibleColumn);
 
-				TableMemberName.SetPagination(page, numberItems, listing.HasMore, listing.GetTotal, listing.TotalRecords);
-				TableMemberName.Query = query;
-				TableMemberName.Elements = listing.RowsForViewModel((r) => new GenioMVC.Models.Member(m_userContext, r, true, _fieldsToSerialize_MEMBER_PSW__MEMBER__NAME));
+				TableGroupName.SetPagination(page, numberItems, listing.HasMore, listing.GetTotal, listing.TotalRecords);
+				TableGroupName.Query = query;
+				TableGroupName.Elements = listing.RowsForViewModel((r) => new GenioMVC.Models.Group(m_userContext, r, true, _fieldsToSerialize_GROUP_PSW__GROUP__NAME));
 
 				//created by [ MH ] at [ 14.04.2016 ] - Foi alterada a forma de retornar a key do novo registo inserido / editado no form de apoio do DBEdit.
 				//last update by [ MH ] at [ 10.05.2016 ] - Validação se key encontra-se no level atual, as chaves dos niveis anteriores devem ser ignorados.
-				if (Navigation.CurrentLevel.GetEntry("RETURN_member") != null)
+				if (Navigation.CurrentLevel.GetEntry("RETURN_group") != null)
 				{
-					this.ValMember_id = Navigation.GetStrValue("RETURN_member");
-					Navigation.CurrentLevel.SetEntry("RETURN_member", null);
+					this.ValGroup_id = Navigation.GetStrValue("RETURN_group");
+					Navigation.CurrentLevel.SetEntry("RETURN_group", null);
 				}
 
-				TableMemberName.List = new SelectList(TableMemberName.Elements.ToSelectList(x => x.ValName, x => x.ValCodmember,  x => x.ValCodmember == this.ValMember_id), "Value", "Text", this.ValMember_id);
-				//Seleciona se só um
-				if (TableMemberName.List != null && TableMemberName.List.Count() == 1)
-				{
-					this.ValMember_id = TableMemberName.List.First().Value;
-					Navigation.SetValue("member", this.ValMember_id);
-				}
-				FillDependant_Member_pswTableMemberName();
+				TableGroupName.List = new SelectList(TableGroupName.Elements.ToSelectList(x => x.ValName, x => x.ValCodgroup,  x => x.ValCodgroup == this.ValGroup_id), "Value", "Text", this.ValGroup_id);
+				FillDependant_Group_pswTableGroupName();
 			}
 		}
 
 		/// <summary>
-		/// Get Dependant fields values -> TableMemberName (DB)
+		/// Get Dependant fields values -> TableGroupName (DB)
 		/// </summary>
-		/// <param name="PKey">Primary Key of Member</param>
-		public ConcurrentDictionary<string, object> GetDependant_Member_pswTableMemberName(string PKey)
+		/// <param name="PKey">Primary Key of Group</param>
+		public ConcurrentDictionary<string, object> GetDependant_Group_pswTableGroupName(string PKey)
 		{
-			FieldRef[] refDependantFields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName];
+			FieldRef[] refDependantFields = [CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldName];
 
 			var returnEmptyDependants = false;
 			CriteriaSet wherecodition = CriteriaSet.And();
@@ -541,7 +531,7 @@ namespace GenioMVC.ViewModels.Member_psw
 			PersistentSupport sp = m_userContext.PersistentSupport;
 			User u = m_userContext.User;
 
-			CSGenioAmember tempArea = new(u);
+			CSGenioAgroup tempArea = new(u);
 
 			// Fields to select
 			SelectQuery querySelect = new();
@@ -550,7 +540,7 @@ namespace GenioMVC.ViewModels.Member_psw
 				querySelect.Select(field);
 
 			querySelect.From(tempArea.QSystem, tempArea.TableName, tempArea.Alias)
-				.Where(wherecodition.Equal(CSGenioAmember.FldCodmember, PKey));
+				.Where(wherecodition.Equal(CSGenioAgroup.FldCodgroup, PKey));
 
 			string[] dependantFields = refDependantFields.Select(f => f.FullName).ToArray();
 			QueryUtils.SetInnerJoins(dependantFields, null, tempArea, querySelect);
@@ -564,63 +554,63 @@ namespace GenioMVC.ViewModels.Member_psw
 		}
 
 		/// <summary>
-		/// Fill Dependant fields values -> TableMemberName (DB)
+		/// Fill Dependant fields values -> TableGroupName (DB)
 		/// </summary>
 		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
-		public void FillDependant_Member_pswTableMemberName(bool lazyLoad = false)
+		public void FillDependant_Group_pswTableGroupName(bool lazyLoad = false)
 		{
-			var row = GetDependant_Member_pswTableMemberName(this.ValMember_id);
+			var row = GetDependant_Group_pswTableGroupName(this.ValGroup_id);
 			try
 			{
 
 				// Fill List fields
-				this.ValMember_id = ViewModelConversion.ToString(row["member.codmember"]);
-				TableMemberName.Value = (string)row["member.name"];
-				if (GenFunctions.emptyG(this.ValMember_id) == 1)
+				this.ValGroup_id = ViewModelConversion.ToString(row["group.codgroup"]);
+				TableGroupName.Value = (string)row["group.name"];
+				if (GenFunctions.emptyG(this.ValGroup_id) == 1)
 				{
-					this.ValMember_id = "";
-					TableMemberName.Value = "";
-					Navigation.ClearValue("member");
+					this.ValGroup_id = "";
+					TableGroupName.Value = "";
+					Navigation.ClearValue("group");
 				}
 				else if (lazyLoad)
 				{
-					TableMemberName.SetPagination(1, 0, false, false, 1);
-					TableMemberName.List = new SelectList(new List<SelectListItem>()
+					TableGroupName.SetPagination(1, 0, false, false, 1);
+					TableGroupName.List = new SelectList(new List<SelectListItem>()
 					{
 						new SelectListItem
 						{
-							Value = Convert.ToString(this.ValMember_id),
-							Text = Convert.ToString(TableMemberName.Value),
+							Value = Convert.ToString(this.ValGroup_id),
+							Text = Convert.ToString(TableGroupName.Value),
 							Selected = true
 						}
-					}, "Value", "Text", this.ValMember_id);
+					}, "Value", "Text", this.ValGroup_id);
 				}
 
-				TableMemberName.Selected = this.ValMember_id;
+				TableGroupName.Selected = this.ValGroup_id;
 			}
 			catch (Exception ex)
 			{
-				CSGenio.framework.Log.Error(string.Format("FillDependant_Error (TableMemberName): {0}; {1}", ex.Message, ex.InnerException != null ? ex.InnerException.Message : ""));
+				CSGenio.framework.Log.Error(string.Format("FillDependant_Error (TableGroupName): {0}; {1}", ex.Message, ex.InnerException != null ? ex.InnerException.Message : ""));
 			}
 		}
 
-		private readonly string[] _fieldsToSerialize_MEMBER_PSW__MEMBER__NAME = ["Member", "Member.ValCodmember", "Member.ValZzstate", "Member.ValName"];
+		private readonly string[] _fieldsToSerialize_GROUP_PSW__GROUP__NAME = ["Group", "Group.ValCodgroup", "Group.ValZzstate", "Group.ValName"];
 
 		/// <summary>
 		/// TablePswNome -> (DB)
 		/// </summary>
 		/// <param name="qs"></param>
 		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
-		public void Load_Member_psw__psw__nome(NameValueCollection qs, bool lazyLoad = false)
+		public void Load_Group_psw__psw__nome(NameValueCollection qs, bool lazyLoad = false)
 		{
-			bool member_psw__psw__nomeDoLoad = true;
-			CriteriaSet member_psw__psw__nomeConds = CriteriaSet.And();
+			bool group_psw__psw__nomeDoLoad = true;
+			CriteriaSet group_psw__psw__nomeConds = CriteriaSet.And();
 			{
 				object hValue = Navigation.GetValue("psw", true);
 				if (hValue != null && !(hValue is Array) && !string.IsNullOrEmpty(Convert.ToString(hValue)))
 				{
-					member_psw__psw__nomeConds.Equal(CSGenioApsw.FldCodpsw, hValue);
-					this.ValPsw_id = DBConversion.ToString(hValue);
+					group_psw__psw__nomeConds.Equal(CSGenioApsw.FldCodpsw, hValue);
+					this.ValCodpsw = DBConversion.ToString(hValue);
 				}
 			}
 
@@ -633,20 +623,19 @@ namespace GenioMVC.ViewModels.Member_psw
 			{
 				if (Navigation.CurrentLevel.GetEntry("RETURN_psw") != null)
 				{
-					this.ValPsw_id = Navigation.GetStrValue("RETURN_psw");
+					this.ValCodpsw = Navigation.GetStrValue("RETURN_psw");
 					Navigation.CurrentLevel.SetEntry("RETURN_psw", null);
 				}
-				FillDependant_Member_pswTablePswNome(lazyLoad);
+				FillDependant_Group_pswTablePswNome(lazyLoad);
 				return;
 			}
 
-			if (member_psw__psw__nomeDoLoad)
+			if (group_psw__psw__nomeDoLoad)
 			{
 				List<ColumnSort> sorts = [];
 				ColumnSort requestedSort = GetRequestSort(TablePswNome, "sTablePswNome", "dTablePswNome", qs, "psw");
 				if (requestedSort != null)
 					sorts.Add(requestedSort);
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioApsw.FldNome), SortOrder.Ascending));
 
 				string query = "";
 				if (!string.IsNullOrEmpty(qs["TablePswNome_tableFilters"]))
@@ -664,7 +653,7 @@ namespace GenioMVC.ViewModels.Member_psw
 				{
 					search_filters.Like(CSGenioApsw.FldNome, query + "%");
 				}
-				member_psw__psw__nomeConds.SubSet(search_filters);
+				group_psw__psw__nomeConds.SubSet(search_filters);
 
 				string tryParsePage = qs["pTablePswNome"] != null ? qs["pTablePswNome"].ToString() : "1";
 				int page = !string.IsNullOrEmpty(tryParsePage) ? int.Parse(tryParsePage) : 1;
@@ -673,7 +662,7 @@ namespace GenioMVC.ViewModels.Member_psw
 
 				FieldRef[] fields = [CSGenioApsw.FldCodpsw, CSGenioApsw.FldNome, CSGenioApsw.FldZzstate];
 
-// USE /[MANUAL MNT OVERRQ MEMBER_PSW_PSWNOME]/
+// USE /[MANUAL MNT OVERRQ GROUP_PSW_PSWNOME]/
 
 				// Limitation by Zzstate
 				/*
@@ -681,29 +670,29 @@ namespace GenioMVC.ViewModels.Member_psw
 					Client-side persistence will try to fill the "text" value of that option.
 				*/
 				if (Navigation.checkFormMode("psw", FormMode.New) || Navigation.checkFormMode("psw", FormMode.Duplicate))
-					member_psw__psw__nomeConds.SubSet(CriteriaSet.Or()
+					group_psw__psw__nomeConds.SubSet(CriteriaSet.Or()
 						.Equal(CSGenioApsw.FldZzstate, 0)
 						.Equal(CSGenioApsw.FldCodpsw, Navigation.GetStrValue("psw")));
 				else
-					member_psw__psw__nomeConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioApsw.FldZzstate), CriteriaOperator.Equal, 0));
+					group_psw__psw__nomeConds.Criterias.Add(new Criteria(new ColumnReference(CSGenioApsw.FldZzstate), CriteriaOperator.Equal, 0));
 
 				FieldRef firstVisibleColumn = new FieldRef("psw", "nome");
-				ListingMVC<CSGenioApsw> listing = Models.ModelBase.Where<CSGenioApsw>(m_userContext, false, member_psw__psw__nomeConds, fields, offset, numberItems, sorts, "LED_MEMBER_PSW__PSW__NOME", true, false, firstVisibleColumn: firstVisibleColumn);
+				ListingMVC<CSGenioApsw> listing = Models.ModelBase.Where<CSGenioApsw>(m_userContext, false, group_psw__psw__nomeConds, fields, offset, numberItems, sorts, "LED_GROUP_PSW__PSW__NOME", true, false, firstVisibleColumn: firstVisibleColumn);
 
 				TablePswNome.SetPagination(page, numberItems, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 				TablePswNome.Query = query;
-				TablePswNome.Elements = listing.RowsForViewModel((r) => new GenioMVC.Models.Psw(m_userContext, r, true, _fieldsToSerialize_MEMBER_PSW__PSW__NOME));
+				TablePswNome.Elements = listing.RowsForViewModel((r) => new GenioMVC.Models.Psw(m_userContext, r, true, _fieldsToSerialize_GROUP_PSW__PSW__NOME));
 
 				//created by [ MH ] at [ 14.04.2016 ] - Foi alterada a forma de retornar a key do novo registo inserido / editado no form de apoio do DBEdit.
 				//last update by [ MH ] at [ 10.05.2016 ] - Validação se key encontra-se no level atual, as chaves dos niveis anteriores devem ser ignorados.
 				if (Navigation.CurrentLevel.GetEntry("RETURN_psw") != null)
 				{
-					this.ValPsw_id = Navigation.GetStrValue("RETURN_psw");
+					this.ValCodpsw = Navigation.GetStrValue("RETURN_psw");
 					Navigation.CurrentLevel.SetEntry("RETURN_psw", null);
 				}
 
-				TablePswNome.List = new SelectList(TablePswNome.Elements.ToSelectList(x => x.ValNome, x => x.ValCodpsw,  x => x.ValCodpsw == this.ValPsw_id), "Value", "Text", this.ValPsw_id);
-				FillDependant_Member_pswTablePswNome();
+				TablePswNome.List = new SelectList(TablePswNome.Elements.ToSelectList(x => x.ValNome, x => x.ValCodpsw,  x => x.ValCodpsw == this.ValCodpsw), "Value", "Text", this.ValCodpsw);
+				FillDependant_Group_pswTablePswNome();
 			}
 		}
 
@@ -711,7 +700,7 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// Get Dependant fields values -> TablePswNome (DB)
 		/// </summary>
 		/// <param name="PKey">Primary Key of Psw</param>
-		public ConcurrentDictionary<string, object> GetDependant_Member_pswTablePswNome(string PKey)
+		public ConcurrentDictionary<string, object> GetDependant_Group_pswTablePswNome(string PKey)
 		{
 			FieldRef[] refDependantFields = [CSGenioApsw.FldCodpsw, CSGenioApsw.FldNome];
 
@@ -757,18 +746,18 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// Fill Dependant fields values -> TablePswNome (DB)
 		/// </summary>
 		/// <param name="lazyLoad">Lazy loading of dropdown items</param>
-		public void FillDependant_Member_pswTablePswNome(bool lazyLoad = false)
+		public void FillDependant_Group_pswTablePswNome(bool lazyLoad = false)
 		{
-			var row = GetDependant_Member_pswTablePswNome(this.ValPsw_id);
+			var row = GetDependant_Group_pswTablePswNome(this.ValCodpsw);
 			try
 			{
 
 				// Fill List fields
-				this.ValPsw_id = ViewModelConversion.ToString(row["psw.codpsw"]);
+				this.ValCodpsw = ViewModelConversion.ToString(row["psw.codpsw"]);
 				TablePswNome.Value = (string)row["psw.nome"];
-				if (GenFunctions.emptyG(this.ValPsw_id) == 1)
+				if (GenFunctions.emptyG(this.ValCodpsw) == 1)
 				{
-					this.ValPsw_id = "";
+					this.ValCodpsw = "";
 					TablePswNome.Value = "";
 					Navigation.ClearValue("psw");
 				}
@@ -779,14 +768,14 @@ namespace GenioMVC.ViewModels.Member_psw
 					{
 						new SelectListItem
 						{
-							Value = Convert.ToString(this.ValPsw_id),
+							Value = Convert.ToString(this.ValCodpsw),
 							Text = Convert.ToString(TablePswNome.Value),
 							Selected = true
 						}
-					}, "Value", "Text", this.ValPsw_id);
+					}, "Value", "Text", this.ValCodpsw);
 				}
 
-				TablePswNome.Selected = this.ValPsw_id;
+				TablePswNome.Selected = this.ValCodpsw;
 			}
 			catch (Exception ex)
 			{
@@ -794,17 +783,17 @@ namespace GenioMVC.ViewModels.Member_psw
 			}
 		}
 
-		private readonly string[] _fieldsToSerialize_MEMBER_PSW__PSW__NOME = ["Psw", "Psw.ValCodpsw", "Psw.ValZzstate", "Psw.ValNome"];
+		private readonly string[] _fieldsToSerialize_GROUP_PSW__PSW__NOME = ["Psw", "Psw.ValCodpsw", "Psw.ValZzstate", "Psw.ValNome"];
 
 		protected override object GetViewModelValue(string identifier, object modelValue)
 		{
 			return identifier switch
 			{
-				"member_psw.member_id" => ViewModelConversion.ToString(modelValue),
-				"member_psw.psw_id" => ViewModelConversion.ToString(modelValue),
-				"member_psw.codmember_psw" => ViewModelConversion.ToString(modelValue),
-				"member.codmember" => ViewModelConversion.ToString(modelValue),
-				"member.name" => ViewModelConversion.ToString(modelValue),
+				"group_psw.group_id" => ViewModelConversion.ToString(modelValue),
+				"group_psw.codpsw" => ViewModelConversion.ToString(modelValue),
+				"group_psw.codgroup_psw" => ViewModelConversion.ToString(modelValue),
+				"group.codgroup" => ViewModelConversion.ToString(modelValue),
+				"group.name" => ViewModelConversion.ToString(modelValue),
 				"psw.codpsw" => ViewModelConversion.ToString(modelValue),
 				"psw.nome" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
@@ -818,7 +807,7 @@ namespace GenioMVC.ViewModels.Member_psw
 
 		#region Custom code
 
-// USE /[MANUAL MNT VIEWMODEL_CUSTOM MEMBER_PSW]/
+// USE /[MANUAL MNT VIEWMODEL_CUSTOM GROUP_PSW]/
 
 		#endregion
 	}

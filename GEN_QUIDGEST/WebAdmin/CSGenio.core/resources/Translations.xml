@@ -84,6 +84,9 @@
   <msg id="Groups" code="GROUPS45298">
     <ENUS>Groups</ENUS>
   </msg>
+  <msg id="NOME" code="NOME53888">
+    <ENUS>NOME</ENUS>
+  </msg>
   <msg id="Aviso" code="AVISO03237">
     <ENUS>Aviso</ENUS>
   </msg>
@@ -140,6 +143,9 @@
   </msg>
   <msg id="Photo" code="PHOTO51874">
     <ENUS>Photo</ENUS>
+  </msg>
+  <msg id="Groups_PSW" code="GROUPS_PSW33564">
+    <ENUS>Groups_PSW</ENUS>
   </msg>
   <msg id="Async process attachments" code="ASYNC_PROCESS_ATTACH04785">
     <ENUS>Async process attachments</ENUS>
@@ -216,6 +222,9 @@
   <msg id="Created by" code="CREATED_BY12292">
     <ENUS>Created by</ENUS>
   </msg>
+  <msg id="Group_PSW" code="GROUP_PSW08201">
+    <ENUS>Group_PSW</ENUS>
+  </msg>
   <msg id="Bankinter" code="BANKINTER32282">
     <ENUS>Bankinter</ENUS>
   </msg>
@@ -248,6 +257,9 @@
   </msg>
   <msg id="Created At" code="CREATED_AT09073">
     <ENUS>Created At</ENUS>
+  </msg>
+  <msg id="CodPSW" code="CODPSW13775">
+    <ENUS>CodPSW</ENUS>
   </msg>
   <msg id="Transaction" code="TRANSACTION51851">
     <ENUS>Transaction</ENUS>

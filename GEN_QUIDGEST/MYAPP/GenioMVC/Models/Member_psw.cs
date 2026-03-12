@@ -49,8 +49,8 @@ namespace GenioMVC.Models
 
 		[DisplayName("PSW")]
 		/// <summary>Field : "PSW" Tipo: "CE" Formula:  ""</summary>
-		[ShouldSerialize("Member_psw.ValPsw_id")]
-		public string ValPsw_id { get { return klass.ValPsw_id; } set { klass.ValPsw_id = value; } }
+		[ShouldSerialize("Member_psw.ValCodpsw")]
+		public string ValCodpsw { get { return klass.ValCodpsw; } set { klass.ValCodpsw = value; } }
 
 		private Psw _psw;
 		[DisplayName("Psw")]
@@ -59,8 +59,8 @@ namespace GenioMVC.Models
 		{
 			get
 			{
-				if (!isEmptyModel && (_psw == null || (!string.IsNullOrEmpty(ValPsw_id) && (_psw.isEmptyModel || _psw.klass.QPrimaryKey != ValPsw_id))))
-					_psw = Models.Psw.Find(ValPsw_id, m_userContext, Identifier, _fieldsToSerialize);
+				if (!isEmptyModel && (_psw == null || (!string.IsNullOrEmpty(ValCodpsw) && (_psw.isEmptyModel || _psw.klass.QPrimaryKey != ValCodpsw))))
+					_psw = Models.Psw.Find(ValCodpsw, m_userContext, Identifier, _fieldsToSerialize);
 				_psw ??= new Models.Psw(m_userContext, true, _fieldsToSerialize);
 				return _psw;
 			}

@@ -24,6 +24,8 @@ namespace CSGenio.business
         private static AreaRef m_AreaS_NM = new AreaRef("MNT", "notificationmessage", "s_nm");
         public static AreaRef AreaS_UA { get { return m_AreaS_UA; } }
         private static AreaRef m_AreaS_UA = new AreaRef("MNT", "userauthorization", "s_ua");
+        public static AreaRef AreaGROUP_PSW { get { return m_AreaGROUP_PSW; } }
+        private static AreaRef m_AreaGROUP_PSW = new AreaRef("MNT", "mntgroup_psw", "group_psw");
         public static AreaRef AreaS_APR { get { return m_AreaS_APR; } }
         private static AreaRef m_AreaS_APR = new AreaRef("MNT", "asyncprocess", "s_apr");
         public static AreaRef AreaCATEGORY_TYPE { get { return m_AreaCATEGORY_TYPE; } }
@@ -87,6 +89,7 @@ namespace CSGenio.business
             new List<string>() {
             "s_nm",
             "s_ua",
+            "group_psw",
             "s_apr",
             "category_type",
             "mem",

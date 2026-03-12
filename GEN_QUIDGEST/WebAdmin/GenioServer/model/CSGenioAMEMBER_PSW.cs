@@ -65,7 +65,7 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "psw_id", FieldType.KEY_INT);
+			Qfield = new Field(info.Alias, "codpsw", FieldType.KEY_INT);
 			Qfield.FieldDescription = "PSW";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
@@ -94,7 +94,7 @@ namespace CSGenio.business
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
 			info.ParentTables.Add("member", new Relation("MNT", "mntmember_psw", "member_psw", "codmember_psw", "member_id", "MNT", "mntmember", "member", "codmember", "codmember"));
-			info.ParentTables.Add("psw", new Relation("MNT", "mntmember_psw", "member_psw", "codmember_psw", "psw_id", "MNT", "userlogin", "psw", "codpsw", "codpsw"));
+			info.ParentTables.Add("psw", new Relation("MNT", "mntmember_psw", "member_psw", "codmember_psw", "codpsw", "MNT", "userlogin", "psw", "codpsw", "codpsw"));
 		}
 
 		/// <summary>
@@ -254,14 +254,14 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "PSW" Tipo: "CE" Formula:  ""</summary>
-		public static FieldRef FldPsw_id { get { return m_fldPsw_id; } }
-		private static FieldRef m_fldPsw_id = new FieldRef("member_psw", "psw_id");
+		public static FieldRef FldCodpsw { get { return m_fldCodpsw; } }
+		private static FieldRef m_fldCodpsw = new FieldRef("member_psw", "codpsw");
 
 		/// <summary>Field : "PSW" Tipo: "CE" Formula:  ""</summary>
-		public string ValPsw_id
+		public string ValCodpsw
 		{
-			get { return (string)returnValueField(FldPsw_id); }
-			set { insertNameValueField(FldPsw_id, value); }
+			get { return (string)returnValueField(FldCodpsw); }
+			set { insertNameValueField(FldCodpsw, value); }
 		}
 
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>

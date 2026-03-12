@@ -1,7 +1,7 @@
 ﻿<template>
 	<teleport
 		v-if="isReady"
-		to="#q-modal-see-more-member-psw-psw-nome-body">
+		to="#q-modal-see-more-group-psw-group-name-body">
 		<q-row>
 			<q-table
 				v-bind="listCtrl"
@@ -46,10 +46,10 @@
 
 	import ViewModelBase from '@/mixins/viewModelBase.js'
 
-	const requiredTextResources = ['MEMBER_PSW__PSW__NOME_SeeMore', 'hardcoded', 'messages']
+	const requiredTextResources = ['GROUP_PSW__GROUP__NAME_SeeMore', 'hardcoded', 'messages']
 
 	export default {
-		name: 'MemberPswPswNomeSeeMore',
+		name: 'GroupPswGroupNameSeeMore',
 
 		inheritAttrs: false,
 
@@ -94,18 +94,18 @@
 			return {
 				isReady: false,
 
-				componentOnLoadProc: asyncProcM.getProcListMonitor('MEMBER_PSW__PSW__NOME_SeeMore', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('GROUP_PSW__GROUP__NAME_SeeMore', false),
 
 				interfaceMetadata: {
-					id: 'MEMBER_PSW__PSW__NOME_SeeMore', // Used for resources
+					id: 'GROUP_PSW__GROUP__NAME_SeeMore', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					acronym: 'MEMBER_PSW__PSW__NOME_SeeMore',
-					name: 'MEMBER_PSW__PSW__NOME_SeeMore',
-					controller: 'MEMBER_PSW',
-					action: 'MEMBER_PSW_PswValNome'
+					acronym: 'GROUP_PSW__GROUP__NAME_SeeMore',
+					name: 'GROUP_PSW__GROUP__NAME_SeeMore',
+					controller: 'GROUP_PSW',
+					action: 'GROUP_PSW_GroupValName'
 				},
 
 				listCtrl: new TableListControl(this.getListConfig(), this),
@@ -134,13 +134,13 @@
 			this.$eventHub.onMany(this.listCtrl.globalEvents, this.onTableDBDataChanged)
 
 			const modalProps = {
-				id: 'see-more-member-psw-psw-nome',
+				id: 'see-more-group-psw-group-name',
 				dismissAction: this.close,
-				returnElement: 'MEMBER_PSW__PSW__NOME_see-more_button'
+				returnElement: 'GROUP_PSW__GROUP__NAME_see-more_button'
 			}
 			const props = {
 				class: 'q-dialog-see-more',
-				title: computed(() => this.Resources.PASSWORDS52247),
+				title: computed(() => this.Resources.GROUPS45298),
 				buttons: [
 					{
 						id: 'dialog-button-close',
@@ -163,7 +163,7 @@
 			this.listCtrl.destroy()
 			this.componentOnLoadProc.destroy()
 
-			removeModal('see-more-member-psw-psw-nome')
+			removeModal('see-more-group-psw-group-name')
 		},
 
 		methods: {
@@ -214,28 +214,28 @@
 				const vm = this
 				const listProps = {
 					configuration: {
-						controller: 'MEMBER_PSW',
-						action: 'Member_psw_PswValNome',
+						controller: 'GROUP_PSW',
+						action: 'Group_psw_GroupValName',
 						hasDependencies: false,
 						isInCollapsible: false,
 						columnsOriginal: [
 							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValNome',
-								area: 'PSW',
-								field: 'NOME',
+								name: 'ValName',
+								area: 'GROUP',
+								field: 'NAME',
 								label: computed(() => this.Resources.NAME31974),
-								dataLength: 100,
-								scrollData: 100,
+								dataLength: 50,
+								scrollData: 50,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'Member_psw_PswValNome',
+							name: 'Group_psw_GroupValName',
 							serverMode: true,
-							pkColumn: 'ValCodpsw',
-							tableAlias: 'PSW',
-							tableNamePlural: computed(() => this.Resources.PASSWORDS52247),
+							pkColumn: 'ValCodgroup',
+							tableAlias: 'GROUP',
+							tableNamePlural: computed(() => this.Resources.GROUPS45298),
 							viewManagement: '',
 							showLimitsInfo: true,
 							tableTitle: '',
@@ -261,15 +261,15 @@
 							},
 							formsDefinition: {
 							},
-							defaultSearchColumnName: '',
-							defaultSearchColumnNameOriginal: '',
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: 'ValNome',
+								columnName: 'ValName',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-PSW'],
-						uuid: 'Member_psw_Member_psw_PswValNome',
+						globalEvents: ['changed-GROUP'],
+						uuid: 'Group_psw_Group_psw_GroupValName',
 						allSelectedRows: 'false',
 						handlers: {
 							rowAction: vm.handleRowAction

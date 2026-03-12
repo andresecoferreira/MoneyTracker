@@ -201,6 +201,9 @@
 	<data name="GROUPS45298" xml:space="preserve">
 		<value>Groups</value>
 	</data>
+	<data name="NOME53888" xml:space="preserve">
+		<value>NOME</value>
+	</data>
 	<data name="AVISO03237" xml:space="preserve">
 		<value>Aviso</value>
 	</data>
@@ -257,6 +260,9 @@
 	</data>
 	<data name="PHOTO51874" xml:space="preserve">
 		<value>Photo</value>
+	</data>
+	<data name="GROUPS_PSW33564" xml:space="preserve">
+		<value>Groups_PSW</value>
 	</data>
 	<data name="ASYNC_PROCESS_ATTACH04785" xml:space="preserve">
 		<value>Async process attachments</value>
@@ -333,6 +339,9 @@
 	<data name="CREATED_BY12292" xml:space="preserve">
 		<value>Created by</value>
 	</data>
+	<data name="GROUP_PSW08201" xml:space="preserve">
+		<value>Group_PSW</value>
+	</data>
 	<data name="BANKINTER32282" xml:space="preserve">
 		<value>Bankinter</value>
 	</data>
@@ -365,6 +374,9 @@
 	</data>
 	<data name="CREATED_AT09073" xml:space="preserve">
 		<value>Created At</value>
+	</data>
+	<data name="CODPSW13775" xml:space="preserve">
+		<value>CodPSW</value>
 	</data>
 	<data name="TRANSACTION51851" xml:space="preserve">
 		<value>Transaction</value>

@@ -34,58 +34,58 @@ export default class ViewModel extends FormViewModelBase
 
 		// The view model metadata
 		_merge(this.modelInfo, {
-			name: 'MEMBER_PSW',
-			area: 'MEMBER_PSW',
+			name: 'GROUP_PSW',
+			area: 'GROUP_PSW',
 			actions: {
-				recalculateFormulas: 'RecalculateFormulas_Member_psw',
-				updateFilesTickets: 'UpdateFilesTicketsMember_psw',
-				setFile: 'SetFileMember_psw'
+				recalculateFormulas: 'RecalculateFormulas_Group_psw',
+				updateFilesTickets: 'UpdateFilesTicketsGroup_psw',
+				setFile: 'SetFileGroup_psw'
 			}
 		})
 
 		/** The primary key. */
-		this.ValCodmember_psw = reactive(new modelFieldType.PrimaryKey({
-			id: 'ValCodmember_psw',
-			originId: 'ValCodmember_psw',
-			area: 'MEMBER_PSW',
-			field: 'CODMEMBER_PSW',
+		this.ValCodgroup_psw = reactive(new modelFieldType.PrimaryKey({
+			id: 'ValCodgroup_psw',
+			originId: 'ValCodgroup_psw',
+			area: 'GROUP_PSW',
+			field: 'CODGROUP_PSW',
 			description: '',
-		}).cloneFrom(values?.ValCodmember_psw))
-		this.stopWatchers.push(watch(() => this.ValCodmember_psw.value, (newValue, oldValue) => this.onUpdate('member_psw.codmember_psw', this.ValCodmember_psw, newValue, oldValue)))
+		}).cloneFrom(values?.ValCodgroup_psw))
+		this.stopWatchers.push(watch(() => this.ValCodgroup_psw.value, (newValue, oldValue) => this.onUpdate('group_psw.codgroup_psw', this.ValCodgroup_psw, newValue, oldValue)))
 
 		/** The used foreign keys. */
-		this.ValMember_id = reactive(new modelFieldType.ForeignKey({
-			id: 'ValMember_id',
-			originId: 'ValMember_id',
-			area: 'MEMBER_PSW',
-			field: 'MEMBER_ID',
-			relatedArea: 'MEMBER',
-			description: computed(() => this.Resources.MEMBER00534),
-		}).cloneFrom(values?.ValMember_id))
-		this.stopWatchers.push(watch(() => this.ValMember_id.value, (newValue, oldValue) => this.onUpdate('member_psw.member_id', this.ValMember_id, newValue, oldValue)))
+		this.ValGroup_id = reactive(new modelFieldType.ForeignKey({
+			id: 'ValGroup_id',
+			originId: 'ValGroup_id',
+			area: 'GROUP_PSW',
+			field: 'GROUP_ID',
+			relatedArea: 'GROUP',
+			description: computed(() => this.Resources.GROUP38232),
+		}).cloneFrom(values?.ValGroup_id))
+		this.stopWatchers.push(watch(() => this.ValGroup_id.value, (newValue, oldValue) => this.onUpdate('group_psw.group_id', this.ValGroup_id, newValue, oldValue)))
 
-		this.ValPsw_id = reactive(new modelFieldType.ForeignKey({
-			id: 'ValPsw_id',
-			originId: 'ValPsw_id',
-			area: 'MEMBER_PSW',
-			field: 'PSW_ID',
+		this.ValCodpsw = reactive(new modelFieldType.ForeignKey({
+			id: 'ValCodpsw',
+			originId: 'ValCodpsw',
+			area: 'GROUP_PSW',
+			field: 'CODPSW',
 			relatedArea: 'PSW',
-			description: computed(() => this.Resources.PSW13972),
-		}).cloneFrom(values?.ValPsw_id))
-		this.stopWatchers.push(watch(() => this.ValPsw_id.value, (newValue, oldValue) => this.onUpdate('member_psw.psw_id', this.ValPsw_id, newValue, oldValue)))
+			description: computed(() => this.Resources.CODPSW13775),
+		}).cloneFrom(values?.ValCodpsw))
+		this.stopWatchers.push(watch(() => this.ValCodpsw.value, (newValue, oldValue) => this.onUpdate('group_psw.codpsw', this.ValCodpsw, newValue, oldValue)))
 
 		/** The remaining form fields. */
-		this.TableMemberName = reactive(new modelFieldType.String({
+		this.TableGroupName = reactive(new modelFieldType.String({
 			type: 'Lookup',
-			id: 'TableMemberName',
+			id: 'TableGroupName',
 			originId: 'ValName',
-			area: 'MEMBER',
+			area: 'GROUP',
 			field: 'NAME',
-			maxLength: 80,
+			maxLength: 50,
 			description: computed(() => this.Resources.NAME31974),
 			ignoreFldSubmit: true,
-		}).cloneFrom(values?.TableMemberName))
-		this.stopWatchers.push(watch(() => this.TableMemberName.value, (newValue, oldValue) => this.onUpdate('member.name', this.TableMemberName, newValue, oldValue)))
+		}).cloneFrom(values?.TableGroupName))
+		this.stopWatchers.push(watch(() => this.TableGroupName.value, (newValue, oldValue) => this.onUpdate('group.name', this.TableGroupName, newValue, oldValue)))
 
 		this.TablePswNome = reactive(new modelFieldType.String({
 			type: 'Lookup',
@@ -101,16 +101,16 @@ export default class ViewModel extends FormViewModelBase
 	}
 
 	/**
-	 * Creates a clone of the current QFormMemberPswViewModel instance.
-	 * @returns {QFormMemberPswViewModel} A new instance of QFormMemberPswViewModel
+	 * Creates a clone of the current QFormGroupPswViewModel instance.
+	 * @returns {QFormGroupPswViewModel} A new instance of QFormGroupPswViewModel
 	 */
 	clone()
 	{
 		return new ViewModel(this.vueContext, { callbacks: this.externalCallbacks }, this)
 	}
 
-	static QPrimaryKeyName = 'ValCodmember_psw'
+	static QPrimaryKeyName = 'ValCodgroup_psw'
 
-	get QPrimaryKey() { return this.ValCodmember_psw.value }
-	set QPrimaryKey(value) { this.ValCodmember_psw.updateValue(value) }
+	get QPrimaryKey() { return this.ValCodgroup_psw.value }
+	set QPrimaryKey(value) { this.ValCodgroup_psw.updateValue(value) }
 }

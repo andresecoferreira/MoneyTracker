@@ -15,23 +15,23 @@ using GenioMVC.Models.Navigation;
 using Quidgest.Persistence;
 using Quidgest.Persistence.GenericQuery;
 
-namespace GenioMVC.ViewModels.Member_psw
+namespace GenioMVC.ViewModels.Group_psw
 {
-	public class Member_psw_PswValNome_ViewModel : MenuListViewModel<Models.Psw>
+	public class Group_psw_GroupValName_ViewModel : MenuListViewModel<Models.Group>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("table")]
-		public TablePartial<Member_psw_PswValNome_RowViewModel> Menu { get; set; }
+		public TablePartial<Group_psw_GroupValName_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public override string TableAlias => "psw";
+		public override string TableAlias => "group";
 
 		/// <inheritdoc/>
 		[JsonPropertyName("uuid")]
-		public override string Uuid => "Member_psw_PswValNome";
+		public override string Uuid => "Group_psw_GroupValName";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -43,7 +43,7 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// The primary key field.
 		/// </summary>
 		[JsonIgnore]
-		public string ValCodmember_psw { get; set; }
+		public string ValCodgroup_psw { get; set; }
 
 		/// <summary>
 		/// The context of the parent.
@@ -88,7 +88,7 @@ namespace GenioMVC.ViewModels.Member_psw
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL MNT LIST_LIMITS MEMBER_PSW_PSWNOME]/
+// USE /[MANUAL MNT LIST_LIMITS GROUP_PSW_GROUPNAME]/
 
 			return crs;
 		}
@@ -102,23 +102,23 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public Member_psw_PswValNome_ViewModel() : base(null!) { }
+		public Group_psw_GroupValName_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Member_psw_PswValNome_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="Group_psw_GroupValName_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public Member_psw_PswValNome_ViewModel(UserContext userContext) : base(userContext)
+		public Group_psw_GroupValName_ViewModel(UserContext userContext) : base(userContext)
 		{
-			ValCodmember_psw = userContext.CurrentNavigation.CurrentLevel.GetEntry("member_psw")?.ToString();
+			ValCodgroup_psw = userContext.CurrentNavigation.CurrentLevel.GetEntry("group_psw")?.ToString();
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Member_psw_PswValNome_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="Group_psw_GroupValName_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public Member_psw_PswValNome_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public Group_psw_GroupValName_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -128,17 +128,17 @@ namespace GenioMVC.ViewModels.Member_psw
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioApsw.FldNome, FieldType.TEXT, Resources.Resources.NAME31974, 100, 0, true),
+				new Exports.QColumn(CSGenioAgroup.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 50, 0, true),
 			];
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioApsw> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAgroup> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 			LoadToExport(out listing, out conditions, out columns, tableConfig, requestValues, ajaxRequest);
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioApsw> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAgroup> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			listing = null;
 			conditions = null;
@@ -170,7 +170,7 @@ namespace GenioMVC.ViewModels.Member_psw
 			crs ??= CriteriaSet.And();
 
 
-			Menu ??= new TablePartial<Member_psw_PswValNome_RowViewModel>();
+			Menu ??= new TablePartial<Group_psw_GroupValName_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -194,23 +194,23 @@ namespace GenioMVC.ViewModels.Member_psw
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Psw.AddEPH<CSGenioApsw>(ref u, crs, "IBL_MEMBER_PSW__PSW__NOME");
+				crs = Models.Group.AddEPH<CSGenioAgroup>(ref u, crs, "IBL_GROUP_PSW__GROUP__NAME");
 
 				// Export only records with ZZState == 0
-				crs.Equal(CSGenioApsw.FldZzstate, 0);
+				crs.Equal(CSGenioAgroup.FldZzstate, 0);
 
 				return crs;
 			}
 
 			// Limitation by Zzstate
-			crs.Criterias.Add(new Criteria(new ColumnReference(CSGenioApsw.FldZzstate), CriteriaOperator.Equal, 0));
+			crs.Criterias.Add(new Criteria(new ColumnReference(CSGenioAgroup.FldZzstate), CriteriaOperator.Equal, 0));
 
 
 			if (tableReload)
 			{
-				string QMVC_POS_RECORD = requestValues["Q_POS_RECORD_psw"];
+				string QMVC_POS_RECORD = requestValues["Q_POS_RECORD_group"];
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Psw.AddEPH<CSGenioApsw>(ref u, null, "IBL_MEMBER_PSW__PSW__NOME"));
+					crs.Equals(Models.Group.AddEPH<CSGenioAgroup>(ref u, null, "IBL_GROUP_PSW__GROUP__NAME"));
 			}
 
 			return crs;
@@ -235,7 +235,7 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// <param name="conditions">The conditions.</param>
 		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioApsw> listing = null;
+			ListingMVC<CSGenioAgroup> listing = null;
 
 			Load(numberListItems, requestValues, ajaxRequest, false, ref listing, ref conditions);
 		}
@@ -249,7 +249,7 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioApsw> Qlisting, ref CriteriaSet conditions)
+		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAgroup> Qlisting, ref CriteriaSet conditions)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 
@@ -268,7 +268,7 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// <param name="conditions">The conditions.</param>
 		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioApsw> listing = null;
+			ListingMVC<CSGenioAgroup> listing = null;
 
 			Load(tableConfig, requestValues, ajaxRequest, isToExport, ref listing, ref conditions);
 		}
@@ -282,18 +282,18 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioApsw> Qlisting, ref CriteriaSet conditions)
+		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAgroup> Qlisting, ref CriteriaSet conditions)
 		{
 			User u = m_userContext.User;
-			Menu = new TablePartial<Member_psw_PswValNome_RowViewModel>();
+			Menu = new TablePartial<Group_psw_GroupValName_RowViewModel>();
 
-			CriteriaSet member_psw__psw__nomeConds = CriteriaSet.And();
+			CriteriaSet group_psw__group__nameConds = CriteriaSet.And();
 			bool tableReload = true;
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
-			allSortOrders.Add("PSW.NOME", new OrderedDictionary());
-			allSortOrders["PSW.NOME"].Add("PSW.NOME", "A");
+			allSortOrders.Add("GROUP.NAME", new OrderedDictionary());
+			allSortOrders["GROUP.NAME"].Add("GROUP.NAME", "A");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -303,16 +303,16 @@ namespace GenioMVC.ViewModels.Member_psw
 			if (pageNumber < 1)
 				pageNumber = 1;
 
-			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "psw", allSortOrders);
+			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "group", allSortOrders);
 
 			if (sorts == null || sorts.Count == 0)
 			{
 				sorts = new List<ColumnSort>();
-				sorts.Add(new ColumnSort(new ColumnReference(CSGenioApsw.FldNome), SortOrder.Ascending));
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAgroup.FldName), SortOrder.Ascending));
 
 			}
 
-			FieldRef[] fields = new FieldRef[] { CSGenioApsw.FldCodpsw, CSGenioApsw.FldZzstate, CSGenioApsw.FldNome };
+			FieldRef[] fields = new FieldRef[] { CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldZzstate, CSGenioAgroup.FldName };
 
 
 			// Totalizers
@@ -324,7 +324,7 @@ namespace GenioMVC.ViewModels.Member_psw
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("psw", "nome");
+				firstVisibleColumn ??= new FieldRef("group", "name");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -335,8 +335,8 @@ namespace GenioMVC.ViewModels.Member_psw
 			{
 				Limit limit = new Limit();
 				limit.TipoLimite = LimitType.EPH;
-				CSGenioApsw model_limit_area = new CSGenioApsw(m_userContext.User);
-				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "IBL_MEMBER_PSW__PSW__NOME");
+				CSGenioAgroup model_limit_area = new CSGenioAgroup(m_userContext.User);
+				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "IBL_GROUP_PSW__GROUP__NAME");
 				if (area_EPH_limits.Count > 0)
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
@@ -345,11 +345,11 @@ namespace GenioMVC.ViewModels.Member_psw
 			if (conditions == null)
 				conditions = CriteriaSet.And();
 
-			conditions.SubSets.Add(member_psw__psw__nomeConds);
-			member_psw__psw__nomeConds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+			conditions.SubSets.Add(group_psw__group__nameConds);
+			group_psw__group__nameConds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 			tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL MNT OVERRQ MEMBER_PSW_PSWNOME]/
+// USE /[MANUAL MNT OVERRQ GROUP_PSW_GROUPNAME]/
 
 			bool distinct = false;
 
@@ -361,28 +361,28 @@ namespace GenioMVC.ViewModels.Member_psw
 				var exportColumns = GetExportColumns(tableConfig.ColumnConfigurations);
 				var exportFieldRefs = exportColumns.Select(eCol => eCol.Field).Where(fldRef => fldRef != null).ToArray();
 
-				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioApsw>(m_userContext, false, ref member_psw__psw__nomeConds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_MEMBER_PSW__PSW__NOME", true, firstVisibleColumn: firstVisibleColumn);
+				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAgroup>(m_userContext, false, ref group_psw__group__nameConds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_GROUP_PSW__GROUP__NAME", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL MNT OVERRQLSTEXP MEMBER_PSW_PSWNOME]/
+// USE /[MANUAL MNT OVERRQLSTEXP GROUP_PSW_GROUPNAME]/
 
 				return;
 			}
 
 			if (tableReload)
 			{
-// USE /[MANUAL MNT OVERRQLIST MEMBER_PSW_PSWNOME]/
+// USE /[MANUAL MNT OVERRQLIST GROUP_PSW_GROUPNAME]/
 
-				string QMVC_POS_RECORD = requestValues["Q_POS_RECORD_psw"];
+				string QMVC_POS_RECORD = requestValues["Q_POS_RECORD_group"];
 				CriteriaSet m_PagingPosEPHs = null;
 
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 				{
-					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioApsw.GetInformation(), QMVC_POS_RECORD, sorts, member_psw__psw__nomeConds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAgroup.GetInformation(), QMVC_POS_RECORD, sorts, group_psw__group__nameConds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 					if (m_iCurPag != -1)
 						pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 				}
 
-				ListingMVC<CSGenioApsw> listing = Models.ModelBase.Where<CSGenioApsw>(m_userContext, distinct, member_psw__psw__nomeConds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_MEMBER_PSW__PSW__NOME", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+				ListingMVC<CSGenioAgroup> listing = Models.ModelBase.Where<CSGenioAgroup>(m_userContext, distinct, group_psw__group__nameConds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "IBL_GROUP_PSW__GROUP__NAME", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 				if (listing.CurrentPage > 0)
 					pageNumber = listing.CurrentPage;
@@ -394,14 +394,14 @@ namespace GenioMVC.ViewModels.Member_psw
 				//Set document field values to objects
 				SetDocumentFields(listing);
 
-				Menu.Elements = MapMember_psw_PswValNome(listing);
+				Menu.Elements = MapGroup_psw_GroupValName(listing);
 
-				Menu.Identifier = "IBL_MEMBER_PSW__PSW__NOME";
+				Menu.Identifier = "IBL_GROUP_PSW__GROUP__NAME";
 
 				// Last updated by [CJP] at [2015.02.03]
 				// Adds the identifier to each element
 				foreach (var element in Menu.Elements)
-					element.Identifier = "IBL_MEMBER_PSW__PSW__NOME";
+					element.Identifier = "IBL_GROUP_PSW__GROUP__NAME";
 
 				Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -420,9 +420,9 @@ namespace GenioMVC.ViewModels.Member_psw
 			LoadUserTableConfigNameProperties();
 		}
 
-		private List<Member_psw_PswValNome_RowViewModel> MapMember_psw_PswValNome(ListingMVC<CSGenioApsw> Qlisting)
+		private List<Group_psw_GroupValName_RowViewModel> MapGroup_psw_GroupValName(ListingMVC<CSGenioAgroup> Qlisting)
 		{
-			List<Member_psw_PswValNome_RowViewModel> Elements = [];
+			List<Group_psw_GroupValName_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -431,7 +431,7 @@ namespace GenioMVC.ViewModels.Member_psw
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapMember_psw_PswValNome(row));
+					Elements.Add(MapGroup_psw_GroupValName(row));
 					i++;
 				}
 			}
@@ -440,13 +440,13 @@ namespace GenioMVC.ViewModels.Member_psw
 		}
 
 		/// <summary>
-		/// Maps a single CSGenioApsw row
-		/// to a Member_psw_PswValNome_RowViewModel object.
+		/// Maps a single CSGenioAgroup row
+		/// to a Group_psw_GroupValName_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private Member_psw_PswValNome_RowViewModel MapMember_psw_PswValNome(CSGenioApsw row)
+		private Group_psw_GroupValName_RowViewModel MapGroup_psw_GroupValName(CSGenioAgroup row)
 		{
-			var model = new Member_psw_PswValNome_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new Group_psw_GroupValName_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -454,7 +454,7 @@ namespace GenioMVC.ViewModels.Member_psw
 			{
 				switch (Qfield.Area)
 				{
-					case "psw":
+					case "group":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					default:
 						break;
@@ -481,19 +481,19 @@ namespace GenioMVC.ViewModels.Member_psw
 		/// Sets the document field values to objects.
 		/// </summary>
 		/// <param name="listing">The rows</param>
-		private void SetDocumentFields(ListingMVC<CSGenioApsw> listing)
+		private void SetDocumentFields(ListingMVC<CSGenioAgroup> listing)
 		{
 		}
 
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.Psw m)
+		public override void MapFromModel(Models.Group m)
 		{
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.Psw m)
+		public override void MapToModel(Models.Group m)
 		{
 		}
 
@@ -501,18 +501,18 @@ namespace GenioMVC.ViewModels.Member_psw
 
 		#region Custom code
 
-// USE /[MANUAL MNT VIEWMODEL_CUSTOM MEMBER_PSW_PSWVALNOME]/
+// USE /[MANUAL MNT VIEWMODEL_CUSTOM GROUP_PSW_GROUPVALNAME]/
 
 		#endregion
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Psw", "Psw.ValCodpsw", "Psw.ValZzstate", "Psw.ValNome"
+			"Group", "Group.ValCodgroup", "Group.ValZzstate", "Group.ValName"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValNome", CSGenioApsw.FldNome, typeof(string)),
+			new TableSearchColumn("ValName", CSGenioAgroup.FldName, typeof(string), defaultSearch : true),
 		];
 	}
 }

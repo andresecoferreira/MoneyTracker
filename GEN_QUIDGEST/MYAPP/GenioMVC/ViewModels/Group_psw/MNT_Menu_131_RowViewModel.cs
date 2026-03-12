@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Member_psw;
+namespace GenioMVC.ViewModels.Group_psw;
 
-public class Member_psw_MemberValName_RowViewModel : Models.Member
+public class MNT_Menu_131_RowViewModel : Models.Group_psw
 {
 	#region Constructors
 
-	public Member_psw_MemberValName_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MNT_Menu_131_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public Member_psw_MemberValName_RowViewModel(UserContext userContext, CSGenioAmember val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MNT_Menu_131_RowViewModel(UserContext userContext, CSGenioAgroup_psw val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,8 +36,14 @@ public class Member_psw_MemberValName_RowViewModel : Models.Member
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "MEMBER",
+				Area = "GROUP",
 				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 2,
+				Area = "PSW",
+				Field = "NOME",
 			},
 		];
 	}
@@ -52,6 +58,10 @@ public class Member_psw_MemberValName_RowViewModel : Models.Member
 		bool canDelete = true;
 		bool canDuplicate = true;
 		bool canInsert = true;
+
+		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
+		{
+		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()
 		{

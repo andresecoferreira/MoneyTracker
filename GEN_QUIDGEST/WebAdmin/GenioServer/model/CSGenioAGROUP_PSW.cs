@@ -14,23 +14,23 @@ using System.Linq;
 namespace CSGenio.business
 {
 	/// <summary>
-	/// Member_PSW
+	/// Group_PSW
 	/// </summary>
-	public class CSGenioAmember_psw : DbArea
+	public class CSGenioAgroup_psw : DbArea
 	{
 		/// <summary>
 		/// Meta-information on this area
 		/// </summary>
 		protected readonly static AreaInfo informacao = InicializaAreaInfo();
 
-		public CSGenioAmember_psw(User user, string module)
+		public CSGenioAgroup_psw(User user, string module)
 		{
             this.user = user;
             this.module = module;
-			// USE /[MANUAL MNT CONSTRUTOR MEMBER_PSW]/
+			// USE /[MANUAL MNT CONSTRUTOR GROUP_PSW]/
 		}
 
-		public CSGenioAmember_psw(User user) : this(user, user.CurrentModule)
+		public CSGenioAgroup_psw(User user) : this(user, user.CurrentModule)
 		{
 		}
 
@@ -44,7 +44,7 @@ namespace CSGenio.business
 			List<ByAreaArguments> argumentsListByArea;
 #pragma warning restore CS0168, S1481 // Variable is declared but never used
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "codmember_psw", FieldType.KEY_INT);
+			Qfield = new Field(info.Alias, "codgroup_psw", FieldType.KEY_INT);
 			Qfield.FieldDescription = "";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
@@ -54,24 +54,22 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "member_id", FieldType.KEY_INT);
-			Qfield.FieldDescription = "Member";
+			Qfield = new Field(info.Alias, "group_id", FieldType.KEY_INT);
+			Qfield.FieldDescription = "Group";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "MEMBER00534";
+			Qfield.CavDesignation = "GROUP38232";
 
-            Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "codpsw", FieldType.KEY_INT);
-			Qfield.FieldDescription = "PSW";
+			Qfield.FieldDescription = "CodPSW";
 			Qfield.FieldSize =  8;
 			Qfield.MQueue = false;
-			Qfield.CavDesignation = "PSW13972";
+			Qfield.CavDesignation = "CODPSW13775";
 
-            Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
@@ -93,8 +91,8 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
-			info.ParentTables.Add("member", new Relation("MNT", "mntmember_psw", "member_psw", "codmember_psw", "member_id", "MNT", "mntmember", "member", "codmember", "codmember"));
-			info.ParentTables.Add("psw", new Relation("MNT", "mntmember_psw", "member_psw", "codmember_psw", "codpsw", "MNT", "userlogin", "psw", "codpsw", "codpsw"));
+			info.ParentTables.Add("group", new Relation("MNT", "mntgroup_psw", "group_psw", "codgroup_psw", "group_id", "MNT", "mntgroup", "group", "codgroup", "codgroup"));
+			info.ParentTables.Add("psw", new Relation("MNT", "mntgroup_psw", "group_psw", "codgroup_psw", "codpsw", "MNT", "userlogin", "psw", "codpsw", "codpsw"));
 		}
 
 		/// <summary>
@@ -104,10 +102,9 @@ namespace CSGenio.business
 		{
 			// Pathways
 			//------------------------------
-			info.Pathways = new Dictionary<string, string>(3);
+			info.Pathways = new Dictionary<string, string>(2);
+			info.Pathways.Add("group","group");
 			info.Pathways.Add("psw","psw");
-			info.Pathways.Add("member","member");
-			info.Pathways.Add("group","member");
 		}
 
 		/// <summary>
@@ -133,7 +130,7 @@ namespace CSGenio.business
 		}
 
 		/// <summary>
-		/// static CSGenioAmember_psw()
+		/// static CSGenioAgroup_psw()
 		/// </summary>
 		private static AreaInfo InicializaAreaInfo()
 		{
@@ -141,18 +138,18 @@ namespace CSGenio.business
 
 			// Area meta-information
 			info.QSystem="MNT";
-			info.TableName="mntmember_psw";
+			info.TableName="mntgroup_psw";
 			info.ShadowTabName="";
 			info.ShadowTabKeyName="";
 
-			info.PrimaryKeyName="codmember_psw";
+			info.PrimaryKeyName="codgroup_psw";
 			info.HumanKeyName="";
-			info.Alias="member_psw";
+			info.Alias="group_psw";
 			info.IsDomain = true;
 			info.PersistenceType = PersistenceType.Database;
-			info.AreaDesignation="Member_PSW";
-			info.AreaPluralDesignation="Member_PSWs";
-			info.DescriptionCav="MEMBER_PSW31555";
+			info.AreaDesignation="Group_PSW";
+			info.AreaPluralDesignation="Groups_PSW";
+			info.DescriptionCav="GROUP_PSW08201";
 
 			//sincronização
 			info.SyncIncrementalDateStart = TimeSpan.FromHours(8);
@@ -200,10 +197,6 @@ namespace CSGenio.business
 			// Ephs
 			//------------------------------
 			info.Ephs=new Hashtable();
-			EPHField[] camposEPH;
-						camposEPH = new EPHField[1];
-			camposEPH[0] = new EPHField("MEMBERPSW", "member", "codmember", "=", false);
-			info.Ephs.Add(new Par("MNT", "50"), camposEPH);
 
 			// Table minimum roles and access levels
 			//------------------------------
@@ -232,32 +225,32 @@ namespace CSGenio.business
 		}
 
 		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
-		public static FieldRef FldCodmember_psw { get { return m_fldCodmember_psw; } }
-		private static FieldRef m_fldCodmember_psw = new FieldRef("member_psw", "codmember_psw");
+		public static FieldRef FldCodgroup_psw { get { return m_fldCodgroup_psw; } }
+		private static FieldRef m_fldCodgroup_psw = new FieldRef("group_psw", "codgroup_psw");
 
 		/// <summary>Field : "" Tipo: "+" Formula:  ""</summary>
-		public string ValCodmember_psw
+		public string ValCodgroup_psw
 		{
-			get { return (string)returnValueField(FldCodmember_psw); }
-			set { insertNameValueField(FldCodmember_psw, value); }
+			get { return (string)returnValueField(FldCodgroup_psw); }
+			set { insertNameValueField(FldCodgroup_psw, value); }
 		}
 
-		/// <summary>Field : "Member" Tipo: "CE" Formula:  ""</summary>
-		public static FieldRef FldMember_id { get { return m_fldMember_id; } }
-		private static FieldRef m_fldMember_id = new FieldRef("member_psw", "member_id");
+		/// <summary>Field : "Group" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldGroup_id { get { return m_fldGroup_id; } }
+		private static FieldRef m_fldGroup_id = new FieldRef("group_psw", "group_id");
 
-		/// <summary>Field : "Member" Tipo: "CE" Formula:  ""</summary>
-		public string ValMember_id
+		/// <summary>Field : "Group" Tipo: "CE" Formula:  ""</summary>
+		public string ValGroup_id
 		{
-			get { return (string)returnValueField(FldMember_id); }
-			set { insertNameValueField(FldMember_id, value); }
+			get { return (string)returnValueField(FldGroup_id); }
+			set { insertNameValueField(FldGroup_id, value); }
 		}
 
-		/// <summary>Field : "PSW" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "CodPSW" Tipo: "CE" Formula:  ""</summary>
 		public static FieldRef FldCodpsw { get { return m_fldCodpsw; } }
-		private static FieldRef m_fldCodpsw = new FieldRef("member_psw", "codpsw");
+		private static FieldRef m_fldCodpsw = new FieldRef("group_psw", "codpsw");
 
-		/// <summary>Field : "PSW" Tipo: "CE" Formula:  ""</summary>
+		/// <summary>Field : "CodPSW" Tipo: "CE" Formula:  ""</summary>
 		public string ValCodpsw
 		{
 			get { return (string)returnValueField(FldCodpsw); }
@@ -266,7 +259,7 @@ namespace CSGenio.business
 
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
-		private static FieldRef m_fldZzstate = new FieldRef("member_psw", "zzstate");
+		private static FieldRef m_fldZzstate = new FieldRef("group_psw", "zzstate");
 
 
 
@@ -287,12 +280,12 @@ namespace CSGenio.business
 		/// <param name="forUpdate">True if you are preparing to update this record, false otherwise</param>
         /// <returns>An area with the fields requests of the record read or null if the key does not exist</returns>
         /// <remarks>Persistence operations should not be used on a partially positioned register</remarks>
-        public static CSGenioAmember_psw search(PersistentSupport sp, string key, User user, string[] fields = null, bool forUpdate = false)
+        public static CSGenioAgroup_psw search(PersistentSupport sp, string key, User user, string[] fields = null, bool forUpdate = false)
         {
 			if (string.IsNullOrEmpty(key))
 				return null;
 
-		    CSGenioAmember_psw area = new CSGenioAmember_psw(user, user.CurrentModule);
+		    CSGenioAgroup_psw area = new CSGenioAgroup_psw(user, user.CurrentModule);
 
             if (sp.getRecord(area, key, fields, forUpdate))
                 return area;
@@ -319,9 +312,9 @@ namespace CSGenio.business
         /// <param name="noLock">NOLOCK</param>
         /// <returns>A list of area records with all fields populated</returns>
         /// <remarks>Persistence operations should not be used on a partially positioned register</remarks>
-        public static List<CSGenioAmember_psw> searchList(PersistentSupport sp, User user, CriteriaSet where, string[] fields = null, bool distinct = false, bool noLock = false)
+        public static List<CSGenioAgroup_psw> searchList(PersistentSupport sp, User user, CriteriaSet where, string[] fields = null, bool distinct = false, bool noLock = false)
         {
-				return sp.searchListWhere<CSGenioAmember_psw>(where, user, fields, distinct, noLock);
+				return sp.searchListWhere<CSGenioAgroup_psw>(where, user, fields, distinct, noLock);
         }
 
 
@@ -335,9 +328,9 @@ namespace CSGenio.business
         /// <param name="listing">List configuration</param>
         /// <returns>A list of area records with all fields populated</returns>
         /// <remarks>Persistence operations should not be used on a partially positioned register</remarks>
-        public static void searchListAdvancedWhere(PersistentSupport sp, User user, CriteriaSet where, ListingMVC<CSGenioAmember_psw> listing)
+        public static void searchListAdvancedWhere(PersistentSupport sp, User user, CriteriaSet where, ListingMVC<CSGenioAgroup_psw> listing)
         {
-			sp.searchListAdvancedWhere<CSGenioAmember_psw>(where, listing);
+			sp.searchListAdvancedWhere<CSGenioAgroup_psw>(where, listing);
         }
 
 
@@ -358,7 +351,7 @@ namespace CSGenio.business
 
 
 
-		// USE /[MANUAL MNT TABAUX MEMBER_PSW]/
+		// USE /[MANUAL MNT TABAUX GROUP_PSW]/
 
  
     

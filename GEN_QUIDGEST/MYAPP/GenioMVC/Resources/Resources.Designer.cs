@@ -315,6 +315,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "NOME"
+		/// </summary>
+		public static string NOME53888 {
+			get {
+				return ResourceManager.GetString("NOME53888", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Aviso"
 		/// </summary>
 		public static string AVISO03237 {
@@ -482,6 +491,15 @@ namespace GenioMVC.Resources
 		public static string PHOTO51874 {
 			get {
 				return ResourceManager.GetString("PHOTO51874", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Groups_PSW"
+		/// </summary>
+		public static string GROUPS_PSW33564 {
+			get {
+				return ResourceManager.GetString("GROUPS_PSW33564", resourceCulture);
 			}
 		}
 
@@ -711,6 +729,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Group_PSW"
+		/// </summary>
+		public static string GROUP_PSW08201 {
+			get {
+				return ResourceManager.GetString("GROUP_PSW08201", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Bankinter"
 		/// </summary>
 		public static string BANKINTER32282 {
@@ -806,6 +833,15 @@ namespace GenioMVC.Resources
 		public static string CREATED_AT09073 {
 			get {
 				return ResourceManager.GetString("CREATED_AT09073", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "CodPSW"
+		/// </summary>
+		public static string CODPSW13775 {
+			get {
+				return ResourceManager.GetString("CODPSW13775", resourceCulture);
 			}
 		}
 

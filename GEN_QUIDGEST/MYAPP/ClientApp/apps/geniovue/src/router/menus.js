@@ -5,6 +5,20 @@ export default function getMenusRoutes()
 {
 	return [
 		{
+			path: '/:culture/:system/MNT/menu/MNT_131',
+			name: 'menu-MNT_131',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_131/QMenuMnt131.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MNT',
+				order: '131',
+				baseArea: 'GROUP_PSW',
+				hasInitialPHE: false,
+				humanKeyFields: [],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/MNT/menu/MNT_121',
 			name: 'menu-MNT_121',
 			component: () => import('@/views/menus/ModuleMNT/MenuMNT_121/QMenuMnt121.vue'),
@@ -119,20 +133,6 @@ export default function getMenusRoutes()
 				baseArea: 'INCOME',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValIncome_id'],
-				isPopup: false
-			}
-		},
-		{
-			path: '/:culture/:system/MNT/menu/MNT_131',
-			name: 'menu-MNT_131',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_131/QMenuMnt131.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'MNT',
-				order: '131',
-				baseArea: 'MEMBER_PSW',
-				hasInitialPHE: false,
-				humanKeyFields: [],
 				isPopup: false
 			}
 		},

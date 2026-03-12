@@ -52,6 +52,18 @@ export default function getFormsRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/:module/form/GROUP_PSW/:mode/:id?',
+			name: 'form-GROUP_PSW',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormGroupPsw/QFormGroupPsw.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: 'GROUP_PSW',
+				humanKeyFields: [],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/:module/form/INCOME/:mode/:id?',
 			name: 'form-INCOME',
 			props: route => propsConverter(route),
@@ -85,18 +97,6 @@ export default function getFormsRoutes()
 				baseArea: 'MEMBER',
 				humanKeyFields: ['ValName'],
 				isPopup: true
-			}
-		},
-		{
-			path: '/:culture/:system/:module/form/MEMBER_PSW/:mode/:id?',
-			name: 'form-MEMBER_PSW',
-			props: route => propsConverter(route),
-			component: () => import('@/views/forms/FormMemberPsw/QFormMemberPsw.vue'),
-			meta: {
-				routeType: 'form',
-				baseArea: 'MEMBER_PSW',
-				humanKeyFields: [],
-				isPopup: false
 			}
 		},
 		{
