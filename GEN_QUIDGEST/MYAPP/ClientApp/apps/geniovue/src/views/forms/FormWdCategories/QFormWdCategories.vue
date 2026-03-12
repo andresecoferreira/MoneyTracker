@@ -498,7 +498,7 @@
 										isMapped: false
 									},
 									showPieLabel: {
-										rawValue: 'inside',
+										rawValue: 'outside',
 										isMapped: false
 									},
 									lineMarker: {
