@@ -83,12 +83,12 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "balance", FieldType.NUMERIC);
+			Qfield = new Field(info.Alias, "balance", FieldType.CURRENCY);
 			Qfield.FieldDescription = "Balance";
 			Qfield.FieldSize =  15;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 12;
-			Qfield.Decimals = 2;
+			Qfield.IntegerDigits = 10;
+			Qfield.Decimals = 4;
 			Qfield.CavDesignation = "BALANCE13297";
 
             Qfield.NotNull = true;
@@ -390,11 +390,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldTitle, value); }
 		}
 
-		/// <summary>Field : "Balance" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "Balance" Tipo: "$" Formula:  ""</summary>
 		public static FieldRef FldBalance { get { return m_fldBalance; } }
 		private static FieldRef m_fldBalance = new FieldRef("source", "balance");
 
-		/// <summary>Field : "Balance" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "Balance" Tipo: "$" Formula:  ""</summary>
 		public decimal ValBalance
 		{
 			get { return (decimal)returnValueField(FldBalance); }

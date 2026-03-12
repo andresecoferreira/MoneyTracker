@@ -41,10 +41,10 @@ namespace GenioMVC.Models
 		public string ValTitle { get { return klass.ValTitle; } set { klass.ValTitle = value; } }
 
 		[DisplayName("Balance")]
-		/// <summary>Field : "Balance" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "Balance" Tipo: "$" Formula:  ""</summary>
 		[ShouldSerialize("Source.ValBalance")]
-		[NumericAttribute(2)]
-		public decimal? ValBalance { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValBalance, 2)); } set { klass.ValBalance = Convert.ToDecimal(value); } }
+		[CurrencyAttribute("EUR", 4)]
+		public decimal? ValBalance { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValBalance, 4)); } set { klass.ValBalance = Convert.ToDecimal(value); } }
 
 		[DisplayName("Bank")]
 		/// <summary>Field : "Bank" Tipo: "AC" Formula:  ""</summary>

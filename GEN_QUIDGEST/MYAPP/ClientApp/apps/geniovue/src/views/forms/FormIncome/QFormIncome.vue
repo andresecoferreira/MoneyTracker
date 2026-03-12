@@ -887,7 +887,7 @@
 						controlLimits: [
 						],
 					}, this),
-					INCOME__INCOME__VALUE: new fieldControlClass.NumberControl({
+					INCOME__INCOME__VALUE: new fieldControlClass.CurrencyControl({
 						modelField: 'ValValue',
 						valueChangeEvent: 'fieldChange:income.value',
 						id: 'INCOME__INCOME__VALUE',
@@ -897,8 +897,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'INCOME__PSEUDNEWGRP01',
-						maxIntegers: 9,
-						maxDecimals: 2,
+						maxIntegers: 7,
+						maxDecimals: 4,
 						mustBeFilled: true,
 						controlLimits: [
 						],

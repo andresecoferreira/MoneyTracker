@@ -190,15 +190,15 @@
 								export: 1,
 								pkColumn: 'ValCodmember',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.NumericColumn({
+							new listColumnTypes.CurrencyColumn({
 								order: 5,
 								name: 'ValValue',
 								area: 'INVESTMENT',
 								field: 'VALUE',
 								label: computed(() => this.Resources.VALUE10285),
 								scrollData: 12,
-								maxDigits: 9,
-								decimalPlaces: 2,
+								maxDigits: 7,
+								decimalPlaces: 4,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],

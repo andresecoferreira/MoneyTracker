@@ -900,7 +900,7 @@
 						controlLimits: [
 						],
 					}, this),
-					EXPENSE__EXPENSE__VALUE: new fieldControlClass.NumberControl({
+					EXPENSE__EXPENSE__VALUE: new fieldControlClass.CurrencyControl({
 						modelField: 'ValValue',
 						valueChangeEvent: 'fieldChange:expense.value',
 						id: 'EXPENSE__EXPENSE__VALUE',
@@ -910,8 +910,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'EXPENSE_PSEUDNEWGRP02',
-						maxIntegers: 9,
-						maxDecimals: 2,
+						maxIntegers: 7,
+						maxDecimals: 4,
 						mustBeFilled: true,
 						controlLimits: [
 						],

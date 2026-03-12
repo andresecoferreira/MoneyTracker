@@ -887,7 +887,7 @@
 						controlLimits: [
 						],
 					}, this),
-					INVESTMENT__INVESTMENT__VALUE: new fieldControlClass.NumberControl({
+					INVESTMENT__INVESTMENT__VALUE: new fieldControlClass.CurrencyControl({
 						modelField: 'ValValue',
 						valueChangeEvent: 'fieldChange:investment.value',
 						id: 'INVESTMENT__INVESTMENT__VALUE',
@@ -897,8 +897,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'INVESTMENT__PSEUD__NEWGRP01',
-						maxIntegers: 9,
-						maxDecimals: 2,
+						maxIntegers: 7,
+						maxDecimals: 4,
 						mustBeFilled: true,
 						controlLimits: [
 						],

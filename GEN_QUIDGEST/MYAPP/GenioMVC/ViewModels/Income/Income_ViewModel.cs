@@ -94,7 +94,7 @@ namespace GenioMVC.ViewModels.Income
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Source> TableSourceTitle { get; set; }
 		/// <summary>
-		/// Title: "Value" | Type: "N"
+		/// Title: "Value" | Type: "$"
 		/// </summary>
 		public decimal? ValValue { get; set; }
 		/// <summary>
@@ -510,7 +510,7 @@ namespace GenioMVC.ViewModels.Income
 			validator.Required("ValMember_id", Resources.Resources.MEMBER00534, ViewModelConversion.ToString(ValMember_id), FieldType.KEY_INT.GetFormatting());
 			validator.StringLength("GroupValName", Resources.Resources.GROUP38232, GroupValName, 50);
 
-			validator.Required("ValValue", Resources.Resources.VALUE10285, ViewModelConversion.ToNumeric(ValValue), FieldType.NUMERIC.GetFormatting());
+			validator.Required("ValValue", Resources.Resources.VALUE10285, ViewModelConversion.ToNumeric(ValValue), FieldType.CURRENCY.GetFormatting());
 
 			validator.Required("ValDate", Resources.Resources.DATE18475, ViewModelConversion.ToDateTime(ValDate), FieldType.DATE.GetFormatting());
 			validator.StringLength("ValDescription", Resources.Resources.DESCRIPTION07383, ValDescription, 100);
