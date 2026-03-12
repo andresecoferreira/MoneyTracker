@@ -72,11 +72,6 @@ namespace GenioMVC.ViewModels.Expense
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Member> TableMemberName { get; set; }
 		/// <summary>
-		/// Title: "Account" | Type: "C"
-		/// </summary>
-		[ValidateSetAccess]
-		public TableDBEdit<GenioMVC.Models.Source> TableSourceTitle { get; set; }
-		/// <summary>
 		/// Title: "Group" | Type: "C"
 		/// </summary>
 		[ValidateSetAccess]
@@ -94,6 +89,11 @@ namespace GenioMVC.ViewModels.Expense
 
 		private string _auxGroupValName { get; set; }
 		/// <summary>
+		/// Title: "Account" | Type: "C"
+		/// </summary>
+		[ValidateSetAccess]
+		public TableDBEdit<GenioMVC.Models.Source> TableSourceTitle { get; set; }
+		/// <summary>
 		/// Title: "Value" | Type: "N"
 		/// </summary>
 		public decimal? ValValue { get; set; }
@@ -101,6 +101,10 @@ namespace GenioMVC.ViewModels.Expense
 		/// Title: "Date" | Type: "D"
 		/// </summary>
 		public DateTime? ValDate { get; set; }
+		/// <summary>
+		/// Title: "Description" | Type: "C"
+		/// </summary>
+		public string ValDescription { get; set; }
 		/// <summary>
 		/// Title: "Invoice" | Type: "IB"
 		/// </summary>
@@ -114,10 +118,6 @@ namespace GenioMVC.ViewModels.Expense
 		/// Title: "" | Type: "PSEUD"
 		/// </summary>
 		public DocumsProperties_ViewModel ValInvoicePropertiesVM { get; set; }
-		/// <summary>
-		/// Title: "Description" | Type: "C"
-		/// </summary>
-		public string ValDescription { get; set; }
 		/// <summary>
 		/// Title: "Created By" | Type: "ON"
 		/// </summary>
@@ -278,9 +278,9 @@ namespace GenioMVC.ViewModels.Expense
 				funcGroupValName = () => ViewModelConversion.ToString(m.Group.ValName);
 				ValValue = ViewModelConversion.ToNumeric(m.ValValue);
 				ValDate = ViewModelConversion.ToDateTime(m.ValDate);
+				ValDescription = ViewModelConversion.ToString(m.ValDescription);
 				ValInvoice = ViewModelConversion.ToString(m.ValInvoice);
 				ValInvoicefk = ViewModelConversion.ToString(m.ValInvoicefk);
-				ValDescription = ViewModelConversion.ToString(m.ValDescription);
 				ValCreated_by = ViewModelConversion.ToString(m.ValCreated_by);
 				ValCreated_at = ViewModelConversion.ToDateTime(m.ValCreated_at);
 				ValUpdated_by = ViewModelConversion.ToString(m.ValUpdated_by);
@@ -323,9 +323,9 @@ namespace GenioMVC.ViewModels.Expense
 				}
 				m.ValValue = ViewModelConversion.ToNumeric(ValValue);
 				m.ValDate = ViewModelConversion.ToDateTime(ValDate);
+				m.ValDescription = ViewModelConversion.ToString(ValDescription);
 				m.ValInvoice = ViewModelConversion.ToString(ValInvoice);
 				m.ValInvoicefk = ViewModelConversion.ToString(ValInvoicefk);
-				m.ValDescription = ViewModelConversion.ToString(ValDescription);
 				m.ValCodexpense = ViewModelConversion.ToString(ValCodexpense);
 
 				/*
@@ -387,11 +387,11 @@ namespace GenioMVC.ViewModels.Expense
 					case "expense.date":
 						this.ValDate = ViewModelConversion.ToDateTime(_value);
 						break;
-					case "expense.invoice":
-						this.ValInvoice = ViewModelConversion.ToString(_value);
-						break;
 					case "expense.description":
 						this.ValDescription = ViewModelConversion.ToString(_value);
+						break;
+					case "expense.invoice":
+						this.ValInvoice = ViewModelConversion.ToString(_value);
 						break;
 					case "expense.codexpense":
 						this.ValCodexpense = ViewModelConversion.ToString(_value);
@@ -1394,8 +1394,8 @@ namespace GenioMVC.ViewModels.Expense
 				"group.name" => ViewModelConversion.ToString(modelValue),
 				"expense.value" => ViewModelConversion.ToNumeric(modelValue),
 				"expense.date" => ViewModelConversion.ToDateTime(modelValue),
-				"expense.invoice" => ViewModelConversion.ToString(modelValue),
 				"expense.description" => ViewModelConversion.ToString(modelValue),
+				"expense.invoice" => ViewModelConversion.ToString(modelValue),
 				"expense.created_by" => ViewModelConversion.ToString(modelValue),
 				"expense.created_at" => ViewModelConversion.ToDateTime(modelValue),
 				"expense.updated_by" => ViewModelConversion.ToString(modelValue),

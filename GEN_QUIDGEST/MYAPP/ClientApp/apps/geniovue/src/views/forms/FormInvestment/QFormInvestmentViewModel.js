@@ -53,6 +53,18 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValCodinvestment))
 		this.stopWatchers.push(watch(() => this.ValCodinvestment.value, (newValue, oldValue) => this.onUpdate('investment.codinvestment', this.ValCodinvestment, newValue, oldValue)))
 
+		/** The hidden foreign keys. */
+		this.ValGroup_id = reactive(new modelFieldType.ForeignKey({
+			id: 'ValGroup_id',
+			originId: 'ValGroup_id',
+			area: 'INVESTMENT',
+			field: 'GROUP_ID',
+			relatedArea: 'GROUP',
+			isFixed: true,
+			description: computed(() => this.Resources.GROUP38232),
+		}).cloneFrom(values?.ValGroup_id))
+		this.stopWatchers.push(watch(() => this.ValGroup_id.value, (newValue, oldValue) => this.onUpdate('investment.group_id', this.ValGroup_id, newValue, oldValue)))
+
 		/** The used foreign keys. */
 		this.ValType_id = reactive(new modelFieldType.ForeignKey({
 			id: 'ValType_id',
@@ -152,6 +164,17 @@ export default class ViewModel extends FormViewModelBase
 			ignoreFldSubmit: true,
 		}).cloneFrom(values?.TableMemberName))
 		this.stopWatchers.push(watch(() => this.TableMemberName.value, (newValue, oldValue) => this.onUpdate('member.name', this.TableMemberName, newValue, oldValue)))
+
+		this.GroupValName = reactive(new modelFieldType.String({
+			id: 'GroupValName',
+			originId: 'ValName',
+			area: 'GROUP',
+			field: 'NAME',
+			maxLength: 50,
+			isFixed: true,
+			description: computed(() => this.Resources.NAME31974),
+		}).cloneFrom(values?.GroupValName))
+		this.stopWatchers.push(watch(() => this.GroupValName.value, (newValue, oldValue) => this.onUpdate('group.name', this.GroupValName, newValue, oldValue)))
 
 		this.TableSourceTitle = reactive(new modelFieldType.String({
 			type: 'Lookup',

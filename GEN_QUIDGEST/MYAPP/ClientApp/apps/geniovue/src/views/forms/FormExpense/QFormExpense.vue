@@ -163,9 +163,9 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE_GROUPNAME____.isVisible">
+							<q-row v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE_GROUPNAME____.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE_GROUPNAME____.isVisible"
+									v-if="controls.EXPENSE__MEMBER__NAME.isVisible || controls.EXPENSE_GROUPNAME____.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__MEMBER__NAME.isVisible"
@@ -185,6 +185,25 @@
 											v-on="controls.EXPENSE__MEMBER__NAME.handlers" />
 									</base-input-structure>
 									<base-input-structure
+										v-if="controls.EXPENSE_GROUPNAME____.isVisible"
+										class="i-text"
+										v-bind="controls.EXPENSE_GROUPNAME____"
+										v-on="controls.EXPENSE_GROUPNAME____.handlers"
+										:loading="controls.EXPENSE_GROUPNAME____.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.EXPENSE_GROUPNAME____.props"
+											@blur="onBlur(controls.EXPENSE_GROUPNAME____, model.GroupValName.value)"
+											@change="model.GroupValName.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible">
+								<q-col
+									v-if="controls.EXPENSE__SOURCE__TITLE.isVisible || controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible"
+									cols="auto">
+									<base-input-structure
 										v-if="controls.EXPENSE__SOURCE__TITLE.isVisible"
 										class="i-text"
 										v-bind="controls.EXPENSE__SOURCE__TITLE"
@@ -201,25 +220,6 @@
 											v-bind="controls.EXPENSE__SOURCE__TITLE.seeMoreParams"
 											v-on="controls.EXPENSE__SOURCE__TITLE.handlers" />
 									</base-input-structure>
-									<base-input-structure
-										v-if="controls.EXPENSE_GROUPNAME____.isVisible"
-										class="i-text"
-										v-bind="controls.EXPENSE_GROUPNAME____"
-										v-on="controls.EXPENSE_GROUPNAME____.handlers"
-										:loading="controls.EXPENSE_GROUPNAME____.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-text-field
-											v-bind="controls.EXPENSE_GROUPNAME____.props"
-											@blur="onBlur(controls.EXPENSE_GROUPNAME____, model.GroupValName.value)"
-											@change="model.GroupValName.fnUpdateValueOnChange" />
-									</base-input-structure>
-								</q-col>
-							</q-row>
-							<q-row v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible">
-								<q-col
-									v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible || controls.EXPENSE__EXPENSE__DATE.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__EXPENSE__VALUE.isVisible"
 										class="i-text"
@@ -248,24 +248,11 @@
 											@reset-icon-click="model.ValDate.fnUpdateValue(model.ValDate.originalValue ?? new Date())"
 											@update:model-value="model.ValDate.fnUpdateValue($event ?? '')" />
 									</base-input-structure>
-									<base-input-structure
-										v-if="controls.EXPENSE__EXPENSE__INVOICE.isVisible"
-										class="i-text"
-										v-bind="controls.EXPENSE__EXPENSE__INVOICE"
-										v-on="controls.EXPENSE__EXPENSE__INVOICE.handlers"
-										:loading="controls.EXPENSE__EXPENSE__INVOICE.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-document
-											v-if="controls.EXPENSE__EXPENSE__INVOICE.isVisible"
-											v-bind="controls.EXPENSE__EXPENSE__INVOICE.props"
-											v-on="controls.EXPENSE__EXPENSE__INVOICE.handlers" />
-									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible">
+							<q-row v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible"
+									v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible || controls.EXPENSE__EXPENSE__INVOICE.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.EXPENSE__EXPENSE__DESCRIPTION.isVisible"
@@ -279,6 +266,19 @@
 											v-bind="controls.EXPENSE__EXPENSE__DESCRIPTION.props"
 											@blur="onBlur(controls.EXPENSE__EXPENSE__DESCRIPTION, model.ValDescription.value)"
 											@change="model.ValDescription.fnUpdateValueOnChange" />
+									</base-input-structure>
+									<base-input-structure
+										v-if="controls.EXPENSE__EXPENSE__INVOICE.isVisible"
+										class="i-text"
+										v-bind="controls.EXPENSE__EXPENSE__INVOICE"
+										v-on="controls.EXPENSE__EXPENSE__INVOICE.handlers"
+										:loading="controls.EXPENSE__EXPENSE__INVOICE.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-document
+											v-if="controls.EXPENSE__EXPENSE__INVOICE.isVisible"
+											v-bind="controls.EXPENSE__EXPENSE__INVOICE.props"
+											v-on="controls.EXPENSE__EXPENSE__INVOICE.handlers" />
 									</base-input-structure>
 								</q-col>
 							</q-row>
@@ -741,7 +741,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['EXPENSE__CATEGORY_TYPE__NAME', 'EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE__SOURCE__TITLE', 'EXPENSE_GROUPNAME____', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__INVOICE', 'EXPENSE__EXPENSE__DESCRIPTION'],
+						directChildren: ['EXPENSE__CATEGORY_TYPE__NAME', 'EXPENSE__CATEGORY__NAME', 'EXPENSE__MEMBER__NAME', 'EXPENSE_GROUPNAME____', 'EXPENSE__SOURCE__TITLE', 'EXPENSE__EXPENSE__VALUE', 'EXPENSE__EXPENSE__DATE', 'EXPENSE__EXPENSE__DESCRIPTION', 'EXPENSE__EXPENSE__INVOICE'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -845,6 +845,32 @@
 						controlLimits: [
 						],
 					}, this),
+					EXPENSE_GROUPNAME____: new fieldControlClass.StringControl({
+						modelField: 'GroupValName',
+						valueChangeEvent: 'fieldChange:group.name',
+						dependentModelField: 'ValGroup_id',
+						dependentChangeEvent: 'fieldChange:expense.group_id',
+						id: 'EXPENSE_GROUPNAME____',
+						name: 'NAME',
+						size: 'large',
+						label: computed(() => this.Resources.GROUP38232),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'EXPENSE_PSEUDNEWGRP02',
+						maxLength: 50,
+						controlLimits: [
+						],
+						showWhen: {
+							// eslint-disable-next-line @typescript-eslint/no-unused-vars
+							fnFormula(params)
+							{
+								// Formula: !isEmptyC([MEMBER->NAME])
+								return !(this.TableMemberName.value === '')
+							},
+							dependencyEvents: ['fieldChange:member.name'],
+							isServerRecalc: false,
+						},
+					}, this),
 					EXPENSE__SOURCE__TITLE: new fieldControlClass.LookupControl({
 						modelField: 'TableSourceTitle',
 						valueChangeEvent: 'fieldChange:source.title',
@@ -874,38 +900,12 @@
 						controlLimits: [
 						],
 					}, this),
-					EXPENSE_GROUPNAME____: new fieldControlClass.StringControl({
-						modelField: 'GroupValName',
-						valueChangeEvent: 'fieldChange:group.name',
-						dependentModelField: 'ValGroup_id',
-						dependentChangeEvent: 'fieldChange:expense.group_id',
-						id: 'EXPENSE_GROUPNAME____',
-						name: 'NAME',
-						size: 'large',
-						label: computed(() => this.Resources.GROUP38232),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						container: 'EXPENSE_PSEUDNEWGRP02',
-						maxLength: 50,
-						controlLimits: [
-						],
-						showWhen: {
-							// eslint-disable-next-line @typescript-eslint/no-unused-vars
-							fnFormula(params)
-							{
-								// Formula: !isEmptyC([MEMBER->NAME])
-								return !(this.TableMemberName.value === '')
-							},
-							dependencyEvents: ['fieldChange:member.name'],
-							isServerRecalc: false,
-						},
-					}, this),
 					EXPENSE__EXPENSE__VALUE: new fieldControlClass.NumberControl({
 						modelField: 'ValValue',
 						valueChangeEvent: 'fieldChange:expense.value',
 						id: 'EXPENSE__EXPENSE__VALUE',
 						name: 'VALUE',
-						size: 'large',
+						size: 'small',
 						label: computed(() => this.Resources.VALUE10285),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -931,6 +931,20 @@
 						controlLimits: [
 						],
 					}, this),
+					EXPENSE__EXPENSE__DESCRIPTION: new fieldControlClass.StringControl({
+						modelField: 'ValDescription',
+						valueChangeEvent: 'fieldChange:expense.description',
+						id: 'EXPENSE__EXPENSE__DESCRIPTION',
+						name: 'DESCRIPTION',
+						size: 'xlarge',
+						label: computed(() => this.Resources.DESCRIPTION07383),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'EXPENSE_PSEUDNEWGRP02',
+						maxLength: 200,
+						controlLimits: [
+						],
+					}, this),
 					EXPENSE__EXPENSE__INVOICE: new fieldControlClass.DocumentControl({
 						modelField: 'ValInvoice',
 						valueChangeEvent: 'fieldChange:expense.invoice',
@@ -944,20 +958,6 @@
 						extensions: [],
 						maxFileSize: 10485760, // In bytes.
 						maxFileSizeLabel: '10 MB',
-						controlLimits: [
-						],
-					}, this),
-					EXPENSE__EXPENSE__DESCRIPTION: new fieldControlClass.StringControl({
-						modelField: 'ValDescription',
-						valueChangeEvent: 'fieldChange:expense.description',
-						id: 'EXPENSE__EXPENSE__DESCRIPTION',
-						name: 'DESCRIPTION',
-						size: 'xxlarge',
-						label: computed(() => this.Resources.DESCRIPTION07383),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						container: 'EXPENSE_PSEUDNEWGRP02',
-						maxLength: 200,
 						controlLimits: [
 						],
 					}, this),

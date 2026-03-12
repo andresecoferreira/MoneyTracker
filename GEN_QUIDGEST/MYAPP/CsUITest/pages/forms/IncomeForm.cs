@@ -36,6 +36,11 @@ public class IncomeForm : PopupForm
 	public SeeMorePage MemberNameSeeMorePage => new SeeMorePage(driver, "INCOME", "INCOME__MEMBER__NAME");
 
 	/// <summary>
+	/// Group
+	/// </summary>
+	public IWebElement GroupName => throw new NotImplementedException();
+
+	/// <summary>
 	/// Account
 	/// </summary>
 	public LookupControl SourceTitle => new LookupControl(driver, ContainerLocator, "container-INCOME__SOURCE__TITLE");

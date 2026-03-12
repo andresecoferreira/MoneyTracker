@@ -165,6 +165,17 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.TableMemberName))
 		this.stopWatchers.push(watch(() => this.TableMemberName.value, (newValue, oldValue) => this.onUpdate('member.name', this.TableMemberName, newValue, oldValue)))
 
+		this.GroupValName = reactive(new modelFieldType.String({
+			id: 'GroupValName',
+			originId: 'ValName',
+			area: 'GROUP',
+			field: 'NAME',
+			maxLength: 50,
+			isFixed: true,
+			description: computed(() => this.Resources.NAME31974),
+		}).cloneFrom(values?.GroupValName))
+		this.stopWatchers.push(watch(() => this.GroupValName.value, (newValue, oldValue) => this.onUpdate('group.name', this.GroupValName, newValue, oldValue)))
+
 		this.TableSourceTitle = reactive(new modelFieldType.String({
 			type: 'Lookup',
 			id: 'TableSourceTitle',
@@ -176,17 +187,6 @@ export default class ViewModel extends FormViewModelBase
 			ignoreFldSubmit: true,
 		}).cloneFrom(values?.TableSourceTitle))
 		this.stopWatchers.push(watch(() => this.TableSourceTitle.value, (newValue, oldValue) => this.onUpdate('source.title', this.TableSourceTitle, newValue, oldValue)))
-
-		this.GroupValName = reactive(new modelFieldType.String({
-			id: 'GroupValName',
-			originId: 'ValName',
-			area: 'GROUP',
-			field: 'NAME',
-			maxLength: 50,
-			isFixed: true,
-			description: computed(() => this.Resources.NAME31974),
-		}).cloneFrom(values?.GroupValName))
-		this.stopWatchers.push(watch(() => this.GroupValName.value, (newValue, oldValue) => this.onUpdate('group.name', this.GroupValName, newValue, oldValue)))
 
 		this.ValValue = reactive(new modelFieldType.Number({
 			id: 'ValValue',
@@ -207,6 +207,16 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.DATE18475),
 		}).cloneFrom(values?.ValDate))
 		this.stopWatchers.push(watch(() => this.ValDate.value, (newValue, oldValue) => this.onUpdate('expense.date', this.ValDate, newValue, oldValue)))
+
+		this.ValDescription = reactive(new modelFieldType.String({
+			id: 'ValDescription',
+			originId: 'ValDescription',
+			area: 'EXPENSE',
+			field: 'DESCRIPTION',
+			maxLength: 200,
+			description: computed(() => this.Resources.DESCRIPTION07383),
+		}).cloneFrom(values?.ValDescription))
+		this.stopWatchers.push(watch(() => this.ValDescription.value, (newValue, oldValue) => this.onUpdate('expense.description', this.ValDescription, newValue, oldValue)))
 
 		this.ValInvoice = reactive(new modelFieldType.Document({
 			id: 'ValInvoice',
@@ -240,16 +250,6 @@ export default class ViewModel extends FormViewModelBase
 			ignoreFldSubmit: true
 		}).cloneFrom(values?.ValInvoiceData))
 		this.stopWatchers.push(watch(() => this.ValInvoiceData.value, (newValue, oldValue) => this.onUpdate('expense.invoicedata', this.ValInvoiceData, newValue, oldValue), { deep: true }))
-
-		this.ValDescription = reactive(new modelFieldType.String({
-			id: 'ValDescription',
-			originId: 'ValDescription',
-			area: 'EXPENSE',
-			field: 'DESCRIPTION',
-			maxLength: 200,
-			description: computed(() => this.Resources.DESCRIPTION07383),
-		}).cloneFrom(values?.ValDescription))
-		this.stopWatchers.push(watch(() => this.ValDescription.value, (newValue, oldValue) => this.onUpdate('expense.description', this.ValDescription, newValue, oldValue)))
 
 		this.ValCreated_by = reactive(new modelFieldType.String({
 			id: 'ValCreated_by',

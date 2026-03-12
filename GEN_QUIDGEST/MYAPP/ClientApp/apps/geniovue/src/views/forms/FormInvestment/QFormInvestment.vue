@@ -163,9 +163,9 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.INVESTMENT__MEMBER__NAME.isVisible || controls.INVESTMENT__SOURCE__TITLE.isVisible">
+							<q-row v-if="controls.INVESTMENT__MEMBER__NAME.isVisible || controls.INVESTMENT__GROUP__NAME.isVisible">
 								<q-col
-									v-if="controls.INVESTMENT__MEMBER__NAME.isVisible || controls.INVESTMENT__SOURCE__TITLE.isVisible"
+									v-if="controls.INVESTMENT__MEMBER__NAME.isVisible || controls.INVESTMENT__GROUP__NAME.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__MEMBER__NAME.isVisible"
@@ -185,6 +185,25 @@
 											v-on="controls.INVESTMENT__MEMBER__NAME.handlers" />
 									</base-input-structure>
 									<base-input-structure
+										v-if="controls.INVESTMENT__GROUP__NAME.isVisible"
+										class="i-text"
+										v-bind="controls.INVESTMENT__GROUP__NAME"
+										v-on="controls.INVESTMENT__GROUP__NAME.handlers"
+										:loading="controls.INVESTMENT__GROUP__NAME.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.INVESTMENT__GROUP__NAME.props"
+											@blur="onBlur(controls.INVESTMENT__GROUP__NAME, model.GroupValName.value)"
+											@change="model.GroupValName.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.INVESTMENT__SOURCE__TITLE.isVisible || controls.INVESTMENT__INVESTMENT__VALUE.isVisible || controls.INVESTMENT__INVESTMENT__DATE.isVisible">
+								<q-col
+									v-if="controls.INVESTMENT__SOURCE__TITLE.isVisible || controls.INVESTMENT__INVESTMENT__VALUE.isVisible || controls.INVESTMENT__INVESTMENT__DATE.isVisible"
+									cols="auto">
+									<base-input-structure
 										v-if="controls.INVESTMENT__SOURCE__TITLE.isVisible"
 										class="i-text"
 										v-bind="controls.INVESTMENT__SOURCE__TITLE"
@@ -201,12 +220,6 @@
 											v-bind="controls.INVESTMENT__SOURCE__TITLE.seeMoreParams"
 											v-on="controls.INVESTMENT__SOURCE__TITLE.handlers" />
 									</base-input-structure>
-								</q-col>
-							</q-row>
-							<q-row v-if="controls.INVESTMENT__INVESTMENT__VALUE.isVisible || controls.INVESTMENT__INVESTMENT__DATE.isVisible">
-								<q-col
-									v-if="controls.INVESTMENT__INVESTMENT__VALUE.isVisible || controls.INVESTMENT__INVESTMENT__DATE.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INVESTMENT__INVESTMENT__VALUE.isVisible"
 										class="i-text"
@@ -715,7 +728,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['INVESTMENT__CATEGORY_TYPE__NAME', 'INVESTMENT__CATEGORY__NAME', 'INVESTMENT__MEMBER__NAME', 'INVESTMENT__SOURCE__TITLE', 'INVESTMENT__INVESTMENT__VALUE', 'INVESTMENT__INVESTMENT__DATE', 'INVESTMENT__INVESTMENT__DESCRIPTION'],
+						directChildren: ['INVESTMENT__CATEGORY_TYPE__NAME', 'INVESTMENT__CATEGORY__NAME', 'INVESTMENT__MEMBER__NAME', 'INVESTMENT__GROUP__NAME', 'INVESTMENT__SOURCE__TITLE', 'INVESTMENT__INVESTMENT__VALUE', 'INVESTMENT__INVESTMENT__DATE', 'INVESTMENT__INVESTMENT__DESCRIPTION'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -811,10 +824,39 @@
 						dependentFields: () => ({
 							set 'member.codmember'(value) { vm.model.ValMember_id.updateValue(value) },
 							set 'member.name'(value) { vm.model.TableMemberName.updateValue(value) },
+							set 'investment.group_id'(value) { vm.model.ValGroup_id.updateValue(value) },
+							set 'group.codgroup'(value) { vm.model.ValGroup_id.updateValue(value) },
+							set 'group.name'(value) { vm.model.GroupValName.updateValue(value) },
 						}),
 						mustBeFilled: true,
 						controlLimits: [
 						],
+					}, this),
+					INVESTMENT__GROUP__NAME: new fieldControlClass.StringControl({
+						modelField: 'GroupValName',
+						valueChangeEvent: 'fieldChange:group.name',
+						dependentModelField: 'ValGroup_id',
+						dependentChangeEvent: 'fieldChange:investment.group_id',
+						id: 'INVESTMENT__GROUP__NAME',
+						name: 'NAME',
+						size: 'large',
+						label: computed(() => this.Resources.GROUP38232),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'INVESTMENT__PSEUD__NEWGRP01',
+						maxLength: 50,
+						controlLimits: [
+						],
+						showWhen: {
+							// eslint-disable-next-line @typescript-eslint/no-unused-vars
+							fnFormula(params)
+							{
+								// Formula: !isEmptyC([MEMBER->NAME])
+								return !(this.TableMemberName.value === '')
+							},
+							dependencyEvents: ['fieldChange:member.name'],
+							isServerRecalc: false,
+						},
 					}, this),
 					INVESTMENT__SOURCE__TITLE: new fieldControlClass.LookupControl({
 						modelField: 'TableSourceTitle',
@@ -850,7 +892,7 @@
 						valueChangeEvent: 'fieldChange:investment.value',
 						id: 'INVESTMENT__INVESTMENT__VALUE',
 						name: 'VALUE',
-						size: 'large',
+						size: 'small',
 						label: computed(() => this.Resources.VALUE10285),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -866,7 +908,7 @@
 						valueChangeEvent: 'fieldChange:investment.date',
 						id: 'INVESTMENT__INVESTMENT__DATE',
 						name: 'DATE',
-						size: 'large',
+						size: 'small',
 						label: computed(() => this.Resources.DATE18475),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -991,6 +1033,10 @@
 						get ValName() { return vm.model.TableCategory_typeName.value },
 						set ValName(value) { vm.model.TableCategory_typeName.updateValue(value) },
 					},
+					Group: {
+						get ValName() { return vm.model.GroupValName.value },
+						set ValName(value) { vm.model.GroupValName.updateValue(value) },
+					},
 					Investment: {
 						get ValCategory_id() { return vm.model.ValCategory_id.value },
 						set ValCategory_id(value) { vm.model.ValCategory_id.updateValue(value) },
@@ -1002,6 +1048,8 @@
 						set ValDate(value) { vm.model.ValDate.updateValue(value) },
 						get ValDescription() { return vm.model.ValDescription.value },
 						set ValDescription(value) { vm.model.ValDescription.updateValue(value) },
+						get ValGroup_id() { return vm.model.ValGroup_id.value },
+						set ValGroup_id(value) { vm.model.ValGroup_id.updateValue(value) },
 						get ValInvestment_id() { return vm.model.ValInvestment_id.value },
 						set ValInvestment_id(value) { vm.model.ValInvestment_id.updateValue(value) },
 						get ValMember_id() { return vm.model.ValMember_id.value },
@@ -1036,6 +1084,8 @@
 						get source() { return vm.model.ValSource_id },
 						/** The foreign key to the CATEGORY_TYPE table */
 						get category_type() { return vm.model.ValType_id },
+						/** The foreign key to the GROUP table */
+						get group() { return vm.model.ValGroup_id },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

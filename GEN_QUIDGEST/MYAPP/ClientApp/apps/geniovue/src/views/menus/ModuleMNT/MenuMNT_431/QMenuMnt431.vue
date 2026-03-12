@@ -341,7 +341,7 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-CATEGORY_TYPE', 'changed-SOURCE', 'changed-CATEGORY', 'changed-MEMBER', 'changed-INVESTMENT'],
+						globalEvents: ['changed-GROUP', 'changed-CATEGORY_TYPE', 'changed-SOURCE', 'changed-CATEGORY', 'changed-MEMBER', 'changed-INVESTMENT'],
 						uuid: '9e098cc9-89e9-48f2-b49c-ab7bc923ac95',
 						allSelectedRows: 'false',
 						headerLevel: 1,

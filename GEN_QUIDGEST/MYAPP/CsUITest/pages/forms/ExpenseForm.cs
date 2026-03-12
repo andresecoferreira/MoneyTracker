@@ -36,15 +36,15 @@ public class ExpenseForm : PopupForm
 	public SeeMorePage MemberNameSeeMorePage => new SeeMorePage(driver, "EXPENSE", "EXPENSE__MEMBER__NAME");
 
 	/// <summary>
+	/// Group
+	/// </summary>
+	public IWebElement GroupName => throw new NotImplementedException();
+
+	/// <summary>
 	/// Account
 	/// </summary>
 	public LookupControl SourceTitle => new LookupControl(driver, ContainerLocator, "container-EXPENSE__SOURCE__TITLE");
 	public SeeMorePage SourceTitleSeeMorePage => new SeeMorePage(driver, "EXPENSE", "EXPENSE__SOURCE__TITLE");
-
-	/// <summary>
-	/// Group
-	/// </summary>
-	public IWebElement GroupName => throw new NotImplementedException();
 
 	/// <summary>
 	/// Value
@@ -57,14 +57,14 @@ public class ExpenseForm : PopupForm
 	public DateInputControl ExpenseDate => new DateInputControl(driver, ContainerLocator, "#EXPENSE__EXPENSE__DATE");
 
 	/// <summary>
-	/// Invoice
-	/// </summary>
-	public DocumentControl ExpenseInvoice => new DocumentControl(driver, ContainerLocator, "EXPENSE__EXPENSE__INVOICE-container");
-
-	/// <summary>
 	/// Description
 	/// </summary>
 	public BaseInputControl ExpenseDescription => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__DESCRIPTION", "#EXPENSE__EXPENSE__DESCRIPTION");
+
+	/// <summary>
+	/// Invoice
+	/// </summary>
+	public DocumentControl ExpenseInvoice => new DocumentControl(driver, ContainerLocator, "EXPENSE__EXPENSE__INVOICE-container");
 
 	/// <summary>
 	/// Control

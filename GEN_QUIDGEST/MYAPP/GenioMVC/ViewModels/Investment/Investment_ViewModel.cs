@@ -39,6 +39,10 @@ namespace GenioMVC.ViewModels.Investment
 		/// </summary>
 		public string ValType_id { get; set; }
 		/// <summary>
+		/// Title: "" | Type: "CE"
+		/// </summary>
+		public string ValGroup_id { get; set; }
+		/// <summary>
 		/// Title: "Member" | Type: "CE"
 		/// </summary>
 		public string ValMember_id { get; set; }
@@ -67,6 +71,23 @@ namespace GenioMVC.ViewModels.Investment
 		/// </summary>
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Member> TableMemberName { get; set; }
+		/// <summary>
+		/// Title: "Group" | Type: "C"
+		/// </summary>
+		[ValidateSetAccess]
+		public string GroupValName
+		{
+			get
+			{
+				return funcGroupValName != null ? funcGroupValName() : _auxGroupValName;
+			}
+			set { funcGroupValName = () => value; }
+		}
+
+		[JsonIgnore]
+		public Func<string> funcGroupValName { get; set; }
+
+		private string _auxGroupValName { get; set; }
 		/// <summary>
 		/// Title: "Account" | Type: "C"
 		/// </summary>
@@ -237,9 +258,11 @@ namespace GenioMVC.ViewModels.Investment
 			{
 				ValCategory_id = ViewModelConversion.ToString(m.ValCategory_id);
 				ValType_id = ViewModelConversion.ToString(m.ValType_id);
+				ValGroup_id = ViewModelConversion.ToString(m.ValGroup_id);
 				ValMember_id = ViewModelConversion.ToString(m.ValMember_id);
 				ValSource_id = ViewModelConversion.ToString(m.ValSource_id);
 				ValInvestment_id = ViewModelConversion.ToNumeric(m.ValInvestment_id);
+				funcGroupValName = () => ViewModelConversion.ToString(m.Group.ValName);
 				ValValue = ViewModelConversion.ToNumeric(m.ValValue);
 				ValDate = ViewModelConversion.ToDateTime(m.ValDate);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
@@ -275,6 +298,7 @@ namespace GenioMVC.ViewModels.Investment
 			{
 				m.ValCategory_id = ViewModelConversion.ToString(ValCategory_id);
 				m.ValType_id = ViewModelConversion.ToString(ValType_id);
+				m.ValGroup_id = ViewModelConversion.ToString(ValGroup_id);
 				m.ValMember_id = ViewModelConversion.ToString(ValMember_id);
 				m.ValSource_id = ViewModelConversion.ToString(ValSource_id);
 				// Block When condition(s)
@@ -327,6 +351,9 @@ namespace GenioMVC.ViewModels.Investment
 						break;
 					case "investment.type_id":
 						this.ValType_id = ViewModelConversion.ToString(_value);
+						break;
+					case "investment.group_id":
+						this.ValGroup_id = ViewModelConversion.ToString(_value);
 						break;
 					case "investment.member_id":
 						this.ValMember_id = ViewModelConversion.ToString(_value);
@@ -481,6 +508,7 @@ namespace GenioMVC.ViewModels.Investment
 			validator.Required("ValType_id", Resources.Resources.CATEGORY_TYPE34342, ViewModelConversion.ToString(ValType_id), FieldType.KEY_INT.GetFormatting());
 
 			validator.Required("ValMember_id", Resources.Resources.MEMBER00534, ViewModelConversion.ToString(ValMember_id), FieldType.KEY_INT.GetFormatting());
+			validator.StringLength("GroupValName", Resources.Resources.GROUP38232, GroupValName, 50);
 
 			validator.Required("ValValue", Resources.Resources.VALUE10285, ViewModelConversion.ToNumeric(ValValue), FieldType.NUMERIC.GetFormatting());
 
@@ -1044,7 +1072,7 @@ namespace GenioMVC.ViewModels.Investment
 		/// <param name="PKey">Primary Key of Member</param>
 		public ConcurrentDictionary<string, object> GetDependant_InvestmentTableMemberName(string PKey)
 		{
-			FieldRef[] refDependantFields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName];
+			FieldRef[] refDependantFields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldName];
 
 			var returnEmptyDependants = false;
 			CriteriaSet wherecodition = CriteriaSet.And();
@@ -1093,6 +1121,8 @@ namespace GenioMVC.ViewModels.Investment
 			var row = GetDependant_InvestmentTableMemberName(this.ValMember_id);
 			try
 			{
+				this.ValGroup_id = (string)row["group.codgroup"];
+				this.funcGroupValName = () => (string)row["group.name"];
 
 				// Fill List fields
 				this.ValMember_id = ViewModelConversion.ToString(row["member.codmember"]);
@@ -1329,9 +1359,11 @@ namespace GenioMVC.ViewModels.Investment
 			{
 				"investment.category_id" => ViewModelConversion.ToString(modelValue),
 				"investment.type_id" => ViewModelConversion.ToString(modelValue),
+				"investment.group_id" => ViewModelConversion.ToString(modelValue),
 				"investment.member_id" => ViewModelConversion.ToString(modelValue),
 				"investment.source_id" => ViewModelConversion.ToString(modelValue),
 				"investment.investment_id" => ViewModelConversion.ToNumeric(modelValue),
+				"group.name" => ViewModelConversion.ToString(modelValue),
 				"investment.value" => ViewModelConversion.ToNumeric(modelValue),
 				"investment.date" => ViewModelConversion.ToDateTime(modelValue),
 				"investment.description" => ViewModelConversion.ToString(modelValue),
@@ -1346,6 +1378,7 @@ namespace GenioMVC.ViewModels.Investment
 				"category.name" => ViewModelConversion.ToString(modelValue),
 				"member.codmember" => ViewModelConversion.ToString(modelValue),
 				"member.name" => ViewModelConversion.ToString(modelValue),
+				"group.codgroup" => ViewModelConversion.ToString(modelValue),
 				"source.codsource" => ViewModelConversion.ToString(modelValue),
 				"source.title" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue

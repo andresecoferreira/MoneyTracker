@@ -163,9 +163,9 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.INCOME__MEMBER__NAME.isVisible || controls.INCOME__SOURCE__TITLE.isVisible">
+							<q-row v-if="controls.INCOME__MEMBER__NAME.isVisible || controls.INCOME__GROUPNAME____.isVisible">
 								<q-col
-									v-if="controls.INCOME__MEMBER__NAME.isVisible || controls.INCOME__SOURCE__TITLE.isVisible"
+									v-if="controls.INCOME__MEMBER__NAME.isVisible || controls.INCOME__GROUPNAME____.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__MEMBER__NAME.isVisible"
@@ -185,6 +185,25 @@
 											v-on="controls.INCOME__MEMBER__NAME.handlers" />
 									</base-input-structure>
 									<base-input-structure
+										v-if="controls.INCOME__GROUPNAME____.isVisible"
+										class="i-text"
+										v-bind="controls.INCOME__GROUPNAME____"
+										v-on="controls.INCOME__GROUPNAME____.handlers"
+										:loading="controls.INCOME__GROUPNAME____.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-text-field
+											v-bind="controls.INCOME__GROUPNAME____.props"
+											@blur="onBlur(controls.INCOME__GROUPNAME____, model.GroupValName.value)"
+											@change="model.GroupValName.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
+							<q-row v-if="controls.INCOME__SOURCE__TITLE.isVisible || controls.INCOME__INCOME__VALUE.isVisible || controls.INCOME__INCOME__DATE.isVisible">
+								<q-col
+									v-if="controls.INCOME__SOURCE__TITLE.isVisible || controls.INCOME__INCOME__VALUE.isVisible || controls.INCOME__INCOME__DATE.isVisible"
+									cols="auto">
+									<base-input-structure
 										v-if="controls.INCOME__SOURCE__TITLE.isVisible"
 										class="i-text"
 										v-bind="controls.INCOME__SOURCE__TITLE"
@@ -201,12 +220,6 @@
 											v-bind="controls.INCOME__SOURCE__TITLE.seeMoreParams"
 											v-on="controls.INCOME__SOURCE__TITLE.handlers" />
 									</base-input-structure>
-								</q-col>
-							</q-row>
-							<q-row v-if="controls.INCOME__INCOME__VALUE.isVisible || controls.INCOME__INCOME__DATE.isVisible">
-								<q-col
-									v-if="controls.INCOME__INCOME__VALUE.isVisible || controls.INCOME__INCOME__DATE.isVisible"
-									cols="auto">
 									<base-input-structure
 										v-if="controls.INCOME__INCOME__VALUE.isVisible"
 										class="i-text"
@@ -715,7 +728,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['INCOME__CATEGORY_TYPE__NAME', 'INCOME__CATEGORY__NAME', 'INCOME__MEMBER__NAME', 'INCOME__SOURCE__TITLE', 'INCOME__INCOME__VALUE', 'INCOME__INCOME__DATE', 'INCOME__INCOME__DESCRIPTION'],
+						directChildren: ['INCOME__CATEGORY_TYPE__NAME', 'INCOME__CATEGORY__NAME', 'INCOME__MEMBER__NAME', 'INCOME__GROUPNAME____', 'INCOME__SOURCE__TITLE', 'INCOME__INCOME__VALUE', 'INCOME__INCOME__DATE', 'INCOME__INCOME__DESCRIPTION'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -811,10 +824,39 @@
 						dependentFields: () => ({
 							set 'member.codmember'(value) { vm.model.ValMember_id.updateValue(value) },
 							set 'member.name'(value) { vm.model.TableMemberName.updateValue(value) },
+							set 'income.group_id'(value) { vm.model.ValGroup_id.updateValue(value) },
+							set 'group.codgroup'(value) { vm.model.ValGroup_id.updateValue(value) },
+							set 'group.name'(value) { vm.model.GroupValName.updateValue(value) },
 						}),
 						mustBeFilled: true,
 						controlLimits: [
 						],
+					}, this),
+					INCOME__GROUPNAME____: new fieldControlClass.StringControl({
+						modelField: 'GroupValName',
+						valueChangeEvent: 'fieldChange:group.name',
+						dependentModelField: 'ValGroup_id',
+						dependentChangeEvent: 'fieldChange:income.group_id',
+						id: 'INCOME__GROUPNAME____',
+						name: 'NAME',
+						size: 'large',
+						label: computed(() => this.Resources.GROUP38232),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'INCOME__PSEUDNEWGRP01',
+						maxLength: 50,
+						controlLimits: [
+						],
+						showWhen: {
+							// eslint-disable-next-line @typescript-eslint/no-unused-vars
+							fnFormula(params)
+							{
+								// Formula: !isEmptyC([MEMBER->NAME])
+								return !(this.TableMemberName.value === '')
+							},
+							dependencyEvents: ['fieldChange:member.name'],
+							isServerRecalc: false,
+						},
 					}, this),
 					INCOME__SOURCE__TITLE: new fieldControlClass.LookupControl({
 						modelField: 'TableSourceTitle',
@@ -850,7 +892,7 @@
 						valueChangeEvent: 'fieldChange:income.value',
 						id: 'INCOME__INCOME__VALUE',
 						name: 'VALUE',
-						size: 'large',
+						size: 'small',
 						label: computed(() => this.Resources.VALUE10285),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -866,7 +908,7 @@
 						valueChangeEvent: 'fieldChange:income.date',
 						id: 'INCOME__INCOME__DATE',
 						name: 'DATE',
-						size: 'large',
+						size: 'small',
 						label: computed(() => this.Resources.DATE18475),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -991,6 +1033,10 @@
 						get ValName() { return vm.model.TableCategory_typeName.value },
 						set ValName(value) { vm.model.TableCategory_typeName.updateValue(value) },
 					},
+					Group: {
+						get ValName() { return vm.model.GroupValName.value },
+						set ValName(value) { vm.model.GroupValName.updateValue(value) },
+					},
 					Income: {
 						get ValCategory_id() { return vm.model.ValCategory_id.value },
 						set ValCategory_id(value) { vm.model.ValCategory_id.updateValue(value) },
@@ -1002,6 +1048,8 @@
 						set ValDate(value) { vm.model.ValDate.updateValue(value) },
 						get ValDescription() { return vm.model.ValDescription.value },
 						set ValDescription(value) { vm.model.ValDescription.updateValue(value) },
+						get ValGroup_id() { return vm.model.ValGroup_id.value },
+						set ValGroup_id(value) { vm.model.ValGroup_id.updateValue(value) },
 						get ValIncome_id() { return vm.model.ValIncome_id.value },
 						set ValIncome_id(value) { vm.model.ValIncome_id.updateValue(value) },
 						get ValMember_id() { return vm.model.ValMember_id.value },
@@ -1036,6 +1084,8 @@
 						get source() { return vm.model.ValSource_id },
 						/** The foreign key to the CATEGORY_TYPE table */
 						get category_type() { return vm.model.ValType_id },
+						/** The foreign key to the GROUP table */
+						get group() { return vm.model.ValGroup_id },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

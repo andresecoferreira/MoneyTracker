@@ -36,6 +36,11 @@ public class InvestmentForm : PopupForm
 	public SeeMorePage MemberNameSeeMorePage => new SeeMorePage(driver, "INVESTMENT", "INVESTMENT__MEMBER__NAME");
 
 	/// <summary>
+	/// Group
+	/// </summary>
+	public IWebElement GroupName => throw new NotImplementedException();
+
+	/// <summary>
 	/// Account
 	/// </summary>
 	public LookupControl SourceTitle => new LookupControl(driver, ContainerLocator, "container-INVESTMENT__SOURCE__TITLE");
