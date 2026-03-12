@@ -121,12 +121,12 @@
 				menuInfo: {
 					id: '411',
 					isMenuList: true,
-					designation: computed(() => this.Resources.MEMBERS31628),
+					designation: computed(() => this.Resources.EXPENSES11381),
 					acronym: 'MNT_411',
-					name: 'MEMBER',
+					name: 'EXPENSE',
 					route: 'menu-MNT_411',
 					order: '411',
-					controller: 'MEMBER',
+					controller: 'EXPENSE',
 					action: 'MNT_Menu_411',
 					isPopup: false
 				},
@@ -134,10 +134,10 @@
 				model: new MenuViewModel(this),
 
 				controls: {
-					menu: new controlClass.TableSpecialRenderingControl({
+					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
 						id: 'MNT_Menu_411',
-						controller: 'MEMBER',
+						controller: 'EXPENSE',
 						action: 'MNT_Menu_411',
 						hasDependencies: false,
 						isInCollapsible: false,
@@ -146,48 +146,71 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.ImageColumn({
+							new listColumnTypes.NumericColumn({
 								order: 1,
-								name: 'ValPhoto',
-								area: 'MEMBER',
-								field: 'PHOTO',
-								label: computed(() => this.Resources.PHOTO51874),
-								dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR58591, vm.Resources.PHOTO51874)),
-								scrollData: 3,
-								sortable: false,
-								searchable: false,
+								name: 'ValExpense_id',
+								area: 'EXPENSE',
+								field: 'EXPENSE_ID',
+								label: computed(() => this.Resources.ID36840),
+								scrollData: 6,
+								maxDigits: 6,
+								decimalPlaces: 0,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
 								order: 2,
-								name: 'ValName',
-								area: 'MEMBER',
+								name: 'Category_type.ValName',
+								area: 'CATEGORY_TYPE',
 								field: 'NAME',
-								label: computed(() => this.Resources.NAME31974),
-								dataLength: 80,
-								scrollData: 30,
+								label: computed(() => this.Resources.CATEGORY_TYPE34342),
+								dataLength: 20,
+								scrollData: 20,
 								export: 1,
+								pkColumn: 'ValCodcategory_type',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
 								order: 3,
-								name: 'ValEmail',
+								name: 'Category.ValName',
+								area: 'CATEGORY',
+								field: 'NAME',
+								label: computed(() => this.Resources.CATEGORY18978),
+								dataLength: 20,
+								scrollData: 20,
+								export: 1,
+								pkColumn: 'ValCodcategory',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.TextColumn({
+								order: 4,
+								name: 'Member.ValName',
 								area: 'MEMBER',
-								field: 'EMAIL',
-								label: computed(() => this.Resources.E_MAIL26803),
-								dataLength: 50,
+								field: 'NAME',
+								label: computed(() => this.Resources.MEMBER00534),
+								dataLength: 80,
 								scrollData: 30,
+								export: 1,
+								pkColumn: 'ValCodmember',
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 5,
+								name: 'ValValue',
+								area: 'EXPENSE',
+								field: 'VALUE',
+								label: computed(() => this.Resources.VALUE10285),
+								scrollData: 12,
+								maxDigits: 12,
+								decimalPlaces: 0,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
 							name: 'MNT_Menu_411',
 							serverMode: true,
-							pkColumn: 'ValCodmember',
-							tableAlias: 'MEMBER',
-							tableNamePlural: computed(() => this.Resources.MEMBERS31628),
+							pkColumn: 'ValCodexpense',
+							tableAlias: 'EXPENSE',
+							tableNamePlural: computed(() => this.Resources.EXPENSES11381),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.MEMBERS31628),
+							tableTitle: computed(() => this.Resources.EXPENSES11381),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -208,7 +231,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER',
+										formName: 'EXPENSE',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -224,7 +247,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER',
+										formName: 'EXPENSE',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -240,7 +263,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER',
+										formName: 'EXPENSE',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -256,7 +279,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER',
+										formName: 'EXPENSE',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -274,7 +297,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'MEMBER',
+										formName: 'EXPENSE',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -291,149 +314,37 @@
 							],
 							rowClickAction: {
 								id: 'RCA_MNT_4111',
-								name: 'form-MEMBER',
+								name: 'form-EXPENSE',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
 											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodmember
+											fnValueSelector: (row) => row.ValCodexpense
 										},
 									],
 									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'MEMBER'
+									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'EXPENSE'
 								}
 							},
 							formsDefinition: {
-								'MEMBER': {
-									fnKeySelector: (row) => row.Fields.ValCodmember,
-									isPopup: false
+								'EXPENSE': {
+									fnKeySelector: (row) => row.Fields.ValCodexpense,
+									isPopup: true
 								},
 							},
-							defaultSearchColumnName: 'ValName',
-							defaultSearchColumnNameOriginal: 'ValName',
+							defaultSearchColumnName: 'ValExpense_id',
+							defaultSearchColumnNameOriginal: 'ValExpense_id',
 							defaultColumnSorting: {
 								columnName: '',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MEMBER', 'changed-GROUP'],
-						uuid: '8c54774b-83e6-4040-82e4-bde5421299a2',
+						globalEvents: ['changed-MEMBER', 'changed-CATEGORY_TYPE', 'changed-EXPENSE', 'changed-CATEGORY', 'changed-SOURCE'],
+						uuid: '5fb0fca0-d197-4c9a-ace5-84cd6718b18b',
 						allSelectedRows: 'false',
-						viewModes: [
-							{
-								id: 'CARDS',
-								type: 'cards',
-								subtype: 'card-img-background',
-								label: computed(() => this.Resources.CARTOES27587),
-								order: 1,
-								mappingVariables: readonly({
-									title: {
-										allowsMultiple: false,
-										sources: [
-											'MEMBER.NAME',
-										]
-									},
-									text: {
-										allowsMultiple: true,
-										sources: [
-											'MEMBER.EMAIL',
-										]
-									},
-									image: {
-										allowsMultiple: false,
-										sources: [
-											'MEMBER.PHOTO',
-										]
-									},
-								}),
-								styleVariables: {
-									actionsAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									actionsPlacement: {
-										rawValue: 'footer',
-										isMapped: false
-									},
-									actionsStyle: {
-										rawValue: 'dropdown',
-										isMapped: false
-									},
-									contentAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									customFollowupDefaultTarget: {
-										rawValue: 'blank',
-										isMapped: false
-									},
-									customInsertCard: {
-										rawValue: false,
-										isMapped: false
-									},
-									customInsertCardStyle: {
-										rawValue: 'secondary',
-										isMapped: false
-									},
-									displayMode: {
-										rawValue: 'grid',
-										isMapped: false
-									},
-									gridMode: {
-										rawValue: 'fixed',
-										isMapped: false
-									},
-									containerAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									hoverScaleAmount: {
-										rawValue: '1.00',
-										isMapped: false
-									},
-									showColumnTitles: {
-										rawValue: false,
-										isMapped: false
-									},
-									showEmptyColumnTitles: {
-										rawValue: true,
-										isMapped: false
-									},
-									size: {
-										rawValue: 'regular',
-										isMapped: false
-									},
-								},
-								groups: {
-								}
-							},
-							{
-								id: 'LIST',
-								type: 'list',
-								subtype: '',
-								label: computed(() => this.Resources.LISTA13474),
-								order: 2,
-								mappingVariables: readonly({
-								}),
-								styleVariables: {
-								},
-								groups: {
-								}
-							},
-						],
 						headerLevel: 1,
-						/** Menu limits */
-						controlLimits: [
-							/** DB */
-							{
-								identifier: 'group',
-								dependencyEvents: [],
-								dependencyField: '',
-								fnValueSelector: () => vm.$route.params['group'],
-							},
-						],
 						isActiveControl: computed(() => this.isActiveMenu)
 					}, this),
 				}

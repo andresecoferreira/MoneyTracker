@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Group;
+namespace GenioMVC.ViewModels.Income;
 
-public class MNT_Menu_41_RowViewModel : Models.Group
+public class MNT_Menu_421_RowViewModel : Models.Income
 {
 	#region Constructors
 
-	public MNT_Menu_41_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MNT_Menu_421_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MNT_Menu_41_RowViewModel(UserContext userContext, CSGenioAgroup val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MNT_Menu_421_RowViewModel(UserContext userContext, CSGenioAincome val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,8 +36,32 @@ public class MNT_Menu_41_RowViewModel : Models.Group
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "GROUP",
+				Area = "INCOME",
+				Field = "INCOME_ID",
+			},
+			new ListColumn()
+			{
+				Order = 2,
+				Area = "CATEGORY_TYPE",
 				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 3,
+				Area = "CATEGORY",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 4,
+				Area = "MEMBER",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "INCOME",
+				Field = "VALUE",
 			},
 		];
 	}

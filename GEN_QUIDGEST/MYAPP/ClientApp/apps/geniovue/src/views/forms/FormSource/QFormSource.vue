@@ -174,7 +174,7 @@
 								<!-- Start SOURCE__PSEUDNEWGRP02 -->
 								<q-row v-if="controls.SOURCE__SOURCE__BANK.isVisible || controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible">
 									<q-col
-										v-if="controls.SOURCE__SOURCE__BANK.isVisible"
+										v-if="controls.SOURCE__SOURCE__BANK.isVisible || controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible"
 										cols="auto">
 										<base-input-structure
 											v-if="controls.SOURCE__SOURCE__BANK.isVisible"
@@ -189,10 +189,6 @@
 												v-bind="controls.SOURCE__SOURCE__BANK.props"
 												@update:model-value="model.ValBank.fnUpdateValue" />
 										</base-input-structure>
-									</q-col>
-									<q-col
-										v-if="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible"
-										cols="auto">
 										<base-input-structure
 											v-if="controls.SOURCE__SOURCE__ACCOUNT_NUMBER.isVisible"
 											class="i-text"
@@ -285,7 +281,7 @@
 										</q-row>
 										<q-row v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible || controls.SOURCE__SOURCE__UPDATED_BY.isVisible">
 											<q-col
-												v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
+												v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible || controls.SOURCE__SOURCE__UPDATED_BY.isVisible"
 												cols="auto">
 												<base-input-structure
 													v-if="controls.SOURCE__SOURCE__UPDATED_AT.isVisible"
@@ -302,10 +298,6 @@
 														@reset-icon-click="model.ValUpdated_at.fnUpdateValue(model.ValUpdated_at.originalValue ?? new Date())"
 														@update:model-value="model.ValUpdated_at.fnUpdateValue($event ?? '')" />
 												</base-input-structure>
-											</q-col>
-											<q-col
-												v-if="controls.SOURCE__SOURCE__UPDATED_BY.isVisible"
-												cols="auto">
 												<base-input-structure
 													v-if="controls.SOURCE__SOURCE__UPDATED_BY.isVisible"
 													class="i-text"
@@ -729,7 +721,7 @@
 						valueChangeEvent: 'fieldChange:member.name',
 						id: 'SOURCE__MEMBER__NAME',
 						name: 'NAME',
-						size: 'xlarge',
+						size: 'large',
 						label: computed(() => this.Resources.OWNER09558),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -759,7 +751,7 @@
 						valueChangeEvent: 'fieldChange:source.title',
 						id: 'SOURCE__SOURCE__TITLE',
 						name: 'TITLE',
-						size: 'xxlarge',
+						size: 'xlarge',
 						label: computed(() => this.Resources.TITLE21885),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),

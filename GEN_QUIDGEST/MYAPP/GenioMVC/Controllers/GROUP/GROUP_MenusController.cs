@@ -29,7 +29,7 @@ namespace GenioMVC.Controllers
 	public partial class GroupController : ControllerBase
 	{
 		private static readonly NavigationLocation ACTION_MNT_MENU_111 = new NavigationLocation("GROUPS45298", "MNT_Menu_111", "Group") { vueRouteName = "menu-MNT_111" };
-		private static readonly NavigationLocation ACTION_MNT_MENU_41 = new NavigationLocation("GROUPS45298", "MNT_Menu_41", "Group") { vueRouteName = "menu-MNT_41" };
+		private static readonly NavigationLocation ACTION_MNT_MENU_31 = new NavigationLocation("GROUPS45298", "MNT_Menu_31", "Group") { vueRouteName = "menu-MNT_31" };
 
 
 		//
@@ -98,14 +98,14 @@ namespace GenioMVC.Controllers
 		}
 
 		//
-		// GET: /Group/MNT_Menu_41
-		[ActionName("MNT_Menu_41")]
+		// GET: /Group/MNT_Menu_31
+		[ActionName("MNT_Menu_31")]
 		[HttpPost]
-		public ActionResult MNT_Menu_41([FromBody] RequestMenuModel requestModel)
+		public ActionResult MNT_Menu_31([FromBody] RequestMenuModel requestModel)
 		{
 			var queryParams = requestModel.QueryParams;
 
-			MNT_Menu_41_ViewModel model = new(m_userContext);
+			MNT_Menu_31_ViewModel model = new(m_userContext);
 
 			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
 				requestModel.TableConfiguration,
@@ -117,7 +117,7 @@ namespace GenioMVC.Controllers
 
 			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") ? (bool)RouteData.Values["isHomePage"] : false;
 			if (isHomePage)
-				Navigation.SetValue("HomePage", "MNT_Menu_41");
+				Navigation.SetValue("HomePage", "MNT_Menu_31");
 
 			//If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
 			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_group")))
@@ -136,18 +136,18 @@ namespace GenioMVC.Controllers
 				querystring.AddRange(queryParams);
 
 			if (!isHomePage &&
-				(Navigation.CurrentLevel == null || !ACTION_MNT_MENU_41.IsSameAction(Navigation.CurrentLevel.Location)) &&
-				Navigation.CurrentLevel.Location.Action != ACTION_MNT_MENU_41.Action)
+				(Navigation.CurrentLevel == null || !ACTION_MNT_MENU_31.IsSameAction(Navigation.CurrentLevel.Location)) &&
+				Navigation.CurrentLevel.Location.Action != ACTION_MNT_MENU_31.Action)
 				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + Navigation.CurrentLevel.Location.ShortDescription());
 			else if (isHomePage)
 			{
-				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MNT_MENU_41.ShortDescription());
+				CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.MENU01948 + " " + ACTION_MNT_MENU_31.ShortDescription());
 				Navigation.SetValue("HomePageContainsList", true);
 			}
 
 
 
-// USE /[MANUAL MNT MENU_GET 41]/
+// USE /[MANUAL MNT MENU_GET 31]/
 
 			try
 			{
@@ -178,7 +178,7 @@ namespace GenioMVC.Controllers
 				var isPopup = querystring.Get("isPopup") ?? "false";
 				var noRedirect = isNoRedirect;
 
-				return RedirectToMenuAction("MNT_411", new { id = primaryKey, nav = Navigation.NavigationId, isHomePage, isPopup, noRedirect, skipLastMenu = true, group = primaryKey });
+				return RedirectToMenuAction("MNT_311", new { id = primaryKey, nav = Navigation.NavigationId, isHomePage, isPopup, noRedirect, skipLastMenu = true, group = primaryKey });
 			}
 
 			return JsonOK(model);

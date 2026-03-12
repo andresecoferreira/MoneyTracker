@@ -528,6 +528,9 @@
   <data name="PASSWORD09467" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="DASHBOARD51597" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
   <data name="NAO_RESPONDE33275" xml:space="preserve">
     <value>Não responde</value>
   </data>
@@ -6290,9 +6293,6 @@
   </data>
   <data name="CONTACTOS35567" xml:space="preserve">
     <value>Contacts</value>
-  </data>
-  <data name="DASHBOARD51597" xml:space="preserve">
-    <value>Dashboard</value>
   </data>
   <data name="ESPACO_LIVRE_13565" xml:space="preserve">
     <value>Free space:</value>

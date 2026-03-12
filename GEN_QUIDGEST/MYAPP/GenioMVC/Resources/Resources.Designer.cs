@@ -1296,6 +1296,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Dashboard"
+		/// </summary>
+		public static string DASHBOARD51597 {
+			get {
+				return ResourceManager.GetString("DASHBOARD51597", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Não responde"
 		/// </summary>
 		public static string NAO_RESPONDE33275 {
@@ -18581,15 +18590,6 @@ namespace GenioMVC.Resources
 		public static string CONTACTOS35567 {
 			get {
 				return ResourceManager.GetString("CONTACTOS35567", resourceCulture);
-			}
-		}
-
-		/// <summary>
-		///   Looks up a localized string similar to "Dashboard"
-		/// </summary>
-		public static string DASHBOARD51597 {
-			get {
-				return ResourceManager.GetString("DASHBOARD51597", resourceCulture);
 			}
 		}
 

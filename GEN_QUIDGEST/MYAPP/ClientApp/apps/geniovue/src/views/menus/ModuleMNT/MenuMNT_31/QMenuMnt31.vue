@@ -15,7 +15,7 @@
 							:table-ctrl="controls.menu"
 							v-on="controls.menu.handlers" />
 					</template>
-					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_321]/ -->
+					<!-- USE /[MANUAL MNT CUSTOM_TABLE MNT_Menu_31]/ -->
 				</q-table>
 			</q-row-container>
 		</form>
@@ -72,17 +72,17 @@
 	import qProjArrays from '@/api/genio/projectArrays.js'
 	/* eslint-enable @typescript-eslint/no-unused-vars */
 
-	import MenuViewModel from './QMenuMNT_321ViewModel.js'
+	import MenuViewModel from './QMenuMNT_31ViewModel.js'
 
-	const requiredTextResources = ['QMenuMNT_321', 'hardcoded', 'messages']
+	const requiredTextResources = ['QMenuMNT_31', 'hardcoded', 'messages']
 
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_321]/
+// USE /[MANUAL MNT FORM_INCLUDEJS MNT_MENU_31]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 
 	export default {
-		name: 'QMenuMnt321',
+		name: 'QMenuMnt31',
 
 		mixins: [
 			MenuHandlers
@@ -111,23 +111,23 @@
 			// eslint-disable-next-line
 			const vm = this
 			return {
-				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_321', false),
+				componentOnLoadProc: asyncProcM.getProcListMonitor('QMenuMNT_31', false),
 
 				interfaceMetadata: {
-					id: 'QMenuMNT_321', // Used for resources
+					id: 'QMenuMNT_31', // Used for resources
 					requiredTextResources
 				},
 
 				menuInfo: {
-					id: '321',
+					id: '31',
 					isMenuList: true,
-					designation: computed(() => this.Resources.INCOMES07328),
-					acronym: 'MNT_321',
-					name: 'INCOME',
-					route: 'menu-MNT_321',
-					order: '321',
-					controller: 'INCOME',
-					action: 'MNT_Menu_321',
+					designation: computed(() => this.Resources.GROUPS45298),
+					acronym: 'MNT_31',
+					name: 'GROUP',
+					route: 'menu-MNT_31',
+					order: '31',
+					controller: 'GROUP',
+					action: 'MNT_Menu_31',
 					isPopup: false
 				},
 
@@ -136,9 +136,9 @@
 				controls: {
 					menu: new controlClass.TableListControl({
 						fnHydrateViewModel: (data) => vm.model.hydrate(data),
-						id: 'MNT_Menu_321',
-						controller: 'INCOME',
-						action: 'MNT_Menu_321',
+						id: 'MNT_Menu_31',
+						controller: 'GROUP',
+						action: 'MNT_Menu_31',
 						hasDependencies: false,
 						isInCollapsible: false,
 						tableModeClasses: [
@@ -146,71 +146,26 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.NumericColumn({
+							new listColumnTypes.TextColumn({
 								order: 1,
-								name: 'ValIncome_id',
-								area: 'INCOME',
-								field: 'INCOME_ID',
-								label: computed(() => this.Resources.ID36840),
-								scrollData: 6,
-								maxDigits: 6,
-								decimalPlaces: 0,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 2,
-								name: 'Category_type.ValName',
-								area: 'CATEGORY_TYPE',
+								name: 'ValName',
+								area: 'GROUP',
 								field: 'NAME',
-								label: computed(() => this.Resources.CATEGORY_TYPE34342),
-								dataLength: 20,
-								scrollData: 20,
-								export: 1,
-								pkColumn: 'ValCodcategory_type',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 3,
-								name: 'Category.ValName',
-								area: 'CATEGORY',
-								field: 'NAME',
-								label: computed(() => this.Resources.CATEGORY18978),
-								dataLength: 20,
-								scrollData: 20,
-								export: 1,
-								pkColumn: 'ValCodcategory',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.TextColumn({
-								order: 4,
-								name: 'Member.ValName',
-								area: 'MEMBER',
-								field: 'NAME',
-								label: computed(() => this.Resources.MEMBER00534),
-								dataLength: 80,
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 50,
 								scrollData: 30,
-								export: 1,
-								pkColumn: 'ValCodmember',
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.NumericColumn({
-								order: 5,
-								name: 'ValValue',
-								area: 'INCOME',
-								field: 'VALUE',
-								label: computed(() => this.Resources.VALUE10285),
-								scrollData: 12,
-								maxDigits: 12,
-								decimalPlaces: 0,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
 						config: {
-							name: 'MNT_Menu_321',
+							name: 'MNT_Menu_31',
 							serverMode: true,
-							pkColumn: 'ValCodincome',
-							tableAlias: 'INCOME',
-							tableNamePlural: computed(() => this.Resources.INCOMES07328),
+							pkColumn: 'ValCodgroup',
+							tableAlias: 'GROUP',
+							tableNamePlural: computed(() => this.Resources.GROUPS45298),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.INCOMES07328),
+							tableTitle: computed(() => this.Resources.GROUPS45298),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -231,7 +186,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'INCOME',
+										formName: 'GROUP',
 										mode: 'SHOW',
 										isControlled: true
 									}
@@ -247,7 +202,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'INCOME',
+										formName: 'GROUP',
 										mode: 'EDIT',
 										isControlled: true
 									}
@@ -263,7 +218,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'INCOME',
+										formName: 'GROUP',
 										mode: 'DUPLICATE',
 										isControlled: true
 									}
@@ -279,7 +234,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'INCOME',
+										formName: 'GROUP',
 										mode: 'DELETE',
 										isControlled: true
 									}
@@ -297,7 +252,7 @@
 									params: {
 										action: vm.openFormAction,
 										type: 'form',
-										formName: 'INCOME',
+										formName: 'GROUP',
 										mode: 'NEW',
 										repeatInsertion: false,
 										isControlled: true
@@ -313,36 +268,35 @@
 							MCActions: [
 							],
 							rowClickAction: {
-								id: 'RCA_MNT_3211',
-								name: 'form-INCOME',
+								id: 'RCA_MNT_311',
+								name: 'menu-MNT_311',
 								isVisible: true,
 								params: {
 									isRoute: true,
 									limits: [
 										{
-											identifier: 'id',
-											fnValueSelector: (row) => row.ValCodincome
+											identifier: 'group',
+											fnValueSelector: (row) => row.ValCodgroup
 										},
 									],
-									isControlled: true,
-									action: vm.openFormAction, type: 'form', mode: 'SHOW', formName: 'INCOME'
+									action: vm.openMenuAction, type: 'menu', menuName: 'MNT_311'
 								}
 							},
 							formsDefinition: {
-								'INCOME': {
-									fnKeySelector: (row) => row.Fields.ValCodincome,
+								'GROUP': {
+									fnKeySelector: (row) => row.Fields.ValCodgroup,
 									isPopup: true
 								},
 							},
-							defaultSearchColumnName: 'ValIncome_id',
-							defaultSearchColumnNameOriginal: 'ValIncome_id',
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: '',
+								columnName: 'ValName',
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-INCOME', 'changed-CATEGORY', 'changed-SOURCE', 'changed-MEMBER', 'changed-CATEGORY_TYPE'],
-						uuid: '64052bee-caf4-44ec-b0e5-a89629041d5e',
+						globalEvents: ['changed-GROUP'],
+						uuid: '486d67c4-e023-462f-a332-ce62a7d9c673',
 						allSelectedRows: 'false',
 						headerLevel: 1,
 						isActiveControl: computed(() => this.isActiveMenu)
@@ -368,7 +322,7 @@
 		mounted()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_321]/
+// USE /[MANUAL MNT FORM_CODEJS MNT_MENU_31]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
@@ -376,18 +330,18 @@
 		beforeUnmount()
 		{
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_321]/
+// USE /[MANUAL MNT COMPONENT_BEFORE_UNMOUNT MNT_MENU_31]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		},
 
 		methods: {
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT FUNCTIONS_JS MNT_321]/
+// USE /[MANUAL MNT FUNCTIONS_JS MNT_31]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 /* eslint-disable indent, vue/html-indent, vue/script-indent */
-// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_321]/
+// USE /[MANUAL MNT LISTING_CODEJS MNT_MENU_31]/
 // eslint-disable-next-line
 /* eslint-enable indent, vue/html-indent, vue/script-indent */
 		}

@@ -4,18 +4,18 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Expense;
+namespace GenioMVC.ViewModels.Investment;
 
-public class MNT_Menu_311_RowViewModel : Models.Expense
+public class MNT_Menu_431_RowViewModel : Models.Investment
 {
 	#region Constructors
 
-	public MNT_Menu_311_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
+	public MNT_Menu_431_RowViewModel(UserContext userContext, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
 
-	public MNT_Menu_311_RowViewModel(UserContext userContext, CSGenioAexpense val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MNT_Menu_431_RowViewModel(UserContext userContext, CSGenioAinvestment val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,8 +36,8 @@ public class MNT_Menu_311_RowViewModel : Models.Expense
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "EXPENSE",
-				Field = "EXPENSE_ID",
+				Area = "INVESTMENT",
+				Field = "INVESTMENT_ID",
 			},
 			new ListColumn()
 			{
@@ -60,7 +60,7 @@ public class MNT_Menu_311_RowViewModel : Models.Expense
 			new ListColumn()
 			{
 				Order = 5,
-				Area = "EXPENSE",
+				Area = "INVESTMENT",
 				Field = "VALUE",
 			},
 		];

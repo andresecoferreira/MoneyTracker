@@ -47,13 +47,13 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MNT/menu/MNT_41',
-			name: 'menu-MNT_41',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_41/QMenuMnt41.vue'),
+			path: '/:culture/:system/MNT/menu/MNT_31',
+			name: 'menu-MNT_31',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_31/QMenuMnt31.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MNT',
-				order: '41',
+				order: '31',
 				baseArea: 'GROUP',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
@@ -77,28 +77,14 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MNT/menu/MNT_21',
-			name: 'menu-MNT_21',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_21/QMenuMnt21.vue'),
-			meta: {
-				routeType: 'menu',
-				module: 'MNT',
-				order: '21',
-				baseArea: 'MEMBER',
-				hasInitialPHE: false,
-				humanKeyFields: ['ValName'],
-				isPopup: false
-			}
-		},
-		{
-			path: '/:culture/:system/MNT/menu/MNT_411',
-			name: 'menu-MNT_411',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_411/QMenuMnt411.vue'),
+			path: '/:culture/:system/MNT/menu/MNT_311',
+			name: 'menu-MNT_311',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_311/QMenuMnt311.vue'),
 			beforeEnter: [updateQueryParams],
 			meta: {
 				routeType: 'menu',
 				module: 'MNT',
-				order: '411',
+				order: '311',
 				baseArea: 'MEMBER',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValName'],
@@ -107,13 +93,13 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MNT/menu/MNT_311',
-			name: 'menu-MNT_311',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_311/QMenuMnt311.vue'),
+			path: '/:culture/:system/MNT/menu/MNT_411',
+			name: 'menu-MNT_411',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_411/QMenuMnt411.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MNT',
-				order: '311',
+				order: '411',
 				baseArea: 'EXPENSE',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValExpense_id'],
@@ -137,13 +123,13 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MNT/menu/MNT_321',
-			name: 'menu-MNT_321',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_321/QMenuMnt321.vue'),
+			path: '/:culture/:system/MNT/menu/MNT_421',
+			name: 'menu-MNT_421',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_421/QMenuMnt421.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MNT',
-				order: '321',
+				order: '421',
 				baseArea: 'INCOME',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValIncome_id'],
@@ -151,13 +137,13 @@ export default function getMenusRoutes()
 			}
 		},
 		{
-			path: '/:culture/:system/MNT/menu/MNT_331',
-			name: 'menu-MNT_331',
-			component: () => import('@/views/menus/ModuleMNT/MenuMNT_331/QMenuMnt331.vue'),
+			path: '/:culture/:system/MNT/menu/MNT_431',
+			name: 'menu-MNT_431',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_431/QMenuMnt431.vue'),
 			meta: {
 				routeType: 'menu',
 				module: 'MNT',
-				order: '331',
+				order: '431',
 				baseArea: 'INVESTMENT',
 				hasInitialPHE: false,
 				humanKeyFields: ['ValInvestment_id'],

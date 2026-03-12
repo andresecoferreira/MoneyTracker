@@ -4,9 +4,9 @@ using CSGenio.business;
 using CSGenio.framework;
 using GenioMVC.Models.Navigation;
 
-namespace GenioMVC.ViewModels.Member;
+namespace GenioMVC.ViewModels.Expense;
 
-public class MNT_Menu_411_RowViewModel : Models.Member
+public class MNT_Menu_411_RowViewModel : Models.Expense
 {
 	#region Constructors
 
@@ -15,7 +15,7 @@ public class MNT_Menu_411_RowViewModel : Models.Member
 		InitRowProperties();
 	}
 
-	public MNT_Menu_411_RowViewModel(UserContext userContext, CSGenioAmember val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
+	public MNT_Menu_411_RowViewModel(UserContext userContext, CSGenioAexpense val, bool isEmpty = false, string[]? fieldsToSerialize = null) : base(userContext, val, isEmpty, fieldsToSerialize)
 	{
 		InitRowProperties();
 	}
@@ -36,20 +36,32 @@ public class MNT_Menu_411_RowViewModel : Models.Member
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "MEMBER",
-				Field = "PHOTO",
+				Area = "EXPENSE",
+				Field = "EXPENSE_ID",
 			},
 			new ListColumn()
 			{
 				Order = 2,
-				Area = "MEMBER",
+				Area = "CATEGORY_TYPE",
 				Field = "NAME",
 			},
 			new ListColumn()
 			{
 				Order = 3,
+				Area = "CATEGORY",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 4,
 				Area = "MEMBER",
-				Field = "EMAIL",
+				Field = "NAME",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "EXPENSE",
+				Field = "VALUE",
 			},
 		];
 	}

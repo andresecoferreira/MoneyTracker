@@ -411,6 +411,9 @@
   <msg id="Password" code="PASSWORD09467">
     <ENUS>Password</ENUS>
   </msg>
+  <msg id="Dashboard" code="DASHBOARD51597">
+    <ENUS>Dashboard</ENUS>
+  </msg>
   <msg id="Não responde" code="NAO_RESPONDE33275">
     <ENUS>Não responde</ENUS>
   </msg>
@@ -6173,9 +6176,6 @@
   </msg>
   <msg id="Contactos" code="CONTACTOS35567">
     <ENUS>Contacts</ENUS>
-  </msg>
-  <msg id="Dashboard" code="DASHBOARD51597">
-    <ENUS>Dashboard</ENUS>
   </msg>
   <msg id="Espaço livre:" code="ESPACO_LIVRE_13565">
     <ENUS>Free space:</ENUS>

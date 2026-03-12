@@ -15,23 +15,23 @@ using GenioMVC.Models.Navigation;
 using Quidgest.Persistence;
 using Quidgest.Persistence.GenericQuery;
 
-namespace GenioMVC.ViewModels.Income
+namespace GenioMVC.ViewModels.Investment
 {
-	public class MNT_Menu_321_ViewModel : MenuListViewModel<Models.Income>
+	public class MNT_Menu_431_ViewModel : MenuListViewModel<Models.Investment>
 	{
 		/// <summary>
 		/// Gets or sets the object that represents the table and its elements.
 		/// </summary>
 		[JsonPropertyName("table")]
-		public TablePartial<MNT_Menu_321_RowViewModel> Menu { get; set; }
+		public TablePartial<MNT_Menu_431_RowViewModel> Menu { get; set; }
 
 		/// <inheritdoc/>
 		[JsonIgnore]
-		public override string TableAlias => "income";
+		public override string TableAlias => "investment";
 
 		/// <inheritdoc/>
 		[JsonPropertyName("uuid")]
-		public override string Uuid => "64052bee-caf4-44ec-b0e5-a89629041d5e";
+		public override string Uuid => "9e098cc9-89e9-48f2-b49c-ab7bc923ac95";
 
 		/// <inheritdoc/>
 		protected override string[] FieldsToSerialize => _fieldsToSerialize;
@@ -82,7 +82,7 @@ namespace GenioMVC.ViewModels.Income
 
 		public override CriteriaSet GetCustomizedStaticLimits(CriteriaSet crs)
 		{
-// USE /[MANUAL MNT LIST_LIMITS 321]/
+// USE /[MANUAL MNT LIST_LIMITS 431]/
 
 			return crs;
 		}
@@ -90,19 +90,19 @@ namespace GenioMVC.ViewModels.Income
 		public override int GetCount(User user)
 		{
 			CSGenio.persistence.PersistentSupport sp = m_userContext.PersistentSupport;
-			var areaBase = CSGenio.business.Area.createArea("income", user, "MNT");
+			var areaBase = CSGenio.business.Area.createArea("investment", user, "MNT");
 
 			//gets eph conditions to be applied in listing
-			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML321");
-			conditions.Equal(CSGenioAincome.FldZzstate, 0); //valid zzstate only
+			CriteriaSet conditions = CSGenio.business.Listing.CalculateConditionsEphGeneric(areaBase, "ML431");
+			conditions.Equal(CSGenioAinvestment.FldZzstate, 0); //valid zzstate only
 
 			// Fixed limits and relations:
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAincome.FldCodincome, CSGenioAincome.FldZzstate, CSGenioAincome.FldIncome_id, CSGenioAincome.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAincome.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAincome.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAincome.FldValue };
+			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAinvestment.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAinvestment.FldValue };
 
-			ListingMVC<CSGenioAincome> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
+			ListingMVC<CSGenioAinvestment> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
 
 			// Menu relations:
@@ -120,23 +120,23 @@ namespace GenioMVC.ViewModels.Income
 		/// FOR DESERIALIZATION ONLY
 		/// </summary>
 		[Obsolete("For deserialization only")]
-		public MNT_Menu_321_ViewModel() : base(null!) { }
+		public MNT_Menu_431_ViewModel() : base(null!) { }
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MNT_Menu_321_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="MNT_Menu_431_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
-		public MNT_Menu_321_ViewModel(UserContext userContext) : base(userContext)
+		public MNT_Menu_431_ViewModel(UserContext userContext) : base(userContext)
 		{
 			this.RoleToShow = CSGenio.framework.Role.ROLE_50;
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MNT_Menu_321_ViewModel" /> class.
+		/// Initializes a new instance of the <see cref="MNT_Menu_431_ViewModel" /> class.
 		/// </summary>
 		/// <param name="userContext">The current user request context</param>
 		/// <param name="parentCtx">The context of the parent</param>
-		public MNT_Menu_321_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
+		public MNT_Menu_431_ViewModel(UserContext userContext, Models.ModelBase parentCtx) : this(userContext)
 		{
 			ParentCtx = parentCtx;
 		}
@@ -146,21 +146,21 @@ namespace GenioMVC.ViewModels.Income
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAincome.FldIncome_id, FieldType.NUMERIC, Resources.Resources.ID36840, 6, 0, true),
+				new Exports.QColumn(CSGenioAinvestment.FldInvestment_id, FieldType.NUMERIC, Resources.Resources.ID36840, 6, 0, true),
 				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.CATEGORY_TYPE34342, 20, 0, true),
 				new Exports.QColumn(CSGenioAcategory.FldName, FieldType.TEXT, Resources.Resources.CATEGORY18978, 20, 0, true),
-				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.MEMBER00534, 30, 0, true),
-				new Exports.QColumn(CSGenioAincome.FldValue, FieldType.NUMERIC, Resources.Resources.VALUE10285, 12, 0, true),
+				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.NAME31974, 30, 0, true),
+				new Exports.QColumn(CSGenioAinvestment.FldValue, FieldType.NUMERIC, Resources.Resources.VALUE10285, 12, 0, true),
 			];
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAincome> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAinvestment> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 			LoadToExport(out listing, out conditions, out columns, tableConfig, requestValues, ajaxRequest);
 		}
 
-		public void LoadToExport(out ListingMVC<CSGenioAincome> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
+		public void LoadToExport(out ListingMVC<CSGenioAinvestment> listing, out CriteriaSet conditions, out List<Exports.QColumn> columns, CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest = false)
 		{
 			listing = null;
 			conditions = null;
@@ -191,7 +191,7 @@ namespace GenioMVC.ViewModels.Income
 
 			crs ??= CriteriaSet.And();
 
-			Menu ??= new TablePartial<MNT_Menu_321_RowViewModel>();
+			Menu ??= new TablePartial<MNT_Menu_431_RowViewModel>();
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
@@ -214,25 +214,25 @@ namespace GenioMVC.ViewModels.Income
 			if (isToExport)
 			{
 				// EPH
-				crs = Models.Income.AddEPH<CSGenioAincome>(ref u, crs, "ML321");
+				crs = Models.Investment.AddEPH<CSGenioAinvestment>(ref u, crs, "ML431");
 
 				// Export only records with ZZState == 0
-				crs.Equal(CSGenioAincome.FldZzstate, 0);
+				crs.Equal(CSGenioAinvestment.FldZzstate, 0);
 
 				return crs;
 			}
 
 			// Limitation by Zzstate
-			if (!Navigation.checkFormMode("INCOME", FormMode.New)) // TODO: Check in Duplicate mode
-				crs = extendWithZzstateCondition(crs, CSGenioAincome.FldZzstate, CSGenioAincome.FldCreated_by);
+			if (!Navigation.checkFormMode("INVESTMENT", FormMode.New)) // TODO: Check in Duplicate mode
+				crs = extendWithZzstateCondition(crs, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldCreated_by);
 
 
 			if (tableReload)
 			{
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_income");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_income");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_investment");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_investment");
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
-					crs.Equals(Models.Income.AddEPH<CSGenioAincome>(ref u, null, "ML321"));
+					crs.Equals(Models.Investment.AddEPH<CSGenioAinvestment>(ref u, null, "ML431"));
 			}
 
 			return crs;
@@ -257,7 +257,7 @@ namespace GenioMVC.ViewModels.Income
 		/// <param name="conditions">The conditions.</param>
 		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAincome> listing = null;
+			ListingMVC<CSGenioAinvestment> listing = null;
 
 			Load(numberListItems, requestValues, ajaxRequest, false, ref listing, ref conditions);
 		}
@@ -271,7 +271,7 @@ namespace GenioMVC.ViewModels.Income
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAincome> Qlisting, ref CriteriaSet conditions)
+		public void Load(int numberListItems, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAinvestment> Qlisting, ref CriteriaSet conditions)
 		{
 			CSGenio.core.framework.table.TableConfiguration tableConfig = new();
 
@@ -290,7 +290,7 @@ namespace GenioMVC.ViewModels.Income
 		/// <param name="conditions">The conditions.</param>
 		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport = false, CriteriaSet conditions = null)
 		{
-			ListingMVC<CSGenioAincome> listing = null;
+			ListingMVC<CSGenioAinvestment> listing = null;
 
 			Load(tableConfig, requestValues, ajaxRequest, isToExport, ref listing, ref conditions);
 		}
@@ -304,12 +304,12 @@ namespace GenioMVC.ViewModels.Income
 		/// <param name="isToExport">Whether the list is being loaded to be exported</param>
 		/// <param name="Qlisting">The rows.</param>
 		/// <param name="conditions">The conditions.</param>
-		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAincome> Qlisting, ref CriteriaSet conditions)
+		public void Load(CSGenio.core.framework.table.TableConfiguration tableConfig, NameValueCollection requestValues, bool ajaxRequest, bool isToExport, ref ListingMVC<CSGenioAinvestment> Qlisting, ref CriteriaSet conditions)
 		{
 			User u = m_userContext.User;
-			Menu = new TablePartial<MNT_Menu_321_RowViewModel>();
+			Menu = new TablePartial<MNT_Menu_431_RowViewModel>();
 
-			CriteriaSet mnt_menu_321Conds = CriteriaSet.And();
+			CriteriaSet mnt_menu_431Conds = CriteriaSet.And();
 			bool tableReload = true;
 
 			//FOR: MENU LIST SORTING
@@ -323,10 +323,10 @@ namespace GenioMVC.ViewModels.Income
 			if (pageNumber < 1)
 				pageNumber = 1;
 
-			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "income", allSortOrders);
+			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "investment", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAincome.FldCodincome, CSGenioAincome.FldZzstate, CSGenioAincome.FldIncome_id, CSGenioAincome.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAincome.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAincome.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAincome.FldValue };
+			FieldRef[] fields = new FieldRef[] { CSGenioAinvestment.FldCodinvestment, CSGenioAinvestment.FldZzstate, CSGenioAinvestment.FldInvestment_id, CSGenioAinvestment.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAinvestment.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAinvestment.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAinvestment.FldValue };
 
 
 			// Totalizers
@@ -338,7 +338,7 @@ namespace GenioMVC.ViewModels.Income
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("income", "income_id");
+				firstVisibleColumn ??= new FieldRef("investment", "investment_id");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -349,8 +349,8 @@ namespace GenioMVC.ViewModels.Income
 			{
 				Limit limit = new Limit();
 				limit.TipoLimite = LimitType.EPH;
-				CSGenioAincome model_limit_area = new CSGenioAincome(m_userContext.User);
-				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML321");
+				CSGenioAinvestment model_limit_area = new CSGenioAinvestment(m_userContext.User);
+				List<Limit> area_EPH_limits = EPH_Limit_Filler(ref limit, model_limit_area, "ML431");
 				if (area_EPH_limits.Count > 0)
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
@@ -359,11 +359,11 @@ namespace GenioMVC.ViewModels.Income
 			if (conditions == null)
 				conditions = CriteriaSet.And();
 
-			conditions.SubSets.Add(mnt_menu_321Conds);
-			mnt_menu_321Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
+			conditions.SubSets.Add(mnt_menu_431Conds);
+			mnt_menu_431Conds = BuildCriteriaSet(tableConfig, requestValues, out bool hasAllRequiredLimits, conditions, isToExport);
 			tableReload &= hasAllRequiredLimits;
 
-// USE /[MANUAL MNT OVERRQ 321]/
+// USE /[MANUAL MNT OVERRQ 431]/
 
 			bool distinct = false;
 
@@ -375,29 +375,29 @@ namespace GenioMVC.ViewModels.Income
 				var exportColumns = GetExportColumns(tableConfig.ColumnConfigurations);
 				var exportFieldRefs = exportColumns.Select(eCol => eCol.Field).Where(fldRef => fldRef != null).ToArray();
 
-				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAincome>(m_userContext, false, ref mnt_menu_321Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML321", true, firstVisibleColumn: firstVisibleColumn);
+				Qlisting = Models.ModelBase.BuildListingForExport<CSGenioAinvestment>(m_userContext, false, ref mnt_menu_431Conds, exportFieldRefs, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML431", true, firstVisibleColumn: firstVisibleColumn);
 
-// USE /[MANUAL MNT OVERRQLSTEXP 321]/
+// USE /[MANUAL MNT OVERRQLSTEXP 431]/
 
 				return;
 			}
 
 			if (tableReload)
 			{
-// USE /[MANUAL MNT OVERRQLIST 321]/
+// USE /[MANUAL MNT OVERRQLIST 431]/
 
-				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_income");
-				Navigation.DestroyEntry("QMVC_POS_RECORD_income");
+				string QMVC_POS_RECORD = Navigation.GetStrValue("QMVC_POS_RECORD_investment");
+				Navigation.DestroyEntry("QMVC_POS_RECORD_investment");
 				CriteriaSet m_PagingPosEPHs = null;
 
 				if (!string.IsNullOrEmpty(QMVC_POS_RECORD))
 				{
-					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAincome.GetInformation(), QMVC_POS_RECORD, sorts, mnt_menu_321Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
+					var m_iCurPag = m_userContext.PersistentSupport.getPagingPos(CSGenioAinvestment.GetInformation(), QMVC_POS_RECORD, sorts, mnt_menu_431Conds, m_PagingPosEPHs, firstVisibleColumn: firstVisibleColumn);
 					if (m_iCurPag != -1)
 						pageNumber = ((m_iCurPag - 1) / numberListItems) + 1;
 				}
 
-				ListingMVC<CSGenioAincome> listing = Models.ModelBase.Where<CSGenioAincome>(m_userContext, distinct, mnt_menu_321Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML321", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
+				ListingMVC<CSGenioAinvestment> listing = Models.ModelBase.Where<CSGenioAinvestment>(m_userContext, distinct, mnt_menu_431Conds, fields, (pageNumber - 1) * numberListItems, numberListItems, sorts, "ML431", true, false, QMVC_POS_RECORD, m_PagingPosEPHs, firstVisibleColumn, fieldsWithTotalizers, tableConfig.SelectedRows);
 
 				if (listing.CurrentPage > 0)
 					pageNumber = listing.CurrentPage;
@@ -409,15 +409,15 @@ namespace GenioMVC.ViewModels.Income
 				//Set document field values to objects
 				SetDocumentFields(listing);
 
-				Menu.Elements = MapMNT_Menu_321(listing);
+				Menu.Elements = MapMNT_Menu_431(listing);
 
-				Menu.Identifier = "ML321";
+				Menu.Identifier = "ML431";
 				Menu.Slots = new Dictionary<string, List<object>>();
 
 				// Last updated by [CJP] at [2015.02.03]
 				// Adds the identifier to each element
 				foreach (var element in Menu.Elements)
-					element.Identifier = "ML321";
+					element.Identifier = "ML431";
 
 				Menu.SetPagination(pageNumber, listing.NumRegs, listing.HasMore, listing.GetTotal, listing.TotalRecords);
 
@@ -436,9 +436,9 @@ namespace GenioMVC.ViewModels.Income
 			LoadUserTableConfigNameProperties();
 		}
 
-		private List<MNT_Menu_321_RowViewModel> MapMNT_Menu_321(ListingMVC<CSGenioAincome> Qlisting)
+		private List<MNT_Menu_431_RowViewModel> MapMNT_Menu_431(ListingMVC<CSGenioAinvestment> Qlisting)
 		{
-			List<MNT_Menu_321_RowViewModel> Elements = [];
+			List<MNT_Menu_431_RowViewModel> Elements = [];
 			int i = 0;
 
 			if (Qlisting.Rows != null)
@@ -447,7 +447,7 @@ namespace GenioMVC.ViewModels.Income
 				{
 					if (Qlisting.NumRegs > 0 && i >= Qlisting.NumRegs) // Copiado da versão antiga do RowsToViewModels
 						break;
-					Elements.Add(MapMNT_Menu_321(row));
+					Elements.Add(MapMNT_Menu_431(row));
 					i++;
 				}
 			}
@@ -456,13 +456,13 @@ namespace GenioMVC.ViewModels.Income
 		}
 
 		/// <summary>
-		/// Maps a single CSGenioAincome row
-		/// to a MNT_Menu_321_RowViewModel object.
+		/// Maps a single CSGenioAinvestment row
+		/// to a MNT_Menu_431_RowViewModel object.
 		/// </summary>
 		/// <param name="row">The row.</param>
-		private MNT_Menu_321_RowViewModel MapMNT_Menu_321(CSGenioAincome row)
+		private MNT_Menu_431_RowViewModel MapMNT_Menu_431(CSGenioAinvestment row)
 		{
-			var model = new MNT_Menu_321_RowViewModel(m_userContext, true, _fieldsToSerialize);
+			var model = new MNT_Menu_431_RowViewModel(m_userContext, true, _fieldsToSerialize);
 			if (row == null)
 				return model;
 
@@ -470,7 +470,7 @@ namespace GenioMVC.ViewModels.Income
 			{
 				switch (Qfield.Area)
 				{
-					case "income":
+					case "investment":
 						model.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
 					case "category_type":
 						model.Category_type.klass.insertNameValueField(Qfield.FullName, Qfield.Value); break;
@@ -503,19 +503,19 @@ namespace GenioMVC.ViewModels.Income
 		/// Sets the document field values to objects.
 		/// </summary>
 		/// <param name="listing">The rows</param>
-		private void SetDocumentFields(ListingMVC<CSGenioAincome> listing)
+		private void SetDocumentFields(ListingMVC<CSGenioAinvestment> listing)
 		{
 		}
 
 		#region Mapper
 
 		/// <inheritdoc />
-		public override void MapFromModel(Models.Income m)
+		public override void MapFromModel(Models.Investment m)
 		{
 		}
 
 		/// <inheritdoc />
-		public override void MapToModel(Models.Income m)
+		public override void MapToModel(Models.Investment m)
 		{
 		}
 
@@ -523,22 +523,22 @@ namespace GenioMVC.ViewModels.Income
 
 		#region Custom code
 
-// USE /[MANUAL MNT VIEWMODEL_CUSTOM MNT_MENU_321]/
+// USE /[MANUAL MNT VIEWMODEL_CUSTOM MNT_MENU_431]/
 
 		#endregion
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Income", "Income.ValCodincome", "Income.ValZzstate", "Income.ValIncome_id", "Category_type", "Category_type.ValName", "Category", "Category.ValName", "Member", "Member.ValName", "Income.ValValue", "Income.ValCategory_id", "Income.ValType_id", "Income.ValMember_id", "Income.ValSource_id"
+			"Investment", "Investment.ValCodinvestment", "Investment.ValZzstate", "Investment.ValInvestment_id", "Category_type", "Category_type.ValName", "Category", "Category.ValName", "Member", "Member.ValName", "Investment.ValValue", "Investment.ValCategory_id", "Investment.ValType_id", "Investment.ValMember_id", "Investment.ValSource_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValIncome_id", CSGenioAincome.FldIncome_id, typeof(decimal?), defaultSearch : true),
+			new TableSearchColumn("ValInvestment_id", CSGenioAinvestment.FldInvestment_id, typeof(decimal?), defaultSearch : true),
 			new TableSearchColumn("Category_type_ValName", CSGenioAcategory_type.FldName, typeof(string)),
 			new TableSearchColumn("Category_ValName", CSGenioAcategory.FldName, typeof(string)),
 			new TableSearchColumn("Member_ValName", CSGenioAmember.FldName, typeof(string)),
-			new TableSearchColumn("ValValue", CSGenioAincome.FldValue, typeof(decimal?)),
+			new TableSearchColumn("ValValue", CSGenioAinvestment.FldValue, typeof(decimal?)),
 		];
 	}
 }
