@@ -215,36 +215,36 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.MEMBER__PSEUDNEWGRP03.isVisible">
-								<q-col v-if="controls.MEMBER__PSEUDNEWGRP03.isVisible">
-									<q-group-box-container
-										v-if="controls.MEMBER__PSEUDNEWGRP03.isVisible"
-										id="MEMBER__PSEUDNEWGRP03"
-										v-bind="controls.MEMBER__PSEUDNEWGRP03"
-										:is-visible="controls.MEMBER__PSEUDNEWGRP03.isVisible">
-										<!-- Start MEMBER__PSEUDNEWGRP03 -->
-										<q-row v-if="controls.MEMBER__PSEUDSOURCES_.isVisible">
-											<q-col
-												v-if="controls.MEMBER__PSEUDSOURCES_.isVisible"
-												cols="auto">
-												<q-table
-													v-if="controls.MEMBER__PSEUDSOURCES_.isVisible"
-													v-bind="controls.MEMBER__PSEUDSOURCES_"
-													v-on="controls.MEMBER__PSEUDSOURCES_.handlers">
-													<template #header>
-														<q-table-config
-															:table-ctrl="controls.MEMBER__PSEUDSOURCES_"
-															v-on="controls.MEMBER__PSEUDSOURCES_.handlers" />
-													</template>
-													<!-- USE /[MANUAL MNT CUSTOM_TABLE MEMBER__PSEUDSOURCES_]/ -->
-												</q-table>
-											</q-col>
-										</q-row>
-										<!-- End MEMBER__PSEUDNEWGRP03 -->
-									</q-group-box-container>
+							<!-- End MEMBER__PSEUDNEWGRP01 -->
+						</q-group-box-container>
+					</q-col>
+				</q-row>
+				<q-row v-if="controls.MEMBER__PSEUDNEWGRP03.isVisible">
+					<q-col v-if="controls.MEMBER__PSEUDNEWGRP03.isVisible">
+						<q-group-box-container
+							v-if="controls.MEMBER__PSEUDNEWGRP03.isVisible"
+							id="MEMBER__PSEUDNEWGRP03"
+							v-bind="controls.MEMBER__PSEUDNEWGRP03"
+							:is-visible="controls.MEMBER__PSEUDNEWGRP03.isVisible">
+							<!-- Start MEMBER__PSEUDNEWGRP03 -->
+							<q-row v-if="controls.MEMBER__PSEUDSOURCES_.isVisible">
+								<q-col
+									v-if="controls.MEMBER__PSEUDSOURCES_.isVisible"
+									cols="auto">
+									<q-table
+										v-if="controls.MEMBER__PSEUDSOURCES_.isVisible"
+										v-bind="controls.MEMBER__PSEUDSOURCES_"
+										v-on="controls.MEMBER__PSEUDSOURCES_.handlers">
+										<template #header>
+											<q-table-config
+												:table-ctrl="controls.MEMBER__PSEUDSOURCES_"
+												v-on="controls.MEMBER__PSEUDSOURCES_.handlers" />
+										</template>
+										<!-- USE /[MANUAL MNT CUSTOM_TABLE MEMBER__PSEUDSOURCES_]/ -->
+									</q-table>
 								</q-col>
 							</q-row>
-							<!-- End MEMBER__PSEUDNEWGRP01 -->
+							<!-- End MEMBER__PSEUDNEWGRP03 -->
 						</q-group-box-container>
 					</q-col>
 				</q-row>
@@ -604,7 +604,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['MEMBER__MEMBER__PHOTO', 'MEMBER__MEMBER__NAME', 'MEMBER__MEMBER__BIRTHDAY', 'MEMBER__MEMBER__EMAIL', 'MEMBER__MEMBER__PHONE', 'MEMBER__GROUPNAME____', 'MEMBER__PSEUDNEWGRP03'],
+						directChildren: ['MEMBER__MEMBER__PHOTO', 'MEMBER__MEMBER__NAME', 'MEMBER__MEMBER__BIRTHDAY', 'MEMBER__MEMBER__EMAIL', 'MEMBER__MEMBER__PHONE', 'MEMBER__GROUPNAME____'],
 						controlLimits: [
 						],
 					}, this),
@@ -718,7 +718,6 @@
 						label: computed(() => this.Resources.ACCOUNTS54906),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						container: 'MEMBER__PSEUDNEWGRP01',
 						isCollapsible: false,
 						anchored: false,
 						directChildren: ['MEMBER__PSEUDSOURCES_'],
