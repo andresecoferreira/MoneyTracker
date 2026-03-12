@@ -1564,6 +1564,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Feveiro"
+        /// </summary>
+        public static string FEVEIRO14499 {
+            get {
+                return ResourceManager.GetString("FEVEIRO14499", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Banks"
         /// </summary>
         public static string BANKS53855 {

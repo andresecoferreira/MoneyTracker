@@ -501,6 +501,9 @@
   <msg id="Obs" code="OBS42026">
     <ENUS>Obs</ENUS>
   </msg>
+  <msg id="Feveiro" code="FEVEIRO14499">
+    <ENUS>Feveiro</ENUS>
+  </msg>
   <msg id="Banks" code="BANKS53855">
     <ENUS>Banks</ENUS>
   </msg>

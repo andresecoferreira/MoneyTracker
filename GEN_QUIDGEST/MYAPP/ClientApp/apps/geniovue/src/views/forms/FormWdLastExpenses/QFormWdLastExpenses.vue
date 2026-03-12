@@ -492,6 +492,76 @@
 								sortOrder: 'desc'
 							}
 						},
+						groupFilters: [
+							{
+								id: 'filter_ValField001_MONTH',
+								isMultiple: false,
+								items: [
+									{
+										id: 'filter_ValField001_MONTH_1',
+										value: computed(() => this.Resources.JANEIRO25316),
+										key: '1'
+									},
+									{
+										id: 'filter_ValField001_MONTH_2',
+										value: computed(() => this.Resources.FEVEIRO14499),
+										key: '2'
+									},
+									{
+										id: 'filter_ValField001_MONTH_3',
+										value: computed(() => this.Resources.MARCO22234),
+										key: '3'
+									},
+									{
+										id: 'filter_ValField001_MONTH_4',
+										value: computed(() => this.Resources.ABRIL58220),
+										key: '4'
+									},
+									{
+										id: 'filter_ValField001_MONTH_5',
+										value: computed(() => this.Resources.MAIO10443),
+										key: '5'
+									},
+									{
+										id: 'filter_ValField001_MONTH_6',
+										value: computed(() => this.Resources.JUNHO15214),
+										key: '6'
+									},
+									{
+										id: 'filter_ValField001_MONTH_7',
+										value: computed(() => this.Resources.JULHO20764),
+										key: '7'
+									},
+									{
+										id: 'filter_ValField001_MONTH_8',
+										value: computed(() => this.Resources.AGOSTO05568),
+										key: '8'
+									},
+									{
+										id: 'filter_ValField001_MONTH_9',
+										value: computed(() => this.Resources.SETEMBRO19956),
+										key: '9'
+									},
+									{
+										id: 'filter_ValField001_MONTH_10',
+										value: computed(() => this.Resources.OUTUBRO17690),
+										key: '10'
+									},
+									{
+										id: 'filter_ValField001_MONTH_11',
+										value: computed(() => this.Resources.NOVEMBRO18614),
+										key: '11'
+									},
+									{
+										id: 'filter_ValField001_MONTH_12',
+										value: computed(() => this.Resources.DEZEMBRO01950),
+										key: '12'
+									},
+								],
+								selected: undefined,
+								default: undefined
+							},
+						],
 						globalEvents: ['changed-MEMBER', 'changed-CATEGORY_TYPE', 'changed-EXPENSE', 'changed-GROUP', 'changed-CATEGORY', 'changed-SOURCE'],
 						uuid: 'Wd_last_expenses_ValField001',
 						allSelectedRows: 'false',
