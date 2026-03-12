@@ -36,7 +36,7 @@ export default function getFormsRoutes()
 				routeType: 'form',
 				baseArea: 'EXPENSE',
 				humanKeyFields: ['ValExpense_id'],
-				isPopup: false
+				isPopup: true
 			}
 		},
 		{
@@ -72,7 +72,7 @@ export default function getFormsRoutes()
 				routeType: 'form',
 				baseArea: 'INCOME',
 				humanKeyFields: ['ValIncome_id'],
-				isPopup: false
+				isPopup: true
 			}
 		},
 		{
@@ -84,7 +84,7 @@ export default function getFormsRoutes()
 				routeType: 'form',
 				baseArea: 'INVESTMENT',
 				humanKeyFields: ['ValInvestment_id'],
-				isPopup: false
+				isPopup: true
 			}
 		},
 		{

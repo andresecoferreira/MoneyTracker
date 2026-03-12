@@ -331,7 +331,7 @@
 							formsDefinition: {
 								'INVESTMENT': {
 									fnKeySelector: (row) => row.Fields.ValCodinvestment,
-									isPopup: false
+									isPopup: true
 								},
 							},
 							defaultSearchColumnName: 'ValInvestment_id',

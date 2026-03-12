@@ -331,7 +331,7 @@
 							formsDefinition: {
 								'EXPENSE': {
 									fnKeySelector: (row) => row.Fields.ValCodexpense,
-									isPopup: false
+									isPopup: true
 								},
 							},
 							defaultSearchColumnName: 'ValExpense_id',

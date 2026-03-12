@@ -5,7 +5,7 @@
 namespace quidgest.uitests.pages.forms;
 
 [System.CodeDom.Compiler.GeneratedCode("Genio", "")]
-public class InvestmentForm : Form
+public class InvestmentForm : PopupForm
 {
 	/// <summary>
 	/// ID
@@ -82,5 +82,5 @@ public class InvestmentForm : Form
 	public BaseInputControl InvestmentUpdated_at => new BaseInputControl(driver, ContainerLocator, "container-INVESTMENT__INVESTMENT__UPDATED_AT", "#INVESTMENT__INVESTMENT__UPDATED_AT");
 
 	public InvestmentForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
-		: base(driver, mode, "INVESTMENT", containerLocator: containerLocator) { }
+		: base(driver, mode, "INVESTMENT") { }
 }

@@ -5,7 +5,7 @@
 namespace quidgest.uitests.pages.forms;
 
 [System.CodeDom.Compiler.GeneratedCode("Genio", "")]
-public class ExpenseForm : Form
+public class ExpenseForm : PopupForm
 {
 	/// <summary>
 	/// ID
@@ -67,9 +67,9 @@ public class ExpenseForm : Form
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#EXPENSE_PSEUDNEWGRP01-container");
 
 	/// <summary>
-	/// Updated At
+	/// Created By
 	/// </summary>
-	public BaseInputControl ExpenseUpdated_at => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__UPDATED_AT", "#EXPENSE__EXPENSE__UPDATED_AT");
+	public BaseInputControl ExpenseCreated_by => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__CREATED_BY", "#EXPENSE__EXPENSE__CREATED_BY");
 
 	/// <summary>
 	/// Created At
@@ -77,15 +77,15 @@ public class ExpenseForm : Form
 	public BaseInputControl ExpenseCreated_at => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__CREATED_AT", "#EXPENSE__EXPENSE__CREATED_AT");
 
 	/// <summary>
-	/// Created By
-	/// </summary>
-	public BaseInputControl ExpenseCreated_by => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__CREATED_BY", "#EXPENSE__EXPENSE__CREATED_BY");
-
-	/// <summary>
 	/// Updated By
 	/// </summary>
 	public BaseInputControl ExpenseUpdated_by => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__UPDATED_BY", "#EXPENSE__EXPENSE__UPDATED_BY");
 
+	/// <summary>
+	/// Updated At
+	/// </summary>
+	public BaseInputControl ExpenseUpdated_at => new BaseInputControl(driver, ContainerLocator, "container-EXPENSE__EXPENSE__UPDATED_AT", "#EXPENSE__EXPENSE__UPDATED_AT");
+
 	public ExpenseForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)
-		: base(driver, mode, "EXPENSE", containerLocator: containerLocator) { }
+		: base(driver, mode, "EXPENSE") { }
 }

@@ -331,7 +331,7 @@
 							formsDefinition: {
 								'INCOME': {
 									fnKeySelector: (row) => row.Fields.ValCodincome,
-									isPopup: false
+									isPopup: true
 								},
 							},
 							defaultSearchColumnName: 'ValIncome_id',

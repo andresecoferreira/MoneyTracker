@@ -289,24 +289,22 @@
 							v-bind="controls.EXPENSE_PSEUDNEWGRP01"
 							:is-visible="controls.EXPENSE_PSEUDNEWGRP01.isVisible">
 							<!-- Start EXPENSE_PSEUDNEWGRP01 -->
-							<q-row v-if="controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible || controls.EXPENSE__EXPENSE__CREATED_AT.isVisible || controls.EXPENSE__EXPENSE__CREATED_BY.isVisible || controls.EXPENSE__EXPENSE__UPDATED_BY.isVisible">
+							<q-row v-if="controls.EXPENSE__EXPENSE__CREATED_BY.isVisible || controls.EXPENSE__EXPENSE__CREATED_AT.isVisible">
 								<q-col
-									v-if="controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible"
+									v-if="controls.EXPENSE__EXPENSE__CREATED_BY.isVisible"
 									cols="auto">
 									<base-input-structure
-										v-if="controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible"
+										v-if="controls.EXPENSE__EXPENSE__CREATED_BY.isVisible"
 										class="i-text"
-										v-bind="controls.EXPENSE__EXPENSE__UPDATED_AT"
-										v-on="controls.EXPENSE__EXPENSE__UPDATED_AT.handlers"
-										:loading="controls.EXPENSE__EXPENSE__UPDATED_AT.props.loading"
+										v-bind="controls.EXPENSE__EXPENSE__CREATED_BY"
+										v-on="controls.EXPENSE__EXPENSE__CREATED_BY.handlers"
+										:loading="controls.EXPENSE__EXPENSE__CREATED_BY.props.loading"
 										:reporting-mode-on="reportingModeCAV"
 										:suggestion-mode-on="suggestionModeOn">
-										<q-date-time-picker
-											v-if="controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible"
-											v-bind="controls.EXPENSE__EXPENSE__UPDATED_AT.props"
-											:model-value="model.ValUpdated_at.value"
-											@reset-icon-click="model.ValUpdated_at.fnUpdateValue(model.ValUpdated_at.originalValue ?? new Date())"
-											@update:model-value="model.ValUpdated_at.fnUpdateValue($event ?? '')" />
+										<q-text-field
+											v-bind="controls.EXPENSE__EXPENSE__CREATED_BY.props"
+											@blur="onBlur(controls.EXPENSE__EXPENSE__CREATED_BY, model.ValCreated_by.value)"
+											@change="model.ValCreated_by.fnUpdateValueOnChange" />
 									</base-input-structure>
 								</q-col>
 								<q-col
@@ -328,23 +326,8 @@
 											@update:model-value="model.ValCreated_at.fnUpdateValue($event ?? '')" />
 									</base-input-structure>
 								</q-col>
-								<q-col
-									v-if="controls.EXPENSE__EXPENSE__CREATED_BY.isVisible"
-									cols="auto">
-									<base-input-structure
-										v-if="controls.EXPENSE__EXPENSE__CREATED_BY.isVisible"
-										class="i-text"
-										v-bind="controls.EXPENSE__EXPENSE__CREATED_BY"
-										v-on="controls.EXPENSE__EXPENSE__CREATED_BY.handlers"
-										:loading="controls.EXPENSE__EXPENSE__CREATED_BY.props.loading"
-										:reporting-mode-on="reportingModeCAV"
-										:suggestion-mode-on="suggestionModeOn">
-										<q-text-field
-											v-bind="controls.EXPENSE__EXPENSE__CREATED_BY.props"
-											@blur="onBlur(controls.EXPENSE__EXPENSE__CREATED_BY, model.ValCreated_by.value)"
-											@change="model.ValCreated_by.fnUpdateValueOnChange" />
-									</base-input-structure>
-								</q-col>
+							</q-row>
+							<q-row v-if="controls.EXPENSE__EXPENSE__UPDATED_BY.isVisible || controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible">
 								<q-col
 									v-if="controls.EXPENSE__EXPENSE__UPDATED_BY.isVisible"
 									cols="auto">
@@ -360,6 +343,25 @@
 											v-bind="controls.EXPENSE__EXPENSE__UPDATED_BY.props"
 											@blur="onBlur(controls.EXPENSE__EXPENSE__UPDATED_BY, model.ValUpdated_by.value)"
 											@change="model.ValUpdated_by.fnUpdateValueOnChange" />
+									</base-input-structure>
+								</q-col>
+								<q-col
+									v-if="controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible"
+									cols="auto">
+									<base-input-structure
+										v-if="controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible"
+										class="i-text"
+										v-bind="controls.EXPENSE__EXPENSE__UPDATED_AT"
+										v-on="controls.EXPENSE__EXPENSE__UPDATED_AT.handlers"
+										:loading="controls.EXPENSE__EXPENSE__UPDATED_AT.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-date-time-picker
+											v-if="controls.EXPENSE__EXPENSE__UPDATED_AT.isVisible"
+											v-bind="controls.EXPENSE__EXPENSE__UPDATED_AT.props"
+											:model-value="model.ValUpdated_at.value"
+											@reset-icon-click="model.ValUpdated_at.fnUpdateValue(model.ValUpdated_at.originalValue ?? new Date())"
+											@update:model-value="model.ValUpdated_at.fnUpdateValue($event ?? '')" />
 									</base-input-structure>
 								</q-col>
 							</q-row>
@@ -497,7 +499,7 @@
 				},
 
 				formInfo: {
-					type: 'normal',
+					type: 'popup',
 					name: 'EXPENSE',
 					route: 'form-EXPENSE',
 					area: 'EXPENSE',
@@ -949,35 +951,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['EXPENSE__EXPENSE__UPDATED_AT', 'EXPENSE__EXPENSE__CREATED_AT', 'EXPENSE__EXPENSE__CREATED_BY', 'EXPENSE__EXPENSE__UPDATED_BY'],
-						controlLimits: [
-						],
-					}, this),
-					EXPENSE__EXPENSE__UPDATED_AT: new fieldControlClass.DateControl({
-						modelField: 'ValUpdated_at',
-						valueChangeEvent: 'fieldChange:expense.updated_at',
-						id: 'EXPENSE__EXPENSE__UPDATED_AT',
-						name: 'UPDATED_AT',
-						size: 'small',
-						label: computed(() => this.Resources.UPDATED_AT48366),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						container: 'EXPENSE_PSEUDNEWGRP01',
-						dateTimeType: 'date',
-						controlLimits: [
-						],
-					}, this),
-					EXPENSE__EXPENSE__CREATED_AT: new fieldControlClass.DateControl({
-						modelField: 'ValCreated_at',
-						valueChangeEvent: 'fieldChange:expense.created_at',
-						id: 'EXPENSE__EXPENSE__CREATED_AT',
-						name: 'CREATED_AT',
-						size: 'small',
-						label: computed(() => this.Resources.CREATED_AT09073),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						container: 'EXPENSE_PSEUDNEWGRP01',
-						dateTimeType: 'date',
+						directChildren: ['EXPENSE__EXPENSE__CREATED_BY', 'EXPENSE__EXPENSE__CREATED_AT', 'EXPENSE__EXPENSE__UPDATED_BY', 'EXPENSE__EXPENSE__UPDATED_AT'],
 						controlLimits: [
 						],
 					}, this),
@@ -986,7 +960,7 @@
 						valueChangeEvent: 'fieldChange:expense.created_by',
 						id: 'EXPENSE__EXPENSE__CREATED_BY',
 						name: 'CREATED_BY',
-						size: 'xxlarge',
+						size: 'large',
 						label: computed(() => this.Resources.CREATED_BY58035),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -995,17 +969,45 @@
 						controlLimits: [
 						],
 					}, this),
+					EXPENSE__EXPENSE__CREATED_AT: new fieldControlClass.DateControl({
+						modelField: 'ValCreated_at',
+						valueChangeEvent: 'fieldChange:expense.created_at',
+						id: 'EXPENSE__EXPENSE__CREATED_AT',
+						name: 'CREATED_AT',
+						size: 'large',
+						label: computed(() => this.Resources.CREATED_AT09073),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'EXPENSE_PSEUDNEWGRP01',
+						dateTimeType: 'date',
+						controlLimits: [
+						],
+					}, this),
 					EXPENSE__EXPENSE__UPDATED_BY: new fieldControlClass.StringControl({
 						modelField: 'ValUpdated_by',
 						valueChangeEvent: 'fieldChange:expense.updated_by',
 						id: 'EXPENSE__EXPENSE__UPDATED_BY',
 						name: 'UPDATED_BY',
-						size: 'xxlarge',
+						size: 'large',
 						label: computed(() => this.Resources.UPDATED_BY38656),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'EXPENSE_PSEUDNEWGRP01',
 						maxLength: 100,
+						controlLimits: [
+						],
+					}, this),
+					EXPENSE__EXPENSE__UPDATED_AT: new fieldControlClass.DateControl({
+						modelField: 'ValUpdated_at',
+						valueChangeEvent: 'fieldChange:expense.updated_at',
+						id: 'EXPENSE__EXPENSE__UPDATED_AT',
+						name: 'UPDATED_AT',
+						size: 'large',
+						label: computed(() => this.Resources.UPDATED_AT48366),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'EXPENSE_PSEUDNEWGRP01',
+						dateTimeType: 'date',
 						controlLimits: [
 						],
 					}, this),

@@ -98,25 +98,25 @@ namespace GenioMVC.ViewModels.Expense
 		/// </summary>
 		public string ValDescription { get; set; }
 		/// <summary>
-		/// Title: "Updated At" | Type: "ED"
+		/// Title: "Created By" | Type: "ON"
 		/// </summary>
 		[ValidateSetAccess]
-		public DateTime? ValUpdated_at { get; set; }
+		public string ValCreated_by { get; set; }
 		/// <summary>
 		/// Title: "Created At" | Type: "OD"
 		/// </summary>
 		[ValidateSetAccess]
 		public DateTime? ValCreated_at { get; set; }
 		/// <summary>
-		/// Title: "Created By" | Type: "ON"
-		/// </summary>
-		[ValidateSetAccess]
-		public string ValCreated_by { get; set; }
-		/// <summary>
 		/// Title: "Updated By" | Type: "EN"
 		/// </summary>
 		[ValidateSetAccess]
 		public string ValUpdated_by { get; set; }
+		/// <summary>
+		/// Title: "Updated At" | Type: "ED"
+		/// </summary>
+		[ValidateSetAccess]
+		public DateTime? ValUpdated_at { get; set; }
 
 		#region Navigations
 		#endregion
@@ -258,10 +258,10 @@ namespace GenioMVC.ViewModels.Expense
 				ValInvoice = ViewModelConversion.ToString(m.ValInvoice);
 				ValInvoicefk = ViewModelConversion.ToString(m.ValInvoicefk);
 				ValDescription = ViewModelConversion.ToString(m.ValDescription);
-				ValUpdated_at = ViewModelConversion.ToDateTime(m.ValUpdated_at);
-				ValCreated_at = ViewModelConversion.ToDateTime(m.ValCreated_at);
 				ValCreated_by = ViewModelConversion.ToString(m.ValCreated_by);
+				ValCreated_at = ViewModelConversion.ToDateTime(m.ValCreated_at);
 				ValUpdated_by = ViewModelConversion.ToString(m.ValUpdated_by);
+				ValUpdated_at = ViewModelConversion.ToDateTime(m.ValUpdated_at);
 				ValCodexpense = ViewModelConversion.ToString(m.ValCodexpense);
 			}
 			catch (Exception)
@@ -311,10 +311,10 @@ namespace GenioMVC.ViewModels.Expense
 				if (!HasDisabledUserValuesSecurity)
 					return;
 
-				m.ValUpdated_at = ViewModelConversion.ToDateTime(ValUpdated_at);
-				m.ValCreated_at = ViewModelConversion.ToDateTime(ValCreated_at);
 				m.ValCreated_by = ViewModelConversion.ToString(ValCreated_by);
+				m.ValCreated_at = ViewModelConversion.ToDateTime(ValCreated_at);
 				m.ValUpdated_by = ViewModelConversion.ToString(ValUpdated_by);
+				m.ValUpdated_at = ViewModelConversion.ToDateTime(ValUpdated_at);
 			}
 			catch (Exception)
 			{
@@ -1382,10 +1382,10 @@ namespace GenioMVC.ViewModels.Expense
 				"expense.date" => ViewModelConversion.ToDateTime(modelValue),
 				"expense.invoice" => ViewModelConversion.ToString(modelValue),
 				"expense.description" => ViewModelConversion.ToString(modelValue),
-				"expense.updated_at" => ViewModelConversion.ToDateTime(modelValue),
-				"expense.created_at" => ViewModelConversion.ToDateTime(modelValue),
 				"expense.created_by" => ViewModelConversion.ToString(modelValue),
+				"expense.created_at" => ViewModelConversion.ToDateTime(modelValue),
 				"expense.updated_by" => ViewModelConversion.ToString(modelValue),
+				"expense.updated_at" => ViewModelConversion.ToDateTime(modelValue),
 				"expense.codexpense" => ViewModelConversion.ToString(modelValue),
 				"category_type.codcategory_type" => ViewModelConversion.ToString(modelValue),
 				"category_type.name" => ViewModelConversion.ToString(modelValue),

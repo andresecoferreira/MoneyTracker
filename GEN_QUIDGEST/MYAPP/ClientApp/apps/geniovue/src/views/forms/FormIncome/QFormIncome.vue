@@ -280,7 +280,7 @@
 							v-bind="controls.INCOME__PSEUDNEWGRP02"
 							:is-visible="controls.INCOME__PSEUDNEWGRP02.isVisible">
 							<!-- Start INCOME__PSEUDNEWGRP02 -->
-							<q-row v-if="controls.INCOME__INCOME__CREATED_BY.isVisible || controls.INCOME__INCOME__CREATED_AT.isVisible || controls.INCOME__INCOME__UPDATED_BY.isVisible || controls.INCOME__INCOME__UPDATED_AT.isVisible">
+							<q-row v-if="controls.INCOME__INCOME__CREATED_BY.isVisible || controls.INCOME__INCOME__CREATED_AT.isVisible">
 								<q-col
 									v-if="controls.INCOME__INCOME__CREATED_BY.isVisible"
 									cols="auto">
@@ -317,6 +317,8 @@
 											@update:model-value="model.ValCreated_at.fnUpdateValue($event ?? '')" />
 									</base-input-structure>
 								</q-col>
+							</q-row>
+							<q-row v-if="controls.INCOME__INCOME__UPDATED_BY.isVisible || controls.INCOME__INCOME__UPDATED_AT.isVisible">
 								<q-col
 									v-if="controls.INCOME__INCOME__UPDATED_BY.isVisible || controls.INCOME__INCOME__UPDATED_AT.isVisible"
 									cols="auto">
@@ -484,7 +486,7 @@
 				},
 
 				formInfo: {
-					type: 'normal',
+					type: 'popup',
 					name: 'INCOME',
 					route: 'form-INCOME',
 					area: 'INCOME',
@@ -929,7 +931,7 @@
 						valueChangeEvent: 'fieldChange:income.created_by',
 						id: 'INCOME__INCOME__CREATED_BY',
 						name: 'CREATED_BY',
-						size: 'xxlarge',
+						size: 'large',
 						label: computed(() => this.Resources.CREATED_BY58035),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -943,7 +945,7 @@
 						valueChangeEvent: 'fieldChange:income.created_at',
 						id: 'INCOME__INCOME__CREATED_AT',
 						name: 'CREATED_AT',
-						size: 'small',
+						size: 'large',
 						label: computed(() => this.Resources.CREATED_AT09073),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -957,7 +959,7 @@
 						valueChangeEvent: 'fieldChange:income.updated_by',
 						id: 'INCOME__INCOME__UPDATED_BY',
 						name: 'UPDATED_BY',
-						size: 'xxlarge',
+						size: 'large',
 						label: computed(() => this.Resources.UPDATED_BY38656),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -971,7 +973,7 @@
 						valueChangeEvent: 'fieldChange:income.updated_at',
 						id: 'INCOME__INCOME__UPDATED_AT',
 						name: 'UPDATED_AT',
-						size: 'small',
+						size: 'large',
 						label: computed(() => this.Resources.UPDATED_AT48366),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),

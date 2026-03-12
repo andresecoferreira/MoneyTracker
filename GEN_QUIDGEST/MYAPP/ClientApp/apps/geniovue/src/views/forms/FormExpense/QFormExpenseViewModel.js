@@ -228,26 +228,6 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValDescription))
 		this.stopWatchers.push(watch(() => this.ValDescription.value, (newValue, oldValue) => this.onUpdate('expense.description', this.ValDescription, newValue, oldValue)))
 
-		this.ValUpdated_at = reactive(new modelFieldType.Date({
-			id: 'ValUpdated_at',
-			originId: 'ValUpdated_at',
-			area: 'EXPENSE',
-			field: 'UPDATED_AT',
-			isFixed: true,
-			description: computed(() => this.Resources.UPDATED_AT48366),
-		}).cloneFrom(values?.ValUpdated_at))
-		this.stopWatchers.push(watch(() => this.ValUpdated_at.value, (newValue, oldValue) => this.onUpdate('expense.updated_at', this.ValUpdated_at, newValue, oldValue)))
-
-		this.ValCreated_at = reactive(new modelFieldType.Date({
-			id: 'ValCreated_at',
-			originId: 'ValCreated_at',
-			area: 'EXPENSE',
-			field: 'CREATED_AT',
-			isFixed: true,
-			description: computed(() => this.Resources.CREATED_AT09073),
-		}).cloneFrom(values?.ValCreated_at))
-		this.stopWatchers.push(watch(() => this.ValCreated_at.value, (newValue, oldValue) => this.onUpdate('expense.created_at', this.ValCreated_at, newValue, oldValue)))
-
 		this.ValCreated_by = reactive(new modelFieldType.String({
 			id: 'ValCreated_by',
 			originId: 'ValCreated_by',
@@ -259,6 +239,16 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValCreated_by))
 		this.stopWatchers.push(watch(() => this.ValCreated_by.value, (newValue, oldValue) => this.onUpdate('expense.created_by', this.ValCreated_by, newValue, oldValue)))
 
+		this.ValCreated_at = reactive(new modelFieldType.Date({
+			id: 'ValCreated_at',
+			originId: 'ValCreated_at',
+			area: 'EXPENSE',
+			field: 'CREATED_AT',
+			isFixed: true,
+			description: computed(() => this.Resources.CREATED_AT09073),
+		}).cloneFrom(values?.ValCreated_at))
+		this.stopWatchers.push(watch(() => this.ValCreated_at.value, (newValue, oldValue) => this.onUpdate('expense.created_at', this.ValCreated_at, newValue, oldValue)))
+
 		this.ValUpdated_by = reactive(new modelFieldType.String({
 			id: 'ValUpdated_by',
 			originId: 'ValUpdated_by',
@@ -269,6 +259,16 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.UPDATED_BY38656),
 		}).cloneFrom(values?.ValUpdated_by))
 		this.stopWatchers.push(watch(() => this.ValUpdated_by.value, (newValue, oldValue) => this.onUpdate('expense.updated_by', this.ValUpdated_by, newValue, oldValue)))
+
+		this.ValUpdated_at = reactive(new modelFieldType.Date({
+			id: 'ValUpdated_at',
+			originId: 'ValUpdated_at',
+			area: 'EXPENSE',
+			field: 'UPDATED_AT',
+			isFixed: true,
+			description: computed(() => this.Resources.UPDATED_AT48366),
+		}).cloneFrom(values?.ValUpdated_at))
+		this.stopWatchers.push(watch(() => this.ValUpdated_at.value, (newValue, oldValue) => this.onUpdate('expense.updated_at', this.ValUpdated_at, newValue, oldValue)))
 	}
 
 	/**
