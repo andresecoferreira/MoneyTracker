@@ -857,12 +857,6 @@
 							set 'source.title'(value) { vm.model.TableSourceTitle.updateValue(value) },
 						}),
 						controlLimits: [
-							{
-								identifier: ['member', 'expense.member_id'],
-								dependencyEvents: ['fieldChange:expense.member_id'],
-								dependencyField: 'EXPENSE.MEMBER_ID',
-								fnValueSelector: (model) => model.ValMember_id.value
-							},
 						],
 						showWhen: {
 							// eslint-disable-next-line @typescript-eslint/no-unused-vars

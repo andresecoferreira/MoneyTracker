@@ -93,8 +93,6 @@ namespace GenioMVC.ViewModels.Expense
 			return crs;
 		}
 
-		public string ValMember_id { get; set; }
-
 		public override int GetCount(User user)
 		{
 			throw new NotImplementedException("This operation is not supported");
@@ -171,10 +169,6 @@ namespace GenioMVC.ViewModels.Expense
 
 			crs ??= CriteriaSet.And();
 
-			// Limits Generation
-
-			// Area limit
-			tableReload &= AddCriteriaAreaLimit(crs, CSGenio.business.CSGenioAmember.FldCodmember, "member", this.ValMember_id, true);
 
 			Menu ??= new TablePartial<Expense_SourceValTitle_RowViewModel>();
 			// Set table name (used in getting searchable column names)
@@ -347,24 +341,6 @@ namespace GenioMVC.ViewModels.Expense
 					this.TableLimits.AddRange(area_EPH_limits);
 			}
 
-			// Tooltips: Making a tooltip for each valid limitation: 1 Limit(s) detected.
-			// Limit origin: form 
-			//Limit type: "A"
-			//Current Area = "SOURCE"
-			//1st Area Limit: "MEMBER"
-			//1st Area Field: "CODMEMBER"
-			//1st Area Value: ""
-			{
-				Limit limit = new Limit();
-				limit.TipoLimite = LimitType.A;
-				limit.NaoAplicaSeNulo = false;
-				CSGenioAmember model_limit_area = new CSGenioAmember(m_userContext.User);
-				string limit_field = "codmember", limit_field_value = "";
-				object this_limit_field = Navigation.GetValue("member") == null ? this.ValMember_id : Navigation.GetValue("member");
-				Limit_Filler(ref limit, model_limit_area, limit_field, limit_field_value, this_limit_field, LimitAreaType.AreaLimita);
-				if (!this.TableLimits.Contains(limit, limitComparer)) //to avoid repetitions (i.e: DB and EPH applying same limit)
-					this.TableLimits.Add(limit);
-			}
 
 			if (conditions == null)
 				conditions = CriteriaSet.And();
