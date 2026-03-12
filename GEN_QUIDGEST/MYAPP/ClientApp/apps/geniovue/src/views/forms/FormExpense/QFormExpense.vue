@@ -910,8 +910,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'EXPENSE_PSEUDNEWGRP02',
-						maxIntegers: 7,
-						maxDecimals: 4,
+						maxIntegers: 9,
+						maxDecimals: 2,
 						mustBeFilled: true,
 						controlLimits: [
 						],

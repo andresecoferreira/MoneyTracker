@@ -288,6 +288,8 @@ namespace GenioMVC.ViewModels
 
 			//FOR: MENU LIST SORTING
 			Dictionary<string, OrderedDictionary> allSortOrders = new Dictionary<string, OrderedDictionary>();
+			allSortOrders.Add("CATEGORY_TYPE.TOTAL_SUM", new OrderedDictionary());
+			allSortOrders["CATEGORY_TYPE.TOTAL_SUM"].Add("CATEGORY_TYPE.TOTAL_SUM", "D");
 
 
 			int numberListItems = tableConfig.RowsPerPage;
@@ -299,6 +301,12 @@ namespace GenioMVC.ViewModels
 
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "category_type", allSortOrders);
 
+			if (sorts == null || sorts.Count == 0)
+			{
+				sorts = new List<ColumnSort>();
+				sorts.Add(new ColumnSort(new ColumnReference(CSGenioAcategory_type.FldTotal_sum), SortOrder.Descending));
+
+			}
 
 			FieldRef[] fields = new FieldRef[] { CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldZzstate, CSGenioAcategory_type.FldName, CSGenioAcategory_type.FldTotal_sum };
 

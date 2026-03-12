@@ -193,8 +193,8 @@ export default class ViewModel extends FormViewModelBase
 			originId: 'ValValue',
 			area: 'EXPENSE',
 			field: 'VALUE',
-			maxDigits: 7,
-			decimalDigits: 4,
+			maxDigits: 9,
+			decimalDigits: 2,
 			description: computed(() => this.Resources.VALUE10285),
 		}).cloneFrom(values?.ValValue))
 		this.stopWatchers.push(watch(() => this.ValValue.value, (newValue, oldValue) => this.onUpdate('expense.value', this.ValValue, newValue, oldValue)))

@@ -33,12 +33,12 @@ namespace GenioMVC.Controllers
 	{
 		#region NavigationLocation Names
 
-		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_CANCEL = new("EXPENSE49437", "Wd_last_expenses_Cancel", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "CANCEL" };
-		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_SHOW = new("EXPENSE49437", "Wd_last_expenses_Show", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "SHOW" };
-		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_NEW = new("EXPENSE49437", "Wd_last_expenses_New", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "NEW" };
-		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_EDIT = new("EXPENSE49437", "Wd_last_expenses_Edit", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "EDIT" };
-		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_DUPLICATE = new("EXPENSE49437", "Wd_last_expenses_Duplicate", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "DUPLICATE" };
-		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_DELETE = new("EXPENSE49437", "Wd_last_expenses_Delete", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "DELETE" };
+		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_CANCEL = new("CANCELAR49513", "Wd_last_expenses_Cancel", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "CANCEL" };
+		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_SHOW = new("CONSULTA40695", "Wd_last_expenses_Show", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "SHOW" };
+		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_NEW = new("INSERIR43365", "Wd_last_expenses_New", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "NEW" };
+		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_EDIT = new("EDITAR11616", "Wd_last_expenses_Edit", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "EDIT" };
+		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_DUPLICATE = new("DUPLICAR09748", "Wd_last_expenses_Duplicate", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "DUPLICATE" };
+		private static readonly NavigationLocation ACTION_WD_LAST_EXPENSES_DELETE = new("APAGAR04097", "Wd_last_expenses_Delete", "Expense") { vueRouteName = "form-WD_LAST_EXPENSES", mode = "DELETE" };
 
 		#endregion
 

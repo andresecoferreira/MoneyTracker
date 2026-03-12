@@ -405,8 +405,8 @@
 							defaultSearchColumnName: 'ValName',
 							defaultSearchColumnNameOriginal: 'ValName',
 							defaultColumnSorting: {
-								columnName: '',
-								sortOrder: 'asc'
+								columnName: 'ValTotal_sum',
+								sortOrder: 'desc'
 							}
 						},
 						globalEvents: ['changed-CATEGORY_TYPE'],

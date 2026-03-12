@@ -87,8 +87,8 @@ namespace CSGenio.business
 			Qfield.FieldDescription = "Balance";
 			Qfield.FieldSize =  15;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 10;
-			Qfield.Decimals = 4;
+			Qfield.IntegerDigits = 12;
+			Qfield.Decimals = 2;
 			Qfield.CavDesignation = "BALANCE13297";
 
             Qfield.NotNull = true;

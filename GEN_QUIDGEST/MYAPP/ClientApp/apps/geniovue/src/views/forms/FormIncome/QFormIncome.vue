@@ -897,8 +897,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'INCOME__PSEUDNEWGRP01',
-						maxIntegers: 7,
-						maxDecimals: 4,
+						maxIntegers: 9,
+						maxDecimals: 2,
 						mustBeFilled: true,
 						controlLimits: [
 						],

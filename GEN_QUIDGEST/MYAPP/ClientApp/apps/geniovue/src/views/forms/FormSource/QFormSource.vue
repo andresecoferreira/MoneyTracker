@@ -850,8 +850,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'SOURCE__PSEUDNEWGRP02',
-						maxIntegers: 10,
-						maxDecimals: 4,
+						maxIntegers: 12,
+						maxDecimals: 2,
 						mustBeFilled: true,
 						controlLimits: [
 						],

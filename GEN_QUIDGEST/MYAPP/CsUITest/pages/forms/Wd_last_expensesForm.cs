@@ -8,7 +8,7 @@ namespace quidgest.uitests.pages.forms;
 public class Wd_last_expensesForm : Form
 {
 	/// <summary>
-	/// New Data Grid
+	/// Latest Transactions
 	/// </summary>
 	public ListControl PseudField001 => new ListControl(driver, ContainerLocator, "#WD_LAST_EXPENSES__PSEUD__FIELD001");
 
