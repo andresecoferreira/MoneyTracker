@@ -93,6 +93,30 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValBirthday))
 		this.stopWatchers.push(watch(() => this.ValBirthday.value, (newValue, oldValue) => this.onUpdate('member.birthday', this.ValBirthday, newValue, oldValue)))
 
+		this.ValAge = reactive(new modelFieldType.Number({
+			id: 'ValAge',
+			originId: 'ValAge',
+			area: 'MEMBER',
+			field: 'AGE',
+			maxDigits: 4,
+			decimalDigits: 0,
+			isFixed: true,
+			valueFormula: {
+				stopRecalcCondition() { return false },
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				fnFormula(params)
+				{
+					// Formula: floor(Diferenca_entre_Datas([Today],[MEMBER->BIRTHDAY],"D")/365)
+					return qApi.Floor(qApi.Diferenca_entre_Datas(qApi.Today(),this.ValBirthday.value,"D")/365)
+				},
+				dependencyEvents: ['fieldChange:member.birthday'],
+				isServerRecalc: false,
+				isEmpty: qApi.emptyN,
+			},
+			description: computed(() => this.Resources.AGE28663),
+		}).cloneFrom(values?.ValAge))
+		this.stopWatchers.push(watch(() => this.ValAge.value, (newValue, oldValue) => this.onUpdate('member.age', this.ValAge, newValue, oldValue)))
+
 		this.ValEmail = reactive(new modelFieldType.String({
 			id: 'ValEmail',
 			originId: 'ValEmail',

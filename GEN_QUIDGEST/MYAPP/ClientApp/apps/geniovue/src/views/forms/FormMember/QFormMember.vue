@@ -121,9 +121,9 @@
 									</base-input-structure>
 								</q-col>
 							</q-row>
-							<q-row v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible">
+							<q-row v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible || controls.MEMBER__MEMBER__AGE.isVisible">
 								<q-col
-									v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible"
+									v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible || controls.MEMBER__MEMBER__AGE.isVisible"
 									cols="auto">
 									<base-input-structure
 										v-if="controls.MEMBER__MEMBER__NAME.isVisible"
@@ -152,6 +152,19 @@
 											:model-value="model.ValBirthday.value"
 											@reset-icon-click="model.ValBirthday.fnUpdateValue(model.ValBirthday.originalValue ?? new Date())"
 											@update:model-value="model.ValBirthday.fnUpdateValue($event ?? '')" />
+									</base-input-structure>
+									<base-input-structure
+										v-if="controls.MEMBER__MEMBER__AGE.isVisible"
+										class="i-text"
+										v-bind="controls.MEMBER__MEMBER__AGE"
+										v-on="controls.MEMBER__MEMBER__AGE.handlers"
+										:loading="controls.MEMBER__MEMBER__AGE.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-numeric-input
+											v-if="controls.MEMBER__MEMBER__AGE.isVisible"
+											v-bind="controls.MEMBER__MEMBER__AGE.props"
+											@update:model-value="model.ValAge.fnUpdateValue" />
 									</base-input-structure>
 								</q-col>
 							</q-row>
@@ -604,7 +617,7 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['MEMBER__MEMBER__PHOTO', 'MEMBER__MEMBER__NAME', 'MEMBER__MEMBER__BIRTHDAY', 'MEMBER__MEMBER__EMAIL', 'MEMBER__MEMBER__PHONE', 'MEMBER__GROUPNAME____'],
+						directChildren: ['MEMBER__MEMBER__PHOTO', 'MEMBER__MEMBER__NAME', 'MEMBER__MEMBER__BIRTHDAY', 'MEMBER__MEMBER__AGE', 'MEMBER__MEMBER__EMAIL', 'MEMBER__MEMBER__PHONE', 'MEMBER__GROUPNAME____'],
 						controlLimits: [
 						],
 					}, this),
@@ -631,7 +644,7 @@
 						valueChangeEvent: 'fieldChange:member.name',
 						id: 'MEMBER__MEMBER__NAME',
 						name: 'NAME',
-						size: 'xlarge',
+						size: 'large',
 						label: computed(() => this.Resources.NAME31974),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
@@ -653,6 +666,32 @@
 						dateTimeType: 'date',
 						controlLimits: [
 						],
+					}, this),
+					MEMBER__MEMBER__AGE: new fieldControlClass.NumberControl({
+						modelField: 'ValAge',
+						valueChangeEvent: 'fieldChange:member.age',
+						id: 'MEMBER__MEMBER__AGE',
+						name: 'AGE',
+						size: 'small',
+						label: computed(() => this.Resources.AGE28663),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'MEMBER__PSEUDNEWGRP01',
+						isFormulaBlocked: true,
+						maxIntegers: 4,
+						maxDecimals: 0,
+						controlLimits: [
+						],
+						showWhen: {
+							// eslint-disable-next-line @typescript-eslint/no-unused-vars
+							fnFormula(params)
+							{
+								// Formula: !isEmptyD([MEMBER->BIRTHDAY])
+								return !(this.ValBirthday.value === '')
+							},
+							dependencyEvents: ['fieldChange:member.birthday'],
+							isServerRecalc: false,
+						},
 					}, this),
 					MEMBER__MEMBER__EMAIL: new fieldControlClass.MaskControl({
 						modelField: 'ValEmail',
@@ -939,6 +978,8 @@
 						set ValName(value) { vm.model.TableGroupName.updateValue(value) },
 					},
 					Member: {
+						get ValAge() { return vm.model.ValAge.value },
+						set ValAge(value) { vm.model.ValAge.updateValue(value) },
 						get ValBirthday() { return vm.model.ValBirthday.value },
 						set ValBirthday(value) { vm.model.ValBirthday.updateValue(value) },
 						get ValEmail() { return vm.model.ValEmail.value },

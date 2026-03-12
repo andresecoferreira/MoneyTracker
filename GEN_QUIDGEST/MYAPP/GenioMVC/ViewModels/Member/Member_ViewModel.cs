@@ -50,6 +50,11 @@ namespace GenioMVC.ViewModels.Member
 		/// </summary>
 		public DateTime? ValBirthday { get; set; }
 		/// <summary>
+		/// Title: "Age" | Type: "N"
+		/// </summary>
+		[ValidateSetAccess]
+		public decimal? ValAge { get; set; }
+		/// <summary>
 		/// Title: "E-Mail" | Type: "C"
 		/// </summary>
 		public string ValEmail { get; set; }
@@ -197,6 +202,7 @@ namespace GenioMVC.ViewModels.Member
 				ValPhoto = ViewModelConversion.ToImage(m.ValPhoto);
 				ValName = ViewModelConversion.ToString(m.ValName);
 				ValBirthday = ViewModelConversion.ToDateTime(m.ValBirthday);
+				ValAge = ViewModelConversion.ToNumeric(m.ValAge);
 				ValEmail = ViewModelConversion.ToString(m.ValEmail);
 				ValPhone = ViewModelConversion.ToString(m.ValPhone);
 				ValCodmember = ViewModelConversion.ToString(m.ValCodmember);
@@ -233,6 +239,15 @@ namespace GenioMVC.ViewModels.Member
 				m.ValEmail = ViewModelConversion.ToString(ValEmail);
 				m.ValPhone = ViewModelConversion.ToString(ValPhone);
 				m.ValCodmember = ViewModelConversion.ToString(ValCodmember);
+
+				/*
+					At this moment, in the case of runtime calculation of server-side formulas, to improve performance and reduce database load,
+						the values coming from the client-side will be accepted as valid, since they will not be saved and are only being used for calculation.
+				*/
+				if (!HasDisabledUserValuesSecurity)
+					return;
+
+				m.ValAge = ViewModelConversion.ToNumeric(ValAge);
 			}
 			catch (Exception)
 			{
@@ -639,6 +654,7 @@ namespace GenioMVC.ViewModels.Member
 				"member.photo" => ViewModelConversion.ToImage(modelValue),
 				"member.name" => ViewModelConversion.ToString(modelValue),
 				"member.birthday" => ViewModelConversion.ToDateTime(modelValue),
+				"member.age" => ViewModelConversion.ToNumeric(modelValue),
 				"member.email" => ViewModelConversion.ToString(modelValue),
 				"member.phone" => ViewModelConversion.ToString(modelValue),
 				"member.codmember" => ViewModelConversion.ToString(modelValue),

@@ -119,6 +119,22 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "age", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Age";
+			Qfield.FieldSize =  4;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 4;
+			Qfield.CavDesignation = "AGE28663";
+
+			Qfield.Dupmsg = "";
+			argumentsListByArea = new List<ByAreaArguments>();
+			argumentsListByArea.Add(new ByAreaArguments(new string[] {"birthday"}, new int[] {0}, "member", "codmember"));
+			Qfield.Formula = new InternalOperationFormula(argumentsListByArea, 1, delegate(object[] args, User user, string module, PersistentSupport sp) {
+				return Math.Floor(GenFunctions.DateDiffPart(DateTime.Today,((DateTime)args[0]),"D")/365);
+			});
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -165,6 +181,10 @@ namespace CSGenio.business
 			//------------------------------
 
 
+
+			info.InternalOperationFields = new string[] {
+			 "age"
+			};
 
 
 
@@ -354,6 +374,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldGroup_id, value); }
 		}
 
+		/// <summary>Field : "Age" Tipo: "N" Formula: + "floor(Diferenca_entre_Datas([Today],[MEMBER->BIRTHDAY],"D")/365)"</summary>
+		public static FieldRef FldAge { get { return m_fldAge; } }
+		private static FieldRef m_fldAge = new FieldRef("member", "age");
+
+		/// <summary>Field : "Age" Tipo: "N" Formula: + "floor(Diferenca_entre_Datas([Today],[MEMBER->BIRTHDAY],"D")/365)"</summary>
+		public decimal ValAge
+		{
+			get { return (decimal)returnValueField(FldAge); }
+			set { insertNameValueField(FldAge, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("member", "zzstate");
@@ -451,7 +482,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX MEMBER]/
 
  
-        
+         
 
 	}
 }

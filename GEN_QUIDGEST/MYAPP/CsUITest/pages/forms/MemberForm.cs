@@ -28,6 +28,11 @@ public class MemberForm : Form
 	public DateInputControl MemberBirthday => new DateInputControl(driver, ContainerLocator, "#MEMBER__MEMBER__BIRTHDAY");
 
 	/// <summary>
+	/// Age
+	/// </summary>
+	public BaseInputControl MemberAge => new BaseInputControl(driver, ContainerLocator, "container-MEMBER__MEMBER__AGE", "#MEMBER__MEMBER__AGE");
+
+	/// <summary>
 	/// E-Mail
 	/// </summary>
 	public BaseInputControl MemberEmail => new BaseInputControl(driver, ContainerLocator, "container-MEMBER__MEMBER__EMAIL", "#MEMBER__MEMBER__EMAIL");
