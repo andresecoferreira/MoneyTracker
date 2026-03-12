@@ -103,6 +103,26 @@ namespace GenioMVC.Models
 		[ShouldSerialize("Source.ValUpdated_by")]
 		public string ValUpdated_by { get { return klass.ValUpdated_by; } set { klass.ValUpdated_by = value; } }
 
+		[DisplayName("Group")]
+		/// <summary>Field : "Group" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Source.ValGroup_id")]
+		public string ValGroup_id { get { return klass.ValGroup_id; } set { klass.ValGroup_id = value; } }
+
+		private Group _group;
+		[DisplayName("Group")]
+		[ShouldSerialize("Group")]
+		public virtual Group Group
+		{
+			get
+			{
+				if (!isEmptyModel && (_group == null || (!string.IsNullOrEmpty(ValGroup_id) && (_group.isEmptyModel || _group.klass.QPrimaryKey != ValGroup_id))))
+					_group = Models.Group.Find(ValGroup_id, m_userContext, Identifier, _fieldsToSerialize);
+				_group ??= new Models.Group(m_userContext, true, _fieldsToSerialize);
+				return _group;
+			}
+			set { _group = value; }
+		}
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Source.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
@@ -137,6 +157,10 @@ namespace GenioMVC.Models
 					case "member":
 						_member ??= new Member(m_userContext, true, _fieldsToSerialize);
 						_member.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
+					case "group":
+						_group ??= new Group(m_userContext, true, _fieldsToSerialize);
+						_group.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
 						break;
 					default:
 						break;

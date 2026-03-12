@@ -23,15 +23,20 @@ public class SourceForm : PopupForm
 	public EnumControl SourceType => new EnumControl(driver, ContainerLocator, "container-SOURCE__SOURCE__TYPE");
 
 	/// <summary>
+	/// Title
+	/// </summary>
+	public BaseInputControl SourceTitle => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__TITLE", "#SOURCE__SOURCE__TITLE");
+
+	/// <summary>
 	/// Owner
 	/// </summary>
 	public LookupControl MemberName => new LookupControl(driver, ContainerLocator, "container-SOURCE__MEMBER__NAME");
 	public SeeMorePage MemberNameSeeMorePage => new SeeMorePage(driver, "SOURCE", "SOURCE__MEMBER__NAME");
 
 	/// <summary>
-	/// Title
+	/// Group
 	/// </summary>
-	public BaseInputControl SourceTitle => new BaseInputControl(driver, ContainerLocator, "container-SOURCE__SOURCE__TITLE", "#SOURCE__SOURCE__TITLE");
+	public IWebElement GroupName => throw new NotImplementedException();
 
 	/// <summary>
 	/// Details

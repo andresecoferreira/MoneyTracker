@@ -53,6 +53,18 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValCodsource))
 		this.stopWatchers.push(watch(() => this.ValCodsource.value, (newValue, oldValue) => this.onUpdate('source.codsource', this.ValCodsource, newValue, oldValue)))
 
+		/** The hidden foreign keys. */
+		this.ValGroup_id = reactive(new modelFieldType.ForeignKey({
+			id: 'ValGroup_id',
+			originId: 'ValGroup_id',
+			area: 'SOURCE',
+			field: 'GROUP_ID',
+			relatedArea: 'GROUP',
+			isFixed: true,
+			description: computed(() => this.Resources.GROUP38232),
+		}).cloneFrom(values?.ValGroup_id))
+		this.stopWatchers.push(watch(() => this.ValGroup_id.value, (newValue, oldValue) => this.onUpdate('source.group_id', this.ValGroup_id, newValue, oldValue)))
+
 		/** The used foreign keys. */
 		this.ValMember_id = reactive(new modelFieldType.ForeignKey({
 			id: 'ValMember_id',
@@ -89,6 +101,16 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.ValType))
 		this.stopWatchers.push(watch(() => this.ValType.value, (newValue, oldValue) => this.onUpdate('source.type', this.ValType, newValue, oldValue)))
 
+		this.ValTitle = reactive(new modelFieldType.String({
+			id: 'ValTitle',
+			originId: 'ValTitle',
+			area: 'SOURCE',
+			field: 'TITLE',
+			maxLength: 50,
+			description: computed(() => this.Resources.TITLE21885),
+		}).cloneFrom(values?.ValTitle))
+		this.stopWatchers.push(watch(() => this.ValTitle.value, (newValue, oldValue) => this.onUpdate('source.title', this.ValTitle, newValue, oldValue)))
+
 		this.TableMemberName = reactive(new modelFieldType.String({
 			type: 'Lookup',
 			id: 'TableMemberName',
@@ -101,15 +123,16 @@ export default class ViewModel extends FormViewModelBase
 		}).cloneFrom(values?.TableMemberName))
 		this.stopWatchers.push(watch(() => this.TableMemberName.value, (newValue, oldValue) => this.onUpdate('member.name', this.TableMemberName, newValue, oldValue)))
 
-		this.ValTitle = reactive(new modelFieldType.String({
-			id: 'ValTitle',
-			originId: 'ValTitle',
-			area: 'SOURCE',
-			field: 'TITLE',
+		this.GroupValName = reactive(new modelFieldType.String({
+			id: 'GroupValName',
+			originId: 'ValName',
+			area: 'GROUP',
+			field: 'NAME',
 			maxLength: 50,
-			description: computed(() => this.Resources.TITLE21885),
-		}).cloneFrom(values?.ValTitle))
-		this.stopWatchers.push(watch(() => this.ValTitle.value, (newValue, oldValue) => this.onUpdate('source.title', this.ValTitle, newValue, oldValue)))
+			isFixed: true,
+			description: computed(() => this.Resources.NAME31974),
+		}).cloneFrom(values?.GroupValName))
+		this.stopWatchers.push(watch(() => this.GroupValName.value, (newValue, oldValue) => this.onUpdate('group.name', this.GroupValName, newValue, oldValue)))
 
 		this.ValBank = reactive(new modelFieldType.String({
 			id: 'ValBank',

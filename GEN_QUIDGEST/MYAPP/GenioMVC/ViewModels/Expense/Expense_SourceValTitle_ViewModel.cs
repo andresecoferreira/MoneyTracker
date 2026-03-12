@@ -507,7 +507,7 @@ namespace GenioMVC.ViewModels.Expense
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Source", "Source.ValCodsource", "Source.ValZzstate", "Source.ValTitle", "Source.ValMember_id"
+			"Source", "Source.ValCodsource", "Source.ValZzstate", "Source.ValTitle", "Source.ValGroup_id", "Source.ValMember_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

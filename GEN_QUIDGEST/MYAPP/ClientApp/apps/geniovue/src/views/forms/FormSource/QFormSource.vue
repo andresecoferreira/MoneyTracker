@@ -109,9 +109,9 @@
 								value="SOURCE__PSEUDNEWGRP01"
 								:title="controls.SOURCE__PSEUDNEWGRP01.label">
 								<!-- Start SOURCE__PSEUDNEWGRP01 -->
-								<q-row v-if="controls.SOURCE__SOURCE__TYPE.isVisible || controls.SOURCE__MEMBER__NAME.isVisible">
+								<q-row v-if="controls.SOURCE__SOURCE__TYPE.isVisible || controls.SOURCE__SOURCE__TITLE.isVisible">
 									<q-col
-										v-if="controls.SOURCE__SOURCE__TYPE.isVisible || controls.SOURCE__MEMBER__NAME.isVisible"
+										v-if="controls.SOURCE__SOURCE__TYPE.isVisible || controls.SOURCE__SOURCE__TITLE.isVisible"
 										cols="auto">
 										<base-input-structure
 											v-if="controls.SOURCE__SOURCE__TYPE.isVisible"
@@ -126,6 +126,25 @@
 												v-bind="controls.SOURCE__SOURCE__TYPE.props"
 												@update:model-value="model.ValType.fnUpdateValue" />
 										</base-input-structure>
+										<base-input-structure
+											v-if="controls.SOURCE__SOURCE__TITLE.isVisible"
+											class="i-text"
+											v-bind="controls.SOURCE__SOURCE__TITLE"
+											v-on="controls.SOURCE__SOURCE__TITLE.handlers"
+											:loading="controls.SOURCE__SOURCE__TITLE.props.loading"
+											:reporting-mode-on="reportingModeCAV"
+											:suggestion-mode-on="suggestionModeOn">
+											<q-text-field
+												v-bind="controls.SOURCE__SOURCE__TITLE.props"
+												@blur="onBlur(controls.SOURCE__SOURCE__TITLE, model.ValTitle.value)"
+												@change="model.ValTitle.fnUpdateValueOnChange" />
+										</base-input-structure>
+									</q-col>
+								</q-row>
+								<q-row v-if="controls.SOURCE__MEMBER__NAME.isVisible || controls.SOURCE__GROUPNAME____.isVisible">
+									<q-col
+										v-if="controls.SOURCE__MEMBER__NAME.isVisible || controls.SOURCE__GROUPNAME____.isVisible"
+										cols="auto">
 										<base-input-structure
 											v-if="controls.SOURCE__MEMBER__NAME.isVisible"
 											class="i-text"
@@ -143,24 +162,18 @@
 												v-bind="controls.SOURCE__MEMBER__NAME.seeMoreParams"
 												v-on="controls.SOURCE__MEMBER__NAME.handlers" />
 										</base-input-structure>
-									</q-col>
-								</q-row>
-								<q-row v-if="controls.SOURCE__SOURCE__TITLE.isVisible">
-									<q-col
-										v-if="controls.SOURCE__SOURCE__TITLE.isVisible"
-										cols="auto">
 										<base-input-structure
-											v-if="controls.SOURCE__SOURCE__TITLE.isVisible"
+											v-if="controls.SOURCE__GROUPNAME____.isVisible"
 											class="i-text"
-											v-bind="controls.SOURCE__SOURCE__TITLE"
-											v-on="controls.SOURCE__SOURCE__TITLE.handlers"
-											:loading="controls.SOURCE__SOURCE__TITLE.props.loading"
+											v-bind="controls.SOURCE__GROUPNAME____"
+											v-on="controls.SOURCE__GROUPNAME____.handlers"
+											:loading="controls.SOURCE__GROUPNAME____.props.loading"
 											:reporting-mode-on="reportingModeCAV"
 											:suggestion-mode-on="suggestionModeOn">
 											<q-text-field
-												v-bind="controls.SOURCE__SOURCE__TITLE.props"
-												@blur="onBlur(controls.SOURCE__SOURCE__TITLE, model.ValTitle.value)"
-												@change="model.ValTitle.fnUpdateValueOnChange" />
+												v-bind="controls.SOURCE__GROUPNAME____.props"
+												@blur="onBlur(controls.SOURCE__GROUPNAME____, model.GroupValName.value)"
+												@change="model.GroupValName.fnUpdateValueOnChange" />
 										</base-input-structure>
 									</q-col>
 								</q-row>
@@ -693,7 +706,7 @@
 						isInAccordion: true,
 						isCollapsible: true,
 						anchored: false,
-						directChildren: ['SOURCE__SOURCE__TYPE', 'SOURCE__MEMBER__NAME', 'SOURCE__SOURCE__TITLE'],
+						directChildren: ['SOURCE__SOURCE__TYPE', 'SOURCE__SOURCE__TITLE', 'SOURCE__MEMBER__NAME', 'SOURCE__GROUPNAME____'],
 						mustBeFilled: true,
 						controlLimits: [
 						],
@@ -713,6 +726,21 @@
 						arrayName: 'Accout_Type',
 						helpShortItem: 'None',
 						helpDetailedItem: 'None',
+						controlLimits: [
+						],
+					}, this),
+					SOURCE__SOURCE__TITLE: new fieldControlClass.StringControl({
+						modelField: 'ValTitle',
+						valueChangeEvent: 'fieldChange:source.title',
+						id: 'SOURCE__SOURCE__TITLE',
+						name: 'TITLE',
+						size: 'xlarge',
+						label: computed(() => this.Resources.TITLE21885),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'SOURCE__PSEUDNEWGRP01',
+						maxLength: 50,
+						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -741,23 +769,27 @@
 						dependentFields: () => ({
 							set 'member.codmember'(value) { vm.model.ValMember_id.updateValue(value) },
 							set 'member.name'(value) { vm.model.TableMemberName.updateValue(value) },
+							set 'source.group_id'(value) { vm.model.ValGroup_id.updateValue(value) },
+							set 'group.codgroup'(value) { vm.model.ValGroup_id.updateValue(value) },
+							set 'group.name'(value) { vm.model.GroupValName.updateValue(value) },
 						}),
 						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
-					SOURCE__SOURCE__TITLE: new fieldControlClass.StringControl({
-						modelField: 'ValTitle',
-						valueChangeEvent: 'fieldChange:source.title',
-						id: 'SOURCE__SOURCE__TITLE',
-						name: 'TITLE',
-						size: 'xlarge',
-						label: computed(() => this.Resources.TITLE21885),
+					SOURCE__GROUPNAME____: new fieldControlClass.StringControl({
+						modelField: 'GroupValName',
+						valueChangeEvent: 'fieldChange:group.name',
+						dependentModelField: 'ValGroup_id',
+						dependentChangeEvent: 'fieldChange:source.group_id',
+						id: 'SOURCE__GROUPNAME____',
+						name: 'NAME',
+						size: 'large',
+						label: computed(() => this.Resources.GROUP38232),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'SOURCE__PSEUDNEWGRP01',
 						maxLength: 50,
-						mustBeFilled: true,
 						controlLimits: [
 						],
 					}, this),
@@ -934,6 +966,10 @@
 				 * The Data API for easy access to model variables.
 				 */
 				dataApi: {
+					Group: {
+						get ValName() { return vm.model.GroupValName.value },
+						set ValName(value) { vm.model.GroupValName.updateValue(value) },
+					},
 					Member: {
 						get ValName() { return vm.model.TableMemberName.value },
 						set ValName(value) { vm.model.TableMemberName.updateValue(value) },
@@ -949,6 +985,8 @@
 						set ValCreated_at(value) { vm.model.ValCreated_at.updateValue(value) },
 						get ValCreated_by() { return vm.model.ValCreated_by.value },
 						set ValCreated_by(value) { vm.model.ValCreated_by.updateValue(value) },
+						get ValGroup_id() { return vm.model.ValGroup_id.value },
+						set ValGroup_id(value) { vm.model.ValGroup_id.updateValue(value) },
 						get ValMember_id() { return vm.model.ValMember_id.value },
 						set ValMember_id(value) { vm.model.ValMember_id.updateValue(value) },
 						get ValTitle() { return vm.model.ValTitle.value },
@@ -965,6 +1003,8 @@
 						get source() { return vm.model.ValCodsource },
 						/** The foreign key to the MEMBER table */
 						get member() { return vm.model.ValMember_id },
+						/** The foreign key to the GROUP table */
+						get group() { return vm.model.ValGroup_id },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

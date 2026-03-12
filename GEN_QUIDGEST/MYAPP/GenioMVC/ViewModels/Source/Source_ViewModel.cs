@@ -31,6 +31,10 @@ namespace GenioMVC.ViewModels.Source
 
 		#region Foreign keys
 		/// <summary>
+		/// Title: "" | Type: "CE"
+		/// </summary>
+		public string ValGroup_id { get; set; }
+		/// <summary>
 		/// Title: "Owner" | Type: "CE"
 		/// </summary>
 		public string ValMember_id { get; set; }
@@ -41,14 +45,31 @@ namespace GenioMVC.ViewModels.Source
 		/// </summary>
 		public string ValType { get; set; }
 		/// <summary>
+		/// Title: "Title" | Type: "C"
+		/// </summary>
+		public string ValTitle { get; set; }
+		/// <summary>
 		/// Title: "Owner" | Type: "C"
 		/// </summary>
 		[ValidateSetAccess]
 		public TableDBEdit<GenioMVC.Models.Member> TableMemberName { get; set; }
 		/// <summary>
-		/// Title: "Title" | Type: "C"
+		/// Title: "Group" | Type: "C"
 		/// </summary>
-		public string ValTitle { get; set; }
+		[ValidateSetAccess]
+		public string GroupValName
+		{
+			get
+			{
+				return funcGroupValName != null ? funcGroupValName() : _auxGroupValName;
+			}
+			set { funcGroupValName = () => value; }
+		}
+
+		[JsonIgnore]
+		public Func<string> funcGroupValName { get; set; }
+
+		private string _auxGroupValName { get; set; }
 		/// <summary>
 		/// Title: "Bank" | Type: "AC"
 		/// </summary>
@@ -212,9 +233,11 @@ namespace GenioMVC.ViewModels.Source
 
 			try
 			{
+				ValGroup_id = ViewModelConversion.ToString(m.ValGroup_id);
 				ValMember_id = ViewModelConversion.ToString(m.ValMember_id);
 				ValType = ViewModelConversion.ToString(m.ValType);
 				ValTitle = ViewModelConversion.ToString(m.ValTitle);
+				funcGroupValName = () => ViewModelConversion.ToString(m.Group.ValName);
 				ValBank = ViewModelConversion.ToString(m.ValBank);
 				ValAccount_number = ViewModelConversion.ToString(m.ValAccount_number);
 				ValBalance = ViewModelConversion.ToNumeric(m.ValBalance);
@@ -248,6 +271,7 @@ namespace GenioMVC.ViewModels.Source
 
 			try
 			{
+				m.ValGroup_id = ViewModelConversion.ToString(ValGroup_id);
 				m.ValMember_id = ViewModelConversion.ToString(ValMember_id);
 				m.ValType = ViewModelConversion.ToString(ValType);
 				m.ValTitle = ViewModelConversion.ToString(ValTitle);
@@ -291,6 +315,9 @@ namespace GenioMVC.ViewModels.Source
 
 				switch (fullFieldName)
 				{
+					case "source.group_id":
+						this.ValGroup_id = ViewModelConversion.ToString(_value);
+						break;
 					case "source.member_id":
 						this.ValMember_id = ViewModelConversion.ToString(_value);
 						break;
@@ -442,6 +469,7 @@ namespace GenioMVC.ViewModels.Source
 			validator.StringLength("ValTitle", Resources.Resources.TITLE21885, ValTitle, 50);
 
 			validator.Required("ValTitle", Resources.Resources.TITLE21885, ViewModelConversion.ToString(ValTitle), FieldType.TEXT.GetFormatting());
+			validator.StringLength("GroupValName", Resources.Resources.GROUP38232, GroupValName, 50);
 			validator.StringLength("ValAccount_number", Resources.Resources.ACCOUNT_NUMBER58504, ValAccount_number, 20);
 
 			validator.Required("ValBalance", Resources.Resources.BALANCE13297, ViewModelConversion.ToNumeric(ValBalance), FieldType.NUMERIC.GetFormatting());
@@ -595,7 +623,7 @@ namespace GenioMVC.ViewModels.Source
 		/// <param name="PKey">Primary Key of Member</param>
 		public ConcurrentDictionary<string, object> GetDependant_SourceTableMemberName(string PKey)
 		{
-			FieldRef[] refDependantFields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName];
+			FieldRef[] refDependantFields = [CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAgroup.FldCodgroup, CSGenioAgroup.FldName];
 
 			var returnEmptyDependants = false;
 			CriteriaSet wherecodition = CriteriaSet.And();
@@ -644,6 +672,8 @@ namespace GenioMVC.ViewModels.Source
 			var row = GetDependant_SourceTableMemberName(this.ValMember_id);
 			try
 			{
+				this.ValGroup_id = (string)row["group.codgroup"];
+				this.funcGroupValName = () => (string)row["group.name"];
 
 				// Fill List fields
 				this.ValMember_id = ViewModelConversion.ToString(row["member.codmember"]);
@@ -682,9 +712,11 @@ namespace GenioMVC.ViewModels.Source
 		{
 			return identifier switch
 			{
+				"source.group_id" => ViewModelConversion.ToString(modelValue),
 				"source.member_id" => ViewModelConversion.ToString(modelValue),
 				"source.type" => ViewModelConversion.ToString(modelValue),
 				"source.title" => ViewModelConversion.ToString(modelValue),
+				"group.name" => ViewModelConversion.ToString(modelValue),
 				"source.bank" => ViewModelConversion.ToString(modelValue),
 				"source.account_number" => ViewModelConversion.ToString(modelValue),
 				"source.balance" => ViewModelConversion.ToNumeric(modelValue),
@@ -695,6 +727,7 @@ namespace GenioMVC.ViewModels.Source
 				"source.codsource" => ViewModelConversion.ToString(modelValue),
 				"member.codmember" => ViewModelConversion.ToString(modelValue),
 				"member.name" => ViewModelConversion.ToString(modelValue),
+				"group.codgroup" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};
 		}

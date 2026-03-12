@@ -179,6 +179,16 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "group_id", FieldType.KEY_INT);
+			Qfield.FieldDescription = "Group";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "GROUP38232";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -200,6 +210,7 @@ namespace CSGenio.business
 			// Mother Relations
 			//------------------------------
 			info.ParentTables = new Dictionary<string, Relation>();
+			info.ParentTables.Add("group", new Relation("MNT", "mntsource", "source", "codsource", "group_id", "MNT", "mntgroup", "group", "codgroup", "codgroup"));
 			info.ParentTables.Add("member", new Relation("MNT", "mntsource", "source", "codsource", "member_id", "MNT", "mntmember", "member", "codmember", "codmember"));
 		}
 
@@ -211,8 +222,8 @@ namespace CSGenio.business
 			// Pathways
 			//------------------------------
 			info.Pathways = new Dictionary<string, string>(2);
+			info.Pathways.Add("group","group");
 			info.Pathways.Add("member","member");
-			info.Pathways.Add("group","member");
 		}
 
 		/// <summary>
@@ -315,6 +326,10 @@ namespace CSGenio.business
 			// Ephs
 			//------------------------------
 			info.Ephs=new Hashtable();
+			EPHField[] camposEPH;
+						camposEPH = new EPHField[1];
+			camposEPH[0] = new EPHField("GROUP_PSW", "group", "codgroup", "=", false);
+			info.Ephs.Add(new Par("MNT", "50"), camposEPH);
 
 			// Table minimum roles and access levels
 			//------------------------------
@@ -463,6 +478,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldUpdated_by, value); }
 		}
 
+		/// <summary>Field : "Group" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldGroup_id { get { return m_fldGroup_id; } }
+		private static FieldRef m_fldGroup_id = new FieldRef("source", "group_id");
+
+		/// <summary>Field : "Group" Tipo: "CE" Formula:  ""</summary>
+		public string ValGroup_id
+		{
+			get { return (string)returnValueField(FldGroup_id); }
+			set { insertNameValueField(FldGroup_id, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("source", "zzstate");
@@ -560,7 +586,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX SOURCE]/
 
  
-            
+             
 
 	}
 }

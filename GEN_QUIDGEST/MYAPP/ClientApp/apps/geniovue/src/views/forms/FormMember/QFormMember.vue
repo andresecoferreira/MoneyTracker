@@ -936,7 +936,7 @@
 								sortOrder: 'asc'
 							}
 						},
-						globalEvents: ['changed-MEMBER', 'changed-SOURCE'],
+						globalEvents: ['changed-GROUP', 'changed-MEMBER', 'changed-SOURCE'],
 						uuid: 'Member_ValSources',
 						allSelectedRows: 'false',
 						controlLimits: [
