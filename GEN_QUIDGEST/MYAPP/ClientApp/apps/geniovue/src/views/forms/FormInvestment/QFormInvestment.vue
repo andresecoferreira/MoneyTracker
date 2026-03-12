@@ -855,8 +855,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'INVESTMENT__PSEUD__NEWGRP01',
-						maxIntegers: 12,
-						maxDecimals: 0,
+						maxIntegers: 9,
+						maxDecimals: 2,
 						mustBeFilled: true,
 						controlLimits: [
 						],

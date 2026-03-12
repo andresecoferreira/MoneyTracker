@@ -119,7 +119,8 @@ namespace CSGenio.business
 			Qfield.FieldDescription = "Value";
 			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
-			Qfield.IntegerDigits = 12;
+			Qfield.IntegerDigits = 9;
+			Qfield.Decimals = 2;
 			Qfield.CavDesignation = "VALUE10285";
 
             Qfield.NotNull = true;

@@ -116,8 +116,8 @@ namespace GenioMVC.Models
 		[DisplayName("Value")]
 		/// <summary>Field : "Value" Tipo: "N" Formula:  ""</summary>
 		[ShouldSerialize("Investment.ValValue")]
-		[NumericAttribute(0)]
-		public decimal? ValValue { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValValue, 0)); } set { klass.ValValue = Convert.ToDecimal(value); } }
+		[NumericAttribute(2)]
+		public decimal? ValValue { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValValue, 2)); } set { klass.ValValue = Convert.ToDecimal(value); } }
 
 		[DisplayName("Description")]
 		/// <summary>Field : "Description" Tipo: "C" Formula:  ""</summary>

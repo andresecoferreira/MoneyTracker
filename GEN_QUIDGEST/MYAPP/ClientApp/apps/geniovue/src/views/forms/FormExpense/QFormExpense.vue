@@ -868,8 +868,8 @@
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						container: 'EXPENSE_PSEUDNEWGRP02',
-						maxIntegers: 12,
-						maxDecimals: 0,
+						maxIntegers: 9,
+						maxDecimals: 2,
 						mustBeFilled: true,
 						controlLimits: [
 						],
