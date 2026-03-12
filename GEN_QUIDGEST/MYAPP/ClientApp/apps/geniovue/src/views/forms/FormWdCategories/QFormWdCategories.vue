@@ -380,7 +380,8 @@
 							tableNamePlural: computed(() => this.Resources.CATEGORY_TYPES63920),
 							viewManagement: '',
 							showLimitsInfo: true,
-							perPage: 5,
+							perPage: -1,
+							pagination: false,
 							showAlternatePagination: true,
 							permissions: {
 							},

@@ -277,7 +277,7 @@ namespace GenioMVC.Controllers
 				requestModel.LoadDefaultView);
 
 			// Determine rows per page
-			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(5, "");
+			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(-1, "");
 
 			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
 
