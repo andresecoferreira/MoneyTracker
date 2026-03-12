@@ -315,7 +315,7 @@
 							{
 								id: 'CARDS',
 								type: 'cards',
-								subtype: 'card-img-thumbnail',
+								subtype: 'card-img-background',
 								label: computed(() => this.Resources.CARTOES27587),
 								order: 1,
 								mappingVariables: readonly({
@@ -343,10 +343,6 @@
 									},
 									actionsStyle: {
 										rawValue: 'dropdown',
-										isMapped: false
-									},
-									backgroundColor: {
-										rawValue: 'auto',
 										isMapped: false
 									},
 									contentAlignment: {
@@ -393,6 +389,19 @@
 										rawValue: 'regular',
 										isMapped: false
 									},
+								},
+								groups: {
+								}
+							},
+							{
+								id: 'LIST',
+								type: 'list',
+								subtype: '',
+								label: computed(() => this.Resources.LISTA13474),
+								order: 2,
+								mappingVariables: readonly({
+								}),
+								styleVariables: {
 								},
 								groups: {
 								}

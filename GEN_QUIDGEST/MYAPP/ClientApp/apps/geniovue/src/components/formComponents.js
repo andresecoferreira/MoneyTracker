@@ -11,7 +11,6 @@ export default {
 		app.component('QFormIncome', defineAsyncComponent(() => import('@/views/forms/FormIncome/QFormIncome.vue')))
 		app.component('QFormInvestment', defineAsyncComponent(() => import('@/views/forms/FormInvestment/QFormInvestment.vue')))
 		app.component('QFormMember', defineAsyncComponent(() => import('@/views/forms/FormMember/QFormMember.vue')))
-		app.component('QFormMemberPsw', defineAsyncComponent(() => import('@/views/forms/FormMemberPsw/QFormMemberPsw.vue')))
 		app.component('QFormSource', defineAsyncComponent(() => import('@/views/forms/FormSource/QFormSource.vue')))
 	}
 }

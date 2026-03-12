@@ -96,23 +96,6 @@
 			data-key="MEMBER"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.MEMBER__MEMBER__PHOTO.isVisible">
-					<q-col v-if="controls.MEMBER__MEMBER__PHOTO.isVisible">
-						<base-input-structure
-							v-if="controls.MEMBER__MEMBER__PHOTO.isVisible"
-							class="q-image"
-							v-bind="controls.MEMBER__MEMBER__PHOTO"
-							v-on="controls.MEMBER__MEMBER__PHOTO.handlers"
-							:loading="controls.MEMBER__MEMBER__PHOTO.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-image
-								v-if="controls.MEMBER__MEMBER__PHOTO.isVisible"
-								v-bind="controls.MEMBER__MEMBER__PHOTO.props"
-								v-on="controls.MEMBER__MEMBER__PHOTO.handlers" />
-						</base-input-structure>
-					</q-col>
-				</q-row>
 				<q-row v-if="controls.MEMBER__PSEUDNEWGRP01.isVisible">
 					<q-col v-if="controls.MEMBER__PSEUDNEWGRP01.isVisible">
 						<q-group-box-container
@@ -121,6 +104,23 @@
 							v-bind="controls.MEMBER__PSEUDNEWGRP01"
 							:is-visible="controls.MEMBER__PSEUDNEWGRP01.isVisible">
 							<!-- Start MEMBER__PSEUDNEWGRP01 -->
+							<q-row v-if="controls.MEMBER__MEMBER__PHOTO.isVisible">
+								<q-col v-if="controls.MEMBER__MEMBER__PHOTO.isVisible">
+									<base-input-structure
+										v-if="controls.MEMBER__MEMBER__PHOTO.isVisible"
+										class="q-image"
+										v-bind="controls.MEMBER__MEMBER__PHOTO"
+										v-on="controls.MEMBER__MEMBER__PHOTO.handlers"
+										:loading="controls.MEMBER__MEMBER__PHOTO.props.loading"
+										:reporting-mode-on="reportingModeCAV"
+										:suggestion-mode-on="suggestionModeOn">
+										<q-image
+											v-if="controls.MEMBER__MEMBER__PHOTO.isVisible"
+											v-bind="controls.MEMBER__MEMBER__PHOTO.props"
+											v-on="controls.MEMBER__MEMBER__PHOTO.handlers" />
+									</base-input-structure>
+								</q-col>
+							</q-row>
 							<q-row v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible">
 								<q-col
 									v-if="controls.MEMBER__MEMBER__NAME.isVisible || controls.MEMBER__MEMBER__BIRTHDAY.isVisible"
@@ -595,23 +595,6 @@
 				},
 
 				controls: {
-					MEMBER__MEMBER__PHOTO: new fieldControlClass.ImageControl({
-						modelField: 'ValPhoto',
-						valueChangeEvent: 'fieldChange:member.photo',
-						id: 'MEMBER__MEMBER__PHOTO',
-						name: 'PHOTO',
-						size: 'block',
-						label: computed(() => this.Resources.PHOTO51874),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						height: 50,
-						width: 30,
-						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
-						maxFileSize: 10485760, // In bytes.
-						maxFileSizeLabel: '10 MB',
-						controlLimits: [
-						],
-					}, this),
 					MEMBER__PSEUDNEWGRP01: new fieldControlClass.GroupControl({
 						id: 'MEMBER__PSEUDNEWGRP01',
 						name: 'NEWGRP01',
@@ -621,7 +604,25 @@
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						isCollapsible: false,
 						anchored: false,
-						directChildren: ['MEMBER__MEMBER__NAME', 'MEMBER__MEMBER__BIRTHDAY', 'MEMBER__MEMBER__EMAIL', 'MEMBER__MEMBER__PHONE', 'MEMBER__GROUPNAME____', 'MEMBER__PSEUDNEWGRP03'],
+						directChildren: ['MEMBER__MEMBER__PHOTO', 'MEMBER__MEMBER__NAME', 'MEMBER__MEMBER__BIRTHDAY', 'MEMBER__MEMBER__EMAIL', 'MEMBER__MEMBER__PHONE', 'MEMBER__GROUPNAME____', 'MEMBER__PSEUDNEWGRP03'],
+						controlLimits: [
+						],
+					}, this),
+					MEMBER__MEMBER__PHOTO: new fieldControlClass.ImageControl({
+						modelField: 'ValPhoto',
+						valueChangeEvent: 'fieldChange:member.photo',
+						id: 'MEMBER__MEMBER__PHOTO',
+						name: 'PHOTO',
+						size: 'block',
+						label: computed(() => this.Resources.PHOTO51874),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'MEMBER__PSEUDNEWGRP01',
+						height: 50,
+						width: 30,
+						dataTitle: computed(() => genericFunctions.formatString(vm.Resources.IMAGEM_UTILIZADA_PAR17299, vm.Resources.PHOTO51874)),
+						maxFileSize: 10485760, // In bytes.
+						maxFileSizeLabel: '10 MB',
 						controlLimits: [
 						],
 					}, this),

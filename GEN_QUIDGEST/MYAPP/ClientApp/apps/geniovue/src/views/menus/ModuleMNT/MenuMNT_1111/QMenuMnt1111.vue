@@ -323,24 +323,11 @@
 						allSelectedRows: 'false',
 						viewModes: [
 							{
-								id: 'LIST',
-								type: 'list',
-								subtype: '',
-								label: computed(() => this.Resources.LISTA13474),
-								order: 1,
-								mappingVariables: readonly({
-								}),
-								styleVariables: {
-								},
-								groups: {
-								}
-							},
-							{
 								id: 'CARDS',
 								type: 'cards',
 								subtype: 'card-img-background',
 								label: computed(() => this.Resources.CARTOES27587),
-								order: 2,
+								order: 1,
 								mappingVariables: readonly({
 									title: {
 										allowsMultiple: false,
@@ -418,6 +405,19 @@
 										rawValue: 'regular',
 										isMapped: false
 									},
+								},
+								groups: {
+								}
+							},
+							{
+								id: 'LIST',
+								type: 'list',
+								subtype: '',
+								label: computed(() => this.Resources.LISTA13474),
+								order: 2,
+								mappingVariables: readonly({
+								}),
+								styleVariables: {
 								},
 								groups: {
 								}

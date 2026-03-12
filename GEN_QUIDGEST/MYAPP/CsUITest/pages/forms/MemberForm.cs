@@ -8,14 +8,14 @@ namespace quidgest.uitests.pages.forms;
 public class MemberForm : PopupForm
 {
 	/// <summary>
-	/// Photo
-	/// </summary>
-	public BaseInputControl MemberPhoto => new BaseInputControl(driver, ContainerLocator, "container-MEMBER__MEMBER__PHOTO", "#MEMBER__MEMBER__PHOTO");
-
-	/// <summary>
 	/// Info
 	/// </summary>
 	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#MEMBER__PSEUDNEWGRP01-container");
+
+	/// <summary>
+	/// Photo
+	/// </summary>
+	public BaseInputControl MemberPhoto => new BaseInputControl(driver, ContainerLocator, "container-MEMBER__MEMBER__PHOTO", "#MEMBER__MEMBER__PHOTO");
 
 	/// <summary>
 	/// Name
