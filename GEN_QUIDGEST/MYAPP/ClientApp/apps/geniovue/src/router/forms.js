@@ -111,5 +111,17 @@ export default function getFormsRoutes()
 				isPopup: true
 			}
 		},
+		{
+			path: '/:culture/:system/:module/form/WD_CATEGORIES/:mode/:id?',
+			name: 'form-WD_CATEGORIES',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormWdCategories/QFormWdCategories.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: '',
+				humanKeyFields: [],
+				isPopup: false
+			}
+		},
 	]
 }

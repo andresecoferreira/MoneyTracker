@@ -150,5 +150,19 @@ export default function getMenusRoutes()
 				isPopup: false
 			}
 		},
+		{
+			path: '/:culture/:system/MNT/menu/MNT_21',
+			name: 'menu-MNT_21',
+			component: () => import('@/views/menus/ModuleMNT/MenuMNT_21/QMenuMnt21.vue'),
+			meta: {
+				routeType: 'menu',
+				module: 'MNT',
+				order: '21',
+				baseArea: 'Dashboard',
+				isDashboardPage: true,
+				hasInitialPHE: false,
+				isPopup: false
+			}
+		},
 	]
 }

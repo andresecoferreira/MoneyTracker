@@ -12,5 +12,6 @@ export default {
 		app.component('QFormInvestment', defineAsyncComponent(() => import('@/views/forms/FormInvestment/QFormInvestment.vue')))
 		app.component('QFormMember', defineAsyncComponent(() => import('@/views/forms/FormMember/QFormMember.vue')))
 		app.component('QFormSource', defineAsyncComponent(() => import('@/views/forms/FormSource/QFormSource.vue')))
+		app.component('QFormWdCategories', defineAsyncComponent(() => import('@/views/forms/FormWdCategories/QFormWdCategories.vue')))
 	}
 }

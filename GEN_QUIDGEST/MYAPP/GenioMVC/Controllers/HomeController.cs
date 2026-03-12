@@ -21,6 +21,8 @@ namespace GenioMVC.Controllers
 	public class HomeController(UserContextService userContext) : ControllerBase(userContext)
 	{
 		private static readonly NavigationLocation ACTION_LSTUSR_EDIT = new("LISTA_DE_UTILIZADORE37232", "ChangeListProperties", "Home");
+		private static readonly NavigationLocation ACTION_WD_CATEGORIES_SHOW = new("CONSULTA40695", "Wd_categories_Show", "Home")  { vueRouteName = "form-WD_CATEGORIES", mode = "SHOW" };
+		private static readonly NavigationLocation ACTION_WD_CATEGORIES_EDIT = new("EDITAR11616", "Wd_categories_Edit", "Home")  { vueRouteName = "form-WD_CATEGORIES", mode = "EDIT" };
 
 		public readonly string EPH_Action_Available_Key = "EPH_Action_Available";
 		public readonly string EPH_Action_Form_Key = "EPH_Action_Form";
@@ -183,6 +185,106 @@ namespace GenioMVC.Controllers
 				return Json(new { Success = false, Message = Resources.Resources.PEDIMOS_DESCULPA__OC63848 });
 			}
 		}
+
+		#region Form Methods -> Wd_categories ()
+
+		// GET: /Home/Wd_categories_Show
+		public ActionResult Wd_categories_Show()
+		{
+			Wd_categories_ViewModel model = new(UserContext.Current);
+			CSGenio.framework.StatusMessage permission = model.CheckPermissions(FormMode.Show);
+			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") && (bool)RouteData.Values["isHomePage"];
+			ViewBag.isHomePage = isHomePage;
+			if (isHomePage)
+				Navigation.SetValue("HomePage", "Wd_categories");
+			if (permission.Status.Equals(CSGenio.framework.Status.E))
+				return PermissionError(permission.Message);
+
+			// Audit
+			CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.FORM54242 + " " + ACTION_WD_CATEGORIES_SHOW.ShortDescription());
+
+// USE /[MANUAL MNT BEFORE_LOAD_SHOW WD_CATEGORIES]/
+
+			model.Load([], true);
+
+// USE /[MANUAL MNT AFTER_LOAD_SHOW WD_CATEGORIES]/
+
+			return JsonOK(model);
+		}
+
+		[HttpPost]
+		public ActionResult Wd_categories_Show_GET()
+		{
+			return Wd_categories_Show();
+		}
+
+		// GET: /Home/Wd_categories_Edit
+		public ActionResult Wd_categories_Edit()
+		{
+			Wd_categories_ViewModel model = new(UserContext.Current);
+			CSGenio.framework.StatusMessage permission = model.CheckPermissions(FormMode.Edit);
+			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") && (bool)RouteData.Values["isHomePage"];
+			ViewBag.isHomePage = isHomePage;
+			if (isHomePage)
+				Navigation.SetValue("HomePage", "Wd_categories");
+			if (permission.Status.Equals(CSGenio.framework.Status.E))
+				return PermissionError(permission.Message);
+
+			// Audit
+			CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.FORM54242 + " " + ACTION_WD_CATEGORIES_EDIT.ShortDescription());
+
+// USE /[MANUAL MNT BEFORE_LOAD_EDIT WD_CATEGORIES]/
+
+			model.Load([], true);
+
+// USE /[MANUAL MNT AFTER_LOAD_EDIT WD_CATEGORIES]/
+
+			return JsonOK(model);
+		}
+
+		[HttpPost]
+		public ActionResult Wd_categories_Edit_GET()
+		{
+			return Wd_categories_Edit();
+		}
+
+		//
+		// GET: /Home/Wd_categories_Cancel
+// USE /[MANUAL MNT CONTROLLER_CANCEL_GET WD_CATEGORIES]/
+		public ActionResult Wd_categories_Cancel()
+		{
+			return JsonOK(new { Success = true });
+		}
+
+		//
+		// GET: /Home/Wd_categories_ValField001
+		// POST: /Home/Wd_categories_ValField001
+		[ActionName("Wd_categories_ValField001")]
+		public ActionResult Wd_categories_ValField001([FromBody] RequestLookupModel requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			NameValueCollection requestValues = [];
+			// Add to request values
+			foreach (var kv in queryParams ?? [])
+				requestValues.Add(kv.Key, kv.Value);
+
+			Wd_categories_ValField001_ViewModel model = new(m_userContext);
+
+			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
+				requestModel.TableConfiguration,
+				requestModel.UserTableConfigName,
+				requestModel.LoadDefaultView);
+
+			// Determine rows per page
+			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(5, "");
+
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
+
+		#endregion
 
 		public JsonResult GetAvailableMenus()
 		{

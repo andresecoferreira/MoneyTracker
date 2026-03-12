@@ -264,6 +264,9 @@
 	<data name="PHOTO51874" xml:space="preserve">
 		<value>Photo</value>
 	</data>
+	<data name="NEW_DATA_GRID00674" xml:space="preserve">
+		<value>New Data Grid</value>
+	</data>
 	<data name="GROUPS_PSW33564" xml:space="preserve">
 		<value>Groups_PSW</value>
 	</data>
@@ -272,6 +275,9 @@
 	</data>
 	<data name="INVESTMENT14761" xml:space="preserve">
 		<value>Investment</value>
+	</data>
+	<data name="NEW_EXPENSE57711" xml:space="preserve">
+		<value>New Expense</value>
 	</data>
 	<data name="EM_FILA_DE_ESPERA21822" xml:space="preserve">
 		<value>Em fila de espera</value>
@@ -284,6 +290,9 @@
 	</data>
 	<data name="LAST_UPDATE11909" xml:space="preserve">
 		<value>Last update</value>
+	</data>
+	<data name="TOP_CATEGORIES11384" xml:space="preserve">
+		<value>Top Categories</value>
 	</data>
 	<data name="ESTADOS_DO_PROCESSO59118" xml:space="preserve">
 		<value>Estados do processo</value>
@@ -320,6 +329,9 @@
 	</data>
 	<data name="DOCUMENT00695" xml:space="preserve">
 		<value>Document</value>
+	</data>
+	<data name="QUICK_ACTIONS51411" xml:space="preserve">
+		<value>Quick actions</value>
 	</data>
 	<data name="ACCOUNTS54906" xml:space="preserve">
 		<value>Accounts</value>
@@ -491,6 +503,9 @@
 	</data>
 	<data name="NOVO_BANCO19183" xml:space="preserve">
 		<value>Novo Banco</value>
+	</data>
+	<data name="SUM60816" xml:space="preserve">
+		<value>Sum</value>
 	</data>
 	<data name="HTML_FORMAT_60293" xml:space="preserve">
 		<value>HTML format?</value>

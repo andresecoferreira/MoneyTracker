@@ -1,4 +1,5 @@
 ﻿import CardsControl from './cardsControl.js'
+import ChartControl from './chartControl.js'
 
 /**
  * Gets the class that implements the custom control with the desired control type.
@@ -13,6 +14,8 @@ export default function getCustomControl(controlType, context, viewModeOrder)
 	{
 		case 'cards':
 			return new CardsControl(context, viewModeOrder)
+		case 'chart':
+			return new ChartControl(context, viewModeOrder)
 	}
 
 	return null

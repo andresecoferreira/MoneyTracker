@@ -76,6 +76,18 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "total_sum", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Sum";
+			Qfield.FieldSize =  12;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 9;
+			Qfield.Decimals = 2;
+			Qfield.CavDesignation = "SUM60816";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -120,6 +132,10 @@ namespace CSGenio.business
 
 
 
+
+			info.RelatedSumFields = new string[] {
+			 "total_sum"
+			};
 
 
 
@@ -260,6 +276,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldLogo, value); }
 		}
 
+		/// <summary>Field : "Sum" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
+		public static FieldRef FldTotal_sum { get { return m_fldTotal_sum; } }
+		private static FieldRef m_fldTotal_sum = new FieldRef("category_type", "total_sum");
+
+		/// <summary>Field : "Sum" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
+		public decimal ValTotal_sum
+		{
+			get { return (decimal)returnValueField(FldTotal_sum); }
+			set { insertNameValueField(FldTotal_sum, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("category_type", "zzstate");
@@ -357,7 +384,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX CATEGORY_TYPE]/
 
  
-    
+     
 
 	}
 }

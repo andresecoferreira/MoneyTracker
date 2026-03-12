@@ -147,6 +147,9 @@
   <msg id="Photo" code="PHOTO51874">
     <ENUS>Photo</ENUS>
   </msg>
+  <msg id="New Data Grid" code="NEW_DATA_GRID00674">
+    <ENUS>New Data Grid</ENUS>
+  </msg>
   <msg id="Groups_PSW" code="GROUPS_PSW33564">
     <ENUS>Groups_PSW</ENUS>
   </msg>
@@ -155,6 +158,9 @@
   </msg>
   <msg id="Investment" code="INVESTMENT14761">
     <ENUS>Investment</ENUS>
+  </msg>
+  <msg id="New Expense" code="NEW_EXPENSE57711">
+    <ENUS>New Expense</ENUS>
   </msg>
   <msg id="Em fila de espera" code="EM_FILA_DE_ESPERA21822">
     <ENUS>Em fila de espera</ENUS>
@@ -167,6 +173,9 @@
   </msg>
   <msg id="Last update" code="LAST_UPDATE11909">
     <ENUS>Last update</ENUS>
+  </msg>
+  <msg id="Top Categories" code="TOP_CATEGORIES11384">
+    <ENUS>Top Categories</ENUS>
   </msg>
   <msg id="Estados do processo" code="ESTADOS_DO_PROCESSO59118">
     <ENUS>Estados do processo</ENUS>
@@ -203,6 +212,9 @@
   </msg>
   <msg id="Document" code="DOCUMENT00695">
     <ENUS>Document</ENUS>
+  </msg>
+  <msg id="Quick actions" code="QUICK_ACTIONS51411">
+    <ENUS>Quick actions</ENUS>
   </msg>
   <msg id="Accounts" code="ACCOUNTS54906">
     <ENUS>Accounts</ENUS>
@@ -374,6 +386,9 @@
   </msg>
   <msg id="Novo Banco" code="NOVO_BANCO19183">
     <ENUS>Novo Banco</ENUS>
+  </msg>
+  <msg id="Sum" code="SUM60816">
+    <ENUS>Sum</ENUS>
   </msg>
   <msg id="HTML format?" code="HTML_FORMAT_60293">
     <ENUS>HTML format?</ENUS>

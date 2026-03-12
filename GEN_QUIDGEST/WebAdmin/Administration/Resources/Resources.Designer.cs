@@ -502,6 +502,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "New Data Grid"
+        /// </summary>
+        public static string NEW_DATA_GRID00674 {
+            get {
+                return ResourceManager.GetString("NEW_DATA_GRID00674", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Groups_PSW"
         /// </summary>
         public static string GROUPS_PSW33564 {
@@ -525,6 +534,15 @@ namespace Administration.Resources {
         public static string INVESTMENT14761 {
             get {
                 return ResourceManager.GetString("INVESTMENT14761", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "New Expense"
+        /// </summary>
+        public static string NEW_EXPENSE57711 {
+            get {
+                return ResourceManager.GetString("NEW_EXPENSE57711", resourceCulture);
             }
         }
 
@@ -561,6 +579,15 @@ namespace Administration.Resources {
         public static string LAST_UPDATE11909 {
             get {
                 return ResourceManager.GetString("LAST_UPDATE11909", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Top Categories"
+        /// </summary>
+        public static string TOP_CATEGORIES11384 {
+            get {
+                return ResourceManager.GetString("TOP_CATEGORIES11384", resourceCulture);
             }
         }
 
@@ -669,6 +696,15 @@ namespace Administration.Resources {
         public static string DOCUMENT00695 {
             get {
                 return ResourceManager.GetString("DOCUMENT00695", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Quick actions"
+        /// </summary>
+        public static string QUICK_ACTIONS51411 {
+            get {
+                return ResourceManager.GetString("QUICK_ACTIONS51411", resourceCulture);
             }
         }
 
@@ -1182,6 +1218,15 @@ namespace Administration.Resources {
         public static string NOVO_BANCO19183 {
             get {
                 return ResourceManager.GetString("NOVO_BANCO19183", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Sum"
+        /// </summary>
+        public static string SUM60816 {
+            get {
+                return ResourceManager.GetString("SUM60816", resourceCulture);
             }
         }
 
