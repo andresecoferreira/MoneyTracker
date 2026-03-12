@@ -391,7 +391,7 @@
 						id: 'WD_LAST_EXPENSES__PSEUD__FIELD001',
 						name: 'FIELD001',
 						size: 'block',
-						label: computed(() => this.Resources.LATEST_TRANSACTIONS30213),
+						label: '',
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						controller: 'EXPENSE',
@@ -452,7 +452,6 @@
 							tableNamePlural: computed(() => this.Resources.EXPENSES11381),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.LATEST_TRANSACTIONS30213),
 							perPage: 5,
 							showAlternatePagination: true,
 							permissions: {

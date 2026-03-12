@@ -8,7 +8,7 @@ namespace quidgest.uitests.pages.forms;
 public class Wd_categoriesForm : Form
 {
 	/// <summary>
-	/// Category Breakdown
+	/// 
 	/// </summary>
 	public ListControl PseudField001 => new ListControl(driver, ContainerLocator, "#WD_CATEGORIES__PSEUD__FIELD001");
 
