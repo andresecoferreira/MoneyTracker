@@ -153,6 +153,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Value ("
+		/// </summary>
+		public static string VALUE__44420 {
+			get {
+				return ResourceManager.GetString("VALUE__44420", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Process ID"
 		/// </summary>
 		public static string PROCESS_ID11161 {
@@ -446,6 +455,15 @@ namespace GenioMVC.Resources
 		public static string PSW13972 {
 			get {
 				return ResourceManager.GetString("PSW13972", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Value (€)"
+		/// </summary>
+		public static string VALUE____56887 {
+			get {
+				return ResourceManager.GetString("VALUE____56887", resourceCulture);
 			}
 		}
 
@@ -986,6 +1004,15 @@ namespace GenioMVC.Resources
 		public static string ERRO38355 {
 			get {
 				return ResourceManager.GetString("ERRO38355", resourceCulture);
+			}
+		}
+
+		/// <summary>
+		///   Looks up a localized string similar to "Balance (€)"
+		/// </summary>
+		public static string BALANCE____11756 {
+			get {
+				return ResourceManager.GetString("BALANCE____11756", resourceCulture);
 			}
 		}
 

@@ -147,6 +147,9 @@
   <data name="PROCESS_TYPES19050" xml:space="preserve">
     <value>Process Types</value>
   </data>
+  <data name="VALUE__44420" xml:space="preserve">
+    <value>Value (</value>
+  </data>
   <data name="PROCESS_ID11161" xml:space="preserve">
     <value>Process ID</value>
   </data>
@@ -245,6 +248,9 @@
   </data>
   <data name="PSW13972" xml:space="preserve">
     <value>PSW</value>
+  </data>
+  <data name="VALUE____56887" xml:space="preserve">
+    <value>Value (€)</value>
   </data>
   <data name="MODULES33542" xml:space="preserve">
     <value>Modules</value>
@@ -425,6 +431,9 @@
   </data>
   <data name="ERRO38355" xml:space="preserve">
     <value>Erro</value>
+  </data>
+  <data name="BALANCE____11756" xml:space="preserve">
+    <value>Balance (€)</value>
   </data>
   <data name="_202400656" xml:space="preserve">
     <value>2024</value>

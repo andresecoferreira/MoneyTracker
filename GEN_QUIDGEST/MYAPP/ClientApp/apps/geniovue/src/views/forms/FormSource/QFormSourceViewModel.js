@@ -184,7 +184,7 @@ export default class ViewModel extends FormViewModelBase
 			field: 'BALANCE',
 			maxDigits: 12,
 			decimalDigits: 2,
-			description: computed(() => this.Resources.BALANCE13297),
+			description: computed(() => this.Resources.BALANCE____11756),
 		}).cloneFrom(values?.ValBalance))
 		this.stopWatchers.push(watch(() => this.ValBalance.value, (newValue, oldValue) => this.onUpdate('source.balance', this.ValBalance, newValue, oldValue)))
 

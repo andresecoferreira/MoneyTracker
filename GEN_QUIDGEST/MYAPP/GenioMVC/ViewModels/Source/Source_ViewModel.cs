@@ -79,7 +79,7 @@ namespace GenioMVC.ViewModels.Source
 		/// </summary>
 		public string ValAccount_number { get; set; }
 		/// <summary>
-		/// Title: "Balance" | Type: "$"
+		/// Title: "Balance" | Type: "N"
 		/// </summary>
 		public decimal? ValBalance { get; set; }
 		/// <summary>
@@ -472,7 +472,7 @@ namespace GenioMVC.ViewModels.Source
 			validator.StringLength("GroupValName", Resources.Resources.GROUP38232, GroupValName, 50);
 			validator.StringLength("ValAccount_number", Resources.Resources.ACCOUNT_NUMBER58504, ValAccount_number, 20);
 
-			validator.Required("ValBalance", Resources.Resources.BALANCE13297, ViewModelConversion.ToNumeric(ValBalance), FieldType.CURRENCY.GetFormatting());
+			validator.Required("ValBalance", Resources.Resources.BALANCE13297, ViewModelConversion.ToNumeric(ValBalance), FieldType.NUMERIC.GetFormatting());
 
 
 			return validator.GetResult();

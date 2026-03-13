@@ -887,7 +887,7 @@
 						controlLimits: [
 						],
 					}, this),
-					INVESTMENT__INVESTMENT__VALUE: new fieldControlClass.CurrencyControl({
+					INVESTMENT__INVESTMENT__VALUE: new fieldControlClass.NumberControl({
 						modelField: 'ValValue',
 						valueChangeEvent: 'fieldChange:investment.value',
 						id: 'INVESTMENT__INVESTMENT__VALUE',

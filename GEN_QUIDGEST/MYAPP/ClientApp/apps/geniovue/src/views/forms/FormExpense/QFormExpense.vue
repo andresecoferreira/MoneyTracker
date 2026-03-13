@@ -924,7 +924,7 @@
 						controlLimits: [
 						],
 					}, this),
-					EXPENSE__EXPENSE__VALUE: new fieldControlClass.CurrencyControl({
+					EXPENSE__EXPENSE__VALUE: new fieldControlClass.NumberControl({
 						modelField: 'ValValue',
 						valueChangeEvent: 'fieldChange:expense.value',
 						id: 'EXPENSE__EXPENSE__VALUE',

@@ -115,13 +115,13 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "value", FieldType.CURRENCY);
-			Qfield.FieldDescription = "Value";
+			Qfield = new Field(info.Alias, "value", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Value (€)";
 			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
 			Qfield.IntegerDigits = 9;
 			Qfield.Decimals = 2;
-			Qfield.CavDesignation = "VALUE10285";
+			Qfield.CavDesignation = "VALUE____56887";
 
             Qfield.NotNull = true;
 			Qfield.Dupmsg = "";
@@ -437,11 +437,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldType_id, value); }
 		}
 
-		/// <summary>Field : "Value" Tipo: "$" Formula:  ""</summary>
+		/// <summary>Field : "Value (€)" Tipo: "N" Formula:  ""</summary>
 		public static FieldRef FldValue { get { return m_fldValue; } }
 		private static FieldRef m_fldValue = new FieldRef("investment", "value");
 
-		/// <summary>Field : "Value" Tipo: "$" Formula:  ""</summary>
+		/// <summary>Field : "Value (€)" Tipo: "N" Formula:  ""</summary>
 		public decimal ValValue
 		{
 			get { return (decimal)returnValueField(FldValue); }

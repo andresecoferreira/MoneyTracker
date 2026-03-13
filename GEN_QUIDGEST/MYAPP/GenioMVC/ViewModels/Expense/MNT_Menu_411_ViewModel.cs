@@ -150,7 +150,7 @@ namespace GenioMVC.ViewModels.Expense
 				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.CATEGORY_TYPE34342, 20, 0, true),
 				new Exports.QColumn(CSGenioAcategory.FldName, FieldType.TEXT, Resources.Resources.CATEGORY18978, 20, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.MEMBER00534, 30, 0, true),
-				new Exports.QColumn(CSGenioAexpense.FldValue, FieldType.CURRENCY, Resources.Resources.VALUE10285, 12, 0, true),
+				new Exports.QColumn(CSGenioAexpense.FldValue, FieldType.NUMERIC, Resources.Resources.VALUE10285, 12, 2, true),
 			];
 		}
 

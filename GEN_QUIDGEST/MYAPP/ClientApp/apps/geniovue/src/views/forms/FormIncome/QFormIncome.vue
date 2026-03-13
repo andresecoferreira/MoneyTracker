@@ -887,7 +887,7 @@
 						controlLimits: [
 						],
 					}, this),
-					INCOME__INCOME__VALUE: new fieldControlClass.CurrencyControl({
+					INCOME__INCOME__VALUE: new fieldControlClass.NumberControl({
 						modelField: 'ValValue',
 						valueChangeEvent: 'fieldChange:income.value',
 						id: 'INCOME__INCOME__VALUE',

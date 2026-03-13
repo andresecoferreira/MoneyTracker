@@ -30,6 +30,9 @@
   <msg id="Process Types" code="PROCESS_TYPES19050">
     <ENUS>Process Types</ENUS>
   </msg>
+  <msg id="Value (" code="VALUE__44420">
+    <ENUS>Value (</ENUS>
+  </msg>
   <msg id="Process ID" code="PROCESS_ID11161">
     <ENUS>Process ID</ENUS>
   </msg>
@@ -128,6 +131,9 @@
   </msg>
   <msg id="PSW" code="PSW13972">
     <ENUS>PSW</ENUS>
+  </msg>
+  <msg id="Value (€)" code="VALUE____56887">
+    <ENUS>Value (€)</ENUS>
   </msg>
   <msg id="Modules" code="MODULES33542">
     <ENUS>Modules</ENUS>
@@ -308,6 +314,9 @@
   </msg>
   <msg id="Erro" code="ERRO38355">
     <ENUS>Erro</ENUS>
+  </msg>
+  <msg id="Balance (€)" code="BALANCE____11756">
+    <ENUS>Balance (€)</ENUS>
   </msg>
   <msg id="2024" code="_202400656">
     <ENUS>2024</ENUS>

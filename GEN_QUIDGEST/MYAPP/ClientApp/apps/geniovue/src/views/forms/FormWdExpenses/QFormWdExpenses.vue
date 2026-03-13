@@ -172,7 +172,7 @@
 					route: 'form-WD_EXPENSES',
 					area: 'EXPENSE',
 					primaryKey: 'ValCodexpense',
-					designation: computed(() => this.Resources.EXPENSES_BY_MEMBER36056),
+					designation: '',
 					identifier: '', // Unique identifier received by route (when it's nested).
 					mode: '',
 					availableAgents: [],
