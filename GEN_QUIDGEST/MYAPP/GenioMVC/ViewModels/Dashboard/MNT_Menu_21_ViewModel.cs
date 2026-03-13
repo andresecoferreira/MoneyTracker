@@ -47,6 +47,24 @@ namespace GenioMVC.ViewModels.Dashboard
 				},
 				new CustomWidgetProvider<CSGenio.business.DbArea>
 {
+					Id = "CAT_MONTH",
+					Order = 12,
+					Width = 6,
+					Height = 4,
+					BorderStyle = "",
+					Required = true,
+					Visible = true,
+					Role = CSGenio.framework.Role.AUTHORIZED,
+					Module = "MNT",
+					Group = "_GRAPH",
+					Form = "WD_CATMONTH",
+					Component = "QFormWdCatmonth",
+					RefreshMode = WidgetRefreshMode.None,
+					UsesCache = false,
+					InstantionMethod = WidgetInstantionMethod.Aggregate
+				},
+				new CustomWidgetProvider<CSGenio.business.DbArea>
+{
 					Id = "TEST",
 					Order = 11,
 					Width = 6,

@@ -25,6 +25,8 @@ namespace GenioMVC.Controllers
 		private static readonly NavigationLocation ACTION_TEST_EDIT = new("EDITAR11616", "Test_Edit", "Home")  { vueRouteName = "form-TEST", mode = "EDIT" };
 		private static readonly NavigationLocation ACTION_WD_CATEGORIES_SHOW = new("CONSULTA40695", "Wd_categories_Show", "Home")  { vueRouteName = "form-WD_CATEGORIES", mode = "SHOW" };
 		private static readonly NavigationLocation ACTION_WD_CATEGORIES_EDIT = new("EDITAR11616", "Wd_categories_Edit", "Home")  { vueRouteName = "form-WD_CATEGORIES", mode = "EDIT" };
+		private static readonly NavigationLocation ACTION_WD_CATMONTH_SHOW = new("CONSULTA40695", "Wd_catmonth_Show", "Home")  { vueRouteName = "form-WD_CATMONTH", mode = "SHOW" };
+		private static readonly NavigationLocation ACTION_WD_CATMONTH_EDIT = new("EDITAR11616", "Wd_catmonth_Edit", "Home")  { vueRouteName = "form-WD_CATMONTH", mode = "EDIT" };
 
 		public readonly string EPH_Action_Available_Key = "EPH_Action_Available";
 		public readonly string EPH_Action_Form_Key = "EPH_Action_Form";
@@ -383,6 +385,106 @@ namespace GenioMVC.Controllers
 
 			// Determine rows per page
 			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(-1, "");
+
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
+
+		#endregion
+
+		#region Form Methods -> Wd_catmonth ()
+
+		// GET: /Home/Wd_catmonth_Show
+		public ActionResult Wd_catmonth_Show()
+		{
+			Wd_catmonth_ViewModel model = new(UserContext.Current);
+			CSGenio.framework.StatusMessage permission = model.CheckPermissions(FormMode.Show);
+			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") && (bool)RouteData.Values["isHomePage"];
+			ViewBag.isHomePage = isHomePage;
+			if (isHomePage)
+				Navigation.SetValue("HomePage", "Wd_catmonth");
+			if (permission.Status.Equals(CSGenio.framework.Status.E))
+				return PermissionError(permission.Message);
+
+			// Audit
+			CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.FORM54242 + " " + ACTION_WD_CATMONTH_SHOW.ShortDescription());
+
+// USE /[MANUAL MNT BEFORE_LOAD_SHOW WD_CATMONTH]/
+
+			model.Load([], true);
+
+// USE /[MANUAL MNT AFTER_LOAD_SHOW WD_CATMONTH]/
+
+			return JsonOK(model);
+		}
+
+		[HttpPost]
+		public ActionResult Wd_catmonth_Show_GET()
+		{
+			return Wd_catmonth_Show();
+		}
+
+		// GET: /Home/Wd_catmonth_Edit
+		public ActionResult Wd_catmonth_Edit()
+		{
+			Wd_catmonth_ViewModel model = new(UserContext.Current);
+			CSGenio.framework.StatusMessage permission = model.CheckPermissions(FormMode.Edit);
+			bool isHomePage = RouteData.Values.ContainsKey("isHomePage") && (bool)RouteData.Values["isHomePage"];
+			ViewBag.isHomePage = isHomePage;
+			if (isHomePage)
+				Navigation.SetValue("HomePage", "Wd_catmonth");
+			if (permission.Status.Equals(CSGenio.framework.Status.E))
+				return PermissionError(permission.Message);
+
+			// Audit
+			CSGenio.framework.Audit.registAction(UserContext.Current.User, Resources.Resources.FORM54242 + " " + ACTION_WD_CATMONTH_EDIT.ShortDescription());
+
+// USE /[MANUAL MNT BEFORE_LOAD_EDIT WD_CATMONTH]/
+
+			model.Load([], true);
+
+// USE /[MANUAL MNT AFTER_LOAD_EDIT WD_CATMONTH]/
+
+			return JsonOK(model);
+		}
+
+		[HttpPost]
+		public ActionResult Wd_catmonth_Edit_GET()
+		{
+			return Wd_catmonth_Edit();
+		}
+
+		//
+		// GET: /Home/Wd_catmonth_Cancel
+// USE /[MANUAL MNT CONTROLLER_CANCEL_GET WD_CATMONTH]/
+		public ActionResult Wd_catmonth_Cancel()
+		{
+			return JsonOK(new { Success = true });
+		}
+
+		//
+		// GET: /Home/Wd_catmonth_ValCatmonth
+		// POST: /Home/Wd_catmonth_ValCatmonth
+		[ActionName("Wd_catmonth_ValCatmonth")]
+		public ActionResult Wd_catmonth_ValCatmonth([FromBody] RequestLookupModel requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			NameValueCollection requestValues = [];
+			// Add to request values
+			foreach (var kv in queryParams ?? [])
+				requestValues.Add(kv.Key, kv.Value);
+
+			Wd_catmonth_ValCatmonth_ViewModel model = new(m_userContext);
+
+			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
+				requestModel.TableConfiguration,
+				requestModel.UserTableConfigName,
+				requestModel.LoadDefaultView);
+
+			// Determine rows per page
+			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(CSGenio.framework.Configuration.NrRegDBedit, "");
 
 			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
 

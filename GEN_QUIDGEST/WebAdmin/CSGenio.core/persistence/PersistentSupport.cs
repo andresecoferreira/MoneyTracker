@@ -184,7 +184,9 @@ namespace CSGenio.persistence
 
         private static void InitManualQueries()
         {
-            
+            manualQueries = new Hashtable();
+	manualQueries.Add("CATEGORY_MONTH",new Q_category_month());
+
         }
 
         public static Hashtable getManualQueries()

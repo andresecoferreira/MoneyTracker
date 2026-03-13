@@ -136,6 +136,18 @@ export default function getFormsRoutes()
 			}
 		},
 		{
+			path: '/:culture/:system/:module/form/WD_CATMONTH/:mode/:id?',
+			name: 'form-WD_CATMONTH',
+			props: route => propsConverter(route),
+			component: () => import('@/views/forms/FormWdCatmonth/QFormWdCatmonth.vue'),
+			meta: {
+				routeType: 'form',
+				baseArea: '',
+				humanKeyFields: [],
+				isPopup: false
+			}
+		},
+		{
 			path: '/:culture/:system/:module/form/WD_EXPENSES/:mode/:id?',
 			name: 'form-WD_EXPENSES',
 			props: route => propsConverter(route),

@@ -249,6 +249,9 @@
 	<data name="_202700809" xml:space="preserve">
 		<value>2027</value>
 	</data>
+	<data name="VIEW_CATEGORY_MONTHS33796" xml:space="preserve">
+		<value>View Category Months</value>
+	</data>
 	<data name="ABORTADO52378" xml:space="preserve">
 		<value>Abortado</value>
 	</data>
@@ -659,6 +662,9 @@
 	</data>
 	<data name="NOTIFICATION_EMAIL_S62518" xml:space="preserve">
 		<value>Notification Email Signature</value>
+	</data>
+	<data name="VIEW_CATEGORY_MONTH41151" xml:space="preserve">
+		<value>View Category Month</value>
 	</data>
 	<data name="OUTUBRO17690" xml:space="preserve">
 		<value>Outubro</value>

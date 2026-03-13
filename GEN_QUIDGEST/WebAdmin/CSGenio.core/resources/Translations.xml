@@ -132,6 +132,9 @@
   <msg id="2027" code="_202700809">
     <ENUS>2027</ENUS>
   </msg>
+  <msg id="View Category Months" code="VIEW_CATEGORY_MONTHS33796">
+    <ENUS>View Category Months</ENUS>
+  </msg>
   <msg id="Abortado" code="ABORTADO52378">
     <ENUS>Abortado</ENUS>
   </msg>
@@ -542,6 +545,9 @@
   </msg>
   <msg id="Notification Email Signature" code="NOTIFICATION_EMAIL_S62518">
     <ENUS>Notification Email Signature</ENUS>
+  </msg>
+  <msg id="View Category Month" code="VIEW_CATEGORY_MONTH41151">
+    <ENUS>View Category Month</ENUS>
   </msg>
   <msg id="Outubro" code="OUTUBRO17690">
     <ENUS>Outubro</ENUS>

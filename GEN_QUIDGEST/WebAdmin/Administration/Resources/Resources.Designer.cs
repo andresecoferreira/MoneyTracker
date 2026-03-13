@@ -457,6 +457,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "View Category Months"
+        /// </summary>
+        public static string VIEW_CATEGORY_MONTHS33796 {
+            get {
+                return ResourceManager.GetString("VIEW_CATEGORY_MONTHS33796", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Abortado"
         /// </summary>
         public static string ABORTADO52378 {
@@ -1686,6 +1695,15 @@ namespace Administration.Resources {
         public static string NOTIFICATION_EMAIL_S62518 {
             get {
                 return ResourceManager.GetString("NOTIFICATION_EMAIL_S62518", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "View Category Month"
+        /// </summary>
+        public static string VIEW_CATEGORY_MONTH41151 {
+            get {
+                return ResourceManager.GetString("VIEW_CATEGORY_MONTH41151", resourceCulture);
             }
         }
 
