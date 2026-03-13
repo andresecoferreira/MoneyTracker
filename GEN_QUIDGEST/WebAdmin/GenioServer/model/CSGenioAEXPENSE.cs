@@ -337,7 +337,7 @@ namespace CSGenio.business
 			ConditionFormula writeCondition = new ConditionFormula(argumentsListByArea, 1, delegate(object []args,User user,string module,PersistentSupport sp) {
 				return ((DateTime)args[0])<=DateTime.Today;
 			});
-			writeCondition.ErrorWarning = "You can´t select a future date";
+			writeCondition.ErrorWarning = "You can't select a future date";
             writeCondition.Type =  ConditionType.ERROR;
             writeCondition.Validate = true;
 			writeCondition.Field = info.DBFields["date"];

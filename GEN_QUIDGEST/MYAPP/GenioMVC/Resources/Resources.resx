@@ -657,6 +657,9 @@
 	<data name="RESUME22727" xml:space="preserve">
 		<value>Resume</value>
 	</data>
+	<data name="YOU_CAN_T_SELECT_A_F51619" xml:space="preserve">
+		<value>You can&apos;t select a future date</value>
+	</data>
 	<data name="NEW_INCOME43900" xml:space="preserve">
 		<value>New Income</value>
 	</data>

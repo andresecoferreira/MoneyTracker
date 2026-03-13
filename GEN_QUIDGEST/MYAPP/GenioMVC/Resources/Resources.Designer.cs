@@ -1683,6 +1683,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "You can't select a future date"
+		/// </summary>
+		public static string YOU_CAN_T_SELECT_A_F51619 {
+			get {
+				return ResourceManager.GetString("YOU_CAN_T_SELECT_A_F51619", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "New Income"
 		/// </summary>
 		public static string NEW_INCOME43900 {

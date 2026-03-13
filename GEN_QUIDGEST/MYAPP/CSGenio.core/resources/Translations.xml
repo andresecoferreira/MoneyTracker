@@ -540,6 +540,9 @@
   <msg id="Resume" code="RESUME22727">
     <ENUS>Resume</ENUS>
   </msg>
+  <msg id="You can&apos;t select a future date" code="YOU_CAN_T_SELECT_A_F51619">
+    <ENUS>You can&apos;t select a future date</ENUS>
+  </msg>
   <msg id="New Income" code="NEW_INCOME43900">
     <ENUS>New Income</ENUS>
   </msg>
