@@ -71,5 +71,9 @@
       <ACCESS />
       <MENU TYPE="ITEM" ID="INVESTMENT" PRTID="7" IMG="" ACT="GenGenio.MenuFormConsulta" ACTMVC="Investment_New" ACTVUE="form-INVESTMENT" CONT="Investment" FILTERS="id = item.ValCodinvestment" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="true" FORMMODE="NEW" ORDER="71" />
     </MENU>
+    <MENU TYPE="ITEM" DESC="TOTAL38445" SIGLA="" ID="8" HELPTITLE="" LVL="1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="8" DEFAULTACTION="">
+      <ACCESS />
+      <MENU TYPE="ITEM" DESC="MEMBERS31628" ID="81" PRTID="8" IMG="" ACT="GenGenio.MenuDBEdit" ACTMVC="MNT_Menu_81" ACTVUE="menu-MNT_81" CONT="MEMBER" LVL="-1" PREVIEW="false" SEPARATES="false" SUMMENU="false" HIDEMENUSUM="false" HASCONDITION="false" ISFORM="false" ORDER="81" />
+    </MENU>
   </MenuEntry>
 </ArrayOfMenuEntry>

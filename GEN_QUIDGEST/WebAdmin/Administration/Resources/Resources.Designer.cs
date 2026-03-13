@@ -304,6 +304,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "total"
+        /// </summary>
+        public static string TOTAL38445 {
+            get {
+                return ResourceManager.GetString("TOTAL38445", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Date"
         /// </summary>
         public static string DATE18475 {

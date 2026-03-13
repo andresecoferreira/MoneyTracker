@@ -81,6 +81,9 @@
   <msg id="Month Number" code="MONTH_NUMBER33019">
     <ENUS>Month Number</ENUS>
   </msg>
+  <msg id="total" code="TOTAL38445">
+    <ENUS>total</ENUS>
+  </msg>
   <msg id="Date" code="DATE18475">
     <ENUS>Date</ENUS>
   </msg>
