@@ -71,6 +71,26 @@
 						</q-table>
 					</q-col>
 				</q-row>
+				<q-row v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible">
+					<q-col
+						v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible"
+						cols="auto">
+						<base-input-structure
+							v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible"
+							class="i-button"
+							v-bind="controls.WD_EXPENSES__PSEUD__FIELD002"
+							v-on="controls.WD_EXPENSES__PSEUD__FIELD002.handlers"
+							:loading="controls.WD_EXPENSES__PSEUD__FIELD002.props.loading"
+							:reporting-mode-on="reportingModeCAV"
+							:suggestion-mode-on="suggestionModeOn">
+							<q-button
+								v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible"
+								v-bind="controls.WD_EXPENSES__PSEUD__FIELD002.props"
+								@click="controls.WD_EXPENSES__PSEUD__FIELD002.action($event)">
+							</q-button>
+						</base-input-structure>
+					</q-col>
+				</q-row>
 			</template>
 		</q-container>
 	</template>
@@ -503,6 +523,22 @@
 								dependencyField: 'EXPENSE.CODEXPENSE',
 								fnValueSelector: (model) => model.ValCodexpense.value
 							},
+						],
+					}, this),
+					WD_EXPENSES__PSEUD__FIELD002: new fieldControlClass.ButtonControl({
+						id: 'WD_EXPENSES__PSEUD__FIELD002',
+						name: 'FIELD002',
+						hasLabel: false,
+						label: computed(() => this.Resources.REPORT48266),
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						// eslint-disable-next-line
+						action: (event) => {
+							const btnAction = () => {
+							}
+							btnAction()
+						},
+						controlLimits: [
 						],
 					}, this),
 				},

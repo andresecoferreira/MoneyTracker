@@ -156,6 +156,9 @@
 	<data name="GLOBAL58588" xml:space="preserve">
 		<value>Global</value>
 	</data>
+	<data name="REPORT48266" xml:space="preserve">
+		<value>Report</value>
+	</data>
 	<data name="LOGIN_ATTEMPTS62337" xml:space="preserve">
 		<value>Login attempts</value>
 	</data>

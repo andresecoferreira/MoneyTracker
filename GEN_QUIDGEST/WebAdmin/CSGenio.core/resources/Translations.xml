@@ -39,6 +39,9 @@
   <msg id="Global" code="GLOBAL58588">
     <ENUS>Global</ENUS>
   </msg>
+  <msg id="Report" code="REPORT48266">
+    <ENUS>Report</ENUS>
+  </msg>
   <msg id="Login attempts" code="LOGIN_ATTEMPTS62337">
     <ENUS>Login attempts</ENUS>
   </msg>

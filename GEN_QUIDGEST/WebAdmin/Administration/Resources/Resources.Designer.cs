@@ -178,6 +178,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Report"
+        /// </summary>
+        public static string REPORT48266 {
+            get {
+                return ResourceManager.GetString("REPORT48266", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Login attempts"
         /// </summary>
         public static string LOGIN_ATTEMPTS62337 {
