@@ -160,4 +160,29 @@ namespace CSGenio.business
 			return new Q_category_month().SetParams().ExecuteQuery(sp);
 		}
 	}
+	class Q_member_month : ManualQuery
+	{
+
+		public Q_member_month()
+		{
+			this.m_parameters = new Dictionary<String, ParameterQuery>();
+			this.m_id = "#_QDG_MEMBER_MONTH__QDG_#";
+		}
+
+
+		private Q_member_month SetParams()
+		{
+			return this;
+		}
+
+		public override DataMatrix Run(PersistentSupport sp)
+		{
+			return this.SetParams().ExecuteQuery(sp);
+		}
+
+		public override DataMatrix Run(IDictionary<String, ParameterQuery> parameters,PersistentSupport sp)
+		{
+			return new Q_member_month().SetParams().ExecuteQuery(sp);
+		}
+	}
 }

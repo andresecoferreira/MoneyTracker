@@ -186,6 +186,7 @@ namespace CSGenio.persistence
         {
             manualQueries = new Hashtable();
 	manualQueries.Add("CATEGORY_MONTH",new Q_category_month());
+	manualQueries.Add("MEMBER_MONTH_",new Q_member_month());
 
         }
 

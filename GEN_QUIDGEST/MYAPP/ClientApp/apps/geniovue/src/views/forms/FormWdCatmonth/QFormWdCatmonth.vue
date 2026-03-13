@@ -436,30 +436,30 @@
 						groupFilters: [
 							{
 								id: 'filter_ValCatmonth_YEAR',
-								isMultiple: true,
+								isMultiple: false,
 								items: [
 									{
 										id: 'filter_ValCatmonth_YEAR_1',
-										value: computed(() => this.Resources._202400656),
+										value: computed(() => this.Resources._202532271),
 										key: '1'
 									},
 									{
 										id: 'filter_ValCatmonth_YEAR_2',
-										value: computed(() => this.Resources._202532271),
+										value: computed(() => this.Resources._202632186),
 										key: '2'
 									},
 									{
 										id: 'filter_ValCatmonth_YEAR_3',
-										value: computed(() => this.Resources._202632186),
+										value: computed(() => this.Resources._202700809),
 										key: '3'
 									},
 								],
-								selected: undefined,
-								default: undefined
+								selected: '2',
+								default: '2'
 							},
 							{
 								id: 'filter_ValCatmonth_MONTH',
-								isMultiple: true,
+								isMultiple: false,
 								items: [
 									{
 										id: 'filter_ValCatmonth_MONTH_1',

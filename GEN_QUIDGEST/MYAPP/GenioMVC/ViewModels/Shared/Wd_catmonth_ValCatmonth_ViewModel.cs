@@ -180,7 +180,7 @@ namespace GenioMVC.ViewModels
 
 			if (!tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
 			{
-				string defaultValue = "";
+				string defaultValue = "2";
 				tableConfig.Filters.Add(new GroupFilter { Key = "filter_ValCatmonth_YEAR", Value = defaultValue });
 			}
 
@@ -191,16 +191,18 @@ namespace GenioMVC.ViewModels
 					filter_ValCatmonth_YEAR_1 = tableConfig.GroupFilters["filter_ValCatmonth_YEAR"].Contains("1");
 				if (filter_ValCatmonth_YEAR_1)
 				{
-					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2024);
+					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2025);
 
 				}
 
 				bool filter_ValCatmonth_YEAR_2 = false;
 				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
 					filter_ValCatmonth_YEAR_2 = tableConfig.GroupFilters["filter_ValCatmonth_YEAR"].Contains("2");
+				else if (!tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
+					filter_ValCatmonth_YEAR_2 = true;
 				if (filter_ValCatmonth_YEAR_2)
 				{
-					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2025);
+					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2026);
 
 				}
 
@@ -209,7 +211,7 @@ namespace GenioMVC.ViewModels
 					filter_ValCatmonth_YEAR_3 = tableConfig.GroupFilters["filter_ValCatmonth_YEAR"].Contains("3");
 				if (filter_ValCatmonth_YEAR_3)
 				{
-					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2026);
+					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2027);
 
 				}
 
