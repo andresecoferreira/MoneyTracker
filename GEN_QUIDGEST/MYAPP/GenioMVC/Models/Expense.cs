@@ -198,6 +198,26 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public SelectList ArrayValyear { get { return new SelectList(CSGenio.business.ArrayYear.GetDictionary(), "Key", "Value", ValYear); } set { ValYear = Convert.ToDecimal(value.SelectedValue); } }
 
+		[DisplayName("")]
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		[ShouldSerialize("Expense.ValMonth_fk")]
+		public string ValMonth_fk { get { return klass.ValMonth_fk; } set { klass.ValMonth_fk = value; } }
+
+		private Month _month;
+		[DisplayName("Month")]
+		[ShouldSerialize("Month")]
+		public virtual Month Month
+		{
+			get
+			{
+				if (!isEmptyModel && (_month == null || (!string.IsNullOrEmpty(ValMonth_fk) && (_month.isEmptyModel || _month.klass.QPrimaryKey != ValMonth_fk))))
+					_month = Models.Month.Find(ValMonth_fk, m_userContext, Identifier, _fieldsToSerialize);
+				_month ??= new Models.Month(m_userContext, true, _fieldsToSerialize);
+				return _month;
+			}
+			set { _month = value; }
+		}
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Expense.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>
@@ -248,6 +268,10 @@ namespace GenioMVC.Models
 					case "group":
 						_group ??= new Group(m_userContext, true, _fieldsToSerialize);
 						_group.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
+						break;
+					case "month":
+						_month ??= new Month(m_userContext, true, _fieldsToSerialize);
+						_month.klass.insertNameValueField(Qfield.FullName, Qfield.Value);
 						break;
 					default:
 						break;

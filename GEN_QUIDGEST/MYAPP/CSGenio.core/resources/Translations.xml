@@ -330,6 +330,9 @@
   <msg id="Account" code="ACCOUNT64260">
     <ENUS>Account</ENUS>
   </msg>
+  <msg id="Expense Month" code="EXPENSE_MONTH08807">
+    <ENUS>Expense Month</ENUS>
+  </msg>
   <msg id="Montepio" code="MONTEPIO14226">
     <ENUS>Montepio</ENUS>
   </msg>

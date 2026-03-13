@@ -85,6 +85,18 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "total_expense", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Expense Month";
+			Qfield.FieldSize =  12;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 9;
+			Qfield.Decimals = 2;
+			Qfield.CavDesignation = "EXPENSE_MONTH08807";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -98,6 +110,8 @@ namespace CSGenio.business
 		{
 			// Daughters Relations
 			//------------------------------
+			info.ChildTable = new ChildRelation[1];
+			info.ChildTable[0]= new ChildRelation("expense", new String[] {"month_fk"}, DeleteProc.NA);
 
 			// Mother Relations
 			//------------------------------
@@ -126,6 +140,10 @@ namespace CSGenio.business
 
 
 
+
+			info.RelatedSumFields = new string[] {
+			 "total_expense"
+			};
 
 
 
@@ -277,6 +295,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldYear_number, value); }
 		}
 
+		/// <summary>Field : "Expense Month" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
+		public static FieldRef FldTotal_expense { get { return m_fldTotal_expense; } }
+		private static FieldRef m_fldTotal_expense = new FieldRef("month", "total_expense");
+
+		/// <summary>Field : "Expense Month" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
+		public decimal ValTotal_expense
+		{
+			get { return (decimal)returnValueField(FldTotal_expense); }
+			set { insertNameValueField(FldTotal_expense, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("month", "zzstate");
@@ -374,7 +403,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX MONTH]/
 
  
-     
+      
 
 	}
 }

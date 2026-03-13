@@ -1051,6 +1051,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Expense Month"
+        /// </summary>
+        public static string EXPENSE_MONTH08807 {
+            get {
+                return ResourceManager.GetString("EXPENSE_MONTH08807", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Montepio"
         /// </summary>
         public static string MONTEPIO14226 {

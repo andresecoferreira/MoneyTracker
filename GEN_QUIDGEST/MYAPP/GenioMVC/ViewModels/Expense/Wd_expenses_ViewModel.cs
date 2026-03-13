@@ -54,6 +54,11 @@ namespace GenioMVC.ViewModels.Expense
 		/// Title: "" | Type: "CE"
 		/// </summary>
 		[ValidateSetAccess]
+		public string ValMonth_fk { get; set; }
+		/// <summary>
+		/// Title: "" | Type: "CE"
+		/// </summary>
+		[ValidateSetAccess]
 		public string ValSource_id { get; set; }
 
 		#endregion
@@ -196,6 +201,7 @@ namespace GenioMVC.ViewModels.Expense
 				ValType_id = ViewModelConversion.ToString(m.ValType_id);
 				ValGroup_id = ViewModelConversion.ToString(m.ValGroup_id);
 				ValMember_id = ViewModelConversion.ToString(m.ValMember_id);
+				ValMonth_fk = ViewModelConversion.ToString(m.ValMonth_fk);
 				ValSource_id = ViewModelConversion.ToString(m.ValSource_id);
 				ValExpense_id = ViewModelConversion.ToNumeric(m.ValExpense_id);
 				ValCodexpense = ViewModelConversion.ToString(m.ValCodexpense);
@@ -237,6 +243,7 @@ namespace GenioMVC.ViewModels.Expense
 				m.ValType_id = ViewModelConversion.ToString(ValType_id);
 				m.ValGroup_id = ViewModelConversion.ToString(ValGroup_id);
 				m.ValMember_id = ViewModelConversion.ToString(ValMember_id);
+				m.ValMonth_fk = ViewModelConversion.ToString(ValMonth_fk);
 				m.ValSource_id = ViewModelConversion.ToString(ValSource_id);
 				m.ValExpense_id = ViewModelConversion.ToNumeric(ValExpense_id);
 			}
@@ -433,6 +440,7 @@ namespace GenioMVC.ViewModels.Expense
 				"expense.type_id" => ViewModelConversion.ToString(modelValue),
 				"expense.group_id" => ViewModelConversion.ToString(modelValue),
 				"expense.member_id" => ViewModelConversion.ToString(modelValue),
+				"expense.month_fk" => ViewModelConversion.ToString(modelValue),
 				"expense.source_id" => ViewModelConversion.ToString(modelValue),
 				"expense.expense_id" => ViewModelConversion.ToNumeric(modelValue),
 				"expense.codexpense" => ViewModelConversion.ToString(modelValue),

@@ -58,6 +58,12 @@ namespace GenioMVC.Models
 			set { _year = value; }
 		}
 
+		[DisplayName("Expense Month")]
+		/// <summary>Field : "Expense Month" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
+		[ShouldSerialize("Month.ValTotal_expense")]
+		[CurrencyAttribute("EUR", 2)]
+		public decimal? ValTotal_expense { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValTotal_expense, 2)); } set { klass.ValTotal_expense = Convert.ToDecimal(value); } }
+
 		[DisplayName("ZZSTATE")]
 		[ShouldSerialize("Month.ValZzstate")]
 		/// <summary>Field: "ZZSTATE", Type: "INT", Formula: ""</summary>

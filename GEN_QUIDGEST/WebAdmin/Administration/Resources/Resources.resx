@@ -447,6 +447,9 @@
   <data name="ACCOUNT64260" xml:space="preserve">
     <value>Account</value>
   </data>
+  <data name="EXPENSE_MONTH08807" xml:space="preserve">
+    <value>Expense Month</value>
+  </data>
   <data name="MONTEPIO14226" xml:space="preserve">
     <value>Montepio</value>
   </data>

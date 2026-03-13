@@ -563,7 +563,7 @@ namespace GenioMVC.ViewModels
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Expense", "Expense.ValCodexpense", "Expense.ValZzstate", "Category_type", "Category_type.ValName", "Expense.ValValue", "Expense.ValCategory_id", "Expense.ValType_id", "Expense.ValGroup_id", "Expense.ValMember_id", "Expense.ValSource_id"
+			"Expense", "Expense.ValCodexpense", "Expense.ValZzstate", "Category_type", "Category_type.ValName", "Expense.ValValue", "Expense.ValCategory_id", "Expense.ValType_id", "Expense.ValGroup_id", "Expense.ValMember_id", "Expense.ValMonth_fk", "Expense.ValSource_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =

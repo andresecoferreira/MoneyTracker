@@ -533,6 +533,8 @@
 						set ValGroup_id(value) { vm.model.ValGroup_id.updateValue(value) },
 						get ValMember_id() { return vm.model.ValMember_id.value },
 						set ValMember_id(value) { vm.model.ValMember_id.updateValue(value) },
+						get ValMonth_fk() { return vm.model.ValMonth_fk.value },
+						set ValMonth_fk(value) { vm.model.ValMonth_fk.updateValue(value) },
 						get ValSource_id() { return vm.model.ValSource_id.value },
 						set ValSource_id(value) { vm.model.ValSource_id.updateValue(value) },
 						get ValType_id() { return vm.model.ValType_id.value },
@@ -551,6 +553,8 @@
 						get category_type() { return vm.model.ValType_id },
 						/** The foreign key to the GROUP table */
 						get group() { return vm.model.ValGroup_id },
+						/** The foreign key to the MONTH table */
+						get month() { return vm.model.ValMonth_fk },
 					},
 					get extraProperties() { return vm.model.extraProperties },
 				},

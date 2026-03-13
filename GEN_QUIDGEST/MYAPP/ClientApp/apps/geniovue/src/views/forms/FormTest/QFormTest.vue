@@ -452,7 +452,7 @@
 								default: undefined
 							},
 						],
-						globalEvents: ['changed-MEMBER', 'changed-CATEGORY_TYPE', 'changed-EXPENSE', 'changed-GROUP', 'changed-CATEGORY', 'changed-SOURCE'],
+						globalEvents: ['changed-MEMBER', 'changed-CATEGORY_TYPE', 'changed-EXPENSE', 'changed-MONTH', 'changed-GROUP', 'changed-CATEGORY', 'changed-SOURCE'],
 						uuid: 'Test_ValField001',
 						allSelectedRows: 'false',
 						viewModes: [

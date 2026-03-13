@@ -247,6 +247,16 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "month_fk", FieldType.KEY_INT);
+			Qfield.FieldDescription = "";
+			Qfield.FieldSize =  8;
+			Qfield.MQueue = false;
+			Qfield.CavDesignation = "";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "zzstate", FieldType.INTEGER);
 			Qfield.FieldDescription = "Estado da ficha";
 			info.RegisterFieldDB(Qfield);
@@ -268,6 +278,7 @@ namespace CSGenio.business
 			info.ParentTables.Add("category_type", new Relation("MNT", "mntexpense", "expense", "codexpense", "type_id", "MNT", "mntcategory_type", "category_type", "codcategory_type", "codcategory_type"));
 			info.ParentTables.Add("group", new Relation("MNT", "mntexpense", "expense", "codexpense", "group_id", "MNT", "mntgroup", "group", "codgroup", "codgroup"));
 			info.ParentTables.Add("member", new Relation("MNT", "mntexpense", "expense", "codexpense", "member_id", "MNT", "mntmember", "member", "codmember", "codmember"));
+			info.ParentTables.Add("month", new Relation("MNT", "mntexpense", "expense", "codexpense", "month_fk", "MNT", "mntmonth", "month", "codmonth", "codmonth"));
 			info.ParentTables.Add("source", new Relation("MNT", "mntexpense", "expense", "codexpense", "source_id", "MNT", "mntsource", "source", "codsource", "codsource"));
 		}
 
@@ -278,12 +289,14 @@ namespace CSGenio.business
 		{
 			// Pathways
 			//------------------------------
-			info.Pathways = new Dictionary<string, string>(5);
+			info.Pathways = new Dictionary<string, string>(7);
 			info.Pathways.Add("category_type","category_type");
 			info.Pathways.Add("group","group");
 			info.Pathways.Add("member","member");
+			info.Pathways.Add("month","month");
 			info.Pathways.Add("category","category");
 			info.Pathways.Add("source","source");
+			info.Pathways.Add("year","month");
 		}
 
 		/// <summary>
@@ -297,6 +310,7 @@ namespace CSGenio.business
 			info.RelatedSumArgs = new List<RelatedSumArgument>();
 			info.RelatedSumArgs.Add( new RelatedSumArgument("expense", "category_type", "total_sum", "value", '+', true));
 			info.RelatedSumArgs.Add( new RelatedSumArgument("expense", "member", "expenses", "value", '+', true));
+			info.RelatedSumArgs.Add( new RelatedSumArgument("expense", "month", "total_expense", "value", '+', true));
 
 
 
@@ -626,6 +640,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldYear, value); }
 		}
 
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		public static FieldRef FldMonth_fk { get { return m_fldMonth_fk; } }
+		private static FieldRef m_fldMonth_fk = new FieldRef("expense", "month_fk");
+
+		/// <summary>Field : "" Tipo: "CE" Formula:  ""</summary>
+		public string ValMonth_fk
+		{
+			get { return (string)returnValueField(FldMonth_fk); }
+			set { insertNameValueField(FldMonth_fk, value); }
+		}
+
 		/// <summary>Field : "ZZSTATE" Type: "INT" Formula:  ""</summary>
 		public static FieldRef FldZzstate { get { return m_fldZzstate; } }
 		private static FieldRef m_fldZzstate = new FieldRef("expense", "zzstate");
@@ -723,7 +748,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX EXPENSE]/
 
  
-                  
+                   
 
 	}
 }

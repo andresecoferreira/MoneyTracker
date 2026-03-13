@@ -47,6 +47,11 @@ namespace GenioMVC.ViewModels.Expense
 		/// </summary>
 		public string ValMember_id { get; set; }
 		/// <summary>
+		/// Title: "" | Type: "CE"
+		/// </summary>
+		[ValidateSetAccess]
+		public string ValMonth_fk { get; set; }
+		/// <summary>
 		/// Title: "Account" | Type: "CE"
 		/// </summary>
 		public string ValSource_id { get; set; }
@@ -283,6 +288,7 @@ namespace GenioMVC.ViewModels.Expense
 				ValType_id = ViewModelConversion.ToString(m.ValType_id);
 				ValGroup_id = ViewModelConversion.ToString(m.ValGroup_id);
 				ValMember_id = ViewModelConversion.ToString(m.ValMember_id);
+				ValMonth_fk = ViewModelConversion.ToString(m.ValMonth_fk);
 				ValSource_id = ViewModelConversion.ToString(m.ValSource_id);
 				ValExpense_id = ViewModelConversion.ToNumeric(m.ValExpense_id);
 				funcGroupValName = () => ViewModelConversion.ToString(m.Group.ValName);
@@ -347,6 +353,7 @@ namespace GenioMVC.ViewModels.Expense
 				if (!HasDisabledUserValuesSecurity)
 					return;
 
+				m.ValMonth_fk = ViewModelConversion.ToString(ValMonth_fk);
 				m.ValMonth = ViewModelConversion.ToNumeric(ValMonth);
 				m.ValYear = ViewModelConversion.ToNumeric(ValYear);
 				m.ValCreated_by = ViewModelConversion.ToString(ValCreated_by);
@@ -1403,6 +1410,7 @@ namespace GenioMVC.ViewModels.Expense
 				"expense.type_id" => ViewModelConversion.ToString(modelValue),
 				"expense.group_id" => ViewModelConversion.ToString(modelValue),
 				"expense.member_id" => ViewModelConversion.ToString(modelValue),
+				"expense.month_fk" => ViewModelConversion.ToString(modelValue),
 				"expense.source_id" => ViewModelConversion.ToString(modelValue),
 				"expense.expense_id" => ViewModelConversion.ToNumeric(modelValue),
 				"group.name" => ViewModelConversion.ToString(modelValue),
