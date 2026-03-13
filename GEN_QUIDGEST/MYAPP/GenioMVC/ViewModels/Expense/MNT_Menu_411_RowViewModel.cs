@@ -79,6 +79,8 @@ public class MNT_Menu_411_RowViewModel : Models.Expense
 
 		using (new CSGenio.persistence.ScopedPersistentSupport(m_userContext.PersistentSupport))
 		{
+
+			// Table EXPENSE CRUD conditions.
 		}
 
 		BtnPermission = new TableRowCrudButtonPermissions()

@@ -817,6 +817,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "You can´t select a future date"
+        /// </summary>
+        public static string YOU_CAN_T_SELECT_A_F49801 {
+            get {
+                return ResourceManager.GetString("YOU_CAN_T_SELECT_A_F49801", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Category Type"
         /// </summary>
         public static string CATEGORY_TYPE34342 {

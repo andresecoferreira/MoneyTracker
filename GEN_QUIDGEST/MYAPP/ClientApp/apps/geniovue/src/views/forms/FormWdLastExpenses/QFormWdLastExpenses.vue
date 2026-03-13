@@ -530,6 +530,8 @@
 					Expense: {
 						get ValCategory_id() { return vm.model.ValCategory_id.value },
 						set ValCategory_id(value) { vm.model.ValCategory_id.updateValue(value) },
+						get ValDate() { return vm.model.ValDate.value },
+						set ValDate(value) { vm.model.ValDate.updateValue(value) },
 						get ValExpense_id() { return vm.model.ValExpense_id.value },
 						set ValExpense_id(value) { vm.model.ValExpense_id.updateValue(value) },
 						get ValGroup_id() { return vm.model.ValGroup_id.value },

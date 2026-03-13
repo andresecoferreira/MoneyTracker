@@ -84,6 +84,10 @@ namespace GenioMVC.ViewModels.Expense
 		/// <summary>Field: "Id" Tipo: "N"</summary>
 		[ValidateSetAccess]
 		public decimal? ValExpense_id { get; set; }
+		// Field for formula
+		/// <summary>Field: "Date" Tipo: "D"</summary>
+		[ValidateSetAccess]
+		public DateTime? ValDate { get; set; }
 
 		#endregion
 
@@ -204,6 +208,7 @@ namespace GenioMVC.ViewModels.Expense
 				ValMonth_fk = ViewModelConversion.ToString(m.ValMonth_fk);
 				ValSource_id = ViewModelConversion.ToString(m.ValSource_id);
 				ValExpense_id = ViewModelConversion.ToNumeric(m.ValExpense_id);
+				ValDate = ViewModelConversion.ToDateTime(m.ValDate);
 				ValCodexpense = ViewModelConversion.ToString(m.ValCodexpense);
 			}
 			catch (Exception)
@@ -246,6 +251,7 @@ namespace GenioMVC.ViewModels.Expense
 				m.ValMonth_fk = ViewModelConversion.ToString(ValMonth_fk);
 				m.ValSource_id = ViewModelConversion.ToString(ValSource_id);
 				m.ValExpense_id = ViewModelConversion.ToNumeric(ValExpense_id);
+				m.ValDate = ViewModelConversion.ToDateTime(ValDate);
 			}
 			catch (Exception)
 			{
@@ -443,6 +449,7 @@ namespace GenioMVC.ViewModels.Expense
 				"expense.month_fk" => ViewModelConversion.ToString(modelValue),
 				"expense.source_id" => ViewModelConversion.ToString(modelValue),
 				"expense.expense_id" => ViewModelConversion.ToNumeric(modelValue),
+				"expense.date" => ViewModelConversion.ToDateTime(modelValue),
 				"expense.codexpense" => ViewModelConversion.ToString(modelValue),
 				_ => modelValue
 			};

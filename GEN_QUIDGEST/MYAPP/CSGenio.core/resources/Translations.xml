@@ -252,6 +252,9 @@
   <msg id="Crédito Agrícola" code="CREDITO_AGRICOLA06541">
     <ENUS>Crédito Agrícola</ENUS>
   </msg>
+  <msg id="You can´t select a future date" code="YOU_CAN_T_SELECT_A_F49801">
+    <ENUS>You can´t select a future date</ENUS>
+  </msg>
   <msg id="Category Type" code="CATEGORY_TYPE34342">
     <ENUS>Category Type</ENUS>
   </msg>

@@ -369,6 +369,9 @@
   <data name="CREDITO_AGRICOLA06541" xml:space="preserve">
     <value>Crédito Agrícola</value>
   </data>
+  <data name="YOU_CAN_T_SELECT_A_F49801" xml:space="preserve">
+    <value>You can´t select a future date</value>
+  </data>
   <data name="CATEGORY_TYPE34342" xml:space="preserve">
     <value>Category Type</value>
   </data>

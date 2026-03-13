@@ -143,6 +143,16 @@ export default class ViewModel extends FormViewModelBase
 			description: computed(() => this.Resources.ID36840),
 		}).cloneFrom(values?.ValExpense_id))
 		this.stopWatchers.push(watch(() => this.ValExpense_id.value, (newValue, oldValue) => this.onUpdate('expense.expense_id', this.ValExpense_id, newValue, oldValue)))
+
+		this.ValDate = reactive(new modelFieldType.Date({
+			id: 'ValDate',
+			originId: 'ValDate',
+			area: 'EXPENSE',
+			field: 'DATE',
+			isFixed: true,
+			description: computed(() => this.Resources.DATE18475),
+		}).cloneFrom(values?.ValDate))
+		this.stopWatchers.push(watch(() => this.ValDate.value, (newValue, oldValue) => this.onUpdate('expense.date', this.ValDate, newValue, oldValue)))
 	}
 
 	/**
