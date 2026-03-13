@@ -90,7 +90,7 @@ namespace GenioMVC.ViewModels.Dashboard
 				{
 					Id = "Menu_NEW_EXPENSE",
 					Order = 2,
-					Width = 4,
+					Width = 2,
 					Height = 2,
 					Style = "primary",
 					BorderStyle = "secondary",
@@ -108,7 +108,7 @@ namespace GenioMVC.ViewModels.Dashboard
 				{
 					Id = "Menu_6",
 					Order = 3,
-					Width = 4,
+					Width = 2,
 					Height = 2,
 					Style = "primary",
 					BorderStyle = "secondary",
@@ -126,7 +126,7 @@ namespace GenioMVC.ViewModels.Dashboard
 				{
 					Id = "Menu_7",
 					Order = 4,
-					Width = 4,
+					Width = 2,
 					Height = 2,
 					Style = "primary",
 					BorderStyle = "secondary",
