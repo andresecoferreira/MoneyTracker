@@ -180,7 +180,7 @@ namespace GenioMVC.ViewModels
 
 			if (!tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
 			{
-				string defaultValue = "2";
+				string defaultValue = "12";
 				tableConfig.Filters.Add(new GroupFilter { Key = "filter_ValCatmonth_YEAR", Value = defaultValue });
 			}
 
@@ -189,6 +189,8 @@ namespace GenioMVC.ViewModels
 				bool filter_ValCatmonth_YEAR_1 = false;
 				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
 					filter_ValCatmonth_YEAR_1 = tableConfig.GroupFilters["filter_ValCatmonth_YEAR"].Contains("1");
+				else if (!tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
+					filter_ValCatmonth_YEAR_1 = true;
 				if (filter_ValCatmonth_YEAR_1)
 				{
 					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2025);
@@ -219,7 +221,7 @@ namespace GenioMVC.ViewModels
 			}
 			if (!tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
 			{
-				string defaultValue = "";
+				string defaultValue = "13";
 				tableConfig.Filters.Add(new GroupFilter { Key = "filter_ValCatmonth_MONTH", Value = defaultValue });
 			}
 
@@ -228,6 +230,8 @@ namespace GenioMVC.ViewModels
 				bool filter_ValCatmonth_MONTH_1 = false;
 				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
 					filter_ValCatmonth_MONTH_1 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("1");
+				else if (!tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_1 = true;
 				if (filter_ValCatmonth_MONTH_1)
 				{
 					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 1);
@@ -246,6 +250,8 @@ namespace GenioMVC.ViewModels
 				bool filter_ValCatmonth_MONTH_3 = false;
 				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
 					filter_ValCatmonth_MONTH_3 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("3");
+				else if (!tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_3 = true;
 				if (filter_ValCatmonth_MONTH_3)
 				{
 					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 3);

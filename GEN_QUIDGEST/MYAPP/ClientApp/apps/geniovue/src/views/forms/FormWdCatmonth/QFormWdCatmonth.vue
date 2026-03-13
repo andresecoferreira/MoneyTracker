@@ -454,8 +454,8 @@
 										key: '3'
 									},
 								],
-								selected: '2',
-								default: '2'
+								selected: '1',
+								default: '1'
 							},
 							{
 								id: 'filter_ValCatmonth_MONTH',
@@ -522,8 +522,8 @@
 										key: '12'
 									},
 								],
-								selected: undefined,
-								default: undefined
+								selected: '1',
+								default: '1'
 							},
 						],
 						globalEvents: ['changed-VIEW_CATMONTH'],
