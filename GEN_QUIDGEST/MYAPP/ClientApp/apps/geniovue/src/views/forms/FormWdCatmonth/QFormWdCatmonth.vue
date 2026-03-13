@@ -436,7 +436,7 @@
 						groupFilters: [
 							{
 								id: 'filter_ValCatmonth_YEAR',
-								isMultiple: false,
+								isMultiple: true,
 								items: [
 									{
 										id: 'filter_ValCatmonth_YEAR_1',
@@ -454,12 +454,12 @@
 										key: '3'
 									},
 								],
-								selected: '2',
-								default: '2'
+								selected: ['2'],
+								default: ['2']
 							},
 							{
 								id: 'filter_ValCatmonth_MONTH',
-								isMultiple: false,
+								isMultiple: true,
 								items: [
 									{
 										id: 'filter_ValCatmonth_MONTH_1',
@@ -644,7 +644,7 @@
 										isMapped: false
 									},
 									legendLayout: {
-										rawValue: 'horizontal',
+										rawValue: 'vertical',
 										isMapped: false
 									},
 									legendXPosition: {
