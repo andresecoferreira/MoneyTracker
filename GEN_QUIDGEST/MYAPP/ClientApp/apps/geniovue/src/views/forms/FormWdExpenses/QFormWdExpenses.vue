@@ -511,114 +511,30 @@
 								}
 							},
 							{
-								id: 'CARDS',
-								type: 'cards',
-								subtype: 'card-horizontal',
-								label: computed(() => this.Resources.CARTOES27587),
-								order: 2,
-								mappingVariables: readonly({
-									title: {
-										allowsMultiple: false,
-										sources: [
-											'MEMBER.NAME',
-										]
-									},
-									text: {
-										allowsMultiple: true,
-										sources: [
-											'MEMBER.INCOME',
-											'MEMBER.EXPENSES',
-											'MEMBER.INVESTMENT',
-											'MEMBER.RESULT',
-										]
-									},
-								}),
-								styleVariables: {
-									actionsAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									actionsStyle: {
-										rawValue: 'dropdown',
-										isMapped: false
-									},
-									backgroundColor: {
-										rawValue: 'auto',
-										isMapped: false
-									},
-									customFollowupDefaultTarget: {
-										rawValue: 'blank',
-										isMapped: false
-									},
-									customInsertCard: {
-										rawValue: false,
-										isMapped: false
-									},
-									customInsertCardStyle: {
-										rawValue: 'secondary',
-										isMapped: false
-									},
-									displayMode: {
-										rawValue: 'grid',
-										isMapped: false
-									},
-									gridMode: {
-										rawValue: 'fixed',
-										isMapped: false
-									},
-									containerAlignment: {
-										rawValue: 'left',
-										isMapped: false
-									},
-									hoverScaleAmount: {
-										rawValue: '1.00',
-										isMapped: false
-									},
-									showColumnTitles: {
-										rawValue: false,
-										isMapped: false
-									},
-									showEmptyColumnTitles: {
-										rawValue: true,
-										isMapped: false
-									},
-									size: {
-										rawValue: 'regular',
-										isMapped: false
-									},
-								},
-								groups: {
-								}
-							},
-							{
 								id: 'CHART',
 								type: 'chart',
 								subtype: 'genericgraph',
 								label: computed(() => this.Resources.GRAFICO38823),
-								order: 3,
+								order: 2,
 								mappingVariables: readonly({
 									xaxis: {
 										allowsMultiple: false,
 										sources: [
-											'MEMBER.EXPENSES',
+											'MEMBER.NAME',
 										]
 									},
 									yaxis: {
 										allowsMultiple: true,
 										sources: [
-											'MEMBER.RESULT',
-										]
-									},
-									serieSelector: {
-										allowsMultiple: false,
-										sources: [
-											'MEMBER.NAME',
+											'MEMBER.INCOME',
+											'MEMBER.EXPENSES',
+											'MEMBER.INVESTMENT',
 										]
 									},
 								}),
 								styleVariables: {
 									chartType: {
-										rawValue: 'line',
+										rawValue: 'column',
 										isMapped: false
 									},
 									firstColor: {
