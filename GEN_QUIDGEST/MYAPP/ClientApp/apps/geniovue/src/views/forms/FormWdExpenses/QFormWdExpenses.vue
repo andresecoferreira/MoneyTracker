@@ -646,7 +646,7 @@
 										isMapped: false
 									},
 									legendAlign: {
-										rawValue: 'center',
+										rawValue: 'left',
 										isMapped: false
 									},
 									legendVerticalAlign: {
