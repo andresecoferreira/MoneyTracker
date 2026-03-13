@@ -329,13 +329,13 @@ namespace CSGenio.business
 			//Write conditions
 			List<ConditionFormula> conditions = new List<ConditionFormula>();
 
-			// [EXPENSE->DATE] > [Today]
+			// [EXPENSE->DATE] <= [Today]
 			{
 			List<ByAreaArguments> argumentsListByArea = new List<ByAreaArguments>();
 			argumentsListByArea= new List<ByAreaArguments>();
 			argumentsListByArea.Add(new ByAreaArguments(new string[] {"date"},new int[] {0},"expense","codexpense"));
 			ConditionFormula writeCondition = new ConditionFormula(argumentsListByArea, 1, delegate(object []args,User user,string module,PersistentSupport sp) {
-				return ((DateTime)args[0])>DateTime.Today;
+				return ((DateTime)args[0])<=DateTime.Today;
 			});
 			writeCondition.ErrorWarning = "You can´t select a future date";
             writeCondition.Type =  ConditionType.ERROR;
