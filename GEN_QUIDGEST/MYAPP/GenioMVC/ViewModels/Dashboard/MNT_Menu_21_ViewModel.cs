@@ -48,9 +48,9 @@ namespace GenioMVC.ViewModels.Dashboard
 				new CustomWidgetProvider<CSGenio.business.DbArea>
 {
 					Id = "CAT_MONTH",
-					Order = 12,
+					Order = 6,
 					Width = 12,
-					Height = 8,
+					Height = 6,
 					BorderStyle = "",
 					Required = true,
 					Visible = true,
@@ -60,44 +60,6 @@ namespace GenioMVC.ViewModels.Dashboard
 					Form = "WD_CATMONTH",
 					Component = "QFormWdCatmonth",
 					RefreshMode = WidgetRefreshMode.None,
-					UsesCache = false,
-					InstantionMethod = WidgetInstantionMethod.Aggregate
-				},
-				new CustomWidgetProvider<CSGenio.business.DbArea>
-{
-					Id = "TEST",
-					Order = 11,
-					Width = 6,
-					Height = 6,
-					BorderStyle = "",
-					Required = true,
-					Visible = true,
-					Role = CSGenio.framework.Role.AUTHORIZED,
-					Module = "MNT",
-					Group = "_MEMBER",
-					Form = "TEST",
-					Component = "QFormTest",
-					RefreshMode = WidgetRefreshMode.None,
-					UsesCache = false,
-					InstantionMethod = WidgetInstantionMethod.Aggregate
-				},
-				new CustomWidgetProvider<CSGenio.business.DbArea>
-{
-					Id = "EXP_CAT",
-					Order = 5,
-					Width = 6,
-					Height = 5,
-					BorderStyle = "secondary",
-					Required = true,
-					Visible = true,
-					Role = CSGenio.framework.Role.AUTHORIZED,
-					Module = "MNT",
-					Title = Resources.Resources.TOP_CATEGORIES11384,
-					Group = "_GRAPH",
-					Form = "WD_CATEGORIES",
-					Component = "QFormWdCategories",
-					RefreshMode = WidgetRefreshMode.Automatic,
-					RefreshRate = 60,
 					UsesCache = false,
 					InstantionMethod = WidgetInstantionMethod.Aggregate
 				},

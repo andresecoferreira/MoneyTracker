@@ -474,6 +474,9 @@
   <data name="AGOSTO05568" xml:space="preserve">
     <value>Agosto</value>
   </data>
+  <data name="EXPENSES_PER_MONTH33688" xml:space="preserve">
+    <value>Expenses per Month</value>
+  </data>
   <data name="DESCRIPTION07383" xml:space="preserve">
     <value>Description</value>
   </data>
@@ -626,6 +629,9 @@
   </data>
   <data name="BANCO_INVEST63938" xml:space="preserve">
     <value>Banco Invest</value>
+  </data>
+  <data name="RESUME22727" xml:space="preserve">
+    <value>Resume</value>
   </data>
   <data name="NEW_INCOME43900" xml:space="preserve">
     <value>New Income</value>

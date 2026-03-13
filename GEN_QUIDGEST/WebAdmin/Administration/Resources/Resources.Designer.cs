@@ -1132,6 +1132,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Expenses per Month"
+        /// </summary>
+        public static string EXPENSES_PER_MONTH33688 {
+            get {
+                return ResourceManager.GetString("EXPENSES_PER_MONTH33688", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Description"
         /// </summary>
         public static string DESCRIPTION07383 {
@@ -1587,6 +1596,15 @@ namespace Administration.Resources {
         public static string BANCO_INVEST63938 {
             get {
                 return ResourceManager.GetString("BANCO_INVEST63938", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Resume"
+        /// </summary>
+        public static string RESUME22727 {
+            get {
+                return ResourceManager.GetString("RESUME22727", resourceCulture);
             }
         }
 

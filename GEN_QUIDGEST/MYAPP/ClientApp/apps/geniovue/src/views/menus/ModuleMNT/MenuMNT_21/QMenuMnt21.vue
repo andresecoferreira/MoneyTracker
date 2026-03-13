@@ -75,7 +75,7 @@
 								id: '_MEMBER',
 								hideGroup: false,
 								order: 9,
-								title: computed(() => vm.Resources.EXPENSES11381),
+								title: computed(() => vm.Resources.RESUME22727),
 							},
 							{
 								id: '_LAST_EXP',
@@ -86,8 +86,8 @@
 							{
 								id: '_GRAPH',
 								hideGroup: false,
-								order: 6,
-								title: computed(() => vm.Resources.TOP_EXPENSES45935),
+								order: 5,
+								title: computed(() => vm.Resources.EXPENSES_PER_MONTH33688),
 							},
 						],
 					}, this)

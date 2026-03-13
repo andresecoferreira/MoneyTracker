@@ -357,6 +357,9 @@
   <msg id="Agosto" code="AGOSTO05568">
     <ENUS>Agosto</ENUS>
   </msg>
+  <msg id="Expenses per Month" code="EXPENSES_PER_MONTH33688">
+    <ENUS>Expenses per Month</ENUS>
+  </msg>
   <msg id="Description" code="DESCRIPTION07383">
     <ENUS>Description</ENUS>
   </msg>
@@ -509,6 +512,9 @@
   </msg>
   <msg id="Banco Invest" code="BANCO_INVEST63938">
     <ENUS>Banco Invest</ENUS>
+  </msg>
+  <msg id="Resume" code="RESUME22727">
+    <ENUS>Resume</ENUS>
   </msg>
   <msg id="New Income" code="NEW_INCOME43900">
     <ENUS>New Income</ENUS>
