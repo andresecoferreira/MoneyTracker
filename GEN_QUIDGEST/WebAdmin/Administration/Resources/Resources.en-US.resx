@@ -291,6 +291,9 @@
   <data name="REQUEST_DATE25771" xml:space="preserve">
     <value>Request date</value>
   </data>
+  <data name="FINANCIAL_SUMMARY_BY09661" xml:space="preserve">
+    <value>Financial Summary by Member</value>
+  </data>
   <data name="CLIENT_IP_ADDRESS62089" xml:space="preserve">
     <value>Client ip address</value>
   </data>

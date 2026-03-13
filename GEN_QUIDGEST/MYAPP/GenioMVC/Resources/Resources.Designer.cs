@@ -585,6 +585,15 @@ namespace GenioMVC.Resources
 		}
 
 		/// <summary>
+		///   Looks up a localized string similar to "Financial Summary by Member"
+		/// </summary>
+		public static string FINANCIAL_SUMMARY_BY09661 {
+			get {
+				return ResourceManager.GetString("FINANCIAL_SUMMARY_BY09661", resourceCulture);
+			}
+		}
+
+		/// <summary>
 		///   Looks up a localized string similar to "Client ip address"
 		/// </summary>
 		public static string CLIENT_IP_ADDRESS62089 {

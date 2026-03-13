@@ -391,7 +391,7 @@
 						id: 'WD_EXPENSES__PSEUD__FIELD001',
 						name: 'FIELD001',
 						size: 'block',
-						label: '',
+						label: computed(() => this.Resources.FINANCIAL_SUMMARY_BY09661),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
 						controller: 'EXPENSE',
@@ -466,6 +466,7 @@
 							tableNamePlural: computed(() => this.Resources.MEMBERS31628),
 							viewManagement: '',
 							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.FINANCIAL_SUMMARY_BY09661),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -545,7 +546,7 @@
 										isMapped: false
 									},
 									graphTitle: {
-										rawValue: 'Financial Summary by Member',
+										rawValue: undefined,
 										isMapped: false
 									},
 									description: {
