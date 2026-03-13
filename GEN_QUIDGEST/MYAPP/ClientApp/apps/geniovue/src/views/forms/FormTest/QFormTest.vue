@@ -461,7 +461,7 @@
 								type: 'chart',
 								subtype: 'genericgraph',
 								label: computed(() => this.Resources.GRAFICO38823),
-								order: 1,
+								order: 2,
 								mappingVariables: readonly({
 								}),
 								styleVariables: {
