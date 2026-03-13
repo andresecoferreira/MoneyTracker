@@ -10,6 +10,11 @@ public class Wd_expensesForm : Form
 	/// <summary>
 	/// Financial Summary by Member
 	/// </summary>
+	public CollapsibleZoneControl PseudNewgrp01 => new CollapsibleZoneControl(driver, ContainerLocator, "#WD_EXPENSES__PSEUD__NEWGRP01-container");
+
+	/// <summary>
+	/// 
+	/// </summary>
 	public ListControl PseudField001 => new ListControl(driver, ContainerLocator, "#WD_EXPENSES__PSEUD__FIELD001");
 
 	public Wd_expensesForm(IWebDriver driver, FORM_MODE mode, By? containerLocator = null)

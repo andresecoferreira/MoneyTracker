@@ -12,6 +12,9 @@ const framework = createFramework({
 					primary: '#047857',
 					onBackground: '#0F172A',
 					secondary: '#0F172A',
+					danger: '#EF4444',
+					info: '#7C3AED',
+					success: '#10B981',
 					primaryLight: '#0EA5A4',
 					primaryDark: '#065F46',
 					highlight: '#14B8A6',
@@ -21,7 +24,7 @@ const framework = createFramework({
 	},
 	defaults: {
 		QIconSvg: {
-			bundle: 'Content/svgbundle.svg?v=114'
+			bundle: 'Content/svgbundle.svg?v=115'
 		},
 		QCollapsible: {
 			icons: {

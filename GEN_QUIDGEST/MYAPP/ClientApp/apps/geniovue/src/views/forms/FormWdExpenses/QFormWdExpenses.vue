@@ -56,19 +56,31 @@
 			data-key="WD_EXPENSES"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.WD_EXPENSES__PSEUD__FIELD001.isVisible">
-					<q-col v-if="controls.WD_EXPENSES__PSEUD__FIELD001.isVisible">
-						<q-table
-							v-if="controls.WD_EXPENSES__PSEUD__FIELD001.isVisible"
-							v-bind="controls.WD_EXPENSES__PSEUD__FIELD001"
-							v-on="controls.WD_EXPENSES__PSEUD__FIELD001.handlers">
-							<template #header>
-								<q-table-config
-									:table-ctrl="controls.WD_EXPENSES__PSEUD__FIELD001"
-									v-on="controls.WD_EXPENSES__PSEUD__FIELD001.handlers" />
-							</template>
-							<!-- USE /[MANUAL MNT CUSTOM_TABLE WD_EXPENSES__PSEUD__FIELD001]/ -->
-						</q-table>
+				<q-row v-if="controls.WD_EXPENSES__PSEUD__NEWGRP01.isVisible">
+					<q-col v-if="controls.WD_EXPENSES__PSEUD__NEWGRP01.isVisible">
+						<q-group-box-container
+							v-if="controls.WD_EXPENSES__PSEUD__NEWGRP01.isVisible"
+							id="WD_EXPENSES__PSEUD__NEWGRP01"
+							v-bind="controls.WD_EXPENSES__PSEUD__NEWGRP01"
+							:is-visible="controls.WD_EXPENSES__PSEUD__NEWGRP01.isVisible">
+							<!-- Start WD_EXPENSES__PSEUD__NEWGRP01 -->
+							<q-row v-if="controls.WD_EXPENSES__PSEUD__FIELD001.isVisible">
+								<q-col v-if="controls.WD_EXPENSES__PSEUD__FIELD001.isVisible">
+									<q-table
+										v-if="controls.WD_EXPENSES__PSEUD__FIELD001.isVisible"
+										v-bind="controls.WD_EXPENSES__PSEUD__FIELD001"
+										v-on="controls.WD_EXPENSES__PSEUD__FIELD001.handlers">
+										<template #header>
+											<q-table-config
+												:table-ctrl="controls.WD_EXPENSES__PSEUD__FIELD001"
+												v-on="controls.WD_EXPENSES__PSEUD__FIELD001.handlers" />
+										</template>
+										<!-- USE /[MANUAL MNT CUSTOM_TABLE WD_EXPENSES__PSEUD__FIELD001]/ -->
+									</q-table>
+								</q-col>
+							</q-row>
+							<!-- End WD_EXPENSES__PSEUD__NEWGRP01 -->
+						</q-group-box-container>
 					</q-col>
 				</q-row>
 			</template>
@@ -387,13 +399,27 @@
 				},
 
 				controls: {
-					WD_EXPENSES__PSEUD__FIELD001: new fieldControlClass.TableSpecialRenderingControl({
-						id: 'WD_EXPENSES__PSEUD__FIELD001',
-						name: 'FIELD001',
+					WD_EXPENSES__PSEUD__NEWGRP01: new fieldControlClass.GroupControl({
+						id: 'WD_EXPENSES__PSEUD__NEWGRP01',
+						name: 'NEWGRP01',
 						size: 'block',
 						label: computed(() => this.Resources.FINANCIAL_SUMMARY_BY09661),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
+						isCollapsible: false,
+						anchored: false,
+						directChildren: ['WD_EXPENSES__PSEUD__FIELD001'],
+						controlLimits: [
+						],
+					}, this),
+					WD_EXPENSES__PSEUD__FIELD001: new fieldControlClass.TableSpecialRenderingControl({
+						id: 'WD_EXPENSES__PSEUD__FIELD001',
+						name: 'FIELD001',
+						size: 'block',
+						label: '',
+						placeholder: '',
+						labelPosition: computed(() => this.labelAlignment.topleft),
+						container: 'WD_EXPENSES__PSEUD__NEWGRP01',
 						controller: 'EXPENSE',
 						action: 'Wd_expenses_ValField001',
 						hasDependencies: false,
@@ -466,7 +492,6 @@
 							tableNamePlural: computed(() => this.Resources.MEMBERS31628),
 							viewManagement: '',
 							showLimitsInfo: true,
-							tableTitle: computed(() => this.Resources.FINANCIAL_SUMMARY_BY09661),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -686,6 +711,7 @@
 				}),
 
 				groupFields: readonly([
+					'WD_EXPENSES__PSEUD__NEWGRP01',
 				]),
 
 				tableFields: readonly([
