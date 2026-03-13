@@ -36,32 +36,32 @@ public class MNT_Menu_411_RowViewModel : Models.Expense
 			new ListColumn()
 			{
 				Order = 1,
-				Area = "EXPENSE",
-				Field = "EXPENSE_ID",
-			},
-			new ListColumn()
-			{
-				Order = 2,
 				Area = "CATEGORY_TYPE",
 				Field = "NAME",
 			},
 			new ListColumn()
 			{
-				Order = 3,
+				Order = 2,
 				Area = "CATEGORY",
 				Field = "NAME",
 			},
 			new ListColumn()
 			{
-				Order = 4,
+				Order = 3,
 				Area = "MEMBER",
 				Field = "NAME",
 			},
 			new ListColumn()
 			{
-				Order = 5,
+				Order = 4,
 				Area = "EXPENSE",
 				Field = "VALUE",
+			},
+			new ListColumn()
+			{
+				Order = 5,
+				Area = "EXPENSE",
+				Field = "DATE",
 			},
 		];
 	}
@@ -138,9 +138,10 @@ public class MNT_Menu_411_RowViewModel : Models.Expense
 
 	/// <summary>
 	/// The background color
+	/// Formula: iif([EXPENSE->VALUE] > 500, HEXCOLOUR("FEE2E2"),HEXCOLOUR("FFFFFF"))
 	/// </summary>
 	[JsonPropertyName("backgroundColor")]
-	public string BackgroundColor => "";
+	public string BackgroundColor => ((((decimal)this.ValValue)>500)?("#"+"FEE2E2"):("#"+"FFFFFF"));
 
 	/// <summary>
 	/// Runs init logic that depends on row data.

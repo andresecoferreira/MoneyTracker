@@ -100,7 +100,7 @@ namespace GenioMVC.ViewModels.Income
 			conditions.SubSets.Add(GetCustomizedStaticLimits(StaticLimits));
 
 			// Checks for foreign tables in fields and conditions
-			FieldRef[] fields = new FieldRef[] { CSGenioAincome.FldCodincome, CSGenioAincome.FldZzstate, CSGenioAincome.FldIncome_id, CSGenioAincome.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAincome.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAincome.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAincome.FldValue };
+			FieldRef[] fields = new FieldRef[] { CSGenioAincome.FldCodincome, CSGenioAincome.FldZzstate, CSGenioAincome.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAincome.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAincome.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAincome.FldValue, CSGenioAincome.FldDate };
 
 			ListingMVC<CSGenioAincome> listing = new(fields, null, 1, 1, false, user, true, string.Empty, false);
 			SelectQuery qs = sp.getSelectQueryFromListingMVC(conditions, listing);
@@ -146,11 +146,11 @@ namespace GenioMVC.ViewModels.Income
 		{
 			return
 			[
-				new Exports.QColumn(CSGenioAincome.FldIncome_id, FieldType.NUMERIC, Resources.Resources.ID36840, 6, 0, true),
 				new Exports.QColumn(CSGenioAcategory_type.FldName, FieldType.TEXT, Resources.Resources.CATEGORY_TYPE34342, 20, 0, true),
 				new Exports.QColumn(CSGenioAcategory.FldName, FieldType.TEXT, Resources.Resources.CATEGORY18978, 20, 0, true),
 				new Exports.QColumn(CSGenioAmember.FldName, FieldType.TEXT, Resources.Resources.MEMBER00534, 30, 0, true),
 				new Exports.QColumn(CSGenioAincome.FldValue, FieldType.CURRENCY, Resources.Resources.VALUE10285, 12, 0, true),
+				new Exports.QColumn(CSGenioAincome.FldDate, FieldType.DATE, Resources.Resources.DATE18475, 8, 0, true),
 			];
 		}
 
@@ -326,7 +326,7 @@ namespace GenioMVC.ViewModels.Income
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "income", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAincome.FldCodincome, CSGenioAincome.FldZzstate, CSGenioAincome.FldIncome_id, CSGenioAincome.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAincome.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAincome.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAincome.FldValue };
+			FieldRef[] fields = new FieldRef[] { CSGenioAincome.FldCodincome, CSGenioAincome.FldZzstate, CSGenioAincome.FldType_id, CSGenioAcategory_type.FldCodcategory_type, CSGenioAcategory_type.FldName, CSGenioAincome.FldCategory_id, CSGenioAcategory.FldCodcategory, CSGenioAcategory.FldName, CSGenioAincome.FldMember_id, CSGenioAmember.FldCodmember, CSGenioAmember.FldName, CSGenioAincome.FldValue, CSGenioAincome.FldDate };
 
 
 			// Totalizers
@@ -338,7 +338,7 @@ namespace GenioMVC.ViewModels.Income
 			{
 				firstVisibleColumn = tableConfig?.GetFirstVisibleColumn(TableAlias);
 
-				firstVisibleColumn ??= new FieldRef("income", "income_id");
+				firstVisibleColumn ??= new FieldRef("category_type", "name");
 			}
 			// Limitations
 			this.TableLimits ??= [];
@@ -529,16 +529,16 @@ namespace GenioMVC.ViewModels.Income
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"Income", "Income.ValCodincome", "Income.ValZzstate", "Income.ValIncome_id", "Category_type", "Category_type.ValName", "Category", "Category.ValName", "Member", "Member.ValName", "Income.ValValue", "Income.ValCategory_id", "Income.ValType_id", "Income.ValGroup_id", "Income.ValMember_id", "Income.ValSource_id"
+			"Income", "Income.ValCodincome", "Income.ValZzstate", "Category_type", "Category_type.ValName", "Category", "Category.ValName", "Member", "Member.ValName", "Income.ValValue", "Income.ValDate", "Income.ValCategory_id", "Income.ValType_id", "Income.ValGroup_id", "Income.ValMember_id", "Income.ValSource_id"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
-			new TableSearchColumn("ValIncome_id", CSGenioAincome.FldIncome_id, typeof(decimal?), defaultSearch : true),
 			new TableSearchColumn("Category_type_ValName", CSGenioAcategory_type.FldName, typeof(string)),
 			new TableSearchColumn("Category_ValName", CSGenioAcategory.FldName, typeof(string)),
 			new TableSearchColumn("Member_ValName", CSGenioAmember.FldName, typeof(string)),
 			new TableSearchColumn("ValValue", CSGenioAincome.FldValue, typeof(decimal?)),
+			new TableSearchColumn("ValDate", CSGenioAincome.FldDate, typeof(DateTime?)),
 		];
 	}
 }

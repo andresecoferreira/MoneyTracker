@@ -146,19 +146,8 @@
 							'page-full-height'
 						],
 						columnsOriginal: [
-							new listColumnTypes.NumericColumn({
-								order: 1,
-								name: 'ValIncome_id',
-								area: 'INCOME',
-								field: 'INCOME_ID',
-								label: computed(() => this.Resources.ID36840),
-								scrollData: 6,
-								maxDigits: 6,
-								decimalPlaces: 0,
-								export: 1,
-							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 2,
+								order: 1,
 								name: 'Category_type.ValName',
 								area: 'CATEGORY_TYPE',
 								field: 'NAME',
@@ -169,7 +158,7 @@
 								pkColumn: 'ValCodcategory_type',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 3,
+								order: 2,
 								name: 'Category.ValName',
 								area: 'CATEGORY',
 								field: 'NAME',
@@ -180,7 +169,7 @@
 								pkColumn: 'ValCodcategory',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.TextColumn({
-								order: 4,
+								order: 3,
 								name: 'Member.ValName',
 								area: 'MEMBER',
 								field: 'NAME',
@@ -191,7 +180,7 @@
 								pkColumn: 'ValCodmember',
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.CurrencyColumn({
-								order: 5,
+								order: 4,
 								name: 'ValValue',
 								area: 'INCOME',
 								field: 'VALUE',
@@ -199,6 +188,16 @@
 								scrollData: 12,
 								maxDigits: 9,
 								decimalPlaces: 2,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.DateColumn({
+								order: 5,
+								name: 'ValDate',
+								area: 'INCOME',
+								field: 'DATE',
+								label: computed(() => this.Resources.DATE18475),
+								scrollData: 8,
+								dateTimeType: 'date',
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 						],
@@ -334,8 +333,8 @@
 									isPopup: true
 								},
 							},
-							defaultSearchColumnName: 'ValIncome_id',
-							defaultSearchColumnNameOriginal: 'ValIncome_id',
+							defaultSearchColumnName: '',
+							defaultSearchColumnNameOriginal: '',
 							defaultColumnSorting: {
 								columnName: '',
 								sortOrder: 'asc'
