@@ -56,31 +56,19 @@
 			data-key="WD_EXPENSES"
 			:data-loading="!formInitialDataLoaded || !isActiveForm">
 			<template v-if="formControl.initialized && showFormBody">
-				<q-row v-if="controls.WD_EXPENSES__PSEUD__NEWGRP01.isVisible">
-					<q-col v-if="controls.WD_EXPENSES__PSEUD__NEWGRP01.isVisible">
-						<q-group-box-container
-							v-if="controls.WD_EXPENSES__PSEUD__NEWGRP01.isVisible"
-							id="WD_EXPENSES__PSEUD__NEWGRP01"
-							v-bind="controls.WD_EXPENSES__PSEUD__NEWGRP01"
-							:is-visible="controls.WD_EXPENSES__PSEUD__NEWGRP01.isVisible">
-							<!-- Start WD_EXPENSES__PSEUD__NEWGRP01 -->
-							<q-row v-if="controls.WD_EXPENSES__PSEUD__FIELD001.isVisible">
-								<q-col v-if="controls.WD_EXPENSES__PSEUD__FIELD001.isVisible">
-									<q-table
-										v-if="controls.WD_EXPENSES__PSEUD__FIELD001.isVisible"
-										v-bind="controls.WD_EXPENSES__PSEUD__FIELD001"
-										v-on="controls.WD_EXPENSES__PSEUD__FIELD001.handlers">
-										<template #header>
-											<q-table-config
-												:table-ctrl="controls.WD_EXPENSES__PSEUD__FIELD001"
-												v-on="controls.WD_EXPENSES__PSEUD__FIELD001.handlers" />
-										</template>
-										<!-- USE /[MANUAL MNT CUSTOM_TABLE WD_EXPENSES__PSEUD__FIELD001]/ -->
-									</q-table>
-								</q-col>
-							</q-row>
-							<!-- End WD_EXPENSES__PSEUD__NEWGRP01 -->
-						</q-group-box-container>
+				<q-row v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible">
+					<q-col v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible">
+						<q-table
+							v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible"
+							v-bind="controls.WD_EXPENSES__PSEUD__FIELD002"
+							v-on="controls.WD_EXPENSES__PSEUD__FIELD002.handlers">
+							<template #header>
+								<q-table-config
+									:table-ctrl="controls.WD_EXPENSES__PSEUD__FIELD002"
+									v-on="controls.WD_EXPENSES__PSEUD__FIELD002.handlers" />
+							</template>
+							<!-- USE /[MANUAL MNT CUSTOM_TABLE WD_EXPENSES__PSEUD__FIELD002]/ -->
+						</q-table>
 					</q-col>
 				</q-row>
 			</template>
@@ -399,27 +387,302 @@
 				},
 
 				controls: {
-					WD_EXPENSES__PSEUD__NEWGRP01: new fieldControlClass.GroupControl({
-						id: 'WD_EXPENSES__PSEUD__NEWGRP01',
-						name: 'NEWGRP01',
+					WD_EXPENSES__PSEUD__FIELD002: new fieldControlClass.TableSpecialRenderingControl({
+						id: 'WD_EXPENSES__PSEUD__FIELD002',
+						name: 'FIELD002',
 						size: 'block',
 						label: computed(() => this.Resources.FINANCIAL_SUMMARY_BY09661),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						isCollapsible: false,
-						anchored: false,
-						directChildren: ['WD_EXPENSES__PSEUD__FIELD001'],
+						controller: 'EXPENSE',
+						action: 'Wd_expenses_ValField002',
+						hasDependencies: false,
+						isInCollapsible: false,
+						columnsOriginal: [
+							new listColumnTypes.TextColumn({
+								order: 1,
+								name: 'ValName',
+								area: 'MEMBER',
+								field: 'NAME',
+								label: computed(() => this.Resources.NAME31974),
+								dataLength: 80,
+								scrollData: 30,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 2,
+								name: 'ValIncome',
+								area: 'MEMBER',
+								field: 'INCOME',
+								label: computed(() => this.Resources.INCOME____10360),
+								scrollData: 12,
+								maxDigits: 9,
+								decimalPlaces: 2,
+								totalizer: true,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 3,
+								name: 'ValExpenses',
+								area: 'MEMBER',
+								field: 'EXPENSES',
+								label: computed(() => this.Resources.EXPENSES____56821),
+								scrollData: 12,
+								maxDigits: 9,
+								decimalPlaces: 2,
+								totalizer: true,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 4,
+								name: 'ValInvestment',
+								area: 'MEMBER',
+								field: 'INVESTMENT',
+								label: computed(() => this.Resources.INVESTMENT____58057),
+								scrollData: 12,
+								maxDigits: 9,
+								decimalPlaces: 2,
+								totalizer: true,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.NumericColumn({
+								order: 5,
+								name: 'ValResult',
+								area: 'MEMBER',
+								field: 'RESULT',
+								label: computed(() => this.Resources.RESULT____62132),
+								scrollData: 12,
+								maxDigits: 9,
+								decimalPlaces: 2,
+								totalizer: true,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+						],
+						config: {
+							name: 'ValField002',
+							serverMode: true,
+							pkColumn: 'ValCodmember',
+							tableAlias: 'MEMBER',
+							tableNamePlural: computed(() => this.Resources.MEMBERS31628),
+							viewManagement: '',
+							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.FINANCIAL_SUMMARY_BY09661),
+							showAlternatePagination: true,
+							permissions: {
+							},
+							searchBarConfig: {
+								visibility: false
+							},
+							allowColumnFilters: false,
+							allowColumnSort: true,
+							generalCustomActions: [
+							],
+							groupActions: [
+							],
+							customActions: [
+							],
+							MCActions: [
+							],
+							rowClickAction: {
+							},
+							formsDefinition: {
+							},
+							defaultSearchColumnName: 'ValName',
+							defaultSearchColumnNameOriginal: 'ValName',
+							defaultColumnSorting: {
+								columnName: '',
+								sortOrder: 'asc'
+							}
+						},
+						globalEvents: ['changed-MEMBER', 'changed-GROUP'],
+						uuid: 'Wd_expenses_ValField002',
+						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'CHART',
+								type: 'chart',
+								subtype: 'genericgraph',
+								label: computed(() => this.Resources.GRAFICO38823),
+								order: 1,
+								mappingVariables: readonly({
+									xaxis: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.NAME',
+										]
+									},
+									yaxis: {
+										allowsMultiple: true,
+										sources: [
+											'MEMBER.INCOME',
+											'MEMBER.EXPENSES',
+											'MEMBER.INVESTMENT',
+										]
+									},
+								}),
+								styleVariables: {
+									chartType: {
+										rawValue: 'column',
+										isMapped: false
+									},
+									firstColor: {
+										rawValue: 'undefined',
+										isMapped: false
+									},
+									chartColorArray: {
+										rawValue: 'Highcharts Default',
+										isMapped: false
+									},
+									invertColorArray: {
+										rawValue: false,
+										isMapped: false
+									},
+									xaxisType: {
+										rawValue: 'linear',
+										isMapped: false
+									},
+									yaxisType: {
+										rawValue: 'linear',
+										isMapped: false
+									},
+									graphTitle: {
+										rawValue: undefined,
+										isMapped: false
+									},
+									description: {
+										rawValue: undefined,
+										isMapped: false
+									},
+									alignDescription: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									yaxisName: {
+										rawValue: undefined,
+										isMapped: false
+									},
+									xaxisName: {
+										rawValue: undefined,
+										isMapped: false
+									},
+									groupType: {
+										rawValue: 'join',
+										isMapped: false
+									},
+									inverted: {
+										rawValue: false,
+										isMapped: false
+									},
+									showLabels: {
+										rawValue: true,
+										isMapped: false
+									},
+									showLegend: {
+										rawValue: true,
+										isMapped: false
+									},
+									widthPercentage: {
+										rawValue: 100,
+										isMapped: false
+									},
+									showPieLabel: {
+										rawValue: 'outside',
+										isMapped: false
+									},
+									lineMarker: {
+										rawValue: 'enabled',
+										isMapped: false
+									},
+									heightPx: {
+										rawValue: 400,
+										isMapped: false
+									},
+									pieInnerSizePercentage: {
+										rawValue: 0,
+										isMapped: false
+									},
+									showBreaks: {
+										rawValue: false,
+										isMapped: false
+									},
+									enableHover: {
+										rawValue: true,
+										isMapped: false
+									},
+									zoomType: {
+										rawValue: 'x',
+										isMapped: false
+									},
+									legendLayout: {
+										rawValue: 'proximal',
+										isMapped: false
+									},
+									legendXPosition: {
+										rawValue: 0,
+										isMapped: false
+									},
+									showLastN: {
+										rawValue: -1,
+										isMapped: false
+									},
+									legendYPosition: {
+										rawValue: 0,
+										isMapped: false
+									},
+									legendFloating: {
+										rawValue: false,
+										isMapped: false
+									},
+									legendAlign: {
+										rawValue: 'center',
+										isMapped: false
+									},
+									legendVerticalAlign: {
+										rawValue: 'top',
+										isMapped: false
+									},
+									stackingType: {
+										rawValue: 'undefined',
+										isMapped: false
+									},
+									valuesDecimals: {
+										rawValue: 0,
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+							{
+								id: 'LIST',
+								type: 'list',
+								subtype: '',
+								label: computed(() => this.Resources.LISTA13474),
+								order: 2,
+								mappingVariables: readonly({
+								}),
+								styleVariables: {
+								},
+								groups: {
+								}
+							},
+						],
 						controlLimits: [
+							{
+								identifier: ['id', 'expense'],
+								dependencyEvents: ['fieldChange:expense.codexpense'],
+								dependencyField: 'EXPENSE.CODEXPENSE',
+								fnValueSelector: (model) => model.ValCodexpense.value
+							},
 						],
 					}, this),
 					WD_EXPENSES__PSEUD__FIELD001: new fieldControlClass.TableSpecialRenderingControl({
 						id: 'WD_EXPENSES__PSEUD__FIELD001',
 						name: 'FIELD001',
 						size: 'block',
-						label: '',
+						label: computed(() => this.Resources.FINANCIAL_SUMMARY_BY09661),
 						placeholder: '',
 						labelPosition: computed(() => this.labelAlignment.topleft),
-						container: 'WD_EXPENSES__PSEUD__NEWGRP01',
 						controller: 'EXPENSE',
 						action: 'Wd_expenses_ValField001',
 						hasDependencies: false,
@@ -492,6 +755,7 @@
 							tableNamePlural: computed(() => this.Resources.MEMBERS31628),
 							viewManagement: '',
 							showLimitsInfo: true,
+							tableTitle: computed(() => this.Resources.FINANCIAL_SUMMARY_BY09661),
 							showAlternatePagination: true,
 							permissions: {
 							},
@@ -711,10 +975,10 @@
 				}),
 
 				groupFields: readonly([
-					'WD_EXPENSES__PSEUD__NEWGRP01',
 				]),
 
 				tableFields: readonly([
+					'WD_EXPENSES__PSEUD__FIELD002',
 					'WD_EXPENSES__PSEUD__FIELD001',
 				]),
 

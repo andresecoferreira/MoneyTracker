@@ -392,6 +392,55 @@ namespace GenioMVC.Controllers
 		#endregion
 
 
+		public class Wd_expenses_ValField002Model : RequestLookupModel
+		{
+			public Wd_expenses_ViewModel Model { get; set; }
+		}
+
+		//
+		// GET: /Expense/Wd_expenses_ValField002
+		// POST: /Expense/Wd_expenses_ValField002
+		[ActionName("Wd_expenses_ValField002")]
+		public ActionResult Wd_expenses_ValField002([FromBody] Wd_expenses_ValField002Model requestModel)
+		{
+			var queryParams = requestModel.QueryParams;
+
+			// If there was a recent operation on this table then force the primary persistence server to be called and ignore the read only feature
+			if (string.IsNullOrEmpty(Navigation.GetStrValue("ForcePrimaryRead_member")))
+				UserContext.Current.SetPersistenceReadOnly(true);
+			else
+			{
+				Navigation.DestroyEntry("ForcePrimaryRead_member");
+				UserContext.Current.SetPersistenceReadOnly(false);
+			}
+
+			NameValueCollection requestValues = [];
+			if (queryParams != null)
+			{
+				// Add to request values
+				foreach (var kv in queryParams)
+					requestValues.Add(kv.Key, kv.Value);
+			}
+
+			Models.Expense parentCtx = requestModel.Model == null ? null : new(m_userContext);
+			requestModel.Model?.Init(m_userContext);
+			requestModel.Model?.MapToModel(parentCtx);
+			Wd_expenses_ValField002_ViewModel model = new(m_userContext, parentCtx);
+
+			CSGenio.core.framework.table.TableConfiguration tableConfig = model.GetTableConfig(
+				requestModel.TableConfiguration,
+				requestModel.UserTableConfigName,
+				requestModel.LoadDefaultView);
+
+			// Determine rows per page
+			tableConfig.RowsPerPage = tableConfig.DetermineRowsPerPage(CSGenio.framework.Configuration.NrRegDBedit, "");
+
+			model.setModes(Request.Query["m"].ToString());
+			model.Load(tableConfig, requestValues, Request.IsAjaxRequest());
+
+			return JsonOK(model);
+		}
+
 		public class Wd_expenses_ValField001Model : RequestLookupModel
 		{
 			public Wd_expenses_ViewModel Model { get; set; }
