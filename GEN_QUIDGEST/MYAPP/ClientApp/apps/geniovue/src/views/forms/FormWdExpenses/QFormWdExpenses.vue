@@ -498,24 +498,11 @@
 						allSelectedRows: 'false',
 						viewModes: [
 							{
-								id: 'LIST',
-								type: 'list',
-								subtype: '',
-								label: computed(() => this.Resources.LISTA13474),
-								order: 1,
-								mappingVariables: readonly({
-								}),
-								styleVariables: {
-								},
-								groups: {
-								}
-							},
-							{
 								id: 'CHART',
 								type: 'chart',
 								subtype: 'genericgraph',
 								label: computed(() => this.Resources.GRAFICO38823),
-								order: 2,
+								order: 1,
 								mappingVariables: readonly({
 									xaxis: {
 										allowsMultiple: false,
@@ -646,11 +633,11 @@
 										isMapped: false
 									},
 									legendAlign: {
-										rawValue: 'left',
+										rawValue: 'center',
 										isMapped: false
 									},
 									legendVerticalAlign: {
-										rawValue: 'bottom',
+										rawValue: 'top',
 										isMapped: false
 									},
 									stackingType: {
@@ -661,6 +648,19 @@
 										rawValue: 0,
 										isMapped: false
 									},
+								},
+								groups: {
+								}
+							},
+							{
+								id: 'LIST',
+								type: 'list',
+								subtype: '',
+								label: computed(() => this.Resources.LISTA13474),
+								order: 2,
+								mappingVariables: readonly({
+								}),
+								styleVariables: {
 								},
 								groups: {
 								}
