@@ -448,6 +448,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Income (€)"
+        /// </summary>
+        public static string INCOME____10360 {
+            get {
+                return ResourceManager.GetString("INCOME____10360", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "PSW"
         /// </summary>
         public static string PSW13972 {
@@ -1384,6 +1393,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Result (€)"
+        /// </summary>
+        public static string RESULT____62132 {
+            get {
+                return ResourceManager.GetString("RESULT____62132", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Notification Message"
         /// </summary>
         public static string NOTIFICATION_MESSAGE31108 {
@@ -1996,6 +2014,15 @@ namespace Administration.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to "Expenses (€)"
+        /// </summary>
+        public static string EXPENSES____56821 {
+            get {
+                return ResourceManager.GetString("EXPENSES____56821", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to "Id"
         /// </summary>
         public static string ID36840 {
@@ -2235,6 +2262,15 @@ namespace Administration.Resources {
         public static string HAS_LOGIN_58044 {
             get {
                 return ResourceManager.GetString("HAS_LOGIN_58044", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to "Investment (€)"
+        /// </summary>
+        public static string INVESTMENT____58057 {
+            get {
+                return ResourceManager.GetString("INVESTMENT____58057", resourceCulture);
             }
         }
 

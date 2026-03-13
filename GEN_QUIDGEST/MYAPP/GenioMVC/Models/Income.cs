@@ -113,10 +113,10 @@ namespace GenioMVC.Models
 			set { _category_type = value; }
 		}
 
-		[DisplayName("Value (€)")]
-		/// <summary>Field : "Value (€)" Tipo: "N" Formula:  ""</summary>
+		[DisplayName("Value")]
+		/// <summary>Field : "Value" Tipo: "$" Formula:  ""</summary>
 		[ShouldSerialize("Income.ValValue")]
-		[NumericAttribute(2)]
+		[CurrencyAttribute("EUR", 2)]
 		public decimal? ValValue { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValValue, 2)); } set { klass.ValValue = Convert.ToDecimal(value); } }
 
 		[DisplayName("Description")]

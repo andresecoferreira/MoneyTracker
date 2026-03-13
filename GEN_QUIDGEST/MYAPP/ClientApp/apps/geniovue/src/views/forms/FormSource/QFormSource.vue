@@ -840,7 +840,7 @@
 						controlLimits: [
 						],
 					}, this),
-					SOURCE__SOURCE__BALANCE: new fieldControlClass.NumberControl({
+					SOURCE__SOURCE__BALANCE: new fieldControlClass.CurrencyControl({
 						modelField: 'ValBalance',
 						valueChangeEvent: 'fieldChange:source.balance',
 						id: 'SOURCE__SOURCE__BALANCE',

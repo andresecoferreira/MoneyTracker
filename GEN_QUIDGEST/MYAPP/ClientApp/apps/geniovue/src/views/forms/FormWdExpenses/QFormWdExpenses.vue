@@ -409,7 +409,7 @@
 								scrollData: 20,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.CurrencyColumn({
+							new listColumnTypes.NumericColumn({
 								order: 2,
 								name: 'ValIncome',
 								area: 'MEMBER',
@@ -421,7 +421,7 @@
 								totalizer: true,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.CurrencyColumn({
+							new listColumnTypes.NumericColumn({
 								order: 3,
 								name: 'ValExpenses',
 								area: 'MEMBER',
@@ -433,7 +433,7 @@
 								totalizer: true,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.CurrencyColumn({
+							new listColumnTypes.NumericColumn({
 								order: 4,
 								name: 'ValInvestment',
 								area: 'MEMBER',
@@ -445,7 +445,7 @@
 								totalizer: true,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.CurrencyColumn({
+							new listColumnTypes.NumericColumn({
 								order: 5,
 								name: 'ValResult',
 								area: 'MEMBER',

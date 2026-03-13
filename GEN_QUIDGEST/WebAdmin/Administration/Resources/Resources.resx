@@ -246,6 +246,9 @@
   <data name="SETEMBRO19956" xml:space="preserve">
     <value>Setembro</value>
   </data>
+  <data name="INCOME____10360" xml:space="preserve">
+    <value>Income (€)</value>
+  </data>
   <data name="PSW13972" xml:space="preserve">
     <value>PSW</value>
   </data>
@@ -558,6 +561,9 @@
   <data name="PASSWORDS52247" xml:space="preserve">
     <value>Passwords</value>
   </data>
+  <data name="RESULT____62132" xml:space="preserve">
+    <value>Result (€)</value>
+  </data>
   <data name="NOTIFICATION_MESSAGE31108" xml:space="preserve">
     <value>Notification Message</value>
   </data>
@@ -762,6 +768,9 @@
   <data name="YEAR61794" xml:space="preserve">
     <value>Year</value>
   </data>
+  <data name="EXPENSES____56821" xml:space="preserve">
+    <value>Expenses (€)</value>
+  </data>
   <data name="ID36840" xml:space="preserve">
     <value>Id</value>
   </data>
@@ -842,6 +851,9 @@
   </data>
   <data name="HAS_LOGIN_58044" xml:space="preserve">
     <value>Has login?</value>
+  </data>
+  <data name="INVESTMENT____58057" xml:space="preserve">
+    <value>Investment (€)</value>
   </data>
   <data name="ADMINISTRADOR57294" xml:space="preserve">
     <value>Administrador</value>

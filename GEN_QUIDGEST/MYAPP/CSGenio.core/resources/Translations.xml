@@ -129,6 +129,9 @@
   <msg id="Setembro" code="SETEMBRO19956">
     <ENUS>Setembro</ENUS>
   </msg>
+  <msg id="Income (€)" code="INCOME____10360">
+    <ENUS>Income (€)</ENUS>
+  </msg>
   <msg id="PSW" code="PSW13972">
     <ENUS>PSW</ENUS>
   </msg>
@@ -441,6 +444,9 @@
   <msg id="Passwords" code="PASSWORDS52247">
     <ENUS>Passwords</ENUS>
   </msg>
+  <msg id="Result (€)" code="RESULT____62132">
+    <ENUS>Result (€)</ENUS>
+  </msg>
   <msg id="Notification Message" code="NOTIFICATION_MESSAGE31108">
     <ENUS>Notification Message</ENUS>
   </msg>
@@ -645,6 +651,9 @@
   <msg id="Year" code="YEAR61794">
     <ENUS>Year</ENUS>
   </msg>
+  <msg id="Expenses (€)" code="EXPENSES____56821">
+    <ENUS>Expenses (€)</ENUS>
+  </msg>
   <msg id="Id" code="ID36840">
     <ENUS>Id</ENUS>
   </msg>
@@ -725,6 +734,9 @@
   </msg>
   <msg id="Has login?" code="HAS_LOGIN_58044">
     <ENUS>Has login?</ENUS>
+  </msg>
+  <msg id="Investment (€)" code="INVESTMENT____58057">
+    <ENUS>Investment (€)</ENUS>
   </msg>
   <msg id="Administrador" code="ADMINISTRADOR57294">
     <ENUS>Administrador</ENUS>

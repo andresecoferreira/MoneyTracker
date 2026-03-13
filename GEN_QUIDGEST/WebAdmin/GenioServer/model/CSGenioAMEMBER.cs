@@ -135,49 +135,49 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "expenses", FieldType.CURRENCY);
-			Qfield.FieldDescription = "Expenses";
+			Qfield = new Field(info.Alias, "expenses", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Expenses (€)";
 			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
 			Qfield.IntegerDigits = 9;
 			Qfield.Decimals = 2;
-			Qfield.CavDesignation = "EXPENSES11381";
+			Qfield.CavDesignation = "EXPENSES____56821";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "income", FieldType.CURRENCY);
-			Qfield.FieldDescription = "Income";
+			Qfield = new Field(info.Alias, "income", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Income (€)";
 			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
 			Qfield.IntegerDigits = 9;
 			Qfield.Decimals = 2;
-			Qfield.CavDesignation = "INCOME04695";
+			Qfield.CavDesignation = "INCOME____10360";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "investment", FieldType.CURRENCY);
-			Qfield.FieldDescription = "Investment";
+			Qfield = new Field(info.Alias, "investment", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Investment (€)";
 			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
 			Qfield.IntegerDigits = 9;
 			Qfield.Decimals = 2;
-			Qfield.CavDesignation = "INVESTMENT14761";
+			Qfield.CavDesignation = "INVESTMENT____58057";
 
 			Qfield.Dupmsg = "";
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "result", FieldType.CURRENCY);
-			Qfield.FieldDescription = "Result";
+			Qfield = new Field(info.Alias, "result", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Result (€)";
 			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
 			Qfield.IntegerDigits = 9;
 			Qfield.Decimals = 2;
-			Qfield.CavDesignation = "RESULT40974";
+			Qfield.CavDesignation = "RESULT____62132";
 
 			Qfield.Dupmsg = "";
 			argumentsListByArea = new List<ByAreaArguments>();
@@ -442,44 +442,44 @@ namespace CSGenio.business
 			set { insertNameValueField(FldAge, value); }
 		}
 
-		/// <summary>Field : "Expenses" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
+		/// <summary>Field : "Expenses (€)" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
 		public static FieldRef FldExpenses { get { return m_fldExpenses; } }
 		private static FieldRef m_fldExpenses = new FieldRef("member", "expenses");
 
-		/// <summary>Field : "Expenses" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
+		/// <summary>Field : "Expenses (€)" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
 		public decimal ValExpenses
 		{
 			get { return (decimal)returnValueField(FldExpenses); }
 			set { insertNameValueField(FldExpenses, value); }
 		}
 
-		/// <summary>Field : "Income" Tipo: "$" Formula: SR "[INCOME->VALUE]"</summary>
+		/// <summary>Field : "Income (€)" Tipo: "N" Formula: SR "[INCOME->VALUE]"</summary>
 		public static FieldRef FldIncome { get { return m_fldIncome; } }
 		private static FieldRef m_fldIncome = new FieldRef("member", "income");
 
-		/// <summary>Field : "Income" Tipo: "$" Formula: SR "[INCOME->VALUE]"</summary>
+		/// <summary>Field : "Income (€)" Tipo: "N" Formula: SR "[INCOME->VALUE]"</summary>
 		public decimal ValIncome
 		{
 			get { return (decimal)returnValueField(FldIncome); }
 			set { insertNameValueField(FldIncome, value); }
 		}
 
-		/// <summary>Field : "Investment" Tipo: "$" Formula: SR "[INVESTMENT->VALUE]"</summary>
+		/// <summary>Field : "Investment (€)" Tipo: "N" Formula: SR "[INVESTMENT->VALUE]"</summary>
 		public static FieldRef FldInvestment { get { return m_fldInvestment; } }
 		private static FieldRef m_fldInvestment = new FieldRef("member", "investment");
 
-		/// <summary>Field : "Investment" Tipo: "$" Formula: SR "[INVESTMENT->VALUE]"</summary>
+		/// <summary>Field : "Investment (€)" Tipo: "N" Formula: SR "[INVESTMENT->VALUE]"</summary>
 		public decimal ValInvestment
 		{
 			get { return (decimal)returnValueField(FldInvestment); }
 			set { insertNameValueField(FldInvestment, value); }
 		}
 
-		/// <summary>Field : "Result" Tipo: "$" Formula: + "[MEMBER->INCOME]-[MEMBER->INVESTMENT]-[MEMBER->EXPENSES]"</summary>
+		/// <summary>Field : "Result (€)" Tipo: "N" Formula: + "[MEMBER->INCOME]-[MEMBER->INVESTMENT]-[MEMBER->EXPENSES]"</summary>
 		public static FieldRef FldResult { get { return m_fldResult; } }
 		private static FieldRef m_fldResult = new FieldRef("member", "result");
 
-		/// <summary>Field : "Result" Tipo: "$" Formula: + "[MEMBER->INCOME]-[MEMBER->INVESTMENT]-[MEMBER->EXPENSES]"</summary>
+		/// <summary>Field : "Result (€)" Tipo: "N" Formula: + "[MEMBER->INCOME]-[MEMBER->INVESTMENT]-[MEMBER->EXPENSES]"</summary>
 		public decimal ValResult
 		{
 			get { return (decimal)returnValueField(FldResult); }

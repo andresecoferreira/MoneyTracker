@@ -115,8 +115,8 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
-			Qfield = new Field(info.Alias, "value", FieldType.NUMERIC);
-			Qfield.FieldDescription = "Value (€)";
+			Qfield = new Field(info.Alias, "value", FieldType.CURRENCY);
+			Qfield.FieldDescription = "Value";
 			Qfield.FieldSize =  12;
 			Qfield.MQueue = false;
 			Qfield.IntegerDigits = 9;
@@ -508,11 +508,11 @@ namespace CSGenio.business
 			set { insertNameValueField(FldType_id, value); }
 		}
 
-		/// <summary>Field : "Value (€)" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "Value" Tipo: "$" Formula:  ""</summary>
 		public static FieldRef FldValue { get { return m_fldValue; } }
 		private static FieldRef m_fldValue = new FieldRef("expense", "value");
 
-		/// <summary>Field : "Value (€)" Tipo: "N" Formula:  ""</summary>
+		/// <summary>Field : "Value" Tipo: "$" Formula:  ""</summary>
 		public decimal ValValue
 		{
 			get { return (decimal)returnValueField(FldValue); }

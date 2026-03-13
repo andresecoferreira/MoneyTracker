@@ -83,28 +83,28 @@ namespace GenioMVC.Models
 		[NumericAttribute(0)]
 		public decimal? ValAge { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValAge, 0)); } set { klass.ValAge = Convert.ToDecimal(value); } }
 
-		[DisplayName("Expenses")]
-		/// <summary>Field : "Expenses" Tipo: "$" Formula: SR "[EXPENSE->VALUE]"</summary>
+		[DisplayName("Expenses (€)")]
+		/// <summary>Field : "Expenses (€)" Tipo: "N" Formula: SR "[EXPENSE->VALUE]"</summary>
 		[ShouldSerialize("Member.ValExpenses")]
-		[CurrencyAttribute("EUR", 2)]
+		[NumericAttribute(2)]
 		public decimal? ValExpenses { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValExpenses, 2)); } set { klass.ValExpenses = Convert.ToDecimal(value); } }
 
-		[DisplayName("Income")]
-		/// <summary>Field : "Income" Tipo: "$" Formula: SR "[INCOME->VALUE]"</summary>
+		[DisplayName("Income (€)")]
+		/// <summary>Field : "Income (€)" Tipo: "N" Formula: SR "[INCOME->VALUE]"</summary>
 		[ShouldSerialize("Member.ValIncome")]
-		[CurrencyAttribute("EUR", 2)]
+		[NumericAttribute(2)]
 		public decimal? ValIncome { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValIncome, 2)); } set { klass.ValIncome = Convert.ToDecimal(value); } }
 
-		[DisplayName("Investment")]
-		/// <summary>Field : "Investment" Tipo: "$" Formula: SR "[INVESTMENT->VALUE]"</summary>
+		[DisplayName("Investment (€)")]
+		/// <summary>Field : "Investment (€)" Tipo: "N" Formula: SR "[INVESTMENT->VALUE]"</summary>
 		[ShouldSerialize("Member.ValInvestment")]
-		[CurrencyAttribute("EUR", 2)]
+		[NumericAttribute(2)]
 		public decimal? ValInvestment { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValInvestment, 2)); } set { klass.ValInvestment = Convert.ToDecimal(value); } }
 
-		[DisplayName("Result")]
-		/// <summary>Field : "Result" Tipo: "$" Formula: + "[MEMBER->INCOME]-[MEMBER->INVESTMENT]-[MEMBER->EXPENSES]"</summary>
+		[DisplayName("Result (€)")]
+		/// <summary>Field : "Result (€)" Tipo: "N" Formula: + "[MEMBER->INCOME]-[MEMBER->INVESTMENT]-[MEMBER->EXPENSES]"</summary>
 		[ShouldSerialize("Member.ValResult")]
-		[CurrencyAttribute("EUR", 2)]
+		[NumericAttribute(2)]
 		public decimal? ValResult { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValResult, 2)); } set { klass.ValResult = Convert.ToDecimal(value); } }
 
 		[DisplayName("ZZSTATE")]
