@@ -644,7 +644,7 @@
 										isMapped: false
 									},
 									legendLayout: {
-										rawValue: 'vertical',
+										rawValue: 'horizontal',
 										isMapped: false
 									},
 									legendXPosition: {
