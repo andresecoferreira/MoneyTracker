@@ -68,7 +68,7 @@ namespace GenioMVC.ViewModels.Dashboard
 					Id = "EXP_MEM",
 					Order = 10,
 					Width = 6,
-					Height = 5,
+					Height = 3,
 					BorderStyle = "secondary",
 					Required = true,
 					Visible = true,
@@ -90,7 +90,7 @@ namespace GenioMVC.ViewModels.Dashboard
 				{
 					Id = "Menu_NEW_EXPENSE",
 					Order = 2,
-					Width = 2,
+					Width = 4,
 					Height = 2,
 					Style = "primary",
 					BorderStyle = "secondary",
@@ -108,7 +108,7 @@ namespace GenioMVC.ViewModels.Dashboard
 				{
 					Id = "Menu_6",
 					Order = 3,
-					Width = 2,
+					Width = 4,
 					Height = 2,
 					Style = "primary",
 					BorderStyle = "secondary",
@@ -126,7 +126,7 @@ namespace GenioMVC.ViewModels.Dashboard
 				{
 					Id = "Menu_7",
 					Order = 4,
-					Width = 2,
+					Width = 4,
 					Height = 2,
 					Style = "primary",
 					BorderStyle = "secondary",
