@@ -464,7 +464,7 @@
 							tableNamePlural: computed(() => this.Resources.EXPENSES11381),
 							viewManagement: '',
 							showLimitsInfo: true,
-							perPage: 5,
+							perPage: 8,
 							showAlternatePagination: true,
 							permissions: {
 							},
