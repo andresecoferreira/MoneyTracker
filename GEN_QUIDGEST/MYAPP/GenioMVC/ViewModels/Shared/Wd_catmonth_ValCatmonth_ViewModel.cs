@@ -122,6 +122,7 @@ namespace GenioMVC.ViewModels
 			return
 			[
 				new Exports.QColumn(CSGenioAview_catmonth.FldCategory_type, FieldType.TEXT, Resources.Resources.CATEGORY_TYPE34342, 30, 0, true),
+				new Exports.QColumn(CSGenioAview_catmonth.FldYear, FieldType.NUMERIC, Resources.Resources.YEAR61794, 4, 0, true),
 				new Exports.QColumn(CSGenioAview_catmonth.FldMonth, FieldType.ARRAY_NUMERIC, Resources.Resources.MONTH46035, 10, 0, true, "Month"),
 				new Exports.QColumn(CSGenioAview_catmonth.FldTotal, FieldType.CURRENCY, Resources.Resources.TOTAL49307, 12, 0, true),
 			];
@@ -169,7 +170,7 @@ namespace GenioMVC.ViewModels
 			// Set table name (used in getting searchable column names)
 			Menu.TableName = TableAlias;
 
-			Menu.SetFilters(false, false);
+			Menu.SetFilters(false, true);
 
 			crs.SubSets.Add(ProcessSearchFilters(Menu, GetSearchColumns(tableConfig.ColumnConfigurations), tableConfig));
 
@@ -177,6 +178,161 @@ namespace GenioMVC.ViewModels
 			//Subfilters
 			CriteriaSet subfilters = CriteriaSet.And();
 
+			if (!tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
+			{
+				string defaultValue = "";
+				tableConfig.Filters.Add(new GroupFilter { Key = "filter_ValCatmonth_YEAR", Value = defaultValue });
+			}
+
+			{
+				var groupFilters = CriteriaSet.Or();
+				bool filter_ValCatmonth_YEAR_1 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
+					filter_ValCatmonth_YEAR_1 = tableConfig.GroupFilters["filter_ValCatmonth_YEAR"].Contains("1");
+				if (filter_ValCatmonth_YEAR_1)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2024);
+
+				}
+
+				bool filter_ValCatmonth_YEAR_2 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
+					filter_ValCatmonth_YEAR_2 = tableConfig.GroupFilters["filter_ValCatmonth_YEAR"].Contains("2");
+				if (filter_ValCatmonth_YEAR_2)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2025);
+
+				}
+
+				bool filter_ValCatmonth_YEAR_3 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_YEAR"))
+					filter_ValCatmonth_YEAR_3 = tableConfig.GroupFilters["filter_ValCatmonth_YEAR"].Contains("3");
+				if (filter_ValCatmonth_YEAR_3)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldYear, 2026);
+
+				}
+
+				subfilters.SubSets.Add(groupFilters);
+			}
+			if (!tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+			{
+				string defaultValue = "";
+				tableConfig.Filters.Add(new GroupFilter { Key = "filter_ValCatmonth_MONTH", Value = defaultValue });
+			}
+
+			{
+				var groupFilters = CriteriaSet.Or();
+				bool filter_ValCatmonth_MONTH_1 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_1 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("1");
+				if (filter_ValCatmonth_MONTH_1)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 1);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_2 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_2 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("2");
+				if (filter_ValCatmonth_MONTH_2)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 2);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_3 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_3 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("3");
+				if (filter_ValCatmonth_MONTH_3)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 3);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_4 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_4 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("4");
+				if (filter_ValCatmonth_MONTH_4)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 4);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_5 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_5 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("5");
+				if (filter_ValCatmonth_MONTH_5)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 5);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_6 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_6 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("6");
+				if (filter_ValCatmonth_MONTH_6)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 6);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_7 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_7 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("7");
+				if (filter_ValCatmonth_MONTH_7)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 7);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_8 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_8 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("8");
+				if (filter_ValCatmonth_MONTH_8)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 8);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_9 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_9 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("9");
+				if (filter_ValCatmonth_MONTH_9)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 9);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_10 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_10 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("10");
+				if (filter_ValCatmonth_MONTH_10)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 10);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_11 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_11 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("11");
+				if (filter_ValCatmonth_MONTH_11)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 11);
+
+				}
+
+				bool filter_ValCatmonth_MONTH_12 = false;
+				if (tableConfig.GroupFilters.ContainsKey("filter_ValCatmonth_MONTH"))
+					filter_ValCatmonth_MONTH_12 = tableConfig.GroupFilters["filter_ValCatmonth_MONTH"].Contains("12");
+				if (filter_ValCatmonth_MONTH_12)
+				{
+					groupFilters.Equal(CSGenioAview_catmonth.FldMonth, 12);
+
+				}
+
+				subfilters.SubSets.Add(groupFilters);
+			}
 
 			crs.SubSets.Add(subfilters);
 
@@ -301,7 +457,7 @@ namespace GenioMVC.ViewModels
 			List<ColumnSort> sorts = GetRequestSorts(this.Menu, tableConfig, "view_catmonth", allSortOrders);
 
 
-			FieldRef[] fields = new FieldRef[] { CSGenioAview_catmonth.FldCodview_catmonth, CSGenioAview_catmonth.FldZzstate, CSGenioAview_catmonth.FldCategory_type, CSGenioAview_catmonth.FldMonth, CSGenioAview_catmonth.FldTotal };
+			FieldRef[] fields = new FieldRef[] { CSGenioAview_catmonth.FldCodview_catmonth, CSGenioAview_catmonth.FldZzstate, CSGenioAview_catmonth.FldCategory_type, CSGenioAview_catmonth.FldYear, CSGenioAview_catmonth.FldMonth, CSGenioAview_catmonth.FldTotal };
 
 
 			// Totalizers
@@ -497,12 +653,13 @@ namespace GenioMVC.ViewModels
 
 		private static readonly string[] _fieldsToSerialize =
 		[
-			"View_catmonth", "View_catmonth.ValCodview_catmonth", "View_catmonth.ValZzstate", "View_catmonth.ValCategory_type", "View_catmonth.ValMonth", "View_catmonth.ValTotal"
+			"View_catmonth", "View_catmonth.ValCodview_catmonth", "View_catmonth.ValZzstate", "View_catmonth.ValCategory_type", "View_catmonth.ValYear", "View_catmonth.ValMonth", "View_catmonth.ValTotal"
 		];
 
 		private static readonly List<TableSearchColumn> _searchableColumns =
 		[
 			new TableSearchColumn("ValCategory_type", CSGenioAview_catmonth.FldCategory_type, typeof(string), defaultSearch : true),
+			new TableSearchColumn("ValYear", CSGenioAview_catmonth.FldYear, typeof(decimal?)),
 			new TableSearchColumn("ValMonth", CSGenioAview_catmonth.FldMonth, typeof(decimal), array : "Month"),
 			new TableSearchColumn("ValTotal", CSGenioAview_catmonth.FldTotal, typeof(decimal?)),
 		];

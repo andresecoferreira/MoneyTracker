@@ -362,8 +362,19 @@
 								scrollData: 30,
 								export: 1,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
-							new listColumnTypes.ArrayColumn({
+							new listColumnTypes.NumericColumn({
 								order: 2,
+								name: 'ValYear',
+								area: 'VIEW_CATMONTH',
+								field: 'YEAR',
+								label: computed(() => this.Resources.YEAR61794),
+								scrollData: 4,
+								maxDigits: 4,
+								decimalPlaces: 0,
+								export: 1,
+							}, computed(() => vm.model), computed(() => vm.internalEvents)),
+							new listColumnTypes.ArrayColumn({
+								order: 3,
 								name: 'ValMonth',
 								area: 'VIEW_CATMONTH',
 								field: 'MONTH',
@@ -376,7 +387,7 @@
 								arrayType: qProjArrays.QArrayMonth.type,
 							}, computed(() => vm.model), computed(() => vm.internalEvents)),
 							new listColumnTypes.CurrencyColumn({
-								order: 3,
+								order: 4,
 								name: 'ValTotal',
 								area: 'VIEW_CATMONTH',
 								field: 'TOTAL',
@@ -422,6 +433,99 @@
 								sortOrder: 'asc'
 							}
 						},
+						groupFilters: [
+							{
+								id: 'filter_ValCatmonth_YEAR',
+								isMultiple: true,
+								items: [
+									{
+										id: 'filter_ValCatmonth_YEAR_1',
+										value: computed(() => this.Resources._202400656),
+										key: '1'
+									},
+									{
+										id: 'filter_ValCatmonth_YEAR_2',
+										value: computed(() => this.Resources._202532271),
+										key: '2'
+									},
+									{
+										id: 'filter_ValCatmonth_YEAR_3',
+										value: computed(() => this.Resources._202632186),
+										key: '3'
+									},
+								],
+								selected: undefined,
+								default: undefined
+							},
+							{
+								id: 'filter_ValCatmonth_MONTH',
+								isMultiple: true,
+								items: [
+									{
+										id: 'filter_ValCatmonth_MONTH_1',
+										value: computed(() => this.Resources.JANEIRO25316),
+										key: '1'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_2',
+										value: computed(() => this.Resources.FEVEREIRO25443),
+										key: '2'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_3',
+										value: computed(() => this.Resources.MARCO22234),
+										key: '3'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_4',
+										value: computed(() => this.Resources.ABRIL58220),
+										key: '4'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_5',
+										value: computed(() => this.Resources.MAIO10443),
+										key: '5'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_6',
+										value: computed(() => this.Resources.JUNHO15214),
+										key: '6'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_7',
+										value: computed(() => this.Resources.JULHO20764),
+										key: '7'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_8',
+										value: computed(() => this.Resources.AGOSTO05568),
+										key: '8'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_9',
+										value: computed(() => this.Resources.SETEMBRO19956),
+										key: '9'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_10',
+										value: computed(() => this.Resources.OUTUBRO17690),
+										key: '10'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_11',
+										value: computed(() => this.Resources.NOVEMBRO18614),
+										key: '11'
+									},
+									{
+										id: 'filter_ValCatmonth_MONTH_12',
+										value: computed(() => this.Resources.DEZEMBRO01950),
+										key: '12'
+									},
+								],
+								selected: undefined,
+								default: undefined
+							},
+						],
 						globalEvents: ['changed-VIEW_CATMONTH'],
 						uuid: 'Wd_catmonth_ValCatmonth',
 						allSelectedRows: 'false',
@@ -443,12 +547,6 @@
 										allowsMultiple: true,
 										sources: [
 											'VIEW_CATMONTH.TOTAL',
-										]
-									},
-									serieSelector: {
-										allowsMultiple: false,
-										sources: [
-											'VIEW_CATMONTH.MONTH',
 										]
 									},
 								}),
@@ -581,6 +679,19 @@
 										rawValue: 0,
 										isMapped: false
 									},
+								},
+								groups: {
+								}
+							},
+							{
+								id: 'LIST',
+								type: 'list',
+								subtype: '',
+								label: computed(() => this.Resources.LISTA13474),
+								order: 2,
+								mappingVariables: readonly({
+								}),
+								styleVariables: {
 								},
 								groups: {
 								}

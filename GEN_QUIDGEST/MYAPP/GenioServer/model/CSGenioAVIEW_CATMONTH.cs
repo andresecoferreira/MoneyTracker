@@ -76,6 +76,17 @@ namespace CSGenio.business
 			info.RegisterFieldDB(Qfield);
 
 			//- - - - - - - - - - - - - - - - - - -
+			Qfield = new Field(info.Alias, "year", FieldType.NUMERIC);
+			Qfield.FieldDescription = "Year";
+			Qfield.FieldSize =  4;
+			Qfield.MQueue = false;
+			Qfield.IntegerDigits = 4;
+			Qfield.CavDesignation = "YEAR61794";
+
+			Qfield.Dupmsg = "";
+			info.RegisterFieldDB(Qfield);
+
+			//- - - - - - - - - - - - - - - - - - -
 			Qfield = new Field(info.Alias, "total", FieldType.CURRENCY);
 			Qfield.FieldDescription = "Total";
 			Qfield.FieldSize =  12;
@@ -267,6 +278,17 @@ namespace CSGenio.business
 			set { insertNameValueField(FldMonth, value); }
 		}
 
+		/// <summary>Field : "Year" Tipo: "N" Formula:  ""</summary>
+		public static FieldRef FldYear { get { return m_fldYear; } }
+		private static FieldRef m_fldYear = new FieldRef("view_catmonth", "year");
+
+		/// <summary>Field : "Year" Tipo: "N" Formula:  ""</summary>
+		public decimal ValYear
+		{
+			get { return (decimal)returnValueField(FldYear); }
+			set { insertNameValueField(FldYear, value); }
+		}
+
 		/// <summary>Field : "Total" Tipo: "$" Formula:  ""</summary>
 		public static FieldRef FldTotal { get { return m_fldTotal; } }
 		private static FieldRef m_fldTotal = new FieldRef("view_catmonth", "total");
@@ -375,7 +397,7 @@ namespace CSGenio.business
 		// USE /[MANUAL MNT TABAUX VIEW_CATMONTH]/
 
  
-     
+      
 
 	}
 }

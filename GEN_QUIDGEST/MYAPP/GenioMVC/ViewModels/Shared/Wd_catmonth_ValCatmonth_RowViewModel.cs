@@ -43,11 +43,17 @@ public class Wd_catmonth_ValCatmonth_RowViewModel : Models.View_catmonth
 			{
 				Order = 2,
 				Area = "VIEW_CATMONTH",
-				Field = "MONTH",
+				Field = "YEAR",
 			},
 			new ListColumn()
 			{
 				Order = 3,
+				Area = "VIEW_CATMONTH",
+				Field = "MONTH",
+			},
+			new ListColumn()
+			{
+				Order = 4,
 				Area = "VIEW_CATMONTH",
 				Field = "TOTAL",
 			},

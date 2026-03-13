@@ -40,6 +40,12 @@ namespace GenioMVC.Models
 		[JsonIgnore]
 		public SelectList ArrayValmonth { get { return new SelectList(CSGenio.business.ArrayMonth.GetDictionary(), "Key", "Value", ValMonth); } set { ValMonth = Convert.ToDecimal(value.SelectedValue); } }
 
+		[DisplayName("Year")]
+		/// <summary>Field : "Year" Tipo: "N" Formula:  ""</summary>
+		[ShouldSerialize("View_catmonth.ValYear")]
+		[NumericAttribute(0)]
+		public decimal? ValYear { get { return Convert.ToDecimal(GenFunctions.RoundQG(klass.ValYear, 0)); } set { klass.ValYear = Convert.ToDecimal(value); } }
+
 		[DisplayName("Total")]
 		/// <summary>Field : "Total" Tipo: "$" Formula:  ""</summary>
 		[ShouldSerialize("View_catmonth.ValTotal")]
