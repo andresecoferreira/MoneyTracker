@@ -71,26 +71,6 @@
 						</q-table>
 					</q-col>
 				</q-row>
-				<q-row v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible">
-					<q-col
-						v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible"
-						cols="auto">
-						<base-input-structure
-							v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible"
-							class="i-button"
-							v-bind="controls.WD_EXPENSES__PSEUD__FIELD002"
-							v-on="controls.WD_EXPENSES__PSEUD__FIELD002.handlers"
-							:loading="controls.WD_EXPENSES__PSEUD__FIELD002.props.loading"
-							:reporting-mode-on="reportingModeCAV"
-							:suggestion-mode-on="suggestionModeOn">
-							<q-button
-								v-if="controls.WD_EXPENSES__PSEUD__FIELD002.isVisible"
-								v-bind="controls.WD_EXPENSES__PSEUD__FIELD002.props"
-								@click="controls.WD_EXPENSES__PSEUD__FIELD002.action($event)">
-							</q-button>
-						</base-input-structure>
-					</q-col>
-				</q-row>
 			</template>
 		</q-container>
 	</template>
@@ -407,7 +387,7 @@
 				},
 
 				controls: {
-					WD_EXPENSES__PSEUD__FIELD001: new fieldControlClass.TableListControl({
+					WD_EXPENSES__PSEUD__FIELD001: new fieldControlClass.TableSpecialRenderingControl({
 						id: 'WD_EXPENSES__PSEUD__FIELD001',
 						name: 'FIELD001',
 						size: 'block',
@@ -516,6 +496,260 @@
 						globalEvents: ['changed-MEMBER', 'changed-GROUP'],
 						uuid: 'Wd_expenses_ValField001',
 						allSelectedRows: 'false',
+						viewModes: [
+							{
+								id: 'LIST',
+								type: 'list',
+								subtype: '',
+								label: computed(() => this.Resources.LISTA13474),
+								order: 1,
+								mappingVariables: readonly({
+								}),
+								styleVariables: {
+								},
+								groups: {
+								}
+							},
+							{
+								id: 'CARDS',
+								type: 'cards',
+								subtype: 'card-horizontal',
+								label: computed(() => this.Resources.CARTOES27587),
+								order: 2,
+								mappingVariables: readonly({
+									title: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.NAME',
+										]
+									},
+									text: {
+										allowsMultiple: true,
+										sources: [
+											'MEMBER.INCOME',
+											'MEMBER.EXPENSES',
+											'MEMBER.INVESTMENT',
+											'MEMBER.RESULT',
+										]
+									},
+								}),
+								styleVariables: {
+									actionsAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									actionsStyle: {
+										rawValue: 'dropdown',
+										isMapped: false
+									},
+									backgroundColor: {
+										rawValue: 'auto',
+										isMapped: false
+									},
+									customFollowupDefaultTarget: {
+										rawValue: 'blank',
+										isMapped: false
+									},
+									customInsertCard: {
+										rawValue: false,
+										isMapped: false
+									},
+									customInsertCardStyle: {
+										rawValue: 'secondary',
+										isMapped: false
+									},
+									displayMode: {
+										rawValue: 'grid',
+										isMapped: false
+									},
+									gridMode: {
+										rawValue: 'fixed',
+										isMapped: false
+									},
+									containerAlignment: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									hoverScaleAmount: {
+										rawValue: '1.00',
+										isMapped: false
+									},
+									showColumnTitles: {
+										rawValue: false,
+										isMapped: false
+									},
+									showEmptyColumnTitles: {
+										rawValue: true,
+										isMapped: false
+									},
+									size: {
+										rawValue: 'regular',
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+							{
+								id: 'CHART',
+								type: 'chart',
+								subtype: 'genericgraph',
+								label: computed(() => this.Resources.GRAFICO38823),
+								order: 3,
+								mappingVariables: readonly({
+									xaxis: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.EXPENSES',
+										]
+									},
+									yaxis: {
+										allowsMultiple: true,
+										sources: [
+											'MEMBER.RESULT',
+										]
+									},
+									serieSelector: {
+										allowsMultiple: false,
+										sources: [
+											'MEMBER.NAME',
+										]
+									},
+								}),
+								styleVariables: {
+									chartType: {
+										rawValue: 'line',
+										isMapped: false
+									},
+									firstColor: {
+										rawValue: 'undefined',
+										isMapped: false
+									},
+									chartColorArray: {
+										rawValue: 'Highcharts Default',
+										isMapped: false
+									},
+									invertColorArray: {
+										rawValue: false,
+										isMapped: false
+									},
+									xaxisType: {
+										rawValue: 'linear',
+										isMapped: false
+									},
+									yaxisType: {
+										rawValue: 'linear',
+										isMapped: false
+									},
+									graphTitle: {
+										rawValue: undefined,
+										isMapped: false
+									},
+									description: {
+										rawValue: undefined,
+										isMapped: false
+									},
+									alignDescription: {
+										rawValue: 'left',
+										isMapped: false
+									},
+									yaxisName: {
+										rawValue: undefined,
+										isMapped: false
+									},
+									xaxisName: {
+										rawValue: undefined,
+										isMapped: false
+									},
+									groupType: {
+										rawValue: 'join',
+										isMapped: false
+									},
+									inverted: {
+										rawValue: false,
+										isMapped: false
+									},
+									showLabels: {
+										rawValue: true,
+										isMapped: false
+									},
+									showLegend: {
+										rawValue: true,
+										isMapped: false
+									},
+									widthPercentage: {
+										rawValue: 100,
+										isMapped: false
+									},
+									showPieLabel: {
+										rawValue: 'outside',
+										isMapped: false
+									},
+									lineMarker: {
+										rawValue: 'enabled',
+										isMapped: false
+									},
+									heightPx: {
+										rawValue: 400,
+										isMapped: false
+									},
+									pieInnerSizePercentage: {
+										rawValue: 0,
+										isMapped: false
+									},
+									showBreaks: {
+										rawValue: false,
+										isMapped: false
+									},
+									enableHover: {
+										rawValue: true,
+										isMapped: false
+									},
+									zoomType: {
+										rawValue: 'x',
+										isMapped: false
+									},
+									legendLayout: {
+										rawValue: 'horizontal',
+										isMapped: false
+									},
+									legendXPosition: {
+										rawValue: 0,
+										isMapped: false
+									},
+									showLastN: {
+										rawValue: -1,
+										isMapped: false
+									},
+									legendYPosition: {
+										rawValue: 0,
+										isMapped: false
+									},
+									legendFloating: {
+										rawValue: false,
+										isMapped: false
+									},
+									legendAlign: {
+										rawValue: 'center',
+										isMapped: false
+									},
+									legendVerticalAlign: {
+										rawValue: 'bottom',
+										isMapped: false
+									},
+									stackingType: {
+										rawValue: 'undefined',
+										isMapped: false
+									},
+									valuesDecimals: {
+										rawValue: 0,
+										isMapped: false
+									},
+								},
+								groups: {
+								}
+							},
+						],
 						controlLimits: [
 							{
 								identifier: ['id', 'expense'],
@@ -523,22 +757,6 @@
 								dependencyField: 'EXPENSE.CODEXPENSE',
 								fnValueSelector: (model) => model.ValCodexpense.value
 							},
-						],
-					}, this),
-					WD_EXPENSES__PSEUD__FIELD002: new fieldControlClass.ButtonControl({
-						id: 'WD_EXPENSES__PSEUD__FIELD002',
-						name: 'FIELD002',
-						hasLabel: false,
-						label: computed(() => this.Resources.REPORT48266),
-						placeholder: '',
-						labelPosition: computed(() => this.labelAlignment.topleft),
-						// eslint-disable-next-line
-						action: (event) => {
-							const btnAction = () => {
-							}
-							btnAction()
-						},
-						controlLimits: [
 						],
 					}, this),
 				},
