@@ -545,7 +545,7 @@
 										isMapped: false
 									},
 									graphTitle: {
-										rawValue: undefined,
+										rawValue: 'Financial Summary by Member',
 										isMapped: false
 									},
 									description: {
